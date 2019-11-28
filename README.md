@@ -1,0 +1,2 @@
+# seminarverwaltung
+Seminarverwaltung Frontend
