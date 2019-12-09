@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`kurs` (
   `datum` DATE NULL,
   `titel` VARCHAR(45) NULL,
   `maxTeilnehmer` INT NULL,
-  `referent` VARCHAR(45) NULL,
+  `referent` VARCHAR(100) NULL,
   `beschreibung` TEXT NULL,
   `ort_raum` VARCHAR(50) NULL,
   `kontakt` VARCHAR(45) NULL,
