@@ -18,6 +18,6 @@
             $erg = $db->getUserInformations($bid);
         break;
     }
-  require_once 'views/' . $aktion . '.tpl.html';
 
+  require_once 'views/' . $aktion . '.tpl.html';
 ?>
