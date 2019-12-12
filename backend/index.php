@@ -4,11 +4,14 @@ require_once '../db.php';
     if (isset ($_REQUEST['aktion']))
         $aktion = $_REQUEST['aktion'];
     else
-        $aktion = 'verwaltungsperson_login';
+        $aktion = 'verwaltung_login';
     switch($aktion) {
-    	case "verwaltungsperson_login":
-          $aktion = 'login_verwaltungsperson';
+    	case "verwaltung_login":
+          $aktion = 'login_verwaltung';
     		break;
+      case "fortbildung":
+          $aktion = 'fortbildungen';
+        break;
 
 
     }
