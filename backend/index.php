@@ -1,4 +1,4 @@
 
 <?php
-echo "teset^";
+echo "test1";
 ?>
