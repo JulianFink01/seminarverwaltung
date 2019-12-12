@@ -1,6 +1,5 @@
 
 <?php
-echo "test1234";
 require_once '../db.php';
     if (isset ($_REQUEST['aktion']))
         $aktion = $_REQUEST['aktion'];

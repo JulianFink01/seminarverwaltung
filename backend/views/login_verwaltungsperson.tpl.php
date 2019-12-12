@@ -13,9 +13,9 @@
       <div class="login-item">
 
         <form id="login-form">
-          <legend>Verwaltungsperson - Login</legend>
-          <input type="text" placeholder="Personal Key" name="key" required>
-          <input type="password" placeholder="Passwort" name="passwd" required>
+          <legend>Login - Verwaltung</legend>
+          <input type="text" placeholder="Personal key" name="key" required>
+          <input type="password" placeholder="Password" name="passwd" required>
           <input type="submit" value="Login">
         </form>
 
