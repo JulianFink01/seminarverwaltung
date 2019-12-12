@@ -31,7 +31,7 @@ html{
   color: var(--main-orange);
   transform: translate(0,-100%);
   font-weight: bold;
-  font-size: 20px;
+  font-size: 25px;
 }
 #login-form input{
   width: 100%;
