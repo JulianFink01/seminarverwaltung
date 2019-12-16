@@ -1,6 +1,6 @@
 
 <?php
-require_once '../db.php';
+require_once '../entities/db.php';
     if (isset ($_REQUEST['aktion']))
         $aktion = $_REQUEST['aktion'];
     else
