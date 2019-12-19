@@ -4,7 +4,7 @@
 </head>
 <body>
   <header class="v_head">
-<h1>Fortbildungefn</h1>
+<h1>Fortbildungen</h1>
 
   </header>
 <div></div>
