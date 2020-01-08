@@ -9,37 +9,34 @@ $nachname = "";
 $email = "";
 $token = "";
 
-private __construcor(){
-
-}
-private void function setID($id){
+public function setID($id){
    $this->id = $id;
 }
-private function getID(){
+public function getID(){
   return $this->id;
 }
-private void function setVorname($vorname){
+public void function setVorname($vorname){
    $this->vorname = $vorname;
 }
-private function getVorname(){
+public function getVorname(){
   return $this->vorname;
 }
-private void function setNachname($nachname){
+public void function setNachname($nachname){
    $this->nachname = $nachname;
 }
-private function getNachname(){
+public function getNachname(){
   return $this->nachname;
 }
-private void function setID($email){
+public void function setEmail($email){
    $this->email = $email;
 }
-private function getEmail(){
+public function getEmail(){
   return $this->email ;
 }
-private void function setToken($token){
+public void function setToken($token){
    $this->token = $token;
 }
-private function getToken(){
+public function getToken(){
   return $this->token;
 }
 

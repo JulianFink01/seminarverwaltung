@@ -13,12 +13,13 @@ html{
     text-align: center;
     background-color: var(--main-blue);
     border-radius: 25px;
+    padding-bottom: 15px;
 }
 .login-item{
   width: 100%;
 }
 .login-item img{
-  width: 60%;
+  width: 30%;
   transform: translate(0, -45%);
 }
 #login-form{
@@ -62,7 +63,7 @@ html{
 
 @media(min-width: 650px){
   .login-item img{
-    width: 30%;
+    width: 20%;
   }
   .login-item{
     height: 50%;
