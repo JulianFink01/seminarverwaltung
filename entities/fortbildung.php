@@ -2,7 +2,7 @@
 
 class Fortbildung{
 
-//jklajds
+
 }
 
 
