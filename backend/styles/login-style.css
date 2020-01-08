@@ -13,7 +13,6 @@ html{
     text-align: center;
     background-color: var(--main-blue);
     border-radius: 25px;
-    padding-bottom: 15px;
 }
 .login-item{
   width: 100%;
