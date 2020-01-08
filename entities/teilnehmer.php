@@ -3,11 +3,11 @@
 
 class Teilnehmer{
 
-$id = 0;
-$vorname = "";
-$nachname = "";
-$email = "";
-$token = "";
+protected $id = 0;
+protected $vorname = "";
+protected $nachname = "";
+protected $email = "";
+protected $token = "";
 
 public function setID($id){
    $this->id = $id;

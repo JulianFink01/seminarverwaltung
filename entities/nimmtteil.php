@@ -2,9 +2,9 @@
 
 class NimmtTeil{
 
-  $fortbildung_id = 0;
-  $teilnehmer_id = 0;
-  $kurs_id = 0;
+  protected $fortbildung_id = 0;
+  protected $teilnehmer_id = 0;
+  protected $kurs_id = 0;
 
   public function setFortbildungsId($fortbildungsid){
       $this->fortbildung_id = $fortbildungsid;
