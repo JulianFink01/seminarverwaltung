@@ -1,7 +1,6 @@
 <?php
     require_once("../entities/db.php");
 
-    $db = new db();
 
     if (isset ($_REQUEST['aktion']))
         $aktion = $_REQUEST['aktion'];
@@ -16,6 +15,9 @@
             $aktion = 'showsqlquery';
             $bid = $_REQUEST['bid'];
             $erg = $db->getUserInformations($bid);
+        break;
+        case "show_Seminare":
+            $aktion = 'seminare';
         break;
     }
 
