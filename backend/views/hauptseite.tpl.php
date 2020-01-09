@@ -3,9 +3,16 @@
   <link rel="stylesheet" type="text/css" href="styles/main-style.css">
 </head>
 <body>
-  <header class="v_head">
-<h1>Fortbildungen</h1>
+  <div id="gesamt">
+  <header id="kopf">
+
+            <h1>Mein Weblog</h1>
 
   </header>
+<main>
+<div></div>
+
+</main>
+</div>
 <div></div>
 </body>
