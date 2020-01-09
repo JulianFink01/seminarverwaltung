@@ -9,16 +9,14 @@
             <h1>Fortbildungen - Verwaltung</h1>
 
   </header>
-<main id="inhalt">
-<div id="alle_fortbildungen">
-
+<main>
+<div id="inhalt">
 
 </div>
-
+<input type="button" id="erstellbutton">
 </main>
-
 <!--<footer id="fuss">
-            Das ist das Ende
+            Footer
         </footer>-->
 
 </div>
