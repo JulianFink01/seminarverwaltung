@@ -1,0 +1,13 @@
+:root{
+  --box-padding: 5px;
+}
+header h1{
+  text-align: center;
+  font-size: 48px;
+}
+.Beschreibung details summary{
+  border-bottom: 4px solid var(--main-blue);
+  margin: 2em;
+  padding: var(--box-padding);
+  width: (100% var(--box-padding));
+}
