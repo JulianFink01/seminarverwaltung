@@ -61,10 +61,10 @@ class NimmtTeil{
     $this->kurs_id = $kursId;
   }
 
-  public function setKurs_id(){
+  public function getKurs_id(){
     return $this->kurs_id;
   }
-  public function loesche()
+  public static function loescheAusFortbildung()
   {
       $sql = 'DELETE FROM nimmt_teil WHERE teilnehmer_id=?';
       $abfrage = DB::getDB()->prepare($sql);
@@ -95,6 +95,23 @@ class NimmtTeil{
           . 'WHERE teilnehmer_id=:teilnehmer_id';
       $abfrage = self::$db->prepare($sql);
       $abfrage->execute($this->toArray());
+  }
+
+  /* ***** public Methoden **** */
+
+  public function findeAlleKursTeilnehmer(Kurs $kurs){
+    $sql = 'SELECT teilnehmer.* FROM teilnehmer JOIN nimmt_teil on teilnehmer_id = nimmt_teil.teilnehmer_id WHERE kurs_id=?';
+    $abfrage = DB::getDB()->prepare($sql);
+    $abfrage->execute(array($kurs->getId()));
+    $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
+    return $abfrage->fetchAll();
+  }
+  public function findeAlleFortbildungTeilnehmer(Fortbildung $fortbildung){
+    $sql = 'SELECT teilnehmer.* FROM teilnehmer JOIN nimmt_teil on teilnehmer_id = nimmt_teil.teilnehmer_id WHERE fortbildung_id=?';
+    $abfrage = DB::getDB()->prepare($sql);
+    $abfrage->execute(array($fortbildung->getId()));
+    $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
+    return $abfrage->fetchAll();
   }
 
 

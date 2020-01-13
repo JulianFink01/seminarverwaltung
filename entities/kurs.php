@@ -18,6 +18,11 @@ protected $anmeldeschluss = "";
 protected $fortbildung_id = 0;
 protected $dauer = 0;
 
+public function  __toString()
+{
+    return 'Id:'. $this->id .', Datum: '.$this->datum.', Titel: '.$this->titel.', MaxTeilnehmer: '.$this->maxTeilnehmer.', Referent: '.$this->referent.', Beschreibung: '.$this->beschreibung.', Ort-Raum: '.$this->ort_raum.', Kontakt: '.$this->kontakt.', Von: '.$this->von.', Bis:'.$this->bis.', Unterschriftsliste-Zweispaltig: '.
+    $this->unterschriftsliste_zweispaltig.', Koordination: '.$this->koordination.', Anmeldeschluss: '.$this->anmeldeschluss.', FortbildungsId: '.$this->fortbildung_id.', Dauer: '.$this->dauer;
+}
 public function __construct($daten = array())
 {
     // wenn $daten nicht leer ist, rufe die passenden Setter auf
@@ -175,6 +180,58 @@ public function speichere()
       $abfrage = self::$db->prepare($sql);
       $abfrage->execute($this->toArray());
   }
+
+  /* ***** public Methoden ***** */
+  public static function findeAlle()
+  {
+      $sql = 'SELECT * FROM kurs';
+      $abfrage = DB::getDB()->query($sql);
+      $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Kurs');
+      return $abfrage->fetchAll();
+  }
+
+  public static function finde($id){
+    $sql = 'SELECT * FROM kurs WHERE id=?';
+    $abfrage = DB::getDB()->prepare($sql);
+    $abfrage->execute(array($id));
+    $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Kurs');
+    return $abfrage->fetch();
+
+  }
+
+  public static function findeNachFortbildung(Fortbildung $fortbildung)
+  {
+      $sql = 'SELECT * FROM kurs WHERE fortbildung_id=?';
+      $abfrage = DB::getDB()->prepare($sql);
+      $abfrage->execute(array($fortbildung->getId()));
+      $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Kurs');
+      return $abfrage->fetchAll();
+  }
+  public static function findeNachBenutzer(Fortbildung $fortbildung)
+  {
+      $sql = 'SELECT * FROM kurs WHERE fortbildung_id=?';
+      $abfrage = DB::getDB()->prepare($sql);
+      $abfrage->execute(array($fortbildung->getId()));
+      $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Kurs');
+      return $abfrage->fetchAll();
+  }
+
+  public static function findeAlleTeilnehmer(Kurs $kurs){
+    $result = NimmtTeil::findeAlleKursTeilnehmer($kurs);
+    return $result;
+  }
+
+  public function loescheTeilnehmer(Teilnehmer $teilnehmer)
+  {
+      $sql = 'Update nimmt_teil set kurs_id = null'
+           . 'WHERE teilnehmer_id=? AND kurs_id=?';
+      $abfrage = DB::getDB()->prepare($sql);
+      $abfrage->execute(array(
+          $teilnehmer->getId(),
+          $this->getId()
+      ));
+  }
+
 }
 
 

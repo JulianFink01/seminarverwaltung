@@ -23,6 +23,10 @@ public function __construct($daten = array())
         }
     }
 }
+public function  __toString()
+{
+    return 'Id:'. $this->id .', Vorname: '.$this->vorname.', Nachname: '.$this->nachname.', Email: '.$this->email.', Token: '.$this->token;
+}
 public function toArray($mitId = true)
 {
     $attribute = get_object_vars($this);
@@ -107,8 +111,46 @@ private function _update()
     $abfrage = self::$db->prepare($sql);
     $abfrage->execute($this->toArray());
 }
+/* ***** Public Methoden ***** */
+public static function findeAlle()
+{
+    $sql = 'SELECT * FROM teilnehmer';
+    $abfrage = DB::getDB()->query($sql);
+    $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
+    return $abfrage->fetchAll();
+}
 
+public static function finde($id){
+  $sql = 'SELECT * FROM teilnehmer WHERE id=?';
+  $abfrage = DB::getDB()->prepare($sql);
+  $abfrage->execute(array($id));
+  $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
+  return $abfrage->fetch();
+}
 
+public static function findeNachKurs(Kurs $kurs)
+{
+    $sql = 'SELECT teilnehmer.* FROM teilnehmer '
+         . 'JOIN nimmt_teil ON teilnehmer.id=nimmt_teil.teilnehmer_id '
+         . 'WHERE nimmt_teil.kurs_id=?';
+    $abfrage = DB::getDB()->prepare($sql);
+    $abfrage->execute( array($kurs->getId()));
+    $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
+    return $abfrage->fetchAll();
+}
+public static function findeNachFortbildung(Fortbildung $fortbildung)
+{
+    $sql = 'SELECT teilnehmer.* FROM teilnehmer '
+         . 'JOIN nimmt_teil ON teilnehmer.id=nimmt_teil.teilnehmer_id '
+         . 'WHERE nimmt_teil.fortbildung_id=?';
+    $abfrage = DB::getDB()->prepare($sql);
+    $abfrage->execute( array($fortbildung->getId()) );
+    $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
+    return $abfrage->fetchAll();
+}
+public function getTermine(){
+    return Kurst::findeNachBenutzer($this);
+}
 
 }
 

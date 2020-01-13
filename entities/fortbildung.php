@@ -2,9 +2,9 @@
 
 class Fortbildung{
 
-$id = 0;
-$name = "";
-$status = false;
+protected $id = 0;
+protected $name = "";
+protected $status = false;
 
 public function __construct($daten = array())
 {
@@ -20,7 +20,10 @@ public function __construct($daten = array())
         }
     }
 }
-
+public function  __toString()
+{
+    return 'Id:'. $this->id .', Name: '.$this->name.', Status: '.$this->status;
+}
 public function toArray($mitId = true)
 {
     $attribute = get_object_vars($this);
@@ -93,6 +96,38 @@ private function _update()
     $abfrage = self::$db->prepare($sql);
     $abfrage->execute($this->toArray());
 }
+
+/* ***** public Methoden ***** */
+
+public static function findeAlle()
+{
+    $sql = 'SELECT * FROM fortbildung';
+    $abfrage = DB::getDB()->query($sql);
+    $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fortbildung');
+    return $abfrage->fetchAll();
+}
+
+public static function finde($id){
+  $sql = 'SELECT * FROM fortbildung WHERE id=?';
+  $abfrage = DB::getDB()->prepare($sql);
+  $abfrage->execute(array($id));
+  $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fortbildung');
+  return $abfrage->fetch();
+}
+
+public static function findeNachName($name){
+  $sql = 'SELECT * FROM fortbildung WHERE name=?';
+  $abfrage = DB::getDB()->prepare($sql);
+  $abfrage->execute(array($name));
+  $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fortbildung');
+  return $abfrage->fetch();
+}
+public static function findeAlleTeilnehmer(Fortbildung $fortbildung){
+  $result = NimmtTeil::findeAlleFortbildungTeilnehmer($fortbildung);
+  return $result;
+}
+
+
 }
 
 
