@@ -3,11 +3,52 @@
 }
 header h1{
   text-align: center;
-  font-size: 48px;
+  font-size: 40px;
+  color: var(--main-blue);
+  background-color: white;
+  border-bottom: 4px solid black;
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
 .Beschreibung details summary{
   border-bottom: 4px solid var(--main-blue);
   margin: 2em;
+  padding-left: 20px;
   padding: var(--box-padding);
   width: (100% var(--box-padding));
+}
+.Beschreibung details summary:focus{
+  outline: 0 none;
+
+
+}
+.Beschreibung details p{
+padding:0px 2em;
+text-align: justify;
+
+}
+.Content{
+  margin-top: 10px;
+  border: 4px solid var(--main-blue);
+  width: 90%;
+  background-color: white;
+  transform: translateX(5%);
+
+
+}
+.Infos{
+  width: 100%;
+  position: relative;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.Infos li{
+  width: 50%;
+}
+.Infos ul{
+  width: 100%;
+  text-decoration: none;
+  list-style: none;
 }
