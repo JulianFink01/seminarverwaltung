@@ -45,7 +45,8 @@ text-align: justify;
   flex-wrap: wrap;
 }
 .Infos li{
-  width: 50%;
+  width: 40%;
+  padding-bottom: 7px;
 }
 .Infos ul{
   width: 100%;
