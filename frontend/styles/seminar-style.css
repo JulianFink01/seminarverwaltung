@@ -27,8 +27,9 @@ header h1{
 
 }
 .Beschreibung details p{
-padding:0px 2em;
+padding:0px 2.5em;
 text-align: justify;
+font-size: 1.5em;
 
 }
 .Content{
@@ -39,25 +40,38 @@ text-align: justify;
   transform: translateX(5%);
 }
 
+
 .Infos{
   display: flex;
   flex-wrap: wrap;
 }
 .infos div {
-  min-width: 40%;
-  margin:6px 2em;
-  font-size: 1.5em;
+  text-decoration: none;
+  min-width: 43%;
+  font-size: 1.8em;
   color: blue;
 }
-
+.infos div:nth-child(1), .infos div:nth-child(3) {
+margin-left:2em;
+}
 .infos div:nth-child(4), .infos div:nth-child(2) {
 text-align: right;
+margin-right: 2em;
+
+
+}
+.infos div:nth-child(4){
+  text-decoration-line: underline;
 }
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 850px) {
   .infos div {
     min-width: 100%;
+  }
+  .infos div:nth-child(4), .infos div:nth-child(2) {
+    text-align: left;
+    margin-left: 2em;
   }
 }
 .meinKurs{
