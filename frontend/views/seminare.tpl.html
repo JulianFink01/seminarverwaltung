@@ -12,38 +12,40 @@
         $kurse = $fortbildung->findeAlleKurse();
     ?>
 
-<header>
-  <h1><?php echo $fortbildung->getName(); ?></h1>
-</header>
-  <?php
-    foreach($kurse as $kurs){
-  ?>
-  <div class="Content">
-    <div class="Beschreibung">
-      <details>
-        <summary>
-          <?php echo $kurs->getTitel();?>
-        </summary>
-          <p>
-            <?php echo $kurs->getBeschreibung();?>
-          </p>
+    <header>
+      <h1>
+        <?php echo $fortbildung->getName(); ?>
+      </h1>
+    </header>
+      <?php
+        foreach($kurse as $kurs){
+      ?>
+      <div class="Content">
+        <div class="Beschreibung">
+          <details>
+            <summary>
+              <?php echo $kurs->getTitel();?>
+            </summary>
+              <p>
+                <?php echo $kurs->getBeschreibung();?>
+              </p>
 
-        <div class="Infos">
-          <div>
-            <a>Am 12.12.20012</a>
-          </div>
-          <div>
-            <a>20/40 Teilnehmer</a>
-          </div>
-          <div>
-            <a>Von 8 bis 16 Uhr</a>
-          </div>
-          <div>
-            <a>Mehr Informationen</a>
-          </div>
+            <div class="Infos">
+              <div>
+                <a>Am 12.12.20012</a>
+              </div>
+              <div>
+                <a>20/40 Teilnehmer</a>
+              </div>
+              <div>
+                <a>Von 8 bis 16 Uhr</a>
+              </div>
+              <div>
+                <a>Mehr Informationen</a>
+              </div>
+            </div>
+          </details>
         </div>
-      </details>
-    </div>
-  </div>
-
-</body>
+      </div>
+      <?php }}?>
+    </body>
