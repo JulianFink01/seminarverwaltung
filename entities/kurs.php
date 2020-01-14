@@ -159,6 +159,18 @@ public function speichere()
 
   /* ***** Private Methoden ***** */
 
+  public function nimmtAnKursTeil(Teilnehmer $teilnehmer){
+    $sql = 'SELECT * FROM nimmt_teil WHERE kurs_id=? and teilnehmer_id = ? and fortbildung_id = ?';
+    $abfrage = DB::getDB()->prepare($sql);
+    $abfrage->execute(array($this->getId(), $teilnehmer->getId(), $this->getFortbildung_id()));
+    $erg = $abfrage->fetchAll();
+      if($erg){
+        return true;
+      }else{
+        return false;
+      }
+  }
+
   private function _insert()
   {
       //Token generiren
@@ -207,13 +219,9 @@ public function speichere()
       $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Kurs');
       return $abfrage->fetchAll();
   }
-  public static function findeNachBenutzer(Fortbildung $fortbildung)
+  public static function findeNachBenutzer(Teilnehmer $teilnehmer)
   {
-      $sql = 'SELECT * FROM kurs WHERE fortbildung_id=?';
-      $abfrage = DB::getDB()->prepare($sql);
-      $abfrage->execute(array($fortbildung->getId()));
-      $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Kurs');
-      return $abfrage->fetchAll();
+      return NimmtTeil::findeAlleKurseNachTeilnehmer($teilnehmer);
   }
 
   public static function findeAlleTeilnehmer(Kurs $kurs){

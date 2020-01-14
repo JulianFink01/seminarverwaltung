@@ -113,6 +113,14 @@ class NimmtTeil{
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
     return $abfrage->fetchAll();
   }
+  public function findeAlleKurseNachTeilnehmer(Teilnehmer $teilnehmer){
+    $sql = 'SELECT kurs.* FROM kurs JOIN nimmt_teil on kurs.id = nimmt_teil.kurs_id WHERE nimmt_teil.teilnehmer_id=?';
+    $abfrage = DB::getDB()->prepare($sql);
+    $abfrage->execute(array($teilnehmer->getId()));
+    $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Kurs');
+    return $abfrage->fetchAll();
+  }
+
 
 
 }

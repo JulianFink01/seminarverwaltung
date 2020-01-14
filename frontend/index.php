@@ -14,8 +14,10 @@
     if (isset ($_REQUEST['token'])){
             $token = $_REQUEST['token'];
             $user = Teilnehmer::findeNachToken($token);
-            $aktion = 'show_Seminare';
-            echo $user->__toString();
+              if($user){
+                $aktion = 'show_Seminare';
+                echo $user->__toString();
+              }
             }
 
     switch($aktion) {
