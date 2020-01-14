@@ -94,6 +94,9 @@ public function speichere()
   public function getBeschreibung(){
     return $this->beschreibung;
   }
+  public function getShortBeschreibung(){
+    return substr($this->beschreibung,0,300);
+  }
   public function setOrt_raum($ortRaum){
     $this->ort_raum = $ortRaum;
   }
