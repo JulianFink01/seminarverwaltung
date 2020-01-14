@@ -16,7 +16,6 @@
         $user = Teilnehmer::findeNachToken($token);
         if($user){
             $aktion = 'show_Seminare';
-            echo $user->__toString();
         }
       }
 
