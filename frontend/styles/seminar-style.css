@@ -40,5 +40,6 @@ text-align: justify;
   flex-wrap: wrap;
 }
 .infos div {
-  min-width: 50%;
+  min-width: 30%;
+  margin:6px 2em;
 }
