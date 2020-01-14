@@ -4,26 +4,20 @@
   <link rel="stylesheet" type="text/css" href="styles/seminar-style.css">
 </head>
 <body>
-
-  <?php
-    require_once('models/seminare.php');
-
-    foreach($fortbildungen as $fortbildung){
-      $kurse = $fortbildung->findeAlleKurse();
-  ?>
-
   <header>
-    <h1><?php echo $fortbildung->getName(); ?></h1>
+    <h1>Fortbildung Titel</h1>
   </header>
-  <?php
-    foreach($kurse as $kurs){
-  ?>
+
   <div class="Content">
     <div class="Beschreibung">
       <details>
-      <summary><?php echo $kurs->getTitel();?></summary>
-    <p>
-      <?php echo $kurs->getBeschreibung();?>
+      <summary>Kurs Name</summary>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+      labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+      ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+      dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+      aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+      no sea takimata sanctus est Lorem ipsum dolor sit amet.
     </p>
 
     <div class="Infos">
@@ -37,13 +31,10 @@
           <a>Von 8 bis 16 Uhr</a>
         </div>
         <div><a>Mehr Informationen</a>
-        </div>‚
+        </div>
       </div
     </details>
     </div>
     </div>
-<?php
-    }
-  }
-?>
+
 </body>

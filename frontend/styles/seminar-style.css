@@ -33,23 +33,12 @@ text-align: justify;
   width: 90%;
   background-color: white;
   transform: translateX(5%);
-
-
 }
+
 .Infos{
-  width: 100%;
-  position: relative;
-  text-decoration: none;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
 }
-.Infos li{
-  width: 40%;
-  padding-bottom: 7px;
-}
-.Infos ul{
-  width: 100%;
-  text-decoration: none;
-  list-style: none;
+.infos div {
+  min-width: 50%;
 }
