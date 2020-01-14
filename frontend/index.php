@@ -24,13 +24,15 @@
         case "show_login":
             $aktion = 'login';
         break;
-        case "showFortbildung":
-            $aktion = 'showsqlquery';
-            $bid = $_REQUEST['bid'];
-            $erg = $db->getUserInformations($bid);
-        break;
         case "show_Seminare":
+            if($user){
             $aktion = 'seminare';
+            }else{
+            $aktion = 'login';
+            }
+        break;
+        case "show_KursInfos":
+          $aktion = "kurs";
         break;
     }
 
