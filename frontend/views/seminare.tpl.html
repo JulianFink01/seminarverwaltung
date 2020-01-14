@@ -19,8 +19,10 @@
     </header>
       <?php
         foreach($kurse as $kurs){
+
+          $istEingeschrieben = $kurs->nimmtAnKursTeil($user);
       ?>
-      <div class="Content">
+      <div class="Content <?php if($istEingeschrieben){echo 'meinKurs';} ?>">
         <div class="Beschreibung">
           <details>
             <summary>
