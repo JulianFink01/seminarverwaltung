@@ -16,7 +16,6 @@
         $user = Teilnehmer::findeNachToken($token);
         if($user){
             $aktion = 'show_Seminare';
-            echo $user->__toString();
         }
       }
 
@@ -24,13 +23,16 @@
         case "show_login":
             $aktion = 'login';
         break;
-        case "showFortbildung":
-            $aktion = 'showsqlquery';
-            $bid = $_REQUEST['bid'];
-            $erg = $db->getUserInformations($bid);
-        break;
         case "show_Seminare":
+            if($user){
             $aktion = 'seminare';
+            }else{
+            $aktion = 'login';
+            }
+        break;
+        case "show_KursInfos":
+          $aktion = "kurs";
+          $kursId = $_REQUEST['kursId'];
         break;
     }
 

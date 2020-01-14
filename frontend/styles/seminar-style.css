@@ -1,6 +1,9 @@
 :root{
   --box-padding: 5px;
 }
+html, body{
+  background-color: var(--main-orange);
+}
 header h1{
   text-align: center;
   font-size: 40px;
@@ -56,4 +59,7 @@ text-align: right;
   .infos div {
     min-width: 100%;
   }
+}
+.meinKurs{
+  background-color: green !important;
 }

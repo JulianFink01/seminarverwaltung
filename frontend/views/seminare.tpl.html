@@ -19,8 +19,10 @@
     </header>
       <?php
         foreach($kurse as $kurs){
+
+          $istEingeschrieben = $kurs->nimmtAnKursTeil($user);
       ?>
-      <div class="Content">
+      <div class="Content <?php if($istEingeschrieben){echo 'meinKurs';} ?>">
         <div class="Beschreibung">
           <details>
             <summary>
@@ -32,16 +34,16 @@
 
             <div class="Infos">
               <div>
-                <a>Am 12.12.20012</a>
+                <a>Am <?php echo $kurs->getDatum()?></a>
               </div>
               <div>
-                <a>20/40 Teilnehmer</a>
+                <a><?php echo $kurs->getTeilnehmerAnzahl()?>/<?php echo $kurs->getMaxTeilnehmer()?> Teilnehmer</a>
               </div>
               <div>
-                <a>Von 8 bis 16 Uhr</a>
+                <a>Von <?php echo $kurs->getVon()?> bis <?php echo $kurs->getBis()?> Uhr</a>
               </div>
               <div>
-                <a>Mehr Informationen</a>
+                <a href="index.php?aktion=show_KursInfos&kursId=<?php echo $kurs->getId();?>">Mehr Informationen</a>
               </div>
             </div>
           </details>

@@ -110,13 +110,17 @@ public function speichere()
     $this->von = $von;
   }
   public function getVon(){
-    return $this->von;
+    $von = $this->von;
+    $von = substr($von,0,5);
+    return $von;
   }
   public function setBis($bis){
     $this->bis = $bis;
   }
   public function getBis(){
-    return $this->bis;
+    $bis = $this->bis;
+    $bis = substr($bis,0,5);
+    return $bis;
   }
   public function setUnterschriftsliste_zweispaltig($bool){
     $this->unterschriftsliste_zweispaltig = $bool;
@@ -170,7 +174,14 @@ public function speichere()
         return false;
       }
   }
-
+  //SELECT count(*) FROM nimmt_teil WHERE kurs_id=1 and fortbildung_id = 1
+  public function getTeilnehmerAnzahl(){
+    $sql = 'SELECT count(*) as anzahl FROM nimmt_teil WHERE kurs_id=? and fortbildung_id = ?';
+    $abfrage = DB::getDB()->prepare($sql);
+    $abfrage->execute(array($this->getId(),$this->getFortbildung_id()));
+    $erg = $abfrage->fetchAll();
+    return $erg[0]['anzahl'];
+  }
   private function _insert()
   {
       //Token generiren
