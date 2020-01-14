@@ -14,6 +14,7 @@ header h1{
   border-bottom: 4px solid var(--main-blue);
   margin: 2em;
   padding-left: 20px;
+  font-size: 2em;
   padding: var(--box-padding);
   width: (100% var(--box-padding));
 }
@@ -40,6 +41,19 @@ text-align: justify;
   flex-wrap: wrap;
 }
 .infos div {
-  min-width: 30%;
+  min-width: 40%;
   margin:6px 2em;
+  font-size: 1.5em;
+  color: blue;
+}
+
+.infos div:nth-child(4), .infos div:nth-child(2) {
+text-align: right;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .infos div {
+    min-width: 100%;
+  }
 }
