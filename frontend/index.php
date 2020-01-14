@@ -32,6 +32,7 @@
         break;
         case "show_KursInfos":
           $aktion = "kurs";
+          $kursId = $_REQUEST['kursId'];
         break;
     }
 
