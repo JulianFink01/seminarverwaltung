@@ -12,13 +12,13 @@
             $aktion = 'show_login';
 
     if (isset ($_REQUEST['token'])){
-            $token = $_REQUEST['token'];
-            $user = Teilnehmer::findeNachToken($token);
-              if($user){
-                $aktion = 'show_Seminare';
-                echo $user->__toString();
-              }
-            }
+        $token = $_REQUEST['token'];
+        $user = Teilnehmer::findeNachToken($token);
+        if($user){
+            $aktion = 'show_Seminare';
+            echo $user->__toString();
+        }
+      }
 
     switch($aktion) {
         case "show_login":

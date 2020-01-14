@@ -98,7 +98,10 @@ private function _update()
 }
 
 /* ***** public Methoden ***** */
-
+public function findeAlleKurse(){
+  $result = Kurs::findeNachFortbildung($this);
+  return $result;
+}
 public static function findeAlle()
 {
     $sql = 'SELECT * FROM fortbildung';
@@ -122,9 +125,14 @@ public static function findeNachName($name){
   $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fortbildung');
   return $abfrage->fetch();
 }
+
 public static function findeAlleTeilnehmer(Fortbildung $fortbildung){
   $result = NimmtTeil::findeAlleFortbildungTeilnehmer($fortbildung);
   return $result;
+}
+public static function findeNachBenutzer(Teilnehmer $teilnehmer)
+{
+    return NimmtTeil::findeAlleFortbildungenNachTeilnehmer($teilnehmer);
 }
 
 
