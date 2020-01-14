@@ -5,7 +5,6 @@
   include("teilnehmer.php");
   include("fortbildung.php");
 
-  $teilnehmer = Teilnehmer::finde(1);
+  $teilnehmer = Teilnehmer::findeNachToken('jf1234');
   echo $teilnehmer->__toString();
-
 ?>

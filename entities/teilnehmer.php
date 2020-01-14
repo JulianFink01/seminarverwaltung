@@ -138,6 +138,15 @@ public static function findeNachKurs(Kurs $kurs)
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
     return $abfrage->fetchAll();
 }
+public static function findeNachToken($token)
+{
+    $sql = 'SELECT teilnehmer.* FROM teilnehmer '
+         . 'WHERE token like ?';
+         $abfrage = DB::getDB()->prepare($sql);
+         $abfrage->execute(array($token));
+         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
+         return $abfrage->fetch();
+}
 public static function findeNachFortbildung(Fortbildung $fortbildung)
 {
     $sql = 'SELECT teilnehmer.* FROM teilnehmer '
