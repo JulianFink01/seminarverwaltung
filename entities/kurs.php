@@ -255,11 +255,20 @@ public function speichere()
   }
 
   public function teinehmen(Teilnehmer $teilnehmer){
-    $sql = 'Insert into nimmt_teil (fortbildung_id, teilnehmer_id, ,kurs_id) values (?,?,?)';
+    $sql = 'Update nimmt_teil set kurs_id = ? WHERE teilnehmer_id = ? and fortbildung_id = ?';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array(
-        $teilnehmer->getId(),
-        $this->getId()
+      $this->getId(),
+      $this->getFortbildung_id(),
+      $teilnehmer->getId()
+    ));
+  }
+  public function abmelden(Teilnehmer $teilnehmer){
+    $sql = 'Update nimmt_teil set kurs_id = NULL WHERE teilnehmer_id = ? and fortbildung_id = ?';
+    $abfrage = DB::getDB()->prepare($sql);
+    $abfrage->execute(array(
+      $this->getFortbildung_id(),
+      $teilnehmer->getId()
     ));
   }
 
