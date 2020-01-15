@@ -23,8 +23,9 @@ header h1{
 }
 .Beschreibung details summary:focus{
   outline: 0 none;
-
-
+}
+.Beschreibung{
+  transition: 0.5s all ease-in;
 }
 .Beschreibung details p{
 padding:0px 2.5em;
@@ -75,5 +76,29 @@ margin-right: 2em;
   }
 }
 .meinKurs{
-  background-color: green !important;
+  background-color: rgb(0,255,0, 0.3) !important;
+}
+
+@keyframes invisiblyGrowFontSize {
+    0% {
+    font-size: 0;
+    opacity: 0;
+    }
+    100% {
+    font-size: 1em;
+    opacity: 0;
+    }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+    100% {
+        opacity: 1;
+    }
+}
+.Beschreibung details[open] .informations{
+    animation-name: invisiblyGrowFontSize, fadeIn;
+    animation-duration: 500ms, 200ms;
+    animation-delay: 0ms, 500ms;
 }

@@ -28,22 +28,24 @@
             <summary>
               <?php echo $kurs->getTitel();?>
             </summary>
-              <p>
-                <?php echo $kurs->getShortBeschreibung();?>...
-              </p>
+            <div class="informations">
+                <p>
+                  <?php echo $kurs->getShortBeschreibung();?>...
+                </p>
 
-            <div class="Infos">
-              <div>
-                <a>Am <?php echo $kurs->getDatum()?></a>
-              </div>
-              <div>
-                <a><?php echo $kurs->getTeilnehmerAnzahl()?>/<?php echo $kurs->getMaxTeilnehmer()?> Teilnehmer</a>
-              </div>
-              <div>
-                <a>Von <?php echo $kurs->getVon()?> bis <?php echo $kurs->getBis()?> Uhr</a>
-              </div>
-              <div>
-                <a href="index.php?aktion=show_KursInfos&kursId=<?php echo $kurs->getId();?>">Mehr Informationen</a>
+              <div class="Infos">
+                <div>
+                  <a>Am <?php echo $kurs->getDatum()?></a>
+                </div>
+                <div>
+                  <a><?php echo $kurs->getTeilnehmerAnzahl()?>/<?php echo $kurs->getMaxTeilnehmer()?> Teilnehmer</a>
+                </div>
+                <div>
+                  <a>Von <?php echo $kurs->getVon()?> bis <?php echo $kurs->getBis()?> Uhr</a>
+                </div>
+                <div>
+                  <a href="index.php?aktion=show_KursInfos&kursId=<?php echo $kurs->getId();?>">Mehr Informationen</a>
+                </div>
               </div>
             </div>
           </details>
