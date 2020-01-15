@@ -254,6 +254,15 @@ public function speichere()
       ));
   }
 
+  public function teinehmen(Teilnehmer $teilnehmer){
+    $sql = 'Insert into nimmt_teil (fortbildung_id, teilnehmer_id, ,kurs_id) values (?,?,?)';
+    $abfrage = DB::getDB()->prepare($sql);
+    $abfrage->execute(array(
+        $teilnehmer->getId(),
+        $this->getId()
+    ));
+  }
+
 }
 
 

@@ -108,6 +108,7 @@ margin-right: 2em;
         opacity: 1;
     }
 }
+
 .Beschreibung details[open] .informations{
     animation-name: invisiblyGrowFontSize, fadeIn;
     animation-duration: 500ms, 200ms;
