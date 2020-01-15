@@ -14,7 +14,7 @@
     if (isset ($_REQUEST['token'])){
         $token = $_REQUEST['token'];
         $user = Teilnehmer::findeNachToken($token);
-        if($user){
+        if($user && !$_REQUEST['kursId']){
             $aktion = 'show_Seminare';
         }
       }
@@ -33,6 +33,7 @@
         case "show_KursInfos":
           $aktion = "kurs";
           $kursId = $_REQUEST['kursId'];
+          echo $user->__toString();
         break;
     }
 

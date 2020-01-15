@@ -44,7 +44,7 @@
                   <a>Von <?php echo $kurs->getVon()?> bis <?php echo $kurs->getBis()?> Uhr</a>
                 </div>
                 <div>
-                  <a href="index.php?aktion=show_KursInfos&kursId=<?php echo $kurs->getId();?>">Mehr Informationen</a>
+                  <a href="index.php?aktion=show_KursInfos&kursId=<?php echo $kurs->getId();?>&token=<?php echo $user->getToken();?>">Mehr Informationen</a>
                 </div>
               </div>
             </div>
