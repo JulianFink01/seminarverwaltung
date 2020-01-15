@@ -28,13 +28,13 @@ header h1{
   transition: 0.5s all ease-in;
 }
 .Beschreibung details p{
-padding:0px 2.5em;
-text-align: justify;
-font-size: 1.5em;
+  padding:0px 2.5em;
+  text-align: justify;
+  font-size: 1.5em;
 
 }
 .Content{
-  margin-top: 30px;
+  margin-top: 50px;
   border: 6px solid var(--main-blue);
   width: 90%;
   background-color: white;
@@ -49,15 +49,16 @@ font-size: 1.5em;
 .infos div {
   text-decoration: none;
   min-width: 43%;
+  margin-bottom: 20px;
   font-size: 1.8em;
   color: blue;
 }
 .infos div:nth-child(1), .infos div:nth-child(3) {
-margin-left:2em;
+  margin-left:2em;
 }
 .infos div:nth-child(4), .infos div:nth-child(2) {
-text-align: right;
-margin-right: 2em;
+  text-align: right;
+  margin-right: 2em;
 
 
 }
@@ -72,7 +73,7 @@ margin-right: 2em;
 
   }
   .infos div:nth-child(1), .infos div:nth-child(3) {
-  margin-left:2.5em;
+    margin-left:2.5em;
   }
   .Beschreibung details p {
     font-size: 1em;
@@ -82,39 +83,38 @@ margin-right: 2em;
   .infos div {
     min-width: 100%;
     font-size: 1em;
-
-    margin-bottom: 10px;
   }
+
   .infos div:nth-child(4), .infos div:nth-child(2) {
     text-align: left;
     margin-left: 2.5em;
   }
 }
 .meinKurs{
-  background-color: rgb(0,255,0, 0.3) !important;
+  background-color: rgb(0,204,0) !important;
 }
 
 @keyframes invisiblyGrowFontSize {
-    0% {
+  0% {
     font-size: 0;
     opacity: 0;
-    }
-    100% {
+  }
+  100% {
     font-size: 1em;
     opacity: 0;
-    }
+  }
 }
 @keyframes fadeIn {
   0% {
     opacity: 0;
   }
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 .Beschreibung details[open] .informations{
-    animation-name: invisiblyGrowFontSize, fadeIn;
-    animation-duration: 500ms, 200ms;
-    animation-delay: 0ms, 500ms;
+  animation-name: invisiblyGrowFontSize, fadeIn;
+  animation-duration: 500ms, 200ms;
+  animation-delay: 0ms, 500ms;
 }
