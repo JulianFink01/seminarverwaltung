@@ -1,0 +1,71 @@
+#kopf {
+	background-color: #c4cdd4;
+    margin: 0px;
+	padding: 25px 0px 25px 0px;
+	text-align: center;
+}
+
+#kopf h1 {
+	color: #1b5873;
+	font-family: serif;
+	font-weight: normal;
+	font-size: 55px;
+	margin: 0px;
+}
+
+article.infobox section {
+    position: absolute;
+    display: block;
+    width: 99%;
+    height: 650px;
+    top: 300px;
+    background-color: #c5d2de;
+}
+article.infobox section h2 {
+    position: absolute;
+    left: 0;
+    top: -40px;
+    width: 124px;
+    height: 75px;
+    font-family: Verdana;
+    font-size: 15px;
+    margin: 0;
+    background-color: #194b7d;
+    border-radius: 15px 15px 0 0;
+    border: solid #ffffff;
+    border-width: 1px 1px 0 0;
+    z-index: 1;
+}
+article.infobox section:nth-child(2) h2 {
+    left: 120px;
+    z-index: 0;
+}
+
+article.infobox section:nth-child(3) h2 {
+    left: 240px;
+    z-index: -1;
+}
+article.infobox section h2 a {
+    display: block;
+    margin: 5px 0 0 0;
+    text-align: center;
+    text-decoration: none;
+    color: #c5d2de;
+}
+article.infobox section:target, article.infobox section:target h2 {
+    color: #000000;
+    background-color: #c5d2de;
+    z-index: 1;
+}
+
+article.infobox section:target h2 a {
+    color: #194b7d;
+}
+#suchleiste {
+	position: absolute;
+	top: 100px;
+	left: 100px;
+}
+#suchleiste input[type="search"]{
+	
+}
