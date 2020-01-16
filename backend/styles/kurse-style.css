@@ -45,6 +45,7 @@ article.infobox section:nth-child(3) h2 {
     left: 240px;
     z-index: -1;
 }
+
 article.infobox section h2 a {
     display: block;
     margin: 5px 0 0 0;
@@ -69,7 +70,4 @@ article.infobox section:target h2 a {
 #suchleiste input[type="search"]{
 	width: 200px;
 	height: 35px;
-}
-#kurssuche {
-	width: 200px;
 }
