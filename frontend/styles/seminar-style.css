@@ -2,7 +2,7 @@
   --box-padding: 5px;
 }
 html, body{
-  background-color: var(--main-orange);
+  background-color: var(--background-orange);
 }
 header h1{
   text-align: center;
