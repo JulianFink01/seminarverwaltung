@@ -32,7 +32,7 @@
         </section>
         <section id="funktionen">
             <h2><a href="#funktionen">Teilnehmer</a></h2>
-            <!--Simons arbeitsbereich-->
+            <!--Simons arbeitsbereich  mit teiler-style-->
         </section>
         <section id="preise">
             <h2><a href="#preise">E-Mail senden</a></h2>
