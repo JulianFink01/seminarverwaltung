@@ -15,9 +15,7 @@
 </div>
 <input type="button" id="erstellbutton">
 </main>
-<!--<footer id="fuss">
-            Footer
-        </footer>-->
+
 
 </div>
 
