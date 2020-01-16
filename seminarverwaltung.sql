@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Erstellungszeit: 14. Jan 2020 um 14:29
--- Server-Version: 10.4.8-MariaDB
--- PHP-Version: 7.1.32
+-- Host: 127.0.0.1
+-- Erstellungszeit: 16. Jan 2020 um 14:28
+-- Server-Version: 10.4.6-MariaDB
+-- PHP-Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,27 @@ SET time_zone = "+00:00";
 --
 -- Datenbank: `seminarverwaltung`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `benutzername` varchar(45) NOT NULL,
+  `passwort` varchar(45) NOT NULL,
+  `nachname` varchar(45) NOT NULL,
+  `vorname` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Daten für Tabelle `admin`
+--
+
+INSERT INTO `admin` (`id`, `benutzername`, `passwort`, `nachname`, `vorname`) VALUES
+(1, 'BolMir01', 'Lbshi-12345', 'Bolognani', 'Miriam');
 
 -- --------------------------------------------------------
 
@@ -120,6 +141,12 @@ INSERT INTO `teilnehmer` (`id`, `vorname`, `nachname`, `email`, `token`) VALUES
 --
 
 --
+-- Indizes für die Tabelle `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indizes für die Tabelle `fortbildung`
 --
 ALTER TABLE `fortbildung`
@@ -150,6 +177,12 @@ ALTER TABLE `teilnehmer`
 --
 -- AUTO_INCREMENT für exportierte Tabellen
 --
+
+--
+-- AUTO_INCREMENT für Tabelle `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT für Tabelle `fortbildung`
