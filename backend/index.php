@@ -18,6 +18,9 @@ require_once '../entities/db.php';
       case "kurse":
         $aktion = "alle_kurse";
         break;
+      case "kurse_tap2":
+        $aktion = "kurse_tap2";
+        break;
 
 
     }
