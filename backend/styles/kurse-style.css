@@ -67,5 +67,9 @@ article.infobox section:target h2 a {
 	left: 100px;
 }
 #suchleiste input[type="search"]{
-	
+	width: 200px;
+	height: 35px;
+}
+#kurssuche {
+	width: 200px;
 }
