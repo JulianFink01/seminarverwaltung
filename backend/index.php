@@ -16,7 +16,7 @@ require_once '../entities/db.php';
         $aktion = 'hauptseite';
         break;
       case "kurse":
-        $aktion = "alle_kurse";
+        $aktion = "kurse";
         break;
       case "kurse_tap2":
         $aktion = "kurse_tap2";

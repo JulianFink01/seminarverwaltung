@@ -14,7 +14,8 @@
     if (isset ($_REQUEST['token'])){
         $token = $_REQUEST['token'];
         $user = Teilnehmer::findeNachToken($token);
-        if($user && !$_REQUEST['kursId']){
+
+        if($user && !isset($_REQUEST['kursId'])){
             $aktion = 'show_Seminare';
         }
       }
