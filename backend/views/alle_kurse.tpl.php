@@ -5,7 +5,7 @@
 </head>
 <body>
   <header id="kopf">
-<h1>Fortbildungen - Verwaltung</h1>
+<h1>Kurse - Verwaltung</h1>
   </header>
 
   <div id="login_Feld"></div>
@@ -18,13 +18,13 @@
             <main id="kurse_anzeigen">
             </main>
 
-          <!--  <div id="suchleiste">
+           <div id="suchleiste">
           <input type="search" placeholder="Suche nach Kurs" list="kurssuche"/>
           <datalist id="kurssuche">
             <option>A</option>
             <option>A</option>
           </datalist>
-        </div>-->
+        </div>
 
             <aside id="kreisbutton"></aside>
 

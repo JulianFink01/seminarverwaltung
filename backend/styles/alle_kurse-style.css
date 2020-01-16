@@ -61,3 +61,11 @@ article.infobox section:target, article.infobox section:target h2 {
 article.infobox section:target h2 a {
     color: #194b7d;
 }
+#suchleiste {
+	position: absolute;
+	top: 100px;
+	left: 100px;
+}
+#suchleiste input[type="search"]{
+	
+}
