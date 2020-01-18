@@ -32,6 +32,19 @@
         <section id="funktionen">
             <h2><a href="#funktionen">Teilnehmer</a></h2>
             <!--Simons arbeitsbereich  mit teiler-style-->
+            <div id="suchleiste">
+           <input type="search" placeholder="Suche nach Teilnehmer" list="kurssuche"/>
+           <datalist id="kurssuche">
+             <option>A</option>
+             <option>A</option>
+           </datalist>
+         </div>
+         <div id="teilnehmer">
+           <table>
+           <td>hallo</td>
+           <td>ok</td>
+         </table>
+         </div>
         </section>
         <section id="preise">
             <h2><a href="#preise">E-Mail senden</a></h2>

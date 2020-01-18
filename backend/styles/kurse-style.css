@@ -64,10 +64,20 @@ article.infobox section:target h2 a {
 }
 #suchleiste {
 	position: absolute;
-	top: 100px;
-	left: 100px;
+	top: 50px;
+	left: 30px;
 }
 #suchleiste input[type="search"]{
-	width: 200px;
+	border-radius: 10px 10px 10px 10px;
+	width: 600px;
 	height: 35px;
+}
+#teilnehmer {
+	position: absolute;
+	top: 200px;
+	left: 200px;
+}
+#teilnehmer table {
+	border: solid black;
+	border-width: 3px;
 }
