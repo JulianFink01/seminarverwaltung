@@ -19,6 +19,10 @@
 </div>
 <div id="inhalt">
 
+<div id="kurs">
+<a href="?aktion=kurse">Kurs xy</a>
+</div>
+
 </div>
 <input type="button" id="erstellbutton">
 </main>
