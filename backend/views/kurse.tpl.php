@@ -15,18 +15,21 @@
         <section id="allgemeiner">
             <h2><a href="#allgemeiner">Kurse</a></h2>
 
+            <div id="suchleiste">
+           <input type="search" placeholder="Suche nach Kurs" list="kurssuche"/>
+           <datalist id="kurssuche">
+             <option>A</option>
+             <option>A</option>
+           </datalist>
+         </div>
+
             <main id="kurse_anzeigen">
+
             </main>
 
-           <div id="suchleiste">
-          <input type="search" placeholder="Suche nach Kurs" list="kurssuche"/>
-          <datalist id="kurssuche">
-            <option>A</option>
-            <option>A</option>
-          </datalist>
-        </div>
-
-            <aside id="kreisbutton"></aside>
+<aside id="kreisbutton">
+  <div></div>
+</aside>
 
         </section>
         <section id="funktionen">
@@ -52,7 +55,5 @@
         </section>
     </article>
   </div>
-
-
 
 </body>
