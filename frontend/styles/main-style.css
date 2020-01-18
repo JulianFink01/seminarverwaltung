@@ -1,6 +1,10 @@
 :root{
   --main-orange: rgba(233, 186, 103);
   --main-blue: rgba(49, 83, 108);
+
+  --background-orange: rgba(255, 204, 0, 0.7);
+  /*--main-orange: rgba(255, 204, 0);*/
+  /*--main-blue: rgba(0, 42, 79);*/
 }
 html, body{
   font-family: 'Tenor Sans', sans-serif;
