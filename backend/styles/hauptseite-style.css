@@ -95,6 +95,15 @@ form {
 #erstellbutton {
 
 }
+#hintergrund {
+	height: 820px;
+}
+#suchleiste {
+	position: absolute;
+	top: 100px;
+	left: 100px;
+
+}
 
 p.eintrag_unten {
 	text-align: right;

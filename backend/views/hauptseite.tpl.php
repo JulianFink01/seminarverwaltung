@@ -9,7 +9,14 @@
             <h1>Fortbildungen - Verwaltung</h1>
 
   </header>
-<main>
+<main id="hintergrund">
+<div id="suchleiste">
+  <input type="search" placeholder="Suche nach Fortbildung" list="fortbildungsuche"/>
+  <datalist id="fortbildungsuche">
+    <option>A</option>
+    <option>A</option>
+  </datalist>
+</div>
 <div id="inhalt">
 
 </div>
