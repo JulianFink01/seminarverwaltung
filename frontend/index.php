@@ -20,6 +20,7 @@
         }
       }
 
+
     switch($aktion) {
         case "show_login":
             $aktion = 'login';
@@ -34,7 +35,6 @@
         case "show_KursInfos":
           $aktion = "kurs";
           $kursId = $_REQUEST['kursId'];
-          echo $user->__toString();
         break;
     }
 
