@@ -34,7 +34,6 @@
         case "show_KursInfos":
           $aktion = "kurs";
           $kursId = $_REQUEST['kursId'];
-          echo $user->__toString();
         break;
     }
 

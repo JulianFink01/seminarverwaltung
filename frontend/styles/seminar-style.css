@@ -2,14 +2,14 @@
   --box-padding: 5px;
 }
 html, body{
-  background-color: var(--background-orange);
+  background-color: var(--main-blue);
 }
 header h1{
   text-align: center;
   font-size: 40px;
   color: var(--main-blue);
   background-color: white;
-  border-bottom: 6px solid var(--main-blue);
+  border-bottom: 6px solid var(--background-orange);
   padding-bottom: 10px;
   padding-top: 10px;
 }
@@ -20,6 +20,8 @@ header h1{
   font-size: 2em;
   padding: var(--box-padding);
   width: (100% var(--box-padding));
+  color: var(--main-blue);
+  font-weight: bold;
 }
 .Beschreibung details summary:focus{
   outline: 0 none;
@@ -31,14 +33,17 @@ header h1{
   padding:0px 2.5em;
   text-align: justify;
   font-size: 1.5em;
+  color: var(--main-blue);
 
 }
 .Content{
   margin-top: 50px;
-  border: 6px solid var(--main-blue);
+  border: 6px solid var(--background-orange);
+  box-shadow: 4px 4px 4px rgba(255,255,255, 0.4);
   width: 90%;
   background-color: white;
   transform: translateX(5%);
+  border-radius: 10px;
 }
 
 
@@ -51,7 +56,10 @@ header h1{
   min-width: 43%;
   margin-bottom: 20px;
   font-size: 1.8em;
-  color: blue;
+}
+.infos div a{
+  color: red;
+  color: var(--main-orange);
 }
 .infos div:nth-child(1), .infos div:nth-child(3) {
   margin-left:2em;
@@ -91,8 +99,39 @@ header h1{
   }
 }
 .meinKurs{
-  background-color: rgb(0,204,0) !important;
+  border: 6px solid var(--main-green);
 }
+@media only screen and (min-width: 800px) {
+  .Content{
+    width: 35%;
+    margin-left: 10%;
+    height: 20%;
+    margin-top: 10%;
+  }
+  .Content:nth-child(3),   .Content:nth-child(2){
+    margin-top: 15%;
+  }
+  body{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    clear: both;
+  }
+  header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 60px;
+  }
+  header h1{
+    padding-top: 0;
+    margin-top: 0;
+  }
+}
+
 
 @keyframes invisiblyGrowFontSize {
   0% {
