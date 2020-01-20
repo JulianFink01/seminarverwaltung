@@ -20,6 +20,7 @@
         }
       }
 
+
     switch($aktion) {
         case "show_login":
             $aktion = 'login';
