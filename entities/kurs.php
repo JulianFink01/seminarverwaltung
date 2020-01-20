@@ -254,7 +254,7 @@ public function speichere()
       ));
   }
 
-  public function teinehmen(Teilnehmer $teilnehmer){
+  public function teilnehmen(Teilnehmer $teilnehmer){
     $sql = 'Update nimmt_teil set kurs_id = ? WHERE teilnehmer_id = ? and fortbildung_id = ?';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array(

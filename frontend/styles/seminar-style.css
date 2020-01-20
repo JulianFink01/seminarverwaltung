@@ -39,7 +39,7 @@ header h1{
 .Content{
   margin-top: 50px;
   border: 6px solid var(--background-orange);
-  box-shadow: 4px 4px 4px rgba(255,255,255, 0.4);
+  box-shadow: 4px 4px 4px 4px rgba(255,255,255, 0.4);
   width: 90%;
   background-color: white;
   transform: translateX(5%);
@@ -103,10 +103,11 @@ header h1{
 }
 @media only screen and (min-width: 800px) {
   .Content{
-    width: 35%;
+    width: 30%;
     margin-left: 10%;
     height: 20%;
     margin-top: 10%;
+    transform: translate(0);
   }
   .Content:nth-child(3),   .Content:nth-child(2){
     margin-top: 15%;
