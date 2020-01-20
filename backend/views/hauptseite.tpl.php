@@ -21,7 +21,7 @@
 
 <div id="kurs">
 <a href="?aktion=kurse">Fortbildung xy</a>
-<input type="button" id="erstell_button">
+<!--<input type="button" id="erstell_button">-->
 </main>
 
 
