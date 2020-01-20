@@ -1,7 +1,9 @@
 body {
-	background-color: #ecf1f2;
-	margin: 0;
+	background-color: #1b5873;
+	margin: 0 auto;
 	padding: 0;
+	width: 80%;
+
 }
 
 body,  p,  div,  td {
@@ -69,7 +71,7 @@ form {
 	background-color: #fafafa;
 	border-right: 1px solid #d4d9db;
 	float: left;
-	width: 50%;
+	width: 60%;
 	height: 450px;
 	margin: 120px 0px 0px 50px;
 	padding: 10px 10px 20px 10px;
@@ -93,8 +95,14 @@ form {
 	border-bottom: 1px solid #2d4652;
 	background-color: #f5f5f5;
 }
-#erstellbutton {
-
+#erstell_button {
+ margin: 50px 0px 0px 850px;
+ width: 200px;
+ height: 200px;
+ border-radius: 150px 150px 150px 150px;
+ background-image: url("../Images/fortbildung_erstellButton.png");
+ background-repeat: no-repeat;
+ background-size: contain;
 }
 #hintergrund {
 	height: 650px;

@@ -20,11 +20,8 @@
 <div id="inhalt">
 
 <div id="kurs">
-<a href="?aktion=kurse">Kurs xy</a>
-</div>
-
-</div>
-<input type="button" id="erstellbutton">
+<a href="?aktion=kurse">Fortbildung xy</a>
+<input type="button" id="erstell_button">
 </main>
 
 
