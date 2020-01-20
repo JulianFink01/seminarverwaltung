@@ -70,7 +70,8 @@ form {
 	border-right: 1px solid #d4d9db;
 	float: left;
 	width: 50%;
-	margin: 10px 0px 0px 10px;
+	height: 450px;
+	margin: 120px 0px 0px 50px;
 	padding: 10px 10px 20px 10px;
 }
 
@@ -96,12 +97,16 @@ form {
 
 }
 #hintergrund {
-	height: 820px;
+	height: 650px;
 }
 #suchleiste {
-	position: absolute;
-	top: 100px;
-	left: 100px;
+	margin: 50px 0px -20px 80px;
+
+}
+#suchleiste input[type="search"]{
+	width: 500px;
+	height: 30px;
+	border-radius: 5px 5px 5px 5px;
 
 }
 
