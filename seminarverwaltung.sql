@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Erstellungszeit: 16. Jan 2020 um 14:28
--- Server-Version: 10.4.6-MariaDB
--- PHP-Version: 7.3.9
+-- Host: localhost
+-- Erstellungszeit: 22. Jan 2020 um 12:07
+-- Server-Version: 10.4.8-MariaDB
+-- PHP-Version: 7.1.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,27 +25,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `admin`
---
-
-CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
-  `benutzername` varchar(45) NOT NULL,
-  `passwort` varchar(45) NOT NULL,
-  `nachname` varchar(45) NOT NULL,
-  `vorname` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Daten für Tabelle `admin`
---
-
-INSERT INTO `admin` (`id`, `benutzername`, `passwort`, `nachname`, `vorname`) VALUES
-(1, 'BolMir01', 'Lbshi-12345', 'Bolognani', 'Miriam');
-
--- --------------------------------------------------------
-
---
 -- Tabellenstruktur für Tabelle `fortbildung`
 --
 
@@ -60,7 +39,7 @@ CREATE TABLE `fortbildung` (
 --
 
 INSERT INTO `fortbildung` (`id`, `name`, `status`) VALUES
-(1, 'Fortbildung 1', 1);
+(1, 'Grundlagen', 1);
 
 -- --------------------------------------------------------
 
@@ -91,8 +70,8 @@ CREATE TABLE `kurs` (
 --
 
 INSERT INTO `kurs` (`id`, `datum`, `titel`, `maxTeilnehmer`, `referent`, `beschreibung`, `ort_raum`, `kontakt`, `von`, `bis`, `unterschriftsliste_zweispaltig`, `koordination`, `anmeldeschluss`, `fortbildung_id`, `dauer`) VALUES
-(1, '2019-12-13', 'Kurs1', 10, 'Hallo', 'klajfkldjlkdjfajflköajlkaj', 'c21', 'Fink', '25:00:00', '63:00:00', 1, 'ok', '2019-12-25', 1, 2),
-(2, '2019-12-11', 'asdf', 10, 'Hallo2', 'asdfasdfasdfsdafaf', 'c22', 'Fink2', '73:00:00', '99:00:00', 0, 'TExt', '2019-12-24', 1, 1);
+(1, '2019-12-13', 'Informatik Grundlagen', 20, 'Lanz', 'In diesem Kurs werdet ihr die Grundlagen zur PHP programmierung lernen. Wir werden auch einen kurzen Einblick in HTML, CSS, Bootstrap und SCSS nehmen. Der Kurs wird begleitet von mehreren Scripts. Um 12:00 ist für eine Stunde mittagspause', 'c428', 'Lanz', '10:00:00', '17:00:00', 1, 'ok', '2020-03-12', 1, 6),
+(2, '2019-12-11', 'Netzwerktechnik Grundlagen', 10, 'Roland Marini', 'In diesem Kurs werden wir die Grundlagen zur Netzwerktechnik besprechen. Wir werden dafür mehrere verschiedene Scripten verwenden und anschliesend eine praktische Übung machen. Der Kurst ist speziell für zukünftige Netzwertechnik Lehrer interessant. Um 12:00 wird es eine 50 minütige Mittagspause geben.', 'c426', 'Roland Marini', '10:00:00', '17:00:00', 0, 'Roland Marini', '2020-04-01', 1, 6);
 
 -- --------------------------------------------------------
 
@@ -141,12 +120,6 @@ INSERT INTO `teilnehmer` (`id`, `vorname`, `nachname`, `email`, `token`) VALUES
 --
 
 --
--- Indizes für die Tabelle `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indizes für die Tabelle `fortbildung`
 --
 ALTER TABLE `fortbildung`
@@ -177,12 +150,6 @@ ALTER TABLE `teilnehmer`
 --
 -- AUTO_INCREMENT für exportierte Tabellen
 --
-
---
--- AUTO_INCREMENT für Tabelle `admin`
---
-ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT für Tabelle `fortbildung`

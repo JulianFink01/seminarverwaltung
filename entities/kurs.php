@@ -163,7 +163,10 @@ public function speichere()
       // Objekt existiert nicht mehr in der DB, also muss die ID zurückgesetzt werden
       $this->id = 0;
   }
-
+  public function getAllTeilnehmer(){
+    $result = NimmtTeil::findeAlleKursTeilnehmer($this);
+    return $result;
+  }
   /* ***** Private Methoden ***** */
 
   public function nimmtAnKursTeil(Teilnehmer $teilnehmer){
@@ -259,16 +262,18 @@ public function speichere()
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array(
       $this->getId(),
-      $this->getFortbildung_id(),
-      $teilnehmer->getId()
+      $teilnehmer->getId(),
+      $this->getFortbildung_id()
     ));
   }
   public function abmelden(Teilnehmer $teilnehmer){
     $sql = 'Update nimmt_teil set kurs_id = NULL WHERE teilnehmer_id = ? and fortbildung_id = ?';
+
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array(
-      $this->getFortbildung_id(),
-      $teilnehmer->getId()
+      $teilnehmer->getId(),
+      $this->getFortbildung_id()
+
     ));
   }
 

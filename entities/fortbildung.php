@@ -135,6 +135,24 @@ public static function findeNachBenutzer(Teilnehmer $teilnehmer)
     return NimmtTeil::findeAlleFortbildungenNachTeilnehmer($teilnehmer);
 }
 
+public function teilnehmen(Teilnehmer $teilnehmer){
+  $sql = 'Insert into nimmt_teil (fortbildung_id, teilnehmer_id, kurs_id) values (?,?, NULL)';
+  $abfrage = DB::getDB()->prepare($sql);
+  $abfrage->execute(array(
+    $this->getId(),
+    $teilnehmer->getId()
+  ));
+}
+public function abmelden(Teilnehmer $teilnehmer){
+  $sql = 'Delete from nimmt_teil where fortbildung_id = ? and teilnehmer_id = ?';
+
+  $abfrage = DB::getDB()->prepare($sql);
+  $abfrage->execute(array(
+    $this->getId(),
+    $teilnehmer->getId()
+  ));
+}
+
 
 }
 

@@ -38,7 +38,30 @@
       <p><a class="bold">Anmeldeschluss:</a> <?php echo ' '.$kurs->getAnmeldeSchluss();?></p>
     </div>
     <div>
-      <p><a class="bold">Teilnehmer:</a> <?php echo ' '.$kurs->getTeilnehmerAnzahl();?>/<?php echo ' '.$kurs->getMaxTeilnehmer();?></p>
+      <p>
+        <details>
+        <summary>
+          <a class="bold">Teilnehmer:</a> <?php echo ' '.$kurs->getTeilnehmerAnzahl();?> /<?php echo ' '.$kurs->getMaxTeilnehmer();?>
+          </summary>
+          <ul id="teilnehmer-liste">
+          <?php
+
+            $teilnhemer = $kurs->getAllTeilnehmer();
+            foreach($teilnhemer as $t){
+
+              ?>
+                <li><?php
+                  echo $t->getVorname().' '.$t->getNachname();
+                ?></li>
+              <?php
+
+            }
+
+          ?>
+          </ul>
+        </details>
+      </p>
+
     </div>
 
     <div>
