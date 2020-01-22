@@ -13,18 +13,25 @@
 <div id="suchleiste">
   <input type="search" placeholder="Suche nach Fortbildung" list="fortbildungsuche"/>
   <datalist id="fortbildungsuche">
-    <option>A</option>
-    <option>A</option>
+
+    <option>$value</option>
+
   </datalist>
 </div>
+
 <div id="inhalt">
 
 <div id="kurs">
 <a href="?aktion=kurse">Fortbildung xy</a>
-<!--<input type="button" id="erstell_button">-->
+
+</div>
+</div>
+<div id="button">
+<input type="button" id="erstell_button">
+</div>
 </main>
 
 
-</div>
 
+</div>
 </body>
