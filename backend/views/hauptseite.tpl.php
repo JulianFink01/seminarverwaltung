@@ -23,8 +23,29 @@
 
 <div id="kurs">
 <a href="?aktion=kurse">Fortbildung xy</a>
-
+<p>status</p>
+<hr/>
 </div>
+
+<div id="kurs">
+<a href="?aktion=kurse">Fortbildung x2y2</a>
+<p>status2</p>
+<hr/>
+</div>
+
+<div id="kurs">
+<a href="?aktion=kurse">Fortbildung x3y3</a>
+<p>status3</p>
+<hr/>
+</div>
+
+<div id="kurs">
+<a href="?aktion=kurse">Fortbildung x4y4</a>
+<p>status4</p>
+<hr/>
+</div>
+
+
 </div>
 <div id="button">
 <input type="button" id="erstell_button">

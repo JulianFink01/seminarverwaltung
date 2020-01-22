@@ -77,21 +77,13 @@ form {
 	float: left;
 	width: 60%;
 	height: 450px;
-	margin: 120px 0px 0px 50px;
+	margin: 150px 0px 0px 50px;
 	padding: 10px 10px 20px 10px;
+	overflow-y: auto;
 }
 
-#inhalt a {
-	color: #2d4652;
-	text-decoration: underline;
-}
-
-#inhalt a:hover {
-	text-decoration: none;
-}
 #button {
-	float: right;
-	margin: 0;
+	margin: 30px 0px 0px 0px;;
 	padding: 0;
 }
 #erstell_button {
@@ -106,13 +98,12 @@ form {
 	height: 650px;
 }
 #suchleiste {
-margin: 50px 0px -20px 50px;
-
+margin: 50px 0px -40px 50px;
+width: 500px;
 }
 #suchleiste input[type="search"]{
-
 	width: 500px;
-	height: 30px;
+	height: 40px;
 	border-radius: 5px 5px 5px 5px;
 
 }
@@ -142,6 +133,12 @@ p.eintrag_unten span {
 .nachricht {
     color: #ff0000;
 }
+#kurs {
+	padding: 30px;
+	margin: 10px;
+	border: solid #000 1.5px;
+	border-radius: 5px;
+}
 
 @media only screen and (max-width: 800px) {
 
@@ -166,10 +163,14 @@ body{
 	padding-left: 60px;
 }
 #suchleiste {
-	margin: 50px auto 0px auto -20px auto 50px auto;
+	margin: 50px 0px -20px 50px;
 
 }
 #suchleiste input[type="search"]{
 	width: 400px;
+}
+#erstell_button {
+	width: 80px;
+	height: 80px;
 }
 }
