@@ -22,23 +22,23 @@
 <div id="inhalt">
 
 <div id="kurs">
-<a href="?aktion=kurse">Star wars</a>
+<a href="?aktion=kurse#allgemeiner">Star wars</a>
 </div>
 
 <div id="kurs">
-<a href="?aktion=kurse">Fortbildung x2y2</a>
+<a href="?aktion=kurse#allgemeiner">Fortbildung x2y2</a>
 </div>
 
 <div id="kurs">
-<a href="?aktion=kurse">Fortbildung x3y3</a>
+<a href="?aktion=kurse#allgemeiner">Fortbildung x3y3</a>
 </div>
 
 <div id="kurs">
-<a href="?aktion=kurse">Fortbildung x4y4</a>
+<a href="?aktion=kurse#allgemeiner">Fortbildung x4y4</a>
 </div>
 
 <div id="kurs">
-<a href="?aktion=kurse">Fortbildung x4y4</a>
+<a href="?aktion=kurse#allgemeiner">Fortbildung x4y4</a>
 </div>
 
 

@@ -62,7 +62,7 @@
             <h2><a href="#preise">E-Mail senden</a></h2>
 
             <div id="fenster">
-          <textarea  id="editor1" name="editor1"  rows="25" cols="100" >Hier Text eingeben.</textarea>
+          <textarea  id="editor1" name="editor1"  rows="25" cols="100" style="width: 1000px;">Hier Text eingeben.</textarea>
            <script>
       CKEDITOR.replace( "editor1", {
           height: 260,
