@@ -56,7 +56,6 @@
              </tr>
          </table>
          </div>
-         <input type="button" id="angemetdet" value="angemetdet">
         </section>
         <section id="preise">
             <h2><a href="#preise">E-Mail senden</a></h2>
