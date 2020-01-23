@@ -2,6 +2,7 @@
   <!-- https://t3n.de/news/css3-dynamische-tabs-ohne-365861/-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="styles/kurse-style.css">
+  <script src="http://cdn.ckeditor.com/4.6.2/standard-all/ckeditor.js"></script>
 </head>
 <body>
   <header id="kopf">
@@ -59,6 +60,18 @@
         </section>
         <section id="preise">
             <h2><a href="#preise">E-Mail senden</a></h2>
+
+            <div id="fenster">
+          <textarea  id="editor1" name="editor1"  rows="25" cols="100" >Hier Text eingeben.</textarea>
+           <script>
+      CKEDITOR.replace( "editor1", {
+          height: 260,
+          width: 700,
+      } );
+  </script>
+
+          <input id="senden" type="button" value="senden">
+      </div>
 
         </section>
     </article>
