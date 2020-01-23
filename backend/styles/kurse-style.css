@@ -72,15 +72,24 @@ article.infobox section:target h2 a {
 	width: 600px;
 	height: 35px;
 }
+table, td, th{
+	border: 1px solid black;
+}
 #teilnehmer {
+	width: 69%;
+	margin: 10px;
 	position: absolute;
-	top: 200px;
-	left: 200px;
+	top: 100px;
 }
-#teilnehmer table {<
-	border: solid black;
-	border-width: 3px;
+#teilnehmer table {
+	  border-collapse: collapse;
+		width: 100%;
+		text-align:center;
 }
+#teilnehmer table tr th{
+		height: 50px;
+}
+
 #kreisbutton div{
 	background-image: url(../Images/teilnehmer-hinzufuegen.png);
   background-size: cover;

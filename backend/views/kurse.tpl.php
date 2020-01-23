@@ -44,10 +44,19 @@
          </div>
          <div id="teilnehmer">
            <table>
-           <td>hallo</td>
-           <td>ok</td>
+             <tr>
+               <th>Name</th>
+               <th>E-Mail</th>
+               <th>Status</th>
+             </tr>
+             <tr>
+               <td>Hans</td>
+               <td>mail@mail</td>
+               <td>Ausegewehlt</td>
+             </tr>
          </table>
          </div>
+         <input type="button" id="angemetdet" value="angemetdet">
         </section>
         <section id="preise">
             <h2><a href="#preise">E-Mail senden</a></h2>
