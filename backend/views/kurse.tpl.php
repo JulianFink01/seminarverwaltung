@@ -48,12 +48,32 @@
              <tr>
                <th>Name</th>
                <th>E-Mail</th>
-               <th>Status</th>
+               <th class="status">Status</th>
              </tr>
              <tr>
                <td>Hans</td>
                <td>mail@mail</td>
-               <td>Ausegewehlt</td>
+               <td class="status"> </td>
+             </tr>
+             <tr>
+               <td>lanz</td>
+               <td>mail@mail</td>
+               <td class="status"> </td>
+             </tr>
+             <tr>
+               <td>heinz</td>
+               <td>mail@mail</td>
+               <td style="background-color: red;" class="status"></td>
+             </tr>
+             <tr>
+               <td>meins</td>
+               <td>mail@mail</td>
+               <td style="background-color: green;" class="status"></td>
+             </tr>
+             <tr>
+               <td>deins</td>
+               <td>mail@mail</td>
+               <td style="background-color: red;" class="status"></td>
              </tr>
          </table>
          </div>
