@@ -1,0 +1,182 @@
+body {
+	background-color: #1b5873;
+	margin: 0 auto;
+	padding: 0;
+	width: 80%;
+
+}
+
+body,  p,  div,  td {
+	font-family: Verdana, Helvetica, Arial, Sans-Serif;
+	font-size: 12px;
+	color: #2d4652;
+
+}
+
+strong {
+	font-weight: bold;
+}
+
+em {
+	font-style: italic;
+}
+
+h1, h2, h3 {
+	color: #2d4652;
+	font-family: Verdana, Helvetica, Arial, Sans-Serif;
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 14px;
+}
+
+h2 {
+	font-size: 13px;
+}
+
+h3 {
+	font-size: 12px;
+}
+
+form {
+	margin: 0px;
+	padding: 0px;
+}
+
+#gesamt {
+	margin: 10px auto 0px auto;
+	width: 95%;
+	height: 850px;
+	background-color: #e2eaee;
+	border-style: solid;
+	border-color: #d4d9db;
+	border-width: 0px 1px 0px 1px;
+}
+
+
+
+#kopf {
+	background-color: #c4cdd4;
+    margin: 0px;
+	padding: 25px 0px 25px 0px;
+	text-align: center;
+}
+
+#kopf h1 {
+	color: #1b5873;
+	font-family: serif;
+	font-weight: normal;
+	font-size: 55px;
+	margin: 0px;
+}
+
+#inhalt {
+	background-color: #fafafa;
+	border-right: 1px solid #d4d9db;
+	float: left;
+	width: 60%;
+	height: 450px;
+	margin: 150px 0px 0px 50px;
+	padding: 10px 10px 20px 10px;
+	overflow-y: auto;
+}
+
+
+#button {
+	margin: 30px 0px 0px 0px;;
+	padding: 0;
+}
+#erstell_button {
+ width: 100px;
+ height: 100px;
+ border-radius: 150px 150px 150px 150px;
+ background-image: url("../Images/fortbildung_erstellButton.png");
+ background-repeat: no-repeat;
+ background-size: contain;
+}
+#hintergrund {
+	height: 650px;
+}
+#suchleiste {
+margin: 50px 0px -40px 50px;
+width: 500px;
+}
+#suchleiste input[type="search"]{
+	width: 500px;
+	height: 40px;
+	border-radius: 5px 5px 5px 5px;
+
+}
+
+p.eintrag_unten {
+	text-align: right;
+	border-bottom: 1px solid #acb9c0;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+}
+
+p.eintrag_unten span {
+	color: #fff;
+	background-color: #acb9c0;
+	font-style: italic;
+	padding: 5px;
+}
+
+.zentriert {
+	text-align: center;
+}
+
+.rechtsbuendig {
+	text-align: right;
+}
+
+.nachricht {
+    color: #ff0000;
+}
+#kurs {
+	padding: 30px;
+	margin: 10px;
+	border: solid #000 1.5px;
+	border-radius: 5px;
+
+}
+#kurs a {
+	text-decoration: none;
+	font-size: 20px;
+}
+
+@media only screen and (max-width: 800px) {
+
+body{
+	margin: 0;
+	padding: 0;
+}
+#gesamt {
+	margin: auto;
+	width: 800px;
+}
+#inhalt{
+	width: 400px;
+}
+#kopf {
+	margin: auto;
+	width: 800px;
+}
+#kopf h1 {
+	font-size: 35px;
+	text-align: left;
+	padding-left: 60px;
+}
+#suchleiste {
+	margin: 50px 0px -20px 50px;
+
+}
+#suchleiste input[type="search"]{
+	width: 400px;
+}
+#erstell_button {
+	width: 80px;
+	height: 80px;
+}
+}
