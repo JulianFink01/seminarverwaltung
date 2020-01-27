@@ -97,6 +97,8 @@ table, td, th{
 	margin: 10px;
 	position: absolute;
 	top: 100px;
+	height: 450px;
+	overflow-y: auto;
 }
 #teilnehmer table {
 	  border-collapse: collapse;
