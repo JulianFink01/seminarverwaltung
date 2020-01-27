@@ -1,3 +1,11 @@
+body {
+	background-color: #1b5873;
+	margin: 0 auto;
+	padding: 0;
+	width: 80%;
+
+}
+
 #kopf {
 	background-color: #c4cdd4;
     margin: 0px;
@@ -16,7 +24,7 @@
 article.infobox section {
     position: absolute;
     display: block;
-    width: 99%;
+    width: 80%;
     height: 650px;
     top: 300px;
     background-color: #c5d2de;
@@ -84,6 +92,7 @@ table, td, th{
 	border: 1px solid black;
 }
 #teilnehmer {
+	background-color: white;
 	width: 69%;
 	margin: 10px;
 	position: absolute;
@@ -97,6 +106,10 @@ table, td, th{
 #teilnehmer table tr th{
 		height: 50px;
 }
+.status{
+			width: 70px;
+}
+
 /* css benjamin email senden*/
 #fenster{
     margin: 80px 0px 0px -60px;
