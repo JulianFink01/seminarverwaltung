@@ -20,6 +20,7 @@
         }
       }
 
+
     switch($aktion) {
         case "show_login":
             $aktion = 'login';
@@ -34,9 +35,34 @@
         case "show_KursInfos":
           $aktion = "kurs";
           $kursId = $_REQUEST['kursId'];
-        
+        break;
+        case "abmelden":
+          $aktion = "seminare";
+          $kursId = $_REQUEST['kursId'];
+          $userToken = $_REQUEST['token'];
+          abmelden($kursId, $userToken);
+        break;
+        case "anmelden":
+          $aktion = "seminare";
+          $kursId = $_REQUEST['kursId'];
+          $userToken = $_REQUEST['token'];
+          anmelden($kursId, $userToken);
         break;
     }
 
   require_once 'views/' . $aktion . '.tpl.html';
+
+
+  function abmelden($kursId, $userToken){
+    $kurs = Kurs::finde($kursId);
+    $user = Teilnehmer::findeNachToken($userToken);
+
+    $kurs->abmelden($user);
+  }
+  function anmelden($kursId, $userToken){
+    $kurs = Kurs::finde($kursId);
+    $user = Teilnehmer::findeNachToken($userToken);
+
+    $kurs->teilnehmen($user);
+  }
 ?>

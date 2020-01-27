@@ -158,7 +158,15 @@ public static function findeNachFortbildung(Fortbildung $fortbildung)
     return $abfrage->fetchAll();
 }
 public function getTermine(){
-    return Kurst::findeNachBenutzer($this);
+    return Kurs::findeNachBenutzer($this);
+}
+
+public function nimmtAnKurseTeil(){
+  if(empty($this->getTermine())){
+      return false;
+    }else {
+      return true;
+    }
 }
 
 }

@@ -1,43 +1,76 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="styles/main-style.css">
-  <link rel="stylesheet" type="text/css" href="styles/seminar-style.css">
   <link rel="stylesheet" type="text/css" href="styles/kurs-style.css">
+  <meta charset="UTF-8">
 </head>
 
 <body>
+
+  <?php
+        $kurs = Kurs::finde($kursId);
+  ?>
+
   <header>
-    <h1>Kurs name </h1>
+    <a href="index.php?action=show_Seminare&token=<?php echo $user->getToken();?>" id="back"><</a>
+    <h1><a class="bold"><?php echo $kurs->getTitel();?></a> </h1>
   </header>
   <div class="Content">
     <div>
-      <p>Am 12.01.2020</p>
+      <p><a class="bold">Am</a><?php echo ' '.$kurs->getDatum();?></p>
     </div>
     <div>
-      <p>Von 8:00 bis 16:00</p>
+      <p><a class="bold">Von</a><?php echo ' '.$kurs->getVon();?> <a class="bold">-</a><?php echo ' '.$kurs->getBis();?></p>
     </div>
     <div>
-      <p>Lange Beschreibung klsflköhasklfjslfjlisdkjvnlkdjjfdsmljfdsmaljmfdslkjsasadkjfaalöskjdflksajflsaklöfdkjalkjfdölsjdkflkjafdlkjflkdsjaökdfsajlöfsdjöajfdölöjfölasjfdlöajsdflasfjlöaskjfdöasjf</p>
+      <p><?php echo $kurs->getBeschreibung();?></p>
+    </div>
+    <div>
+      <p><a class="bold">Kontakt:</a> <?php echo ' '.$kurs->getKontakt();?></p>
+    </div>
+    <div>
+      <p><a class="bold">Referent:</a> <?php echo ' '.$kurs->getReferent();?></p>
+    </div>
+    <div>
+      <p><a class="bold">Raum:</a> <?php echo ' '.$kurs->getOrt_raum();?></p>
+    </div>
+    <div>
+      <p><a class="bold">Anmeldeschluss:</a> <?php echo ' '.$kurs->getAnmeldeSchluss();?></p>
+    </div>
+    <div>
+      <p>
+        <details>
+        <summary>
+          <a class="bold">Teilnehmer:</a> <?php echo ' '.$kurs->getTeilnehmerAnzahl();?> /<?php echo ' '.$kurs->getMaxTeilnehmer();?>
+          </summary>
+          <ul id="teilnehmer-liste">
+          <?php
+
+            $teilnhemer = $kurs->getAllTeilnehmer();
+            foreach($teilnhemer as $t){
+
+              ?>
+                <li><?php
+                  echo $t->getVorname().' '.$t->getNachname();
+                ?></li>
+              <?php
+
+            }
+
+          ?>
+          </ul>
+        </details>
+      </p>
 
     </div>
-    <div>
-      <p>Kontakt: jsdlkfasjfl</p>
-    </div>
-    <div>
-      <p>Referent: lskdjflsakjf</p>
-    </div>
-    <div>
-      <p>Raum: lkdjflkasjf</p>
-    </div>
-    <div>
-      <p>Anmeldeschluss: jsdlkfasjfl</p>
-    </div>
-    <div>
-      <p>Teilnehmer: 20/40</p>
-    </div>
 
-    <div class="Submit">
-      <a>Anmelden</a>
+    <div>
+      <?php
+      if(!$kurs->nimmtAnKursTeil($user) && !$user->nimmtAnKurseTeil()){?>
+      <a href="index.php?aktion=anmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="anmelden" class="button">Anmelden</a>
+      <?php } elseif($kurs->nimmtAnKursTeil($user)){?>
+        <a href="index.php?aktion=abmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="abmelden" class="button">Abmelden</a>
+        <?php }?>
     </div>
   </div>
 </body>

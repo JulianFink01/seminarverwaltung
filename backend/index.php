@@ -4,7 +4,7 @@ require_once '../entities/db.php';
     if (isset ($_REQUEST['aktion']))
         $aktion = $_REQUEST['aktion'];
     else
-        $aktion = 'show_login';
+        $aktion = 'hauptseite';
     switch($aktion) {
     	case "show_login":
           $aktion = 'login_verwaltung';
@@ -16,7 +16,10 @@ require_once '../entities/db.php';
         $aktion = 'hauptseite';
         break;
       case "kurse":
-        $aktion = "alle_kurse";
+        $aktion = "kurse";
+        break;
+     case "k_erstellen":
+        $aktion = "kurse_erstellen";
         break;
 
 
