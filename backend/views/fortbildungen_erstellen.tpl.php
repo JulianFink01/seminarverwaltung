@@ -11,9 +11,12 @@
   </header>
 <main>
 <div id="inhalt">
-  <label for="titel">Titel:</label>
-  <input type="text" placehoder="Titel" name="titel" id="titel">
-
+  <div id="titel_eingabe">
+  <label for="titel">Titel:</label><br/>
+  <input type="text" placehoder="Titel" name="titel" id="titel"><br/>
+</div>
+  <label for="status">Status:</label><br/>
+  <input type="checkbox" id="status">
 
 </div>
 </main>
