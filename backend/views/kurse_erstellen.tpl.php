@@ -7,7 +7,32 @@
   <header id="kopf">
 <h1>Kurse - erstellen</h1>
   </header>
+  <div id="hintergrund">
+  <div id="inhalt">
 
-  
+  <ul id='navigation'>
+              <li>
+                  <a href=''>home</a>
+                  <div>home</div>
+              </li>
+              <li>
+                  <a href=''>contact us</a>
+                  <div>contact us.</div>
+              </li>
+              <li>
+                  <a href=''>products</a>
+                  <div>product</div>
+              </li>
+              <li>
+                  <a href=''>services</a>
+                  <div>service</div>
+              </li>
+              <li>
+                  <a href=''>faq</a>
+                  <div>faq</div>
+              </li>
+          </ul>
+</div>
+</div>
 
 </body>

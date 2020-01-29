@@ -180,3 +180,49 @@ body{
 	height: 80px;
 }
 }
+/*menü leiste */
+div {
+                background: lightgrey;
+                padding: 0.7em;
+                clear: left;
+            }
+            ul#navigation {
+                list-style: none;
+                background: gray;
+                margin: 0.1em;
+                padding: 0;
+            }
+            ul#navigation li {
+                float: left;
+                margin: 0.4em;
+            }
+            ul#navigation li a {
+                padding: 0.3em;
+            }
+            ul#navigation li a:link {
+                background: gray;
+            }
+            ul#navigation li a:active {
+                background: orange;
+            }
+            ul#navigation li a:visited {
+                background: black;
+            }
+            ul#navigation li a:hover, li a:focus {
+                background: white;
+                color: black;
+            }
+            ul#navigation div {
+                position: absolute;
+                right: 0;
+                top: 0;
+                background: gray;
+                display: none;
+            }
+            ul#navigation li:hover > div {
+                display: block;
+            }
+
+            ul#top li a {
+                color: #eee;
+            }
