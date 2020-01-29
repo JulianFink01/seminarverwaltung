@@ -21,6 +21,9 @@ require_once '../entities/db.php';
      case "k_erstellen":
         $aktion = "kurse_erstellen";
         break;
+     case "f_erstellen":
+      $aktion = "fortbildungen_erstellen";
+      break;
 
 
     }

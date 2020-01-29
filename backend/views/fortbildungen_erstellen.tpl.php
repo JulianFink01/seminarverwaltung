@@ -6,11 +6,14 @@
   <div id="gesamt">
   <header id="kopf">
 
-            <h1>Fortbildungen - Verwaltung</h1>
+            <h1>Fortbildungen - erstellen</h1>
 
   </header>
 <main>
 <div id="inhalt">
+  <label for="titel">Titel:</label>
+  <input type="text" placehoder="Titel" name="titel" id="titel">
+
 
 </div>
 </main>
