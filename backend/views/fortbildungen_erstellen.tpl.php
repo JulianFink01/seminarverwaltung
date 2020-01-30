@@ -6,11 +6,17 @@
   <div id="gesamt">
   <header id="kopf">
 
-            <h1>Fortbildungen - Verwaltung</h1>
+            <h1>Fortbildungen - erstellen</h1>
 
   </header>
 <main>
 <div id="inhalt">
+  <div id="titel_eingabe">
+  <label for="titel">Titel:</label><br/>
+  <input type="text" placehoder="Titel" name="titel" id="titel"><br/>
+</div>
+  <label for="status">Status:</label><br/>
+  <input type="checkbox" id="status">
 
 </div>
 </main>
