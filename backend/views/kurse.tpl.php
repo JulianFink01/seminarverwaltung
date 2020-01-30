@@ -29,11 +29,29 @@
              <option>A</option>
            </datalist>
          </div>
+         <div id="inhalt">
 
-            <main id="kurse_anzeigen">
+         <div id="kurs">
+         <a href="?aktion=kurse#allgemeiner">Star wars</a>
+         </div>
 
-            </main>
+         <div id="kurs">
+         <a href="?aktion=kurse#allgemeiner">Fortbildung x2y2</a>
+         </div>
 
+         <div id="kurs">
+         <a href="?aktion=kurse#allgemeiner">Fortbildung x3y3</a>
+         </div>
+
+         <div id="kurs">
+         <a href="?aktion=kurse#allgemeiner">Fortbildung x4y4</a>
+         </div>
+
+         <div id="kurs">
+         <a href="?aktion=kurse#allgemeiner">Fortbildung x4y4</a>
+         </div>
+
+</div>
 <aside id="kreisbutton">
   <div></div>
 </aside>
@@ -49,30 +67,8 @@
                <option>A</option>
              </datalist>
             </div>
-            <div id="inhalt">
-
-            <div id="kurs">
-            <a href="?aktion=kurse#allgemeiner">Star wars</a>
-            </div>
-
-            <div id="kurs">
-            <a href="?aktion=kurse#allgemeiner">Fortbildung x2y2</a>
-            </div>
-
-            <div id="kurs">
-            <a href="?aktion=kurse#allgemeiner">Fortbildung x3y3</a>
-            </div>
-
-            <div id="kurs">
-            <a href="?aktion=kurse#allgemeiner">Fortbildung x4y4</a>
-            </div>
-
-            <div id="kurs">
-            <a href="?aktion=kurse#allgemeiner">Fortbildung x4y4</a>
-            </div>
 
 
-            </div>
              <div id="teilnehmer">
                <table>
                  <tr>
