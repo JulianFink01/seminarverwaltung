@@ -130,6 +130,16 @@ table, td, th{
     width: 150px;
     height: 30px;
 }
+#inhalt {
+	background-color: #fafafa;
+	border-right: 1px solid #d4d9db;
+	float: left;
+	width: 60%;
+	height: 450px;
+	margin: 150px 0px 0px 50px;
+	padding: 10px 10px 20px 10px;
+	overflow-y: auto;
+}
 
 @media screen and (max-width: 27rem){
     #feld{
