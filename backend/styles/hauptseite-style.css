@@ -134,14 +134,14 @@ p.eintrag_unten span {
 .nachricht {
     color: #ff0000;
 }
-#kurs {
+#fortbildung1 {
 	padding: 30px;
 	margin: 10px;
 	border: solid #000 1.5px;
 	border-radius: 5px;
 
 }
-#kurs a {
+#fortbildung1 a {
 	text-decoration: none;
 	font-size: 20px;
 }
