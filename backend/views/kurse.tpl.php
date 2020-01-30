@@ -1,8 +1,14 @@
 <head>
   <!-- https://t3n.de/news/css3-dynamische-tabs-ohne-365861/-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="styles/kurse-style.css">
-  <script src="http://cdn.ckeditor.com/4.6.2/standard-all/ckeditor.js"></script>
+
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="styles/kurse-style.css">
 </head>
 <body>
   <header id="kopf">
@@ -82,18 +88,18 @@
             <h2><a href="#emailsenden">E-Mail senden</a></h2>
 
             <div id="fenster">
-            <form action="" method="post" >
-          <textarea  id="editor1" name="editor1"  rows="25" cols="100" style="width: 1000px;">Hier Text eingeben.</textarea>
-           <script>
-      CKEDITOR.replace( "editor1", {
-          height: 260,
-          width: 700,
-      } );
+            <form action="#" method="post">
+                 <div id="summernote" ><p></p></div>
+        <script>
+               $(document).ready(function() {
+        $('#summernote').summernote({height: 420});
+
+    });
   </script>
 
           <input id="senden" type="button" value="senden">
-        </form>
       </div>
+    </form>
 
         </section>
     </article>

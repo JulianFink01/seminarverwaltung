@@ -114,21 +114,20 @@ table, td, th{
 
 /* css benjamin email senden*/
 #fenster{
-    margin: 80px 0px 0px -60px;
-
-    height: 35rem;
-    width: 500px;
+    margin: 80px 0px 0px 25px ;
+		padding-left: 0px;
+    height: 300px;
+    width: 1330px;
 }
 
-#cke_editor1{
+#cke_editor1 {
     margin-top: 10px;
     margin-left: 12rem;
 }
 #senden{
-    margin-top: 3rem;
-    margin-right: 30%;
+    margin: 0px 0px 0px 0px;
     float: right;
-    width: 100px;
+    width: 150px;
     height: 30px;
 }
 
