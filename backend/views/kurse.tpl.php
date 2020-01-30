@@ -37,51 +37,52 @@
             <h2><a href="#funktionen">Teilnehmer</a></h2>
             <!--Simons arbeitsbereich  mit teiler-style-->
             <div id="suchleiste">
-           <input type="search" placeholder="Suche nach Teilnehmer" list="kurssuche"/>
-           <datalist id="kurssuche">
-             <option>A</option>
-             <option>A</option>
-           </datalist>
-         </div>
-         <div id="teilnehmer">
-           <table>
-             <tr>
-               <th>Name</th>
-               <th>E-Mail</th>
-               <th class="status">Status</th>
-             </tr>
-             <tr>
-               <td>Hans</td>
-               <td>mail@mail</td>
-               <td class="status"> </td>
-             </tr>
-             <tr>
-               <td>lanz</td>
-               <td>mail@mail</td>
-               <td class="status"> </td>
-             </tr>
-             <tr>
-               <td>heinz</td>
-               <td>mail@mail</td>
-               <td style="background-color: red;" class="status"></td>
-             </tr>
-             <tr>
-               <td>meins</td>
-               <td>mail@mail</td>
-               <td style="background-color: green;" class="status"></td>
-             </tr>
-             <tr>
-               <td>deins</td>
-               <td>mail@mail</td>
-               <td style="background-color: red;" class="status"></td>
-             </tr>
-         </table>
-         </div>
+             <input type="search" placeholder="Suche nach Teilnehmer" list="kurssuche"/>
+             <datalist id="kurssuche">
+               <option>A</option>
+               <option>A</option>
+             </datalist>
+            </div>
+             <div id="teilnehmer">
+               <table>
+                 <tr>
+                   <th>Name</th>
+                   <th>E-Mail</th>
+                   <th class="status">Status</th>
+                 </tr>
+                 <tr>
+                   <td>Hans</td>
+                   <td>mail@mail</td>
+                   <td class="status"> </td>
+                 </tr>
+                 <tr>
+                   <td>lanz</td>
+                   <td>mail@mail</td>
+                   <td class="status"> </td>
+                 </tr>
+                 <tr>
+                   <td>heinz</td>
+                   <td>mail@mail</td>
+                   <td style="background-color: red;" class="status"></td>
+                 </tr>
+                 <tr>
+                   <td>meins</td>
+                   <td>mail@mail</td>
+                   <td style="background-color: green;" class="status"></td>
+                 </tr>
+                 <tr>
+                   <td>deins</td>
+                   <td>mail@mail</td>
+                   <td style="background-color: red;" class="status"></td>
+                 </tr>
+             </table>
+             </div>
         </section>
-        <section id="preise">
-            <h2><a href="#preise">E-Mail senden</a></h2>
+        <section id="emailsenden">
+            <h2><a href="#emailsenden">E-Mail senden</a></h2>
 
             <div id="fenster">
+            <form action="" method="post" >
           <textarea  id="editor1" name="editor1"  rows="25" cols="100" style="width: 1000px;">Hier Text eingeben.</textarea>
            <script>
       CKEDITOR.replace( "editor1", {
@@ -91,6 +92,7 @@
   </script>
 
           <input id="senden" type="button" value="senden">
+        </form>
       </div>
 
         </section>
