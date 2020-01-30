@@ -66,7 +66,10 @@
 
     <div>
       <?php
-      if(!$kurs->nimmtAnKursTeil($user) && !$user->nimmtAnKurseTeil()){?>
+      $anzahl = $kurs->getTeilnehmerAnzahl();
+      $maxAnzahl =$kurs->getMaxTeilnehmer();
+
+      if(!$kurs->nimmtAnKursTeil($user) && !$user->nimmtAnKurseTeil() && $anzahl < $maxAnzahl){?>
       <a href="index.php?aktion=anmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="anmelden" class="button">Anmelden</a>
       <?php } elseif($kurs->nimmtAnKursTeil($user)){?>
         <a href="index.php?aktion=abmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="abmelden" class="button">Abmelden</a>
