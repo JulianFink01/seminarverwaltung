@@ -31,30 +31,41 @@
          </div>
          <div id="inhalt">
 
-         <div id="kurs">
-         <a href="?aktion=kurse#allgemeiner">Star wars</a>
+         <div id="kurs1">
+         <a href="?aktion=kurse#allgemeiner">Star wars Kurs</a>
+         <p>Beschreibung!</p>
+         <a href="#">bearbeiten  löschen</a>
          </div>
 
-         <div id="kurs">
-         <a href="?aktion=kurse#allgemeiner">Fortbildung x2y2</a>
+         <div id="kurs1">
+         <a href="?aktion=kurse#allgemeiner">Kurs x2y2</a>
+         <p>Beschreibung!</p>
+         <a href="#">bearbeiten  löschen</a>
          </div>
 
-         <div id="kurs">
-         <a href="?aktion=kurse#allgemeiner">Fortbildung x3y3</a>
+         <div id="kurs1">
+         <a href="?aktion=kurse#allgemeiner">Kurs x3y3</a>
+          <p>Beschreibung!</p>
+          <a href="#">bearbeiten  löschen</a>
          </div>
 
-         <div id="kurs">
-         <a href="?aktion=kurse#allgemeiner">Fortbildung x4y4</a>
+         <div id="kurs1">
+         <a href="?aktion=kurse#allgemeiner">Kurs x4y4</a>
+          <p>Beschreibung!</p>
+          <a href="#">bearbeiten  löschen</a>
          </div>
 
-         <div id="kurs">
-         <a href="?aktion=kurse#allgemeiner">Fortbildung x4y4</a>
+         <div id="kurs1">
+         <a href="?aktion=kurse#allgemeiner">Kurs x4y4</a>
+          <p>Beschreibung!</p>
+          <a href="#">bearbeiten  löschen</a>
          </div>
 
 </div>
-<aside id="kreisbutton">
-  <div></div>
-</aside>
+
+  <div id="kurs_erstellbutton">
+  <a href="?aktion=kurse_erstellen"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
+  </div>
 
         </section>
         <section id="funktionen">

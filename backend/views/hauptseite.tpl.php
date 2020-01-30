@@ -44,7 +44,7 @@
 
 </div>
 <div id="button">
-<input type="button" id="erstell_button">
+<a href="#"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
 </div>
 
 </div>
