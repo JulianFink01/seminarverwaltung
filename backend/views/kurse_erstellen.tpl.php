@@ -8,31 +8,56 @@
 <h1>Kurse - erstellen</h1>
   </header>
   <div id="hintergrund">
-  <div id="inhalt">
 
-  <ul id='navigation'>
-              <li>
-                  <a href=''>home</a>
-                  <div>home</div>
-              </li>
-              <li>
-                  <a href=''>contact us</a>
-                  <div>contact us.</div>
-              </li>
-              <li>
-                  <a href=''>products</a>
-                  <div>product</div>
-              </li>
-              <li>
-                  <a href=''>services</a>
-                  <div>service</div>
-              </li>
-              <li>
-                  <a href=''>faq</a>
-                  <div>faq</div>
-              </li>
-          </ul>
-</div>
+    <article class="infobox">
+        <section id="allgemeiner">
+
+            <h2><a href="#allgemeiner">Inhalt</a></h2>
+            <div id="inhalt">
+
+
+          </div>
+
+        </section>
+        <section id="allgemeiner2">
+
+            <h2><a href="#allgemeiner2">Erweiterung</a></h2>
+
+        </section>
+        <section id="ansicht">
+            <h2><a href="#ansicht">Ansicht</a></h2>
+
+            <div id="ansicht_inhalt">
+              <div id="teilnehmeranzahl">
+                
+              </div>
+               <h1 id="titel">Ich bin der Kurs Titel</h1>
+               <div id="beschreibung">
+               <p>dfdsfdsfdfsdfsfdffhgdfhfdfdgdfsgdffghgfhgfhfghgfhfghfhfghghgfhgf</p>
+             </div>
+             <div id="o_d">
+                <h1 id="ort">Bozen</h1>
+                <h1 id="datum">14.01.2100</h1>
+              </div>
+                <div id="zeit">
+                  <h1 id="von">12:00</h1>
+                  <h1 id="bis">15:00</h1>
+                  <h1 id="dauer">3h</h1>
+                  <h1 id="anmeldeschluss">12.05.1914</h1>
+                </div>
+                <div id="krk">
+                  <h1 id="kontakt">Schule</h1>
+                  <h1 id="referent">Direktor</h1>
+                  <h1 id="koordination">hahaha</h1>
+                </div>
+
+
+            </div>
+
+
+        </section>
+    </article>
+
 </div>
 
 </body>

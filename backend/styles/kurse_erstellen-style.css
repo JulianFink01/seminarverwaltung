@@ -98,42 +98,56 @@ form {
 #hintergrund {
 	height: 650px;
 }
-#suchleiste {
-margin: 50px 0px -40px 50px;
-width: 500px;
+article.infobox section {
+    position: absolute;
+    display: block;
+    width: 80%;
+    height: 650px;
+    top: 300px;
+    background-color: #c5d2de;
 }
-#suchleiste input[type="search"]{
-	width: 500px;
-	height: 40px;
-	border-radius: 5px 5px 5px 5px;
-
+article.infobox section h2 {
+    position: absolute;
+    left: 0;
+    top: -40px;
+    width: 150px;
+    height: 40px;
+    font-family: Verdana;
+    font-size: 15px;
+    margin: 0;
+    background-color: #194b7d;
+    border-radius: 15px 15px 0 0;
+    border: solid #ffffff;
+    border-width: 1px 1px 0 0;
+    z-index: 2;
 }
-
-p.eintrag_unten {
-	text-align: right;
-	border-bottom: 1px solid #acb9c0;
-	padding-bottom: 5px;
-	margin: 20px 0px 20px 0px;
-}
-
-p.eintrag_unten span {
-	color: #fff;
-	background-color: #acb9c0;
-	font-style: italic;
-	padding: 5px;
-}
-
-.zentriert {
-	text-align: center;
-}
-
-.rechtsbuendig {
-	text-align: right;
+article.infobox section:nth-child(2) h2 {
+    left: 150px;
+    z-index: 1;
 }
 
-.nachricht {
-    color: #ff0000;
+article.infobox section:nth-child(3) h2 {
+    left: 300px;
+    z-index: 0;
 }
+
+article.infobox section h2 a {
+    display: block;
+    margin: 5px 0 0 0;
+    text-align: center;
+    text-decoration: none;
+    color: #c5d2de;
+}
+article.infobox section:target, article.infobox section:target h2 {
+    color: #000000;
+    background-color: #c5d2de;
+    z-index: 1;
+}
+
+article.infobox section:target h2 a {
+    color: #194b7d;
+}
+
 #kurs {
 	padding: 30px;
 	margin: 10px;
@@ -144,6 +158,102 @@ p.eintrag_unten span {
 #kurs a {
 	text-decoration: none;
 	font-size: 20px;
+}
+#ansicht_inhalt {
+	background-color: #fafafa;
+	border: 1.2px solid #000;
+	width: 1000px;
+	height: 450px;
+	margin: 100px 0px 0px 200px;
+	padding: 10px 10px 20px 10px;
+}
+#titel {
+	margin: 40px 0px 0px 20px;
+	font-size: 15px;
+	width: 450px;
+	padding: 5px;
+	border: 1.2px solid #000;
+	text-align: center;
+}
+#beschreibung {
+	margin: 20px 0px 0px 20px;
+
+	width: 800px;
+	height: 100px;
+	padding-left: 5px;
+	border: 1.2px solid #000;
+	text-align: left;
+	overflow-y: auto;
+}
+#beschreibung p {
+	font-size: 15px;
+}
+#o_d {
+	margin: 20px 0px 0px 20px;
+}
+#ort {
+	border: 1.2px solid #000;
+	margin-left: 30px;
+	padding: 0px 30px 0px 30px;
+	display: inline-block;
+}
+#datum {
+	border: 1.2px solid #000;
+	margin-left: 60px;
+	padding: 0px 30px 0px 30px;
+	display: inline-block;
+}
+#zeit {
+	width: 800px;
+	margin: 20px 20px 0px 20px;
+	border: 1.2px solid #000;
+	padding: 30px 10px 30px 10px;
+	border: 1.2px solid #000;
+}
+#von {
+	padding: 0px 15px 0px 15px;
+	margin-left: 30px;
+	display: inline;
+		border: 1.2px solid #000;
+}
+#bis {
+	padding: 0px 15px 0px 15px;
+	margin-left: 30px;
+	display: inline;
+		border: 1.2px solid #000;
+}
+#dauer {
+	padding: 0px 30px 0px 30px;
+	margin-left: 100px;
+	display: inline;
+		border: 1.2px solid #000;
+}
+#anmeldeschluss {
+	padding: 0px 30px 0px 30px;
+	margin-left: 150px;
+	display: inline;
+	  border: 1.2px solid #000;
+}
+#krk {
+	margin: 40px 0px 0px 20px;
+}
+#kontakt {
+	padding: 0px 30px 0px 30px;
+	border: 1.2px solid #000;
+	margin-left: 40px;
+	display: inline;
+}
+#referent {
+	padding: 0px 30px 0px 30px;
+	border: 1.2px solid #000;
+	margin-left: 60px;
+	display: inline;
+}
+#koordination {
+	padding: 0px 30px 0px 30px;
+	border: 1.2px solid #000;
+	margin-left: 80px;
+	display: inline;
 }
 
 @media only screen and (max-width: 800px) {
@@ -180,49 +290,3 @@ body{
 	height: 80px;
 }
 }
-/*menü leiste */
-div {
-                background: lightgrey;
-                padding: 0.7em;
-                clear: left;
-            }
-            ul#navigation {
-                list-style: none;
-                background: gray;
-                margin: 0.1em;
-                padding: 0;
-            }
-            ul#navigation li {
-                float: left;
-                margin: 0.4em;
-            }
-            ul#navigation li a {
-                padding: 0.3em;
-            }
-            ul#navigation li a:link {
-                background: gray;
-            }
-            ul#navigation li a:active {
-                background: orange;
-            }
-            ul#navigation li a:visited {
-                background: black;
-            }
-            ul#navigation li a:hover, li a:focus {
-                background: white;
-                color: black;
-            }
-            ul#navigation div {
-                position: absolute;
-                right: 0;
-                top: 0;
-                background: gray;
-                display: none;
-            }
-            ul#navigation li:hover > div {
-                display: block;
-            }
-
-            ul#top li a {
-                color: #eee;
-            }
