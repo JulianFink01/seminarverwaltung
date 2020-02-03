@@ -83,7 +83,7 @@ form {
 }
 
 
-#button {
+/*#button {
 	margin: 50px 0px 0px 20px;;
 	padding: 0;
 }
@@ -94,6 +94,26 @@ form {
  background-image: url("../Images/fortbildung_erstellButton.png");
  background-repeat: no-repeat;
  background-size: contain;
+}*/
+.vline {
+	margin: 150px 0px 0px 900px;
+  border-left: 2px solid #000;
+  height: 450px;
+}
+#erstell_button {
+	margin: 0px 0px 0px 0px;
+	padding: 0;
+	width: 100px;
+	height: 100px;
+	border-radius: 150px 150px 150px 150px;
+  background-image: url("../Images/fortbildung_erstellButton.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+
+}
+#kurs_erstellbutton {
+ margin: 150px 0px 0px 900px;
+
 }
 #hintergrund {
 	height: 650px;
