@@ -15,8 +15,8 @@
   <label for="titel">Titel:</label><br/>
   <input type="text" placehoder="Titel" name="titel" id="titel"><br/>
 </div>
-  <label for="status">Status:</label><br/>
-  <input type="checkbox" id="status">
+  <!--<label for="status">Status:</label><br/>
+  <input type="checkbox" id="status">-->
 
 </div>
 </main>
