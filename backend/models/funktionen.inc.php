@@ -7,13 +7,13 @@ function send_email() {
     $mailer = new \PHPMailer\PHPMailer\PHPMailer();
 
     $to = strip_tags('roccasalvo.lukas@gmail.com');
-    $subject = strip_tags('Unwichtig');
-    $message = strip_tags($_POST['message']);
+    $subject = strip_tags('Einladung zur Fortbildung');
+    $message = strip_tags("$_POST['message']");
 
 
 
-    $mailer->From = "roccasalvo.lukas@gmail.com";
-    $mailer-> addAddress($to, "Lukas Roccasalvo");
+    $mailer->From = "Miriam.Bolognani@berufsschule.bz";
+    $mailer-> addAddress($to, "Miriam Bolognani");
     $mailer->Subject = $subject;
     $mailer->Body = $message;
 
