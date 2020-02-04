@@ -95,11 +95,7 @@ form {
  background-repeat: no-repeat;
  background-size: contain;
 }*/
-.vline {
-	margin: 150px 0px 0px 900px;
-  border-left: 2px solid #000;
-  height: 450px;
-}
+
 #erstell_button {
 	margin: 0px 0px 0px 0px;
 	padding: 0;
