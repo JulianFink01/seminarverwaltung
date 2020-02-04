@@ -43,8 +43,15 @@
 
 
 </div>
-<div id="button">
+<div id="kurs_erstellbutton">
+<a href="?aktion=hautp"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
+</div>
+<!--<div id="button">
 <a href="?aktion=f_erstellen"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
+<div id="eingabe">
+<label for="titel">Titel:</label><br/>
+<input type="text" placehoder="Titel" name="titel" id="titel"><br/>
+</div>-->
 </div>
 
 </div>
