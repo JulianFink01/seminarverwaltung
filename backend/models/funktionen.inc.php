@@ -2,19 +2,19 @@
 
 function send_email() {
 
-    require_once 'models/PHPMailer-master/PHPMailer.php';
+    require_once 'PHPMailer-master/src/PHPMailer.php';
 
     $mailer = new \PHPMailer\PHPMailer\PHPMailer();
 
-    $to = strip_tags($_POST['email']);
-
-    $subject = strip_tags($_POST['subject']);
+    $to = strip_tags('roccasalvo.lukas@gmail.com');
+    $subject = strip_tags('Unwichtig');
     $message = strip_tags($_POST['message']);
 
 
 
-    $mailer->From = "Miriam.Bolognani@berufsschule.bz";
-    $mailer-> addAddress($to, "Miriam Bolognani");
+    $mailer->From = "roccasalvo.lukas@gmail.com";
+    $mailer-> addAddress($to, "Lukas Roccasalvo");
+    $mailer->Subject = $subject;
     $mailer->Body = $message;
 
     if (!$mailer->send()) {

@@ -1,7 +1,7 @@
 
 <?php
 require_once '../entities/db.php';
-require_once '/models/funktionen.inc.php';
+require_once 'models/funktionen.inc.php';
 
     if (isset ($_REQUEST['aktion']))
         $aktion = $_REQUEST['aktion'];
