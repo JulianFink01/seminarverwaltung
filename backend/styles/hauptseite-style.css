@@ -13,6 +13,31 @@ body,  p,  div,  td {
 
 }
 
+#textfeld{
+	height: 0px;
+	overflow: hidden;
+	transition: 1s all;
+}
+#textfeld legend {
+	margin: 50px 0px 0px 0px;
+	font-size: 15px;
+}
+#textfeld input[type="text"] {
+	margin: 10px 0px 0px 0px;
+	padding-left: 5px;
+	width: 350px;
+	height: 30px;
+}
+#textfeld input[type="button"] {
+	margin: 10px 0px 0px 250px;
+	width: 100px;
+	height: 30px;
+}
+
+.show{
+	height:auto !important;
+	overflow: visible !important;
+}
 strong {
 	font-weight: bold;
 }
@@ -82,20 +107,6 @@ form {
 	overflow-y: auto;
 }
 
-
-/*#button {
-	margin: 50px 0px 0px 20px;;
-	padding: 0;
-}
-#erstell_button {
- width: 100px;
- height: 100px;
- border-radius: 150px 150px 150px 150px;
- background-image: url("../Images/fortbildung_erstellButton.png");
- background-repeat: no-repeat;
- background-size: contain;
-}*/
-
 #erstell_button {
 	margin: 0px 0px 0px 0px;
 	padding: 0;
@@ -150,17 +161,17 @@ p.eintrag_unten span {
 .nachricht {
     color: #ff0000;
 }
-#fortbildung1 {
-	padding: 30px;
+.f_inhalt {
+	padding: 20px;
 	margin: 10px;
-	border: solid #000 1.5px;
-	border-radius: 5px;
+	border: solid #000 0.5px;
 
 }
-#fortbildung1 a {
+.f_inhalt a {
 	text-decoration: none;
 	font-size: 20px;
 }
+
 
 @media only screen and (max-width: 800px) {
 
