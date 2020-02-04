@@ -1,6 +1,8 @@
 
 <?php
 require_once '../entities/db.php';
+require_once 'models/funktionen.inc.php';
+
     if (isset ($_REQUEST['aktion']))
         $aktion = $_REQUEST['aktion'];
     else
@@ -24,6 +26,9 @@ require_once '../entities/db.php';
      case "f_erstellen":
       $aktion = "fortbildungen_erstellen";
       break;
+    case "send_email":
+      $aktion = "send_email";
+      send_email();
 
 
     }
