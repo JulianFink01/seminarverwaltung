@@ -12,12 +12,14 @@
   foreach($fortbildungen as $fortbildung){
     $kurse = $fortbildung->findeAlleKurse();
     ?>
-
+    <div class="seminar">
     <header>
       <h1>
         <?php echo $fortbildung->getName(); ?>
+        <a class="header-info-text">Seminare / <?php echo $user->getVorname().' '.$user->getNachname()?></a>
       </h1>
     </header>
+    <div class="content-allgemein">
     <?php
     foreach($kurse as $kurs){
 
@@ -28,29 +30,30 @@
           <details>
             <summary>
               <?php echo $kurs->getTitel();?>
+              <a class="right"><?php echo $kurs->getTeilnehmerAnzahl()?>/<?php echo $kurs->getMaxTeilnehmer()?> Teilnehmer</a>
             </summary>
             <div class="informations">
+
+              <div class="Infos">
+                <div class="info-text">
+                  <a>Am <?php echo $kurs->getDatum()?></a>
+                </div>
+                <div class="info-text">
+                  <a>Von <?php echo $kurs->getVon()?> bis <?php echo $kurs->getBis()?> Uhr</a>
+                </div>
+              </div>
               <p>
                 <?php echo $kurs->getShortBeschreibung();?>...
               </p>
-
-              <div class="Infos">
-                <div>
-                  <a>Am <?php echo $kurs->getDatum()?></a>
-                </div>
-                <div>
-                  <a><?php echo $kurs->getTeilnehmerAnzahl()?>/<?php echo $kurs->getMaxTeilnehmer()?> Teilnehmer</a>
-                </div>
-                <div>
-                  <a>Von <?php echo $kurs->getVon()?> bis <?php echo $kurs->getBis()?> Uhr</a>
-                </div>
-                <div>
-                  <a href="index.php?aktion=show_KursInfos&kursId=<?php echo $kurs->getId();?>&token=<?php echo $user->getToken();?>">Mehr Informationen</a>
-                </div>
+              <div class="info-text info-right">
+                <a href="index.php?aktion=show_KursInfos&kursId=<?php echo $kurs->getId();?>&token=<?php echo $user->getToken();?>">Mehr Informationen</a>
               </div>
             </div>
           </details>
         </div>
       </div>
-    <?php }}?>
+    <?php }?>
+    </div>
+        </div>
+      <?php }?>
   </body>

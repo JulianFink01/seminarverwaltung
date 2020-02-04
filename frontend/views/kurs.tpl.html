@@ -11,69 +11,90 @@
         $kurs = Kurs::finde($kursId);
   ?>
 
-  <header>
-    <a href="index.php?action=show_Seminare&token=<?php echo $user->getToken();?>" id="back"><</a>
-    <h1><a class="bold"><?php echo $kurs->getTitel();?></a> </h1>
-  </header>
-  <div class="Content">
-    <div>
-      <p><a class="bold">Am</a><?php echo ' '.$kurs->getDatum();?></p>
-    </div>
-    <div>
-      <p><a class="bold">Von</a><?php echo ' '.$kurs->getVon();?> <a class="bold">-</a><?php echo ' '.$kurs->getBis();?></p>
-    </div>
-    <div>
-      <p><?php echo $kurs->getBeschreibung();?></p>
-    </div>
-    <div>
-      <p><a class="bold">Kontakt:</a> <?php echo ' '.$kurs->getKontakt();?></p>
-    </div>
-    <div>
-      <p><a class="bold">Referent:</a> <?php echo ' '.$kurs->getReferent();?></p>
-    </div>
-    <div>
-      <p><a class="bold">Raum:</a> <?php echo ' '.$kurs->getOrt_raum();?></p>
-    </div>
-    <div>
-      <p><a class="bold">Anmeldeschluss:</a> <?php echo ' '.$kurs->getAnmeldeSchluss();?></p>
-    </div>
-    <div>
-      <p>
-        <details>
-        <summary>
-          <a class="bold">Teilnehmer:</a> <?php echo ' '.$kurs->getTeilnehmerAnzahl();?> /<?php echo ' '.$kurs->getMaxTeilnehmer();?>
-          </summary>
-          <ul id="teilnehmer-liste">
-          <?php
+  <body>
 
-            $teilnhemer = $kurs->getAllTeilnehmer();
-            foreach($teilnhemer as $t){
-
-              ?>
-                <li><?php
-                  echo $t->getVorname().' '.$t->getNachname();
-                ?></li>
-              <?php
-
-            }
-
-          ?>
-          </ul>
-        </details>
-      </p>
-
-    </div>
-
-    <div>
+      <div class="seminar">
+      <header>
+        <h1>
+          <?php echo $kurs->getTitel(); ?>
+          <a class="header-info-text">Kurs / <?php echo $user->getVorname().' '.$user->getNachname()?></a>
+        </h1>
+      </header>
+      <div class="content-allgemein">
       <?php
-      $anzahl = $kurs->getTeilnehmerAnzahl();
-      $maxAnzahl =$kurs->getMaxTeilnehmer();
 
-      if(!$kurs->nimmtAnKursTeil($user) && !$user->nimmtAnKurseTeil() && $anzahl < $maxAnzahl){?>
-      <a href="index.php?aktion=anmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="anmelden" class="button">Anmelden</a>
-      <?php } elseif($kurs->nimmtAnKursTeil($user)){?>
-        <a href="index.php?aktion=abmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="abmelden" class="button">Abmelden</a>
-        <?php }?>
-    </div>
-  </div>
-</body>
+        $istEingeschrieben = $kurs->nimmtAnKursTeil($user);
+        ?>
+        <div class="Content <?php if($istEingeschrieben){echo 'meinKurs';} ?>">
+          <div class="Beschreibung">
+
+              <div class="informations">
+
+                <div class="Infos">
+                  <div class="info-text">
+                    <a>Am <?php echo $kurs->getDatum()?></a>
+                  </div>
+                  <div class="info-text">
+                    <a>Von <?php echo $kurs->getVon()?> bis <?php echo $kurs->getBis()?> Uhr</a>
+                  </div>
+                  <div class="info-text">
+                    <a>Referent: <?php echo $kurs->getReferent()?></a>
+                  </div>
+                  <div class="info-text">
+                    <a>Ort / Raum: <?php echo $kurs->getOrt_raum()?></a>
+                  </div>
+                  <div class="info-text">
+                    <a>Kontakt: <?php echo $kurs->getKontakt()?></a>
+                  </div>
+                  <div class="info-text">
+                    <a>Koordination: <?php echo $kurs->getKoordination()?></a>
+                  </div>
+                  <div class="info-text">
+                    <a>Anmeldeschluss: <?php echo $kurs->getAnmeldeschluss()?></a>
+                  </div>
+                </div>
+                <p>
+                  <?php echo $kurs->getBeschreibung();?>
+                </p>
+                <div class="info-text">
+
+                    <details>
+                    <summary>
+                      <a >Teilnehmer:</a> <?php echo ' '.$kurs->getTeilnehmerAnzahl();?> /<?php echo ' '.$kurs->getMaxTeilnehmer();?>
+                      </summary>
+                      <ul id="teilnehmer-liste">
+                      <?php
+
+                        $teilnhemer = $kurs->getAllTeilnehmer();
+                        foreach($teilnhemer as $t){
+
+                          ?>
+                            <li><?php
+                              echo $t->getVorname().' '.$t->getNachname();
+                            ?></li>
+                          <?php
+
+                        }
+
+                      ?>
+                      </ul>
+                    </details>
+
+                </div>
+                <div class="info-text info-right">
+                  <?php
+                    $anzahl = $kurs->getTeilnehmerAnzahl();
+                    $maxAnzahl =$kurs->getMaxTeilnehmer();
+
+                    if(!$kurs->nimmtAnKursTeil($user) && !$user->nimmtAnKurseTeil() && $anzahl < $maxAnzahl){?>
+                    <a href="index.php?aktion=anmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="anmelden" class="button">Anmelden</a>
+                    <?php } elseif($kurs->nimmtAnKursTeil($user)){?>
+                      <a href="index.php?aktion=abmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="abmelden" class="button">Abmelden</a>
+                    <?php }?>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </body>
