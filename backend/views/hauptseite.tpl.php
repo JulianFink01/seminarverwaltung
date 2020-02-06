@@ -21,37 +21,68 @@
 
 <div id="inhalt">
 
-<div id="fortbildung1">
+<div class="f_inhalt">
 <a href="?aktion=kurse#allgemeiner">Star wars</a>
+
 </div>
 
-<div id="fortbildung1">
+<div class="f_inhalt">
 <a href="?aktion=kurse#allgemeiner">Fortbildung x2y2</a>
+
 </div>
 
-<div id="fortbildung1">
+<div class="f_inhalt">
 <a href="?aktion=kurse#allgemeiner">Fortbildung x3y3</a>
+
 </div>
 
-<div id="fortbildung1">
+<div class="f_inhalt">
 <a href="?aktion=kurse#allgemeiner">Fortbildung x4y4</a>
+
 </div>
 
-<div id="fortbildung1">
+<div class="f_inhalt">
 <a href="?aktion=kurse#allgemeiner">Fortbildung x4y4</a>
+
+</div>
+
+<div class="f_inhalt">
+<a href="?aktion=kurse#allgemeiner">Star wars</a>
+
+</div>
+
+<div class="f_inhalt">
+<a href="?aktion=kurse#allgemeiner">Fortbildung x2y2</a>
+
+</div>
+
+<div class="f_inhalt">
+<a href="?aktion=kurse#allgemeiner">Fortbildung x3y3</a>
+
+</div>
+
+<div class="f_inhalt">
+<a href="?aktion=kurse#allgemeiner">Fortbildung x4y4</a>
+
+</div>
+
+<div class="f_inhalt">
+<a href="?aktion=kurse#allgemeiner">Fortbildung x4y4</a>
+
 </div>
 
 
 </div>
 <div id="kurs_erstellbutton">
-<a href="?aktion=hautp"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
+<a onclick="triggerTextfeld()"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
+<div id="textfeld">
+  <legend>Fortbildung - erstellen:</legend>
+  <input type="text" placeholder="Titel"><br/>
+  <input type="button" value="erstellen" name="erstellen" id="eingabe_b">
 </div>
-<!--<div id="button">
-<a href="?aktion=f_erstellen"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
-<div id="eingabe">
-<label for="titel">Titel:</label><br/>
-<input type="text" placehoder="Titel" name="titel" id="titel"><br/>
-</div>-->
+
+</div>
+
 </div>
 
 </div>
@@ -62,3 +93,12 @@
 
 </div>
 </body>
+
+
+<script type="text/javascript">
+
+  function triggerTextfeld(){
+    var textfeld = document.getElementById("textfeld");
+    textfeld.classList.toggle("show");
+  }
+</script>
