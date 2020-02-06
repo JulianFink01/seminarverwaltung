@@ -152,8 +152,6 @@ public function abmelden(Teilnehmer $teilnehmer){
     $teilnehmer->getId()
   ));
 }
-
-
 }
 
 
