@@ -161,6 +161,9 @@ p.eintrag_unten span {
 .f_inhalt:hover{
 		background-color: var(--main-orange);
 }
+.f_inhalt a:hover{
+	color: var(--main-blue);
+}
 
 
 @media only screen and (max-width: 800px) {
