@@ -8,7 +8,7 @@ function send_email() {
 
     $to = strip_tags('roccasalvo.lukas@gmail.com');
     $subject = strip_tags('Einladung zur Fortbildung');
-    $message = strip_tags("$_POST['message']");
+    $message = strip_tags("hallo");//$_POST['message']
 
 
 
