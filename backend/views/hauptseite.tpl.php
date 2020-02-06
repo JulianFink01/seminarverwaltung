@@ -22,11 +22,15 @@
 <div id="inhalt">
 
 <div class="f_inhalt">
-<a href="?aktion=kurse#allgemeiner">Star wars</a>
+  <?php
+  require_once('models/fortbildung.php');
+  foreach($fortbildungen as $fortbildung){
 
+   ?>
+<a href="?aktion=kurse#allgemeiner"><?php echo $fortbildung->getName();?></a>
 </div>
-
-<div class="f_inhalt">
+<?php }?>
+<!--<div class="f_inhalt">
 <a href="?aktion=kurse#allgemeiner">Fortbildung x2y2</a>
 
 </div>
@@ -69,7 +73,7 @@
 <div class="f_inhalt">
 <a href="?aktion=kurse#allgemeiner">Fortbildung x4y4</a>
 
-</div>
+</div>-->
 
 
 </div>
