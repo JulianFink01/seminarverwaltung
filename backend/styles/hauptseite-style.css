@@ -2,11 +2,11 @@ body {
 	background-color: white;
 	margin: 0 auto;
 	padding: 0;
+	font-family: 'Tenor Sans', sans-serif;
 
 }
 
 body,  p,  div,  td {
-	font-family: 'Tenor Sans', sans-serif;
 	font-size: 12px;
 	color: #2d4652;
 
@@ -27,7 +27,7 @@ body,  p,  div,  td {
 	width: 350px;
 	height: 30px;
 }
-#textfeld input[type="button"] {
+#textfeld input[type="submit"] {
 	margin: 10px 0px 0px 250px;
 	width: 100px;
 	height: 30px;
@@ -43,24 +43,6 @@ strong {
 
 em {
 	font-style: italic;
-}
-
-h1, h2, h3 {
-	color: #2d4652;
-	font-family: Verdana, Helvetica, Arial, Sans-Serif;
-	font-weight: bold;
-}
-
-h1 {
-	font-size: 14px;
-}
-
-h2 {
-	font-size: 13px;
-}
-
-h3 {
-	font-size: 12px;
 }
 
 form {
@@ -81,28 +63,29 @@ form {
 	background-color: white;
 	border: 1px solid rgba(189,195,199);
 	box-shadow: 1px 5px 5px 0px #f0f0f0;
-  margin: 0px;
-	padding: 25px 0px 25px 0px;
-	text-align: center;
+	margin-left: 2.5%;
+	margin-top: 2.5%;
+	margin-right: 2.5%;
 }
 
 
 
 #kopf h1 {
 	color: rgba(0, 48, 80, 1);
-	font-weight: normal;
-	font-size: 55px;
-	margin: 0px;
+	background-color: white;
+	text-align: center;
+	font-size: 40px;
+	margin-top: 2%;
+	padding-bottom: 10px;
 }
 
 #inhalt {
-	background-color: #fafafa;
-	border-right: 1px solid #d4d9db;
+	background-color: white;
 	float: left;
 	width: 60%;
 	height: 450px;
-	margin: 150px 0px 0px 50px;
-	padding: 10px 10px 20px 10px;
+	margin: 1% 0px 0px 3%;
+	padding: 10px 10px 20px 0px;
 	overflow-y: auto;
 }
 
@@ -122,16 +105,16 @@ form {
 
 }
 #hintergrund {
-	height: 650px;
+	height: 60%;
 }
 #suchleiste {
-margin: 50px 0px -40px 50px;
-width: 500px;
+margin: 4% 0px 3% 3%;
+width: 10%;
 }
 #suchleiste input[type="search"]{
 	width: 500px;
 	height: 40px;
-	border-radius: 5px 5px 5px 5px;
+	border-radius: 0px 0px 0px 0px;
 
 }
 
@@ -163,12 +146,23 @@ p.eintrag_unten span {
 .f_inhalt {
 	padding: 20px;
 	margin: 10px;
-	border: solid #000 0.5px;
+	margin-left: 0px;
+	background-color: var(--main-blue);
+	cursor: pointer;
 
 }
 .f_inhalt a {
 	text-decoration: none;
 	font-size: 20px;
+	color: #e9f6ff;
+
+}
+
+.f_inhalt:hover{
+		background-color: var(--main-orange);
+}
+.f_inhalt a:hover{
+	color: var(--main-blue);
 }
 
 
