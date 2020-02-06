@@ -1,13 +1,12 @@
 body {
-	background-color: #1b5873;
+	background-color: white;
 	margin: 0 auto;
 	padding: 0;
-	width: 80%;
 
 }
 
 body,  p,  div,  td {
-	font-family: Verdana, Helvetica, Arial, Sans-Serif;
+	font-family: 'Tenor Sans', sans-serif;
 	font-size: 12px;
 	color: #2d4652;
 
@@ -70,27 +69,27 @@ form {
 }
 
 #gesamt {
-	margin: 10px auto 0px auto;
-	width: 95%;
-	height: 850px;
-	background-color: #e2eaee;
-	border-style: solid;
-	border-color: #d4d9db;
-	border-width: 0px 1px 0px 1px;
+		width: 95%;
+    margin: 2.5%;
+    border: 1px solid var(--dark-white);
+    padding-bottom: 2.5%;
 }
 
 
 
 #kopf {
-	background-color: #c4cdd4;
-    margin: 0px;
+	background-color: white;
+	border: 1px solid rgba(189,195,199);
+	box-shadow: 1px 5px 5px 0px #f0f0f0;
+  margin: 0px;
 	padding: 25px 0px 25px 0px;
 	text-align: center;
 }
 
+
+
 #kopf h1 {
-	color: #1b5873;
-	font-family: serif;
+	color: rgba(0, 48, 80, 1);
 	font-weight: normal;
 	font-size: 55px;
 	margin: 0px;

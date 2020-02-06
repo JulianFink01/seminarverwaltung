@@ -1,5 +1,6 @@
 <?php
 
+require_once '../entities/nimmtteil.php';
 function send_email() {
 
     require_once 'PHPMailer-master/src/PHPMailer.php';
