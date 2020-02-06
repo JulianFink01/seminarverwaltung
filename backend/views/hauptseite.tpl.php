@@ -21,12 +21,13 @@
 
 <div id="inhalt">
 
-<div class="f_inhalt">
+
   <?php
   require_once('models/fortbildung.php');
   foreach($fortbildungen as $fortbildung){
 
    ?>
+<div class="f_inhalt">
 <a href="?aktion=kurse#allgemeiner"><?php echo $fortbildung->getName();?></a>
 </div>
 <?php }?>
