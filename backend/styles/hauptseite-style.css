@@ -18,17 +18,17 @@ body,  p,  div,  td {
 	transition: 1s all;
 }
 #textfeld legend {
-	margin: 50px 0px 0px 0px;
+	margin: 50px 0px 0px 15px;
 	font-size: 15px;
 }
 #textfeld input[type="text"] {
-	margin: 10px 0px 0px 0px;
+	margin: 10px 0px 0px 15px;
 	padding-left: 5px;
 	width: 350px;
 	height: 30px;
 }
 #textfeld input[type="submit"] {
-	margin: 10px 0px 0px 250px;
+	margin: 10px 0px 0px 265px;
 	width: 100px;
 	height: 30px;
 }
@@ -90,7 +90,7 @@ form {
 }
 
 #erstell_button {
-	margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 15px;
 	padding: 0;
 	width: 100px;
 	height: 100px;
