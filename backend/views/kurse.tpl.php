@@ -1,13 +1,6 @@
 <head>
   <!-- https://t3n.de/news/css3-dynamische-tabs-ohne-365861/-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.js"></script>
-
 <link rel="stylesheet" type="text/css" href="styles/kurse-style.css">
 </head>
 <body>
@@ -31,9 +24,13 @@
          </div>
          <div id="inhalt">
 
+           <?php
+             require_once('models/fortbildung.php');
+             foreach($fortbildungen as $fortbildung){
+           ?>
          <div id="kurs1">
-         <a href="?aktion=kurse#allgemeiner">Star wars Kurs</a>
-         <p>Beschreibung!</p>
+         <a href="?aktion=kurse#allgemeiner"><?php echo $kurs->getTitel();?></a>
+         <p><?php echo $kurs->?></p>
          <a href="#">bearbeiten  löschen</a>
          </div>
 
@@ -83,32 +80,38 @@
              <div id="teilnehmer">
                <table>
                  <tr>
-                   <th>Name</th>
+                   <th>VorName</th>
+                   <th>NachName</th>
                    <th>E-Mail</th>
                    <th class="status">Status</th>
                  </tr>
                  <tr>
                    <td>Hans</td>
+                   <td>lool</td>
                    <td>mail@mail</td>
                    <td class="status"> </td>
                  </tr>
                  <tr>
                    <td>lanz</td>
+                   <td>lool</td>
                    <td>mail@mail</td>
                    <td class="status"> </td>
                  </tr>
                  <tr>
                    <td>heinz</td>
+                   <td>lool</td>
                    <td>mail@mail</td>
                    <td style="background-color: red;" class="status"></td>
                  </tr>
                  <tr>
                    <td>meins</td>
+                   <td>lool</td>
                    <td>mail@mail</td>
                    <td style="background-color: green;" class="status"></td>
                  </tr>
                  <tr>
                    <td>deins</td>
+                   <td>lool</td>
                    <td>mail@mail</td>
                    <td style="background-color: red;" class="status"></td>
                  </tr>
@@ -119,16 +122,10 @@
             <h2><a href="#emailsenden">E-Mail senden</a></h2>
 
             <div id="fenster">
-            <form action="#" method="post">
-                 <div id="summernote" ><p></p></div>
-        <script>
-               $(document).ready(function() {
-        $('#summernote').summernote({height: 420});
+            <form action="index.php?aktion=send_email" method="post">
+              <textarea name="message" rows="4" cols="40" id="text"></textarea>
 
-    });
-  </script>
-
-          <input id="senden" type="button" value="senden">
+              <input type="submit" id="senden" name="senden" value="Senden"/>
       </div>
     </form>
 
