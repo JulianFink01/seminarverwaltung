@@ -10,20 +10,29 @@ class Controller{
         $this->generatePage($aktion);
     }
 
-    // Alle Seminartermine auslesen
-    public function alleST(){
-      $this->addContext("seminartermine", Seminartermin::findeAlle());
+
+    public function alleF(){
+      $this->addContext("fortbildungen", Fortbildung::findeAlle());
     }
 
-    public function loescheST(){
-        $seminarTermin = Seminartermin::finde($_GET["st_id"]);
-        $seminarTermin->loesche();
+    public function insertF(){
+      $fortbildung = Fortbildung->speichere();
+      header("Location: index.php");
+    }
+
+    public function loescheF(){
+        $fortbildung = Fortbildung::finde($_GET["st_id"]);
+        $fortbildung->loesche();
         header("Location: index.php");
     }
 
-    public function detailsAnschauen(){
-        $this->addContext("seminardetails", Seminar::finde($_GET["seminar_id"]));
+    public function alleK(){
+      $this->addContext("kurse", Kurs::)
     }
+
+    /*public function detailsAnschauen(){
+        $this->addContext("seminardetails", Seminar::finde($_GET["seminar_id"]));
+    }*/
 
     private function generatePage($template){
         extract($this->context);
