@@ -10,14 +10,13 @@ class Controller{
         $this->generatePage($aktion);
     }
 
-
-    public function alleF(){
-      $this->addContext("fortbildungen", Fortbildung::findeAlle());
-      $this->generatePage("Hauptseite");
+    public function hauptseite(){
+        $this->addContext("fortbildungen", Fortbildung::findeAlle());
     }
 
-    public function alleK(){
-      $this->addContext("kurse", Kurs::findeAlle());
+
+    public function alle_Kurse(){
+      $this->addContext("kurse", Kurs::findeNachFortbildung(Fortbildung::finde($_GET['fortbildung_id'])));
     }
 
     public function alleT(){

@@ -27,7 +27,7 @@
         ?>
 
         <div class="f_inhalt">
-          <a href="?aktion=kurse#allgemeiner&fortbildung_id=<?php $fortbildung->getId();?>"><?php echo $fortbildung->getName();?></a>
+          <a href="index.php?aktion=alle_kurse&fortbildung_id=<?php echo $fortbildung->getId();?>#allgemeiner"><?php echo $fortbildung->getName();?></a>
         </div>
         <?php }?>
 
