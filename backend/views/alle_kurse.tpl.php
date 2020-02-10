@@ -55,15 +55,19 @@
             </div>
 
 
+
              <div id="teilnehmer">
                <table>
+                 <?php foreach ($teilnehmern as $teilnehmer){
+                   ?>
                  <tr>
-                   <th>VorName</th>
-                   <th>NachName</th>
-                   <th>E-Mail</th>
+                   <th><?php echo $teilnehmer->getVorname();?></th>
+                   <th><?php echo $teilnehmer->getNachname();?></th>
+                   <th><?php echo $teilnehmer->getEmail();?></th>
                    <th class="status">Status</th>
                  </tr>
-                 <tr>
+                 <?php } ?>
+                 <!--<tr>
                    <td>Hans</td>
                    <td>lool</td>
                    <td>mail@mail</td>
@@ -92,9 +96,10 @@
                    <td>lool</td>
                    <td>mail@mail</td>
                    <td style="background-color: red;" class="status"></td>
-                 </tr>
+                 </tr>-->
              </table>
              </div>
+
         </section>
         <section id="emailsenden">
             <h2><a href="#emailsenden">E-Mail senden</a></h2>
