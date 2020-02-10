@@ -12,6 +12,8 @@ class Controller{
 
     public function hauptseite(){
         $this->addContext("fortbildungen", Fortbildung::findeAlle());
+        
+        }
     }
 
 

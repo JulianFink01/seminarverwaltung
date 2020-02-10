@@ -36,7 +36,7 @@
       <div id="kurs_erstellbutton">
         <a onclick="triggerTextfeld()"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
           <div id="textfeld">
-            <form action="models/fortbildung.php" method="post">
+            <form action="/" method="post">
               <legend>Fortbildung - erstellen:</legend>
               <input type="text" name="titel" placeholder="Titel"><br/>
               <input type="submit" value="erstellen" name="erstellen" id="eingabe_b">
