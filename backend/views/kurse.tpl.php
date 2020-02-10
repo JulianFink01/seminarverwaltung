@@ -1,9 +1,6 @@
 <head>
   <!-- https://t3n.de/news/css3-dynamische-tabs-ohne-365861/-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
 <link rel="stylesheet" type="text/css" href="styles/kurse-style.css">
 </head>
 <body>
@@ -27,9 +24,13 @@
          </div>
          <div id="inhalt">
 
+           <?php
+             require_once('models/fortbildung.php');
+             foreach($fortbildungen as $fortbildung){
+           ?>
          <div id="kurs1">
-         <a href="?aktion=kurse#allgemeiner">Star wars Kurs</a>
-         <p>Beschreibung!</p>
+         <a href="?aktion=kurse#allgemeiner"><?php echo $kurs->getTitel();?></a>
+         <p><?php echo $kurs->?></p>
          <a href="#">bearbeiten  löschen</a>
          </div>
 
