@@ -1,6 +1,7 @@
 <head>
   <!-- https://t3n.de/news/css3-dynamische-tabs-ohne-365861/-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="styles/main-style.css">
 <link rel="stylesheet" type="text/css" href="styles/kurse-style.css">
 </head>
 <body>
@@ -24,12 +25,13 @@
          </div>
          <div id="inhalt">
 
-           <?php      
+           <?php
              foreach($kurse as $kurs){ ?>
          <div id="kurs1">
          <a href="?aktion=kurse#allgemeiner"><?php echo $kurs->getTitel();?></a>
          <p><?php echo $kurs->getBeschreibung() ?></p>
-         <a href="#">bearbeiten  löschen</a>
+         <a href="#">bearbeiten</a>
+         <a href="#">löschen</a>
          </div>
  <?php    } ?>
 
