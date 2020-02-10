@@ -20,6 +20,7 @@ public function __construct($daten = array())
         }
     }
 }
+
 public function  __toString()
 {
     return 'Id:'. $this->id .', Name: '.$this->name.', Status: '.$this->status;
