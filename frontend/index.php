@@ -5,6 +5,8 @@
     require_once("../entities/nimmtteil.php");
     require_once("../entities/teilnehmer.php");
 
+    require_once("../")
+
 
     if (isset ($_REQUEST['aktion']))
         $aktion = $_REQUEST['aktion'];
