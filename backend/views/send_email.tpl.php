@@ -3,6 +3,7 @@
     <head>
         <title>Kurse Email gesendet</title>
         <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="styles/main-style.css">
         <link rel="stylesheet" type="text/css" href="styles/kurse-style.css">
     </head>
     <body>
