@@ -12,14 +12,11 @@ class Controller{
 
     public function hauptseite(){
         $this->addContext("fortbildungen", Fortbildung::findeAlle());
-        
-        }
+
     }
-
-
     public function alle_Kurse(){
       $this->addContext("kurse", Kurs::findeNachFortbildung(Fortbildung::finde($_GET['fortbildung_id'])));
-      $this->addContext("teilnehmern", Fortbildung::findeAlleTeilnehmer(Fortbildung::finde($_GET['fortbildung_id'])));
+      //$this->addContext("teilnehmern", Fortbildung::findeAlleTeilnehmer(Fortbildung::finde($_GET['fortbildung_id'])));
 
     }
 
