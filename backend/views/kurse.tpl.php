@@ -1,7 +1,9 @@
 <head>
   <!-- https://t3n.de/news/css3-dynamische-tabs-ohne-365861/-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="styles/main-style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
 <link rel="stylesheet" type="text/css" href="styles/kurse-style.css">
 </head>
 <body>
@@ -25,21 +27,40 @@
          </div>
          <div id="inhalt">
 
-           <?php
-             foreach($kurse as $kurs){ ?>
          <div id="kurs1">
-         <a href="?aktion=kurse#allgemeiner"><?php echo $kurs->getTitel();?></a>
-         <p><?php echo $kurs->getBeschreibung() ?></p>
-         <a href="#">bearbeiten</a>
-         <a href="#">löschen</a>
+         <a href="?aktion=kurse#allgemeiner">Star wars Kurs</a>
+         <p>Beschreibung!</p>
+         <a href="#">bearbeiten  löschen</a>
          </div>
- <?php    } ?>
 
+         <div id="kurs1">
+         <a href="?aktion=kurse#allgemeiner">Kurs x2y2</a>
+         <p>Beschreibung!</p>
+         <a href="#">bearbeiten  löschen</a>
+         </div>
+
+         <div id="kurs1">
+         <a href="?aktion=kurse#allgemeiner">Kurs x3y3</a>
+          <p>Beschreibung!</p>
+          <a href="#">bearbeiten  löschen</a>
+         </div>
+
+         <div id="kurs1">
+         <a href="?aktion=kurse#allgemeiner">Kurs x4y4</a>
+          <p>Beschreibung!</p>
+          <a href="#">bearbeiten  löschen</a>
+         </div>
+
+         <div id="kurs1">
+         <a href="?aktion=kurse#allgemeiner">Kurs x4y4</a>
+          <p>Beschreibung!</p>
+          <a href="#">bearbeiten  löschen</a>
+         </div>
 
 </div>
 
   <div id="kurs_erstellbutton">
-  <a href="index.php?aktion=kurse_erstellen#allgemeiner"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
+  <a href="?aktion=kurse_erstellen"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
   </div>
 
         </section>
@@ -55,19 +76,15 @@
             </div>
 
 
-
              <div id="teilnehmer">
                <table>
-                 <?php foreach ($teilnehmern as $teilnehmer){
-                   ?>
                  <tr>
-                   <th><?php echo $teilnehmer->getVorname();?></th>
-                   <th><?php echo $teilnehmer->getNachname();?></th>
-                   <th><?php echo $teilnehmer->getEmail();?></th>
+                   <th>VorName</th>
+                   <th>NachName</th>
+                   <th>E-Mail</th>
                    <th class="status">Status</th>
                  </tr>
-                 <?php } ?>
-                 <!--<tr>
+                 <tr>
                    <td>Hans</td>
                    <td>lool</td>
                    <td>mail@mail</td>
@@ -96,10 +113,9 @@
                    <td>lool</td>
                    <td>mail@mail</td>
                    <td style="background-color: red;" class="status"></td>
-                 </tr>-->
+                 </tr>
              </table>
              </div>
-
         </section>
         <section id="emailsenden">
             <h2><a href="#emailsenden">E-Mail senden</a></h2>
