@@ -20,9 +20,11 @@ class Controller{
 
     }
     public function kurse_erstellen(){
-      
-    }
 
+    }
+    public function send_email(){
+      $this->addContext("fortbildungen",Fortbildung::findeAlle());
+    }
     /*public function detailsAnschauen(){
         $this->addContext("seminardetails", Seminar::finde($_GET["seminar_id"]));
     }*/
