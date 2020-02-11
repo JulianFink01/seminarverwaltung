@@ -9,7 +9,7 @@
 
   <body>
 
-      <div class="seminar">
+      <div class="kurs">
       <header>
         <h1>
           <?php echo $kurs->getTitel(); ?>
@@ -56,7 +56,7 @@
 
                     <details>
                     <summary>
-                      <a >Teilnehmer:</a> <?php echo ' '.$kurs->getTeilnehmerAnzahl();?> /<?php echo ' '.$kurs->getMaxTeilnehmer();?>
+                      <a >Teilnehmer: <?php echo ' '.$kurs->getTeilnehmerAnzahl();?> /<?php echo ' '.$kurs->getMaxTeilnehmer();?></a>
                       </summary>
                       <ul id="teilnehmer-liste">
                       <?php
