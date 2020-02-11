@@ -23,7 +23,7 @@ class Controller{
 
     }
     public function send_email(){
-      
+      send_email();
     }
     /*public function detailsAnschauen(){
         $this->addContext("seminardetails", Seminar::finde($_GET["seminar_id"]));
