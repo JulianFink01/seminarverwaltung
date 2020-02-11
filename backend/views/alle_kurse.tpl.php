@@ -39,7 +39,7 @@
 </div>
 
   <div id="kurs_erstellbutton">
-  <a href="?aktion=kurse_erstellen"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
+  <a href="index.php?aktion=kurse_erstellen#allgemeiner"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
   </div>
 
         </section>
