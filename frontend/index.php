@@ -6,7 +6,22 @@
     require_once("../entities/teilnehmer.php");
 
 
-    if (isset ($_REQUEST['aktion']))
+    require_once('controller.php');
+
+    $aktion = isset($_GET['aktion'])?$_GET['aktion']:'login';
+
+    $controller = new Controller();
+
+    if(method_exists($controller, $aktion)){
+      $controller->run($aktion);
+    }
+
+
+
+
+
+
+  /*  if (isset ($_REQUEST['aktion']))
         $aktion = $_REQUEST['aktion'];
         else
             $aktion = 'show_login';
@@ -65,4 +80,5 @@
 
     $kurs->teilnehmen($user);
   }
+  */
 ?>

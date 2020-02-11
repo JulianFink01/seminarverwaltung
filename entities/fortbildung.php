@@ -145,13 +145,13 @@ public function teilnehmen(Teilnehmer $teilnehmer){
 }
 public function abmelden(Teilnehmer $teilnehmer){
   $sql = 'Delete from nimmt_teil where fortbildung_id = ? and teilnehmer_id = ?';
-
   $abfrage = DB::getDB()->prepare($sql);
   $abfrage->execute(array(
     $this->getId(),
     $teilnehmer->getId()
   ));
 }
+
 }
 
 
