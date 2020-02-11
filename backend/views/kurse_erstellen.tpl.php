@@ -1,14 +1,15 @@
 <head>
   <!-- https://t3n.de/news/css3-dynamische-tabs-ohne-365861/-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="styles/kurse_erstellen-style.css">
+  <link rel="stylesheet" type="text/css" href="styles/main-style.css">
+  <link rel="stylesheet" type="text/css" href="styles/kurse-style.css">
 </head>
 <body>
   <header id="kopf">
 <h1>Kurse - erstellen</h1>
   </header>
   <div id="hintergrund">
-
+<div id="leiste">
     <article class="infobox">
         <section id="allgemeiner">
 
@@ -19,17 +20,12 @@
           </div>
 
         </section>
-        <section id="allgemeiner2">
-
-            <h2><a href="#allgemeiner2">Erweiterung</a></h2>
-
-        </section>
         <section id="ansicht">
             <h2><a href="#ansicht">Ansicht</a></h2>
 
             <div id="ansicht_inhalt">
               <div id="teilnehmeranzahl">
-                
+
               </div>
                <h1 id="titel">Ich bin der Kurs Titel</h1>
                <div id="beschreibung">
@@ -57,7 +53,7 @@
 
         </section>
     </article>
-
+</div>
 </div>
 
 </body>
