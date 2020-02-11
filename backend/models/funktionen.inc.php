@@ -1,13 +1,21 @@
 <?php
 
-require_once '../entities/nimmtteil.php';
+require_once ("../entities/nimmtteil.php");
+require_once ("../entities/fortbildung.php");
 function send_email() {
 
     require_once 'PHPMailer-master/src/PHPMailer.php';
-
     $mailer = new \PHPMailer\PHPMailer\PHPMailer();
 
-    $to = strip_tags('roccasalvo.lukas@gmail.com');
+    $teilnehmer = NimmtTeil::findeAlleFortbildungTeilnehmer($_GET["f_id"]);
+
+    foreach ($teilnehmer as $key => $value) {
+      $mail = $teilnehmer->getEmail();
+
+      var_dump[$mail];
+    }
+
+    $to = strip_tags('pincopallino@boo.com');
     $subject = strip_tags('Einladung zur Fortbildung');
     $message = strip_tags("hallo");//$_POST['message']
 

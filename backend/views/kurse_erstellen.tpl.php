@@ -19,17 +19,12 @@
           </div>
 
         </section>
-        <section id="allgemeiner2">
-
-            <h2><a href="#allgemeiner2">Erweiterung</a></h2>
-
-        </section>
         <section id="ansicht">
             <h2><a href="#ansicht">Ansicht</a></h2>
 
             <div id="ansicht_inhalt">
               <div id="teilnehmeranzahl">
-                
+
               </div>
                <h1 id="titel">Ich bin der Kurs Titel</h1>
                <div id="beschreibung">
