@@ -6,13 +6,13 @@ function send_email() {
 
     require_once 'PHPMailer-master/src/PHPMailer.php';
     $mailer = new \PHPMailer\PHPMailer\PHPMailer();
+    echo $_REQUEST['fortbildung_id'];
+    $teilnehmer = NimmtTeil::findeAlleFortbildungTeilnehmer(Fortbildung::finde($_REQUEST['fortbildung_id']));
 
-    $teilnehmer = NimmtTeil::findeAlleFortbildungTeilnehmer($_GET["f_id"]);
+    foreach ($teilnehmer as $key) {
+      $mail = $key->getEmail();
 
-    foreach ($teilnehmer as $key => $value) {
-      $mail = $teilnehmer->getEmail();
-
-      var_dump[$mail];
+    echo $mail.'<br>';
     }
 
     $to = strip_tags('pincopallino@boo.com');
