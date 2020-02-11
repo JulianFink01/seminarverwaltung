@@ -1,6 +1,6 @@
 <?php
 
-<<<<<<< HEAD
+
 class Controller{
 
   private $context = array();
@@ -30,12 +30,6 @@ class Controller{
     $this->context[$key] = $value;
   }
 }
-
-=======
-
-
-
->>>>>>> 185c5b48c8be863be7f8a542dc90485e19f6ace9
 
 
  ?>
