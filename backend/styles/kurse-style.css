@@ -187,6 +187,94 @@ table, td, th{
  margin: 50px 0px 0px 1200px;
 
 }
+#titel {
+	margin: 40px 0px 0px 20px;
+	font-size: 15px;
+	width: 450px;
+	padding: 5px;
+	border: 1.2px solid #000;
+	text-align: center;
+}
+#beschreibung {
+	margin: 20px 0px 0px 20px;
+
+	width: 800px;
+	height: 100px;
+	padding-left: 5px;
+	border: 1.2px solid #000;
+	text-align: left;
+	overflow-y: auto;
+}
+#beschreibung p {
+	font-size: 15px;
+}
+#o_d {
+	margin: 20px 0px 0px 20px;
+}
+#ort {
+	border: 1.2px solid #000;
+	margin-left: 30px;
+	padding: 0px 30px 0px 30px;
+	display: inline-block;
+}
+#datum {
+	border: 1.2px solid #000;
+	margin-left: 60px;
+	padding: 0px 30px 0px 30px;
+	display: inline-block;
+}
+#zeit {
+	width: 800px;
+	margin: 20px 20px 0px 20px;
+	border: 1.2px solid #000;
+	padding: 30px 10px 30px 10px;
+	border: 1.2px solid #000;
+}
+#von {
+	padding: 0px 15px 0px 15px;
+	margin-left: 30px;
+	display: inline;
+		border: 1.2px solid #000;
+}
+#bis {
+	padding: 0px 15px 0px 15px;
+	margin-left: 30px;
+	display: inline;
+		border: 1.2px solid #000;
+}
+#dauer {
+	padding: 0px 30px 0px 30px;
+	margin-left: 100px;
+	display: inline;
+		border: 1.2px solid #000;
+}
+#anmeldeschluss {
+	padding: 0px 30px 0px 30px;
+	margin-left: 150px;
+	display: inline;
+	  border: 1.2px solid #000;
+}
+#krk {
+	margin: 40px 0px 0px 20px;
+}
+#kontakt {
+	padding: 0px 30px 0px 30px;
+	border: 1.2px solid #000;
+	margin-left: 40px;
+	display: inline;
+}
+#referent {
+	padding: 0px 30px 0px 30px;
+	border: 1.2px solid #000;
+	margin-left: 60px;
+	display: inline;
+}
+#koordination {
+	padding: 0px 30px 0px 30px;
+	border: 1.2px solid #000;
+	margin-left: 80px;
+	display: inline;
+}
 
 @media screen and (max-width: 27rem){
     #feld{
