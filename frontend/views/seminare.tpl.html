@@ -7,7 +7,7 @@
 
 <body>
   <?php
-  require_once('models/seminare.php');
+  $fortbildungen = Fortbildung::findeNachBenutzer($user);
 
   foreach($fortbildungen as $fortbildung){
     $kurse = $fortbildung->findeAlleKurse();
