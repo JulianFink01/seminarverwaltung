@@ -5,24 +5,31 @@ class Controller{
 
   private $context = array();
 
-  private $direction = "";
+
 
   public function run($aktion){
-    $this->direction = $aktion;
     $this->$aktion();
-    $this->generatePage($this->direction);
+    $this->generatePage($aktion);
   }
 
   public function login(){
-
+    if (isset ($_REQUEST['token'])){
+        $token = $_REQUEST['token'];
+        $teilnehmer = Teilnehmer::findeNachToken($token);
+        if($teilnehmer!=NULL){
+            $this->show_seminare();
+        }else{
+            $this->addContext("template", "login");
+        }
+      }
   }
   public function show_seminare(){
     if (isset ($_REQUEST['token'])){
         $token = $_REQUEST['token'];
         $this->addContext("user", Teilnehmer::findeNachToken($token));
-        $this->direction = 'seminare';
+          $this->addContext("template", "seminare");
       }else{
-          $this->direction = 'login';
+          $this->addContext("template", "login");
       }
   }
   public function show_KursInfos(){
@@ -31,7 +38,7 @@ class Controller{
         $kursId = $_REQUEST['kursId'];
         $this->addContext("user", Teilnehmer::findeNachToken($token));
         $this->addContext("kurs", Kurs::finde($kursId));
-        $this->direction = 'kurs';
+        $this->addContext("template", "kurs");
       }
 
   }

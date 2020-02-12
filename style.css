@@ -1,0 +1,36 @@
+html, body {
+  font-family: 'Tenor Sans', sans-serif;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%; }
+
+#flex {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row; }
+  @media (max-width: 820px) {
+    #flex {
+      flex-direction: column; } }
+  #flex .flex-item {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: stretch;
+    align-self: center; }
+    #flex .flex-item:nth-child(1) {
+      background-color: #ffcb00;
+      color: #003050; }
+    #flex .flex-item:nth-child(2) {
+      background-color: #003050;
+      color: #ffcb00; }
+    #flex .flex-item a {
+      width: 100%;
+      height: 100%;
+      display: block;
+      text-align: center; }
+
+/*# sourceMappingURL=style.css.map */
