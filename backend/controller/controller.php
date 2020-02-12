@@ -17,15 +17,25 @@ class Controller{
     public function alle_Kurse(){
       $this->addContext("kurse", Kurs::findeNachFortbildung(Fortbildung::finde($_GET['fortbildung_id'])));
       $this->addContext("teilnehmern", Fortbildung::findeAlleTeilnehmer(Fortbildung::finde($_GET['fortbildung_id'])));
-      
+
 
     }
     public function kurse_erstellen(){
 
     }
     public function send_email(){
-      send_email();
+      Funktionen::send_email();
     }
+
+    public function import_lehrer(){
+      $alleLehrer = Funktionen::importLehrer();
+      foreach ($alleLehrer as $lehrer) {
+        // code...
+      }
+      $this->alle_Kurse();
+      $this->addContext("template","alle_Kurse");
+    }
+
     /*public function detailsAnschauen(){
         $this->addContext("seminardetails", Seminar::finde($_GET["seminar_id"]));
     }*/
@@ -39,6 +49,7 @@ class Controller{
     private function addContext($key, $value){
         $this->context[$key] = $value;
     }
+
 }
 
 ?>

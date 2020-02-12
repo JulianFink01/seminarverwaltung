@@ -54,7 +54,15 @@
              </datalist>
             </div>
 
-
+            <div class="csv">
+              <form method="post" enctype="multipart/form-data" action="index.php?aktion=import_lehrer&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen">
+                <label>
+                  CSV Datei(*.csv)
+                  <input name="datei" type="file" size="50" accept=".csv" id="button2">
+                  <input type="submit" class="button" name="submit" value="Upload">
+                </label>
+              </form>
+            </div>
 
              <div id="teilnehmer">
                <table>
