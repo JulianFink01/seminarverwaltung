@@ -74,8 +74,6 @@
                <option>A</option>
              </datalist>
             </div>
-
-
              <div id="teilnehmer">
                <table>
                  <tr>
