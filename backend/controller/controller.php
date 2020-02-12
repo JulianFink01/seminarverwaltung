@@ -16,13 +16,15 @@ class Controller{
     }
     public function alle_Kurse(){
       $this->addContext("kurse", Kurs::findeNachFortbildung(Fortbildung::finde($_GET['fortbildung_id'])));
-      //$this->addContext("teilnehmern", Fortbildung::findeAlleTeilnehmer(Fortbildung::finde($_GET['fortbildung_id'])));
+      //$this->addContext("teilnehmer", Fortbildung::findeAlleTeilnehmer(Fortbildung::finde($_GET['fortbildung_id'])));
 
     }
     public function kurse_erstellen(){
-      
-    }
 
+    }
+    public function send_email(){
+      send_email();
+    }
     /*public function detailsAnschauen(){
         $this->addContext("seminardetails", Seminar::finde($_GET["seminar_id"]));
     }*/

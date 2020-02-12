@@ -105,7 +105,7 @@
             <h2><a href="#emailsenden">E-Mail senden</a></h2>
 
             <div id="fenster">
-            <form action="index.php?aktion=send_email" method="post">
+            <form action="index.php?aktion=send_email&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>" method="post">
               <textarea name="message" rows="4" cols="40" id="text"></textarea>
 
               <input type="submit" id="senden" name="senden" value="Senden"/>

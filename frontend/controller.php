@@ -21,6 +21,8 @@ class Controller{
         $token = $_REQUEST['token'];
         $this->addContext("user", Teilnehmer::findeNachToken($token));
         $this->direction = 'seminare';
+      }else{
+          $this->direction = 'login';
       }
   }
   public function show_KursInfos(){
@@ -35,7 +37,6 @@ class Controller{
   }
 
   public function abmelden(){
-    $this->direction = "seminare";
     $kursId = $_REQUEST['kursId'];
     $token = $_REQUEST['token'];
 
@@ -43,9 +44,9 @@ class Controller{
     $kurs = Kurs::finde($kursId);
     $user = Teilnehmer::findeNachToken($token);
     $kurs->abmelden($user);
+    $this->show_seminare();
   }
   public function anmelden(){
-    $this->direction = "seminare";
     $kursId = $_REQUEST['kursId'];
     $token = $_REQUEST['token'];
 
@@ -53,6 +54,7 @@ class Controller{
     $kurs = Kurs::finde($kursId);
     $user = Teilnehmer::findeNachToken($token);
     $kurs->teilnehmen($user);
+    $this->show_seminare();
   }
   private function generatePage($template){
     extract($this->context);
