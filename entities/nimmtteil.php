@@ -65,8 +65,8 @@ class NimmtTeil{
     return $this->kurs_id;
   }
   public function getStatusFarbe(){
-    $blue = '#003050';
-    $orange = '#ffcb00';
+    $blue = 'blue';
+    $orange = 'orange';
 
     if($this->kurs_id==NULL){
       return $blue;
