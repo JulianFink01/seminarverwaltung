@@ -64,6 +64,16 @@ class NimmtTeil{
   public function getKurs_id(){
     return $this->kurs_id;
   }
+  public function getStatusFarbe(){
+    $blue = '#003050';
+    $orange = '#ffcb00';
+
+    if($this->kurs_id==NULL){
+      return $blue;
+    }else{
+      return $orange;
+    }
+  }
   public static function loescheAusFortbildung()
   {
       $sql = 'DELETE FROM nimmt_teil WHERE teilnehmer_id=?';
@@ -128,6 +138,13 @@ class NimmtTeil{
     return $abfrage->fetchAll();
   }
 
+  public static function findeNachFortbildungUndTeilnehemer(Fortbildung $fortbilung, Teilnehmer $teilnehmer){
+    $sql = 'SELECT * FROM nimmt_teil WHERE nimmt_teil.teilnehmer_id=? and nimmt_teil.fortbildung_id = ?';
+    $abfrage = DB::getDB()->prepare($sql);
+    $abfrage->execute(array($teilnehmer->getId(), $fortbilung->getId()));
+    $abfrage->setFetchMode(PDO::FETCH_CLASS, 'NimmtTeil');
+    return $abfrage->fetchAll();
+  }
 
 
 }
