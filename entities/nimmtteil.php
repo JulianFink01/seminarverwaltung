@@ -117,7 +117,7 @@ class NimmtTeil{
     return $abfrage->fetchAll();
   }
   public static function findeAlleFortbildungTeilnehmer(Fortbildung $fortbildung){
-    $sql = 'SELECT teilnehmer.* FROM teilnehmer JOIN nimmt_teil on teilnehmer_id = nimmt_teil.teilnehmer_id WHERE fortbildung_id=?';
+    $sql = 'SELECT teilnehmer.* FROM teilnehmer JOIN nimmt_teil on teilnehmer.id = nimmt_teil.teilnehmer_id WHERE fortbildung_id=?';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array($fortbildung->getId()));
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
