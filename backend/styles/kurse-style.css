@@ -98,10 +98,11 @@ article.infobox section:target h2 a {
 }
 
 /* css simon teilnehmerliste*/
-table, td, th{
+td, th{
 	border: 0.5px solid var(--dark-white);
 	padding: 5px;
 }
+
 #teilnehmer {
 	background-color: white;
 	width: 94%;
@@ -122,6 +123,10 @@ table, td, th{
 #teilnehmer table tr td{
 		text-align: center;
 		color: var(--main-blue);
+}
+table tr td.b_l{
+	border: none;
+	text-align: left;
 }
 
 .status{

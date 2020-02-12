@@ -17,6 +17,8 @@ class Controller{
     public function alle_Kurse(){
       $this->addContext("kurse", Kurs::findeNachFortbildung(Fortbildung::finde($_GET['fortbildung_id'])));
       $this->addContext("teilnehmern", Fortbildung::findeAlleTeilnehmer(Fortbildung::finde($_GET['fortbildung_id'])));
+      $this->addContext("fortbildung", Fortbildung::finde($_GET['fortbildung_id']));
+
 
 
     }
