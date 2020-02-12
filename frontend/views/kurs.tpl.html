@@ -13,7 +13,7 @@
       <header>
         <h1>
           <?php echo $kurs->getTitel(); ?>
-          <a class="header-info-text">Kurs / <?php echo $user->getVorname().' '.$user->getNachname()?></a>
+          <a class="header-info-text"> Kurs / <?php echo $user->getVorname().' '.$user->getNachname()?></a>
         </h1>
       </header>
       <div class="content-allgemein">
@@ -54,7 +54,7 @@
                 </p>
                 <div class="info-text">
 
-                    <details>
+                    <details class="<?php if($istEingeschrieben){echo 'meinDetails';} ?>">
                     <summary>
                       <a >Teilnehmer: <?php echo ' '.$kurs->getTeilnehmerAnzahl();?> /<?php echo ' '.$kurs->getMaxTeilnehmer();?></a>
                       </summary>
@@ -92,5 +92,10 @@
           </div>
         </div>
       </div>
+      <footer>
+        <h1>
+          <a class="footer-info-text" href="index.php?token=<?php echo $user->getToken()?>&aktion=show_seminare">Zurück zu den Seminaren</a>
+        </h1>
+      </footer>
       </div>
     </body>
