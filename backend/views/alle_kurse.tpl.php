@@ -58,45 +58,24 @@
 
              <div id="teilnehmer">
                <table>
+                 <tr>
+                   <th>Vorname</th>
+                   <th>Nachname</th>
+                   <th>Email</th>
+                   <th>Status</th>
+
+                 </tr>
+
                  <?php foreach ($teilnehmern as $teilnehmer){
                    ?>
                  <tr>
-                   <th><?php echo $teilnehmer->getVorname();?></th>
-                   <th><?php echo $teilnehmer->getNachname();?></th>
-                   <th><?php echo $teilnehmer->getEmail();?></th>
-                   <th class="status">Status</th>
+                   <td><?php echo $teilnehmer->getVorname();?></td>
+                   <td><?php echo $teilnehmer->getNachname();?></td>
+                   <td><?php echo $teilnehmer->getEmail();?></td>
+                   <td style="background-color: var(--main-orange)">&nbsp;</td>
                  </tr>
                  <?php } ?>
-                 <!--<tr>
-                   <td>Hans</td>
-                   <td>lool</td>
-                   <td>mail@mail</td>
-                   <td class="status"> </td>
-                 </tr>
-                 <tr>
-                   <td>lanz</td>
-                   <td>lool</td>
-                   <td>mail@mail</td>
-                   <td class="status"> </td>
-                 </tr>
-                 <tr>
-                   <td>heinz</td>
-                   <td>lool</td>
-                   <td>mail@mail</td>
-                   <td style="background-color: red;" class="status"></td>
-                 </tr>
-                 <tr>
-                   <td>meins</td>
-                   <td>lool</td>
-                   <td>mail@mail</td>
-                   <td style="background-color: green;" class="status"></td>
-                 </tr>
-                 <tr>
-                   <td>deins</td>
-                   <td>lool</td>
-                   <td>mail@mail</td>
-                   <td style="background-color: red;" class="status"></td>
-                 </tr>-->
+
              </table>
              </div>
 
@@ -106,7 +85,7 @@
 
             <div id="fenster">
             <form action="index.php?aktion=send_email&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>" method="post">
-              <textarea name="message" rows="4" cols="40" id="text"></textarea>
+              <textarea name="message" rows="50" cols="60" id="text"></textarea>
 
               <input type="submit" id="senden" name="senden" value="Senden"/>
       </div>

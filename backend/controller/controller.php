@@ -1,7 +1,7 @@
 <?php
 
 class Controller{
-
+//https://remotemysql.com/phpmyadmin/index.php
     private $context = array();
 
 
@@ -16,7 +16,8 @@ class Controller{
     }
     public function alle_Kurse(){
       $this->addContext("kurse", Kurs::findeNachFortbildung(Fortbildung::finde($_GET['fortbildung_id'])));
-      //$this->addContext("teilnehmer", Fortbildung::findeAlleTeilnehmer(Fortbildung::finde($_GET['fortbildung_id'])));
+      $this->addContext("teilnehmern", Fortbildung::findeAlleTeilnehmer(Fortbildung::finde($_GET['fortbildung_id'])));
+      
 
     }
     public function kurse_erstellen(){
