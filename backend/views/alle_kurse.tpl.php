@@ -72,7 +72,7 @@
                    <td><?php echo $teilnehmer->getVorname();?></td>
                    <td><?php echo $teilnehmer->getNachname();?></td>
                    <td><?php echo $teilnehmer->getEmail();?></td>
-                   <td style="background-color: var(--main-orange)">&nbsp;</td>
+                   <td style="background-color: var(--main-orange);">&nbsp;</td>
                  </tr>
                  <?php } ?>
 
