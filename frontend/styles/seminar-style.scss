@@ -142,6 +142,10 @@ background-color: white;
     font-size: 0.8em;
     display: table;
   }
+  .important{
+    font-size: 1.1em !important;
+      margin-left:1.75em !important;
+  }
   .right{
     font-size: 0.7em !important;
     display: table-cell;
@@ -167,6 +171,7 @@ background-color: white;
 
     }
 }
+
 .meinKurs{
   background-color: $main-orange !important;
 

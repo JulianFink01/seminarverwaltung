@@ -126,9 +126,9 @@ public function speichere()
     return $bis;
   }
   public function getFormatedDate(){
-    $jahr = substr($this->getDatum(), 0, 3);
-    $monat = substr($this->getDatum(), 5, 6);
-    $tag = substr($this->getDatum(), 8, 9);
+    $jahr = substr($this->getDatum(), 0, 4);
+    $monat = substr($this->getDatum(), 5, 2);
+    $tag = substr($this->getDatum(), 8, 2);
 
     switch ($monat) {
       case '01':
@@ -170,9 +170,11 @@ public function speichere()
     }
 
     $datum = $tag.' '.$monat.' '.$jahr;
-    $von = substr($this->getVon(),0,1);
-    $bis = substr($this->getBis(),3,4);
-    $datum = $datum.' von '.$von.' - '.$bis;
+    $von = substr($this->getVon(),0,5);
+    $bis = substr($this->getBis(),0,5);
+    if($von!=""){
+    $datum = $datum.' von '.$von.' - '.$bis.' Uhr';
+    }
     return $datum;
 
   }
