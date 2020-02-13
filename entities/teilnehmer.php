@@ -95,7 +95,7 @@ private function _insert()
     //Token generiren
     $this->setToken("");
 
-    $sql = 'INSERT INTO teilnhermer (vorname, nachname, email, token)'
+    $sql = 'INSERT INTO teilnehmer (vorname, nachname, email, token)'
          . 'VALUES (:vorname, :nachname, :email, :token)';
 
     $abfrage = DB::getDB()->prepare($sql);
@@ -106,7 +106,7 @@ private function _insert()
 
 private function _update()
 {
-    $sql = 'UPDATE teilnhermer SET vorname=:vorname, nachname=:nachname, email=:email,token=:token'
+    $sql = 'UPDATE teilnehmer SET vorname=:vorname, nachname=:nachname, email=:email,token=:token'
         . 'WHERE id=:id';
     $abfrage = self::$db->prepare($sql);
     $abfrage->execute($this->toArray());
