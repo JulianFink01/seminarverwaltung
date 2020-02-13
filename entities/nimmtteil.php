@@ -144,7 +144,7 @@ class NimmtTeil{
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array($teilnehmer->getId(), $fortbilung->getId()));
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'NimmtTeil');
-    return $abfrage->fetchAll();
+    return $abfrage->fetch();
   }
 
 

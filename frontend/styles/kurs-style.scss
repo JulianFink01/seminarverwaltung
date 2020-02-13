@@ -48,16 +48,71 @@ border: 1px solid var(--dark-white);
     font-size: 20px;
     margin-top: 2%;
     font-weight: normal;
-    color: black;
+    color: var(--dark-white);
     padding-bottom: 10px;
   }
 }
-
-.content-allgemein{
-  width: 95%;
-  margin-top: 5%;
-  transform: translateX(2.5%);
+footer{
+margin: 0;
+padding: 0;
+  width: 85%;
+margin-left: 7.5%;
+margin-top: 2.5%;
+border: 1px solid var(--dark-white);
   background-color: white;
+  -webkit-box-shadow: 1px 5px 5px 0px rgba(240,240,240,1);
+  -moz-box-shadow: 1px 5px 5px 0px rgba(240,240,240,1);
+  box-shadow: 1px 5px 5px 0px rgba(240,240,240,1);
+  cursor: pointer;
+  .footer-info-text{
+    display: block;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 2%;
+    font-weight: normal;
+    color: $main-blue;
+    padding-bottom: 10px;
+    text-decoration: none;
+  }
+  &:hover{
+    background-color: ligthen($main-blue, 40%) !important;
+  }
+}
+details{
+  summary{
+      margin-left:1.5em;
+      color: lighten($main-blue, 50%);
+    a{
+    color: lighten($main-blue, 50%);
+    }
+  }
+  ul{
+    li{
+      color: lighten($main-blue, 50%);
+    }
+  }
+}
+.meinDetails{
+  summary{
+      color: darken($main-orange, 40%);
+    a{
+    color: darken($main-orange, 40%);
+    }
+  }
+  ul{
+    li{
+      color: darken($main-orange, 40%);
+    }
+  }
+}
+.content-allgemein{
+  width: 80%;
+  margin-top: 5%;
+  background-color: white;
+  transform: translateX(9%);
   .Content{
     background-color: var(--main-blue);
     margin: 0;
@@ -69,52 +124,82 @@ border: 1px solid var(--dark-white);
     }
     .Beschreibung{
       .informations{
-        padding-bottom: 40px;
+        padding-bottom: 60px;
         .Infos{
           .info-text{
             text-decoration: none;
             display: block;
             margin-bottom: 10px;
             font-size: 2em;
-            margin-left:1.5em;
-            details{
-              summary{
-                  margin-left:1.5em;
-                a{
-                color: lighten($main-blue, 50%);
-                }
-              }
-              ul{
-                li{
-                  color: lighten($main-blue, 50%);
-                }
-              }
-            }
+            margin-left:0.8em;
               a{
 
                 color: lighten($main-blue, 50%);
                 font-size: 0.6em;
                 text-decoration: none;
+                @media only screen and (max-width: 1100px){
+                    font-size: 0.5em;
+                }
               }
           }
         }
         p{
-          color: lighten($main-blue, 70%);
+          color: white;
           font-size: 1.2em;
           text-decoration: none;
+          text-align: justify;
           margin-left:1.5em;
           margin-right: 1.5em;
+          @media only screen and (max-width: 1100px){
+              font-size: 1em;
+          }
         }
         .info-right{
           float: right;
             margin-right:1.5em;
             cursor: pointer;
             padding: 10px;
+            margin-top: 10px;
             text-decoration: none;
-            border: 1px solid lighten($main-blue, 50%);
+            border: 1px solid white;
+            transition: 0.3s all ease-in;
             a{
-              color: lighten($main-blue, 50%);
+              color: white;
               text-decoration: none;
+
+            }
+            &:hover{
+              background: lighten($main-blue, 10%);
+            }
+        }
+      }
+    }
+  }
+  .meinKurs{
+    background-color: var(--main-orange);
+    border-bottom: 1px solid var(--dark-white);
+
+    .Beschreibung{
+      .informations{
+        .Infos{
+          .info-text{
+
+              a{
+                color: darken($main-orange, 40%);
+              }
+          }
+        }
+        p{
+          color: darken($main-orange, 30%);
+
+        }
+        .info-right{
+            border: 1px solid darken($main-orange, 40%);
+            a{
+              color: darken($main-orange, 40%);
+            }
+            &:hover{
+              background: darken($main-orange, 5%);
             }
         }
       }

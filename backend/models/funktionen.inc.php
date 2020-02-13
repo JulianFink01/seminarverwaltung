@@ -1,8 +1,8 @@
 <?php
+class Funktionen{
 
-require_once ("../entities/nimmtteil.php");
-require_once ("../entities/fortbildung.php");
-function send_email() {
+
+public static function send_email() {
 
     require_once 'PHPMailer-master/src/PHPMailer.php';
     $mailer = new \PHPMailer\PHPMailer\PHPMailer();
@@ -31,6 +31,7 @@ function send_email() {
           . "<p>" . $mailer->ErrorInfo . "</p>";
       }
     }
+  }
 
 
     /*
@@ -42,9 +43,47 @@ function send_email() {
     // send email
     mail("Miriam.Bolognani@berufsschule.bz","Einladung zur Fortbildung",$msg);
     */
+
+  public static function importLehrer() {
+
+        $csv_datei = $_FILES['datei']['tmp_name'];
+        $name = $_FILES['datei']['name'];
+        $name = substr($name, 0, strlen($name) -4);
+        $felder_trenner = ";";
+        $zeilen_trenner = "\n";
+
+        if (@file_exists($csv_datei) == false) {
+
+        } else {
+            $datei_inhalt = @file_get_contents($csv_datei);
+            $zeilen = explode($zeilen_trenner, $datei_inhalt);
+            //speichert daten in array
+
+            $teilnehmer_all = array();
+
+            if (is_array($zeilen) == true) {
+
+                foreach ($zeilen as $zeile) {
+                    if (trim($zeile) != "") {
+                        $daten = explode($felder_trenner, $zeile);
+                      
+                        // AN DIE RICHTIGE STELLE VOM ARRAY
+                        $teilnehmer["Nachname"] = trim(utf8_encode($daten[0]));
+                        $teilnehmer["Vorname"] = trim(utf8_encode($daten[1]));
+                        $teilnehmer["Email"] = utf8_encode(trim($daten[2]));
+
+                        if ($teilnehmer["Nachname"] != "Nachname")
+                            $teilnehmer_all[] = $teilnehmer;   //return this Array
+                    }
+                }
+            }
+        }
+        return $teilnehmer_all;
+    }
+
+
+
 }
-
-
 
 
 

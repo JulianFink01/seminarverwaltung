@@ -6,8 +6,8 @@
 </head>
 <body>
   <header id="kopf">
-<h1>Kurse - Verwaltung</h1>
-  </header>
+ <h1>Kursverwaltung - <?php echo $fortbildung->getName() ?></h1>
+   </header>
 
   <div id="login_Feld"></div>
 
@@ -16,13 +16,7 @@
         <section id="allgemeiner">
             <h2><a href="#allgemeiner">Kurse</a></h2>
 
-            <div id="suchleiste">
-           <input type="search" placeholder="Suche nach Kurs" list="kurssuche"/>
-           <datalist id="kurssuche">
-             <option>A</option>
-             <option>A</option>
-           </datalist>
-         </div>
+
          <div id="inhalt">
 
            <?php
@@ -46,15 +40,17 @@
         <section id="funktionen">
             <h2><a href="#funktionen">Teilnehmer</a></h2>
             <!--Simons arbeitsbereich  mit teiler-style-->
-            <div id="suchleiste">
-             <input type="search" placeholder="Suche nach Teilnehmer" list="kurssuche"/>
-             <datalist id="kurssuche">
-               <option>A</option>
-               <option>A</option>
-             </datalist>
+
+
+            <div class="csv">
+              <form method="post" enctype="multipart/form-data" action="index.php?aktion=import_lehrer&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen">
+                <label>
+                  CSV Datei(*.csv)
+                  <input name="datei" type="file" size="50" accept=".csv" id="button2">
+                  <input type="submit" class="button" name="submit" value="Upload">
+                </label>
+              </form>
             </div>
-
-
 
              <div id="teilnehmer">
                <table>
@@ -72,7 +68,9 @@
                    <td><?php echo $teilnehmer->getVorname();?></td>
                    <td><?php echo $teilnehmer->getNachname();?></td>
                    <td><?php echo $teilnehmer->getEmail();?></td>
-                   <td style="background-color: var(--main-orange);">&nbsp;</td>
+                   <td style="background-color: var(--main-<?php echo NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbildung,$teilnehmer)->getStatusFarbe();?>);">&nbsp;</td>
+                   <td class="b_l">bearbeiten</td>
+                   <td class="b_l">löschen</td>
                  </tr>
                  <?php } ?>
 
