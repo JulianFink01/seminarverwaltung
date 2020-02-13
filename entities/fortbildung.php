@@ -78,8 +78,6 @@ public function loesche()
 
 private function _insert()
 {
-    //Token generiren
-    $this->setToken("");
 
     $sql = 'INSERT INTO fortbildung (name, status)'
          . 'VALUES (:name, :status)';
