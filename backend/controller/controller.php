@@ -32,7 +32,10 @@ class Controller{
     public function import_lehrer(){
       $alleLehrer = Funktionen::importLehrer();
       foreach ($alleLehrer as $lehrer) {
-        // code...
+        //checken ob teilnehmer/lehrer in datenbank schon vorhanden ist
+        if($lehrer->findeNachEmail() == null){//wenn leherer keine email haben, sind nicht in DB
+          $teilnehmer = new Teilnehmer();
+        }
       }
       $this->alle_Kurse();
       $this->addContext("template","alle_Kurse");
