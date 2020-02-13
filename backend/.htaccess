@@ -1,4 +1,5 @@
 AuthType Basic
+
 AuthName "Password Protected Area"
 AuthUserFile C:\xampp\htdocs\seminarverwaltung\backend/passwort/.htpasswd
 Require valid-user
