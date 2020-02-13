@@ -13,7 +13,7 @@
       <header>
         <h1>
           <?php echo $kurs->getTitel(); ?>
-          <a class="header-info-text">Kurs / <?php echo $user->getVorname().' '.$user->getNachname()?></a>
+          <a class="header-info-text"> Kurs / <?php echo $user->getVorname().' '.$user->getNachname()?></a>
         </h1>
       </header>
       <div class="content-allgemein">
@@ -54,7 +54,7 @@
                 </p>
                 <div class="info-text">
 
-                    <details>
+                    <details class="<?php if($istEingeschrieben){echo 'meinDetails';} ?>">
                     <summary>
                       <a >Teilnehmer: <?php echo ' '.$kurs->getTeilnehmerAnzahl();?> /<?php echo ' '.$kurs->getMaxTeilnehmer();?></a>
                       </summary>
@@ -77,20 +77,29 @@
                     </details>
 
                 </div>
-                <div class="info-text info-right">
+
                   <?php
                     $anzahl = $kurs->getTeilnehmerAnzahl();
                     $maxAnzahl =$kurs->getMaxTeilnehmer();
 
                     if(!$kurs->nimmtAnKursTeil($user) && !$user->nimmtAnKurseTeil() && $anzahl < $maxAnzahl){?>
-                    <a href="index.php?aktion=anmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="anmelden" class="button">Anmelden</a>
+                        <div class="info-text info-right">
+                          <a href="index.php?aktion=anmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="anmelden" class="button">Anmelden</a>
+                      </div>
                     <?php } elseif($kurs->nimmtAnKursTeil($user)){?>
+                      <div class="info-text info-right">
                       <a href="index.php?aktion=abmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="abmelden" class="button">Abmelden</a>
+                      </div>
                     <?php }?>
-                </div>
+
               </div>
           </div>
         </div>
       </div>
+      <footer>
+        <h1>
+          <a class="footer-info-text" href="index.php?token=<?php echo $user->getToken()?>&aktion=show_seminare">Zurück zu den Seminaren</a>
+        </h1>
+      </footer>
       </div>
     </body>
