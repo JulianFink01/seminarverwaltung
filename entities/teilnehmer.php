@@ -147,6 +147,15 @@ public static function findeNachToken($token)
          $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
          return $abfrage->fetch();
 }
+public static function findeNachEmail($email)
+{
+    $sql = 'SELECT teilnehmer.* FROM teilnehmer '
+         . 'WHERE email like ?';
+         $abfrage = DB::getDB()->prepare($sql);
+         $abfrage->execute(array($email));
+         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
+         return $abfrage->fetch();
+}
 public static function findeNachFortbildung(Fortbildung $fortbildung)
 {
     $sql = 'SELECT teilnehmer.* FROM teilnehmer '
@@ -157,6 +166,8 @@ public static function findeNachFortbildung(Fortbildung $fortbildung)
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
     return $abfrage->fetchAll();
 }
+
+
 public function getTermine(){
     return Kurs::findeNachBenutzer($this);
 }
