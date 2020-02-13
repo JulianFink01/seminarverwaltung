@@ -34,8 +34,8 @@
           foreach($fortbildungen as $fortbildung){
         ?>
 
-        <div class="f_inhalt">
-          <a href="index.php?aktion=alle_kurse&fortbildung_id=<?php echo $fortbildung->getId();?>#allgemeiner">
+        <div id="textdeco">
+          <a href="index.php?aktion=alle_kurse&fortbildung_id=<?php echo $fortbildung->getId();?>#allgemeiner" >
               <div class="f_inhalt">
                 <?php echo $fortbildung->getName();?>
               </div>

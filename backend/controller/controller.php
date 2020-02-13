@@ -16,8 +16,7 @@ class Controller{
     public function saveFortbildung(){
       $fortbildung = new Fortbildung(array("name"=>$_POST['titel'],"status"=>1));
       $fortbildung->speichere();
-        $this->addContext("aktion","hauptseite");
-      $this->hauptseite();
+      header("Location: index.php?aktion=hauptseite");
     }
     public function alle_Kurse(){
       $this->addContext("kurse", Kurs::findeNachFortbildung(Fortbildung::finde($_GET['fortbildung_id'])));
@@ -37,10 +36,7 @@ class Controller{
     public function import_lehrer(){
       $alleLehrer = Funktionen::importLehrer();
       foreach ($alleLehrer as $lehrer) {
-        //checken ob teilnehmer/lehrer in datenbank schon vorhanden ist
-        if($lehrer->findeNachEmail() == null){//wenn leherer keine email haben, sind nicht in DB
-          $teilnehmer = new Teilnehmer();
-        }
+        // code...
       }
       $this->alle_Kurse();
       $this->addContext("template","alle_Kurse");

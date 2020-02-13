@@ -151,20 +151,18 @@ p.eintrag_unten span {
 	overflow: hidden;
 	background-color: var(--main-blue);
 	cursor: pointer;
-
-}
-.f_inhalt a {
-	text-decoration: none;
+	color: var(--main-white);
 	font-size: 20px;
-	color: #e9f6ff;
+}
 
+#textdeco a{
+		text-decoration: none;
 }
 
 .f_inhalt:hover{
-		background-color: var(--main-orange);
-}
-.f_inhalt a:hover{
+	background-color: var(--main-orange);
 	color: var(--main-blue);
+
 }
 
 
