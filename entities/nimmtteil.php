@@ -32,13 +32,9 @@ class NimmtTeil{
 
   public function speichere()
   {
-      if ( $this->getId() > 0 ) {
-          // wenn die ID eine Datenbank-ID ist, also größer 0, führe ein UPDATE durch
-          $this->_update();
-      } else {
-          // ansonsten einen INSERT
-          $this->_insert();
-      }
+
+    $this->_insert();
+
   }
 
   public function setFortbildung_id($fortbildungsid){
@@ -87,9 +83,6 @@ class NimmtTeil{
 
   private function _insert()
   {
-      //Token generiren
-      $this->setToken("");
-
       $sql = 'INSERT INTO nimmt_teil (fortbildung_id,teilnehmer_id, kurs_id)'
            . 'VALUES (:fortbildung_id, :teilnehmer_id, :kurs_id)';
 
@@ -103,7 +96,7 @@ class NimmtTeil{
   {
       $sql = 'UPDATE nimmt_teil SET fortbildung_id=:fortbildung_id, kurs_id=:kurs_id'
           . 'WHERE teilnehmer_id=:teilnehmer_id';
-      $abfrage = self::$db->prepare($sql);
+      $abfrage = DB::getDB()->prepare($sql);
       $abfrage->execute($this->toArray());
   }
 
