@@ -20,6 +20,7 @@ public function __construct($daten = array())
             if (method_exists($this, $setterName)) {
                 $this->$setterName($v);
             }
+
         }
     }
 }
@@ -44,6 +45,7 @@ public function speichere()
         $this->_update();
     } else {
         // ansonsten einen INSERT
+        $this->genereateToken();
         $this->_insert();
     }
 }
@@ -103,7 +105,12 @@ private function _insert()
     // setze die ID auf den von der DB generierten Wert
     $this->id = DB::getDB()->lastInsertId();
 }
-
+public function genereateToken(){
+  $email = $this->getEmail();
+  $arr = explode("@", $email, 2);
+  $first = $arr[0];
+  $this->setToken($first);
+}
 private function _update()
 {
     $sql = 'UPDATE teilnhermer SET vorname=:vorname, nachname=:nachname, email=:email,token=:token'
