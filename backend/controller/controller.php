@@ -37,9 +37,7 @@ class Controller{
       $alleLehrer = Funktionen::importLehrer();
 
       foreach ($alleLehrer as $lehrer) {
-<<<<<<< HEAD
-        // code...
-=======
+
         //checken ob teilnehmer/lehrer in datenbank schon vorhanden ist
         $teilnehmer = Teilnehmer::findeNachEmail($lehrer["Email"]);
 
@@ -56,7 +54,6 @@ class Controller{
         $teilnehmerNimmt->setTeilnehmer_id($teilnehmer->getId());
         $teilnehmerNimmt->speichere();
         // Teilnehmer zu NimmtTeil hinzufügens
->>>>>>> 40d832ed46a96c3b1664244e3e8ba22167dc0638
       }
       $this->alle_Kurse();
       $this->addContext("template","alle_Kurse");
