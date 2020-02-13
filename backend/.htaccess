@@ -1,6 +1,11 @@
 AuthType Basic
 AuthName "Password Protected Area"
-AuthUserFile C:\xampp\htdocs\seminarverwaltung\backend\passwort\.htpasswd
+<<<<<<< HEAD
+AuthUserFile /Applications/XAMPP/xamppfiles/htdocs/Seminarverwaltung/backend/.htpasswd
+=======
+AuthUserFile C:\xampp\htdocs\seminarverwaltung\backend/passwort/.htpasswd
+>>>>>>> 55cd7d9a16fc4168966805d0b2d461f343a705a7
 Require valid-user
+AuthType Basic
 
 ErrorDocument 401 '<html><head><meta http-equiv="Refresh" content="0; url=./" /></head></html>'
