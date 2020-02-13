@@ -49,10 +49,12 @@ class Controller{
           $teilnehmer->speichere();
         }
 
-        $teilnehmerNimmt = new NimmtTeil();
-        $teilnehmerNimmt->setFortbildung_id($_GET['fortbildung_id']);
-        $teilnehmerNimmt->setTeilnehmer_id($teilnehmer->getId());
-        $teilnehmerNimmt->speichere();
+        if (NimmtTeil::findeNachFortbildungUndTeilnehemer(Fortbildung::finde($_GET['fortbildung_id']) , $teilnehmer) == false){
+          $teilnehmerNimmt = new NimmtTeil();
+          $teilnehmerNimmt->setFortbildung_id($_GET['fortbildung_id']);
+          $teilnehmerNimmt->setTeilnehmer_id($teilnehmer->getId());
+          $teilnehmerNimmt->speichere();
+        }
         // Teilnehmer zu NimmtTeil hinzufügens
       }
       $this->alle_Kurse();
