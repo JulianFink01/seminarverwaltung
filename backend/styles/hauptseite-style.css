@@ -11,7 +11,10 @@ body,  p,  div,  td {
 	color: #2d4652;
 
 }
-
+.show{
+	height:auto !important;
+	overflow: visible !important;
+}
 #textfeld{
 	height: 0px;
 	overflow: hidden;
@@ -33,10 +36,7 @@ body,  p,  div,  td {
 	height: 30px;
 }
 
-.show{
-	height:auto !important;
-	overflow: visible !important;
-}
+
 strong {
 	font-weight: bold;
 }
@@ -86,8 +86,8 @@ form {
 	height: 450px;
 	margin: 1% 0px 0px 3%;
 	padding: 10px 10px 20px 0px;
-	overflow-y: auto;
 }
+
 
 #erstell_button {
 	margin: 0px 0px 0px 15px;
@@ -101,7 +101,8 @@ form {
 
 }
 #kurs_erstellbutton {
- margin: 150px 0px 0px 900px;
+	position: absolute;
+	left: 65%;
 
 }
 #hintergrund {
@@ -147,6 +148,7 @@ p.eintrag_unten span {
 	padding: 20px;
 	margin: 10px;
 	margin-left: 0px;
+	overflow: hidden;
 	background-color: var(--main-blue);
 	cursor: pointer;
 
