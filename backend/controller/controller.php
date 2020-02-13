@@ -31,11 +31,24 @@ class Controller{
 
     public function import_lehrer(){
       $alleLehrer = Funktionen::importLehrer();
+
       foreach ($alleLehrer as $lehrer) {
         //checken ob teilnehmer/lehrer in datenbank schon vorhanden ist
-        if($lehrer->findeNachEmail() == null){//wenn leherer keine email haben, sind nicht in DB
+        $teilnehmer = Teilnehmer::findeNachEmail($lehrer["Email"]);
+
+        if($teilnehmer == false){//wenn leherer keine email haben, sind nicht in DB
           $teilnehmer = new Teilnehmer();
+          $teilnehmer->setVorname($lehrer["Vorname"]);
+          $teilnehmer->setNachname($lehrer["Nachname"]);
+          $teilnehmer->setEmail($lehrer["Email"]);
+          $teilnehmer->speichere();
         }
+
+        $teilnehmerNimmt = new NimmtTeil();
+        $teilnehmerNimmt->setFortbildung_id($_GET['fortbildung_id']);
+        $teilnehmerNimmt->setTeilnehmer_id($teilnehmer->getId());
+        $teilnehmerNimmt->speichere();
+        // Teilnehmer zu NimmtTeil hinzufügens
       }
       $this->alle_Kurse();
       $this->addContext("template","alle_Kurse");

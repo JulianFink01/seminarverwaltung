@@ -1,10 +1,6 @@
 AuthType Basic
 AuthName "Password Protected Area"
-<<<<<<< HEAD
-AuthUserFile /Applications/XAMPP/xamppfiles/htdocs/Seminarverwaltung/backend/.htpasswd
-=======
-AuthUserFile C:\xampp\htdocs\seminarverwaltung\backend/passwort/.htpasswd
->>>>>>> 55cd7d9a16fc4168966805d0b2d461f343a705a7
+AuthUserFile C:\xampp\htdocs\seminarverwaltung\backend/.htpasswd
 Require valid-user
 AuthType Basic
 
