@@ -12,7 +12,12 @@ class Controller{
 
     public function hauptseite(){
         $this->addContext("fortbildungen", Fortbildung::findeAlle());
-
+    }
+    public function saveFortbildung(){
+      $fortbildung = new Fortbildung(array("name"=>$_POST['titel'],"status"=>1));
+      $fortbildung->speichere();
+        $this->addContext("aktion","hauptseite");
+      $this->hauptseite();
     }
     public function alle_Kurse(){
       $this->addContext("kurse", Kurs::findeNachFortbildung(Fortbildung::finde($_GET['fortbildung_id'])));
