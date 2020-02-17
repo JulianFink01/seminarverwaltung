@@ -20,7 +20,7 @@
       <div class="login-item">
 
         <form id="login-form" method="get" action="index.php?aktion=login">
-          <legend>AdministrationPanel</legend>
+          <legend>Administrationpanel Fortbildungsverwaltung</legend>
           <input type="text" placeholder="Personal Key" name="key" required>
           <input type="password" placeholder="Personal Key" name="passwd" required>
           <input type="submit" name="Login" value="Login">
