@@ -57,6 +57,10 @@ if(!isset($_SESSION["loggedIn"])){
               </form>
             </div>
 
+            <div id="teilnehmer_hinzu">
+              <a href="index.php?aktion=lehrer_hinzufuegen#funktionen"><img width="60px" src="Images/teilnehmer-hinzufuegen.png" /></a>
+            </div>
+
              <div id="teilnehmer">
                <table>
                  <tr>
@@ -74,8 +78,8 @@ if(!isset($_SESSION["loggedIn"])){
                    <td><?php echo $teilnehmer->getNachname();?></td>
                    <td><?php echo $teilnehmer->getEmail();?></td>
                    <td style="background-color: var(--main-<?php echo NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbildung,$teilnehmer)->getStatusFarbe();?>);">&nbsp;</td>
-                   <td class="b_l">bearbeiten</td>
-                   <td class="b_l"><a href="index.php?aktion=remove_lehrer_nimmtTeil&teilnehmer_id=<?php echo $teilnehmer->getId()?>&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen"><img src="Images/teilnehmer-entfernen.png" /></a></td>
+                   <td class="b_l"><a href="index.php?aktion=lehrer_bearbeiten&teilnehmer_id=<?php echo $teilnehmer->getId()?>&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen"><img width="45px" src="Images/teilnehmer-bearbeiten.png" /></a></td>
+                   <td class="b_l"><a href="index.php?aktion=remove_lehrer_nimmtTeil&teilnehmer_id=<?php echo $teilnehmer->getId()?>&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen"><img width="45px" src="Images/teilnehmer-entfernen.png" /></a></td>
                  </tr>
                  <?php } ?>
 
