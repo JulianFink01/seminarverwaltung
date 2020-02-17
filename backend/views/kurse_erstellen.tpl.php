@@ -70,15 +70,15 @@ if(!isset($_SESSION["loggedIn"])){
     }
   ?>
 
-  <header id="kopf">
+  <header id="kurskopf">
 <h1>Kurse - erstellen</h1>
   </header>
-  <div id="hintergrund">
+  <div id="kurserstelleninhalt">
     <div id="box">
-        <p> Titel *</p>
-    <input type="text" name="titel" id="titel"/>
-        <p> Datum *</p>
-    <input type="date" name="datum" />
+      <div id="input">
+        <p class="einzug"> Titel<input type="text" name="titel" id="titel"/></p>
+        <p class="einzug"> Datum <input type="date" name="datum" /></p>
+      </div>
         <p>Beschreibung</p>
 
     <!--<textarea id="textarea" cols="150" rows="20">
@@ -104,13 +104,14 @@ if(!isset($_SESSION["loggedIn"])){
 
 
         <form action="#"  method="post">
-        <P> uhrzeit </P>
-             start:  &ensp;
-        <input type="number" value="12" name='von' id="start" class="zeit"  />
-           &ensp; ende:  &ensp;
-        <input type="number" value="12" name="bis" id="ende" class="zeit"/>
-            dauer: &ensp;
-        <input type="number" value =""   id="dauer" class="zeit"/>
+        <p> Uhrzeit </p>
+        <a>Dauer:</a> &ensp;
+    <input type="number" value =""   id="dauer" class="zeit"/>
+             <a>Start:</a>  &ensp;
+        <input type="number" value="" name='von' id="start" class="zeit"  />
+           &ensp; <a>Ende:</a>  &ensp;
+        <input type="number" value="" name="bis" id="ende" class="zeit"/>
+
 
             <br /> Teilnehmeranzahl  &emsp; Kontaktperson <br />
         <input type="number" name="maxTeilnehmer" id="zeilnehmeranzahl" />
@@ -123,13 +124,7 @@ if(!isset($_SESSION["loggedIn"])){
 
         <input type="submit" onclick="myFunction()" id="senden" value="Senden">
 
-            <?php
-            var_dump($daten);
 
-
-
-
-            ?>
 
             <script>
             function myFunction() {
