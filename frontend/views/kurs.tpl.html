@@ -28,25 +28,22 @@
 
                 <div class="Infos">
                   <div class="info-text">
-                    <a>Am <?php echo $kurs->getDatum()?></a>
+                    <a>Am <span class="info-important"><?php echo $kurs->getFormatedDate()?></span></a>
                   </div>
                   <div class="info-text">
-                    <a>Von <?php echo $kurs->getVon()?> bis <?php echo $kurs->getBis()?> Uhr</a>
+                    <a>Referent: <span class="info-important"><?php echo $kurs->getReferent()?></span></a>
                   </div>
                   <div class="info-text">
-                    <a>Referent: <?php echo $kurs->getReferent()?></a>
+                    <a>Ort / Raum: <span class="info-important"><?php echo $kurs->getOrt_raum()?></span></a>
                   </div>
                   <div class="info-text">
-                    <a>Ort / Raum: <?php echo $kurs->getOrt_raum()?></a>
+                    <a>Kontakt: <span class="info-important"><?php echo $kurs->getKontakt()?></span></a>
                   </div>
                   <div class="info-text">
-                    <a>Kontakt: <?php echo $kurs->getKontakt()?></a>
+                    <a>Koordination: <span class="info-important"><?php echo $kurs->getKoordination()?></span></a>
                   </div>
                   <div class="info-text">
-                    <a>Koordination: <?php echo $kurs->getKoordination()?></a>
-                  </div>
-                  <div class="info-text">
-                    <a>Anmeldeschluss: <?php echo $kurs->getAnmeldeschluss()?></a>
+                    <a>Anmeldeschluss: <span class="info-important"><?php echo $kurs->getFormatedAnmeldeschluss()?></span></a>
                   </div>
                 </div>
                 <p>

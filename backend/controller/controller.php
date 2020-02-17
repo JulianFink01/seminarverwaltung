@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 class Controller{
 //https://remotemysql.com/phpmyadmin/index.php
     private $context = array();
@@ -32,7 +32,12 @@ class Controller{
     public function send_email(){
       Funktionen::send_email();
     }
-
+    public function login(){
+      if(isset($_SESSION["loggedIn"])){
+        $this->addContext("fortbildungen", Fortbildung::findeAlle());
+        $this->addContext("template","hauptseite");
+      }
+    }
     public function import_lehrer(){
       $alleLehrer = Funktionen::importLehrer();
 

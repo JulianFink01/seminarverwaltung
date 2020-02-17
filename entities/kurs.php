@@ -95,7 +95,7 @@ public function speichere()
     return $this->beschreibung;
   }
   public function getShortBeschreibung(){
-    return substr($this->beschreibung,0,300);
+    return substr($this->beschreibung,0,200);
   }
   public function setOrt_raum($ortRaum){
     $this->ort_raum = $ortRaum;
@@ -169,12 +169,60 @@ public function speichere()
       break;
     }
 
-    $datum = $tag.' '.$monat.' '.$jahr;
+    $datum = $tag.'. '.$monat.' '.$jahr;
     $von = substr($this->getVon(),0,5);
     $bis = substr($this->getBis(),0,5);
     if($von!=""){
-    $datum = $datum.' von '.$von.' - '.$bis.' Uhr';
+    $datum = $datum.' <span class="info-not-important">von </span>'.$von.'<span class="info-not-important"> - </span>'.$bis.' Uhr';
     }
+    return $datum;
+
+  }
+  public function getFormatedAnmeldeschluss(){
+    $jahr = substr($this->getDatum(), 0, 4);
+    $monat = substr($this->getDatum(), 5, 2);
+    $tag = substr($this->getDatum(), 8, 2);
+
+    switch ($monat) {
+      case '01':
+        $monat = "Jannuar";
+      break;
+      case '02':
+        $monat = "Februar";
+      break;
+      case '03':
+        $monat = "März";
+      break;
+      case '04':
+        $monat = "April";
+      break;
+      case '05':
+        $monat = "Mai";
+      break;
+      case '06':
+        $monat = "Juni";
+      break;
+      case '07':
+        $monat = "Juli";
+      break;
+      case '08':
+        $monat = "August";
+      break;
+      case '09':
+        $monat = "September";
+      break;
+      case '10':
+        $monat = "Oktober";
+      break;
+      case '11':
+        $monat = "November";
+      break;
+      case '12':
+        $monat = "Dezember";
+      break;
+    }
+
+    $datum = $tag.'. '.$monat.' '.$jahr;
     return $datum;
 
   }
