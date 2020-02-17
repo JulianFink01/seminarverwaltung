@@ -59,21 +59,23 @@ if(!isset($_SESSION["loggedIn"])){
            &ensp; ende:  &ensp;
         <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit"/>
             dauer: &ensp;
-        <input type="number" value ="" name="dauer"  id="dauer" class="zeit"/>
+        <input type="number" name="dauer"  id="dauer" class="zeit"/>
 
         <input type="hidden" id="beschreibung" name="beschreibung" />
             <br /> Teilnehmeranzahl  &emsp; Kontaktperson <br />
         <input type="number" name="maxTeilnehmer" id="zeilnehmeranzahl" />
 
         <input type="text" name="kontakt" id="kontaktperson" />
-            <br /> Referend   &emsp;  Anmeldeschluss  <br />
-        <input type="text"  name="koordination" id="referend" />
+            <br /> koordination   &emsp;  Anmeldeschluss  <br />
+        <input type="text"  name="koordination" id="koordination" />
 
         <input type="date" name="anmeldeschluss" id="anmeldeschluss" /> <br />
 
         <br /> Raum  <br/>
         <input type="text"  name="ortRaum" id="ortRaum" />
 
+        <br /> referend <br />
+        <input type="text"  name="referent" id="referent" />
 
 
         <input type="submit" onclick="myFunction(); return true;" id="senden" value="Senden">
