@@ -1,3 +1,8 @@
+<?php
+if(!isset($_SESSION["loggedIn"])){
+  header('Location: index.php?aktion=login');
+}
+?>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="styles/hauptseite-style.css">

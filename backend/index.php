@@ -1,6 +1,6 @@
 
 <?php
-
+session_start();
 
 require_once '../entities/DB.php';
 require_once '../entities/fortbildung.php';

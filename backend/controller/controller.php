@@ -1,5 +1,4 @@
 <?php
-session_start();
 class Controller{
 //https://remotemysql.com/phpmyadmin/index.php
     private $context = array();
@@ -33,10 +32,14 @@ class Controller{
       Funktionen::send_email();
     }
     public function login(){
-      if(isset($_SESSION["loggedIn"])){
-        $this->addContext("fortbildungen", Fortbildung::findeAlle());
-        $this->addContext("template","hauptseite");
+      if(isset($_GET["key"]) && isset($_GET["passwd"])){
+      if($_GET["key"] == "test" && $_GET["passwd"] == "test"){
+      $_SESSION["loggedIn"] = true;
+      header('Location: index.php?aktion=hauptseite');
+      }else{
+
       }
+    }
     }
     public function import_lehrer(){
       $alleLehrer = Funktionen::importLehrer();
