@@ -174,7 +174,9 @@ public static function findeNachFortbildung(Fortbildung $fortbildung)
     return $abfrage->fetchAll();
 }
 
-
+public function getVorUndNachname(){
+  return $this->getVorname().' '.$this->getNachname();
+}
 public function getTermine(){
     return Kurs::findeNachBenutzer($this);
 }

@@ -1,6 +1,6 @@
 
 <?php
-
+session_start();
 
 require_once '../entities/DB.php';
 require_once '../entities/fortbildung.php';
@@ -18,6 +18,7 @@ $controller = new Controller();
 
 if (method_exists($controller, $aktion)){
         $controller->run($aktion);
+
 }
 
 

@@ -1,5 +1,4 @@
 <?php
-session_start();
 class Controller{
 //https://remotemysql.com/phpmyadmin/index.php
     private $context = array();
@@ -36,10 +35,14 @@ class Controller{
       Funktionen::send_email();
     }
     public function login(){
-      if(isset($_SESSION["loggedIn"])){
-        $this->addContext("fortbildungen", Fortbildung::findeAlle());
-        $this->addContext("template","hauptseite");
+      if(isset($_GET["key"]) && isset($_GET["passwd"])){
+      if($_GET["key"] == "test" && $_GET["passwd"] == "test"){
+      $_SESSION["loggedIn"] = true;
+      header('Location: index.php?aktion=hauptseite');
+      }else{
+
       }
+    }
     }
     public function import_lehrer(){
       $alleLehrer = Funktionen::importLehrer();
@@ -69,13 +72,26 @@ class Controller{
       $this->addContext("template","alle_Kurse");
     }
 
-    public function remove_lehrer_nimmtTeil($email){
+    public function remove_lehrer_nimmtTeil(){
         //checken bei welchem teilnehmer/lehrer der butten gedrückt wurde
-        $teilnehmer = Teilnehmer::findeNachEmail($email);
-        $teilnehmer->loescheAusFortbildung();
+        $teilnehmer = Teilnehmer::finde($_GET["teilnehmer_id"]);
+        Fortbildung::finde($_GET["fortbildung_id"])->abmelden($teilnehmer);
         // Teilnehmer zu NimmtTeil entfernen
       $this->alle_Kurse();
       $this->addContext("template","alle_Kurse");
+    }
+
+    public function lehrer_bearbeiten(){
+
+
+
+      $this->alle_Kurse();
+      $this->addContext("template","alle_Kurse");
+    }
+
+    public function teilnehmerliste(){
+      $this->addContext("kurse",Kurs::finde($_GET['kurs_id']));
+      $this->addContext("teilnehmern",Teilnehmer::findeNachKurs(Kurs::finde($_GET['kurs_id'])));
     }
 
     /*public function detailsAnschauen(){
