@@ -1,8 +1,10 @@
 <?php
-if(!isset($_SESSION["loggedIn"])){
-  header('Location: index.php?aktion=login');
-}
+
+  if(isset( $_SESSION["loggedIn"])){
+    header('Location: index.php?aktion=hauptseite');
+  }
 ?>
+
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="styles/main-style.css">
@@ -17,11 +19,11 @@ if(!isset($_SESSION["loggedIn"])){
 
       <div class="login-item">
 
-        <form id="login-form">
-          <legend>Login - Verwaltung</legend>
-          <input type="text" placeholder="Personal key" name="key" required>
-          <input type="password" placeholder="Password" name="passwd" required>
-          <input type="submit" value="Login">
+        <form id="login-form" method="get" action="index.php?aktion=login">
+          <legend>Seminarverwaltung LBSHI</legend>
+          <input type="text" placeholder="Personal Key" name="key" required>
+          <input type="text" placeholder="Personal Key" name="passwd" required>
+          <input type="submit" name="Login" value="Login">
         </form>
 
       </div>

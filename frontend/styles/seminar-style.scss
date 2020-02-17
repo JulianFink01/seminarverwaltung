@@ -76,7 +76,7 @@ border: 1px solid var(--dark-white);
     padding:0px 2.5em;
     text-align: justify;
     font-size: 1.2em;
-    color: lighten($main-blue, 80%);
+    color: white;
 
   }
 }
@@ -114,7 +114,13 @@ background-color: white;
   margin-left:1.5em;
     a{
 
-      color: lighten($main-blue, 60%);
+        color: var(--dark-white);
+        .info-important{
+          color: white !important;
+          .info-not-important{
+            color:  var(--dark-white);
+          }
+        }
       font-size: 0.6em;
       text-decoration: none;
     }
@@ -182,18 +188,25 @@ background-color: white;
         color: darken($main-orange, 60%) !important;
         a{
           color: darken($main-orange, 60%) !important;
+
         }
       }
       .informations{
         .Infos{
           .info-text{
             a{
-              color: darken($main-orange, 60%);
+              color: darken($main-orange, 30%);
+              .info-important{
+                color: darken($main-orange, 60%) !important;
+                .info-not-important{
+                  color: darken($main-orange, 60%) !important;
+                }
+              }
             }
           }
         }
         p{
-          color: darken($main-orange, 30%);
+          color: darken($main-orange, 60%);
         }
 
         .info-right{
