@@ -72,7 +72,7 @@ class NimmtTeil{
   }
   public static function loescheAusFortbildung()
   {
-      $sql = 'DELETE FROM nimmt_teil WHERE teilnehmer_id=?';
+      $sql = 'DELETE FROM f_nimmt_teil WHERE teilnehmer_id=?';
       $abfrage = DB::getDB()->prepare($sql);
       $abfrage->execute( array($this->getTeilnehmer_id()) );
       // Objekt existiert nicht mehr in der DB, also muss die ID zurückgesetzt werden
@@ -83,7 +83,7 @@ class NimmtTeil{
 
   private function _insert()
   {
-      $sql = 'INSERT INTO nimmt_teil (fortbildung_id,teilnehmer_id, kurs_id)'
+      $sql = 'INSERT INTO f_nimmt_teil (fortbildung_id,teilnehmer_id, kurs_id)'
            . 'VALUES (:fortbildung_id, :teilnehmer_id, :kurs_id)';
 
       $abfrage = DB::getDB()->prepare($sql);
@@ -94,7 +94,7 @@ class NimmtTeil{
 
   private function _update()
   {
-      $sql = 'UPDATE nimmt_teil SET fortbildung_id=:fortbildung_id, kurs_id=:kurs_id'
+      $sql = 'UPDATE f_nimmt_teil SET fortbildung_id=:fortbildung_id, kurs_id=:kurs_id'
           . 'WHERE teilnehmer_id=:teilnehmer_id';
       $abfrage = DB::getDB()->prepare($sql);
       $abfrage->execute($this->toArray());
@@ -103,14 +103,14 @@ class NimmtTeil{
   /* ***** public Methoden **** */
 
   public static function findeAlleKursTeilnehmer(Kurs $kurs){
-    $sql = 'SELECT teilnehmer.* FROM teilnehmer JOIN nimmt_teil on teilnehmer.id = nimmt_teil.teilnehmer_id WHERE kurs_id=?';
+    $sql = 'SELECT f_teilnehmer.* FROM f_teilnehmer JOIN f_nimmt_teil on f_teilnehmer.id = f_nimmt_teil.teilnehmer_id WHERE kurs_id=?';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array($kurs->getId()));
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
     return $abfrage->fetchAll();
   }
   public static function findeAlleFortbildungTeilnehmer(Fortbildung $fortbildung){
-    $sql = 'SELECT teilnehmer.* FROM teilnehmer JOIN nimmt_teil on teilnehmer.id = nimmt_teil.teilnehmer_id WHERE fortbildung_id=?';
+    $sql = 'SELECT f_teilnehmer.* FROM f_teilnehmer JOIN f_nimmt_teil on f_teilnehmer.id = f_nimmt_teil.teilnehmer_id WHERE fortbildung_id=?';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array($fortbildung->getId()));
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
@@ -118,14 +118,14 @@ class NimmtTeil{
 
   }
   public static function findeAlleKurseNachTeilnehmer(Teilnehmer $teilnehmer){
-    $sql = 'SELECT kurs.* FROM kurs JOIN nimmt_teil on kurs.id = nimmt_teil.kurs_id WHERE nimmt_teil.teilnehmer_id=?';
+    $sql = 'SELECT f_kurs.* FROM f_kurs JOIN f_nimmt_teil on f_kurs.id = f_nimmt_teil.kurs_id WHERE f_nimmt_teil.teilnehmer_id=?';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array($teilnehmer->getId()));
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Kurs');
     return $abfrage->fetchAll();
   }
   public static function findeAlleFortbildungenNachTeilnehmer(Teilnehmer $teilnehmer){
-    $sql = 'SELECT fortbildung.* FROM fortbildung JOIN nimmt_teil on fortbildung.id = nimmt_teil.fortbildung_id WHERE nimmt_teil.teilnehmer_id=?';
+    $sql = 'SELECT f_fortbildung.* FROM f_fortbildung JOIN f_nimmt_teil on f_fortbildung.id = f_nimmt_teil.fortbildung_id WHERE f_nimmt_teil.teilnehmer_id=?';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array($teilnehmer->getId()));
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fortbildung');
@@ -133,7 +133,7 @@ class NimmtTeil{
   }
 
   public static function findeNachFortbildungUndTeilnehemer(Fortbildung $fortbilung, Teilnehmer $teilnehmer){
-    $sql = 'SELECT * FROM nimmt_teil WHERE nimmt_teil.teilnehmer_id=? and nimmt_teil.fortbildung_id = ?';
+    $sql = 'SELECT * FROM f_nimmt_teil WHERE f_nimmt_teil.teilnehmer_id=? and f_nimmt_teil.fortbildung_id = ?';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array($teilnehmer->getId(), $fortbilung->getId()));
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'NimmtTeil');

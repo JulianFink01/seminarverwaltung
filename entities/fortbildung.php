@@ -67,7 +67,7 @@ public function getStatus(){
 
 public function loesche()
 {
-    $sql = 'DELETE FROM fortbildung WHERE id=?';
+    $sql = 'DELETE FROM f_fortbildung WHERE id=?';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute( array($this->getId()) );
     // Objekt existiert nicht mehr in der DB, also muss die ID zurückgesetzt werden
@@ -79,7 +79,7 @@ public function loesche()
 private function _insert()
 {
 
-    $sql = 'INSERT INTO fortbildung (name, status)'
+    $sql = 'INSERT INTO f_fortbildung (name, status)'
          . 'VALUES (:name, :status)';
 
     $abfrage = DB::getDB()->prepare($sql);
@@ -90,7 +90,7 @@ private function _insert()
 
 private function _update()
 {
-    $sql = 'UPDATE fortbildung SET name=:name, name=:name, status=:status'
+    $sql = 'UPDATE f_fortbildung SET name=:name, name=:name, status=:status'
         . 'WHERE id=:id';
     $abfrage = self::$db->prepare($sql);
     $abfrage->execute($this->toArray());
@@ -103,14 +103,14 @@ public function findeAlleKurse(){
 }
 public static function findeAlle()
 {
-    $sql = 'SELECT * FROM fortbildung';
+    $sql = 'SELECT * FROM f_fortbildung';
     $abfrage = DB::getDB()->query($sql);
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fortbildung');
     return $abfrage->fetchAll();
 }
 
 public static function finde($id){
-  $sql = 'SELECT * FROM fortbildung WHERE id=?';
+  $sql = 'SELECT * FROM f_fortbildung WHERE id=?';
   $abfrage = DB::getDB()->prepare($sql);
   $abfrage->execute(array($id));
   $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fortbildung');
@@ -118,7 +118,7 @@ public static function finde($id){
 }
 
 public static function findeNachName($name){
-  $sql = 'SELECT * FROM fortbildung WHERE name=?';
+  $sql = 'SELECT * FROM f_fortbildung WHERE name=?';
   $abfrage = DB::getDB()->prepare($sql);
   $abfrage->execute(array($name));
   $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fortbildung');
@@ -135,7 +135,7 @@ public static function findeNachBenutzer(Teilnehmer $teilnehmer)
 }
 
 public function teilnehmen(Teilnehmer $teilnehmer){
-  $sql = 'Insert into nimmt_teil (fortbildung_id, teilnehmer_id, kurs_id) values (?,?, NULL)';
+  $sql = 'Insert into f_nimmt_teil (fortbildung_id, teilnehmer_id, kurs_id) values (?,?, NULL)';
   $abfrage = DB::getDB()->prepare($sql);
   $abfrage->execute(array(
     $this->getId(),
@@ -143,7 +143,7 @@ public function teilnehmen(Teilnehmer $teilnehmer){
   ));
 }
 public function abmelden(Teilnehmer $teilnehmer){
-  $sql = 'Delete from nimmt_teil where fortbildung_id = ? and teilnehmer_id = ?';
+  $sql = 'Delete from f_nimmt_teil where fortbildung_id = ? and teilnehmer_id = ?';
   $abfrage = DB::getDB()->prepare($sql);
   $abfrage->execute(array(
     $this->getId(),
