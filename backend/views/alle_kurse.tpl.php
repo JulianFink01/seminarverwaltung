@@ -24,15 +24,16 @@ if(!isset($_SESSION["loggedIn"])){
          <div id="inhalt">
 
            <?php
+           if($kurse != NULL){
              foreach($kurse as $kurs){ ?>
          <div id="kurs1">
-         <a href="?aktion=kurse#allgemeiner"><?php echo $kurs->getTitel();?></a>
-         <p><?php echo $kurs->getBeschreibung() ?></p>
+         <h1><?php echo $kurs->getTitel();?></h1>
+         <p><?php echo $kurs->getShortBeschreibung() ?> ...</p>
          <a href="#">bearbeiten</a>
-         <a href="#">löschen</a>
+         <a href="?aktion=loesche&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>&kurs_id=<?php echo $kurs->getId()?>">löschen</a>
          <a href="?aktion=teilnehmerliste&kurs_id=<?php echo $kurs->getId()?>">teilnehmerliste</a>
          </div>
- <?php    } ?>
+ <?php    }} ?>
 
 
 </div>

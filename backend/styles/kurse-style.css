@@ -118,18 +118,12 @@ table tr td.b_l{
 	text-align: left;
 }
 
-#teilnehmer_hinzu{
-	float: right;
-	margin-right: 45px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
 .status{
 	width: 70px;
 }
 
 .csv{
+<<<<<<< HEAD
 	float: left;
 	margin-left: 50px;
 	margin-top: 10px;
@@ -149,6 +143,10 @@ table tr td.b_l{
 	width: 100px;
 	height: 25px;
 
+=======
+	float: right;
+	margin-right: 45px;
+>>>>>>> 8eb671ea6fc5263c23efa46bec1e9dc4b83ff0bc
 }
 #button_upload:hover{
 	color: var(--main-blue);
@@ -250,6 +248,9 @@ margin-bottom: 20px;
 }
 #kurs1 a:hover{
 	color: var(--main-orange);
+}
+#kurs1 h1 {
+	color:  #e9f6ff;
 }
 #erstell_button {
 	margin: 0px 0px 0px 10px;
