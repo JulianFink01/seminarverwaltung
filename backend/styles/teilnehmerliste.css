@@ -3,3 +3,25 @@
   padding-top:10px;
   padding-left: 10px;
 }
+#beschreibung{
+  text-align: left;
+    margin-left: 5%;
+    margin-top: 50px;
+
+}
+#beschreibung p{
+  line-height: 7px;
+}
+table{
+  margin-top:30px;
+  border-collapse: collapse;
+}
+.nr{
+  width:20px;
+}
+td, th{
+	border: 0.3px solid black;
+	padding: 5px;
+  width:250px;
+  text-align: center;
+}

@@ -291,8 +291,6 @@ public function speichere()
   }
   private function _insert()
   {
-      //Token generiren
-      $this->setToken("");
 
       $sql = 'INSERT INTO f_kurs (id, datum, titel, maxTeilnehmer, referent, beschreibung, ort_raum,kontakt, von, bis, unterschriftsliste_zweispaltig, koordination, anmeldeschluss, fortbildung_id, dauer)'
            . 'VALUES (:id, :datum, :titel, :maxTeilnehmer, :referent, :beschreibung, :ort_raum,:kontakt,:von,:bis,:unterschriftsliste_zweispaltig, :koordination, :anmeldeschluss, :fortbildung_id, :dauer)';
