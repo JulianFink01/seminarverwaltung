@@ -9,7 +9,9 @@
 <body>
   <?php
   $fortbildungen = Fortbildung::findeNachBenutzer($user);
-
+  if($fortbildungen == NULL){
+    echo'<div id="nicht-angemeldet"><p>Leider bist du für keine Fortbildung angemeldet!<span id="back-to-login"><br><a href="index.php?aktion=login">Zurück zum Login</a></span></p></div>';
+  }
   foreach($fortbildungen as $fortbildung){
     $kurse = $fortbildung->findeAlleKurse();
     ?>
