@@ -80,6 +80,7 @@ class Controller{
 
     public function teilnehmerliste(){
       $this->addContext("kurse",Kurs::finde($_GET['kurs_id']));
+      $this->addContext("teilnehmern",Teilnehmer::findeNachKurs(Kurs::finde($_GET['kurs_id'])));
     }
 
     /*public function detailsAnschauen(){
