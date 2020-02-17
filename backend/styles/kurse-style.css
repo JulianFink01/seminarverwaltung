@@ -126,14 +126,36 @@ table tr td.b_l{
 }
 
 .status{
-			width: 70px;
+	width: 70px;
 }
 
 .csv{
 	float: left;
-	margin-left: 45px;
-	margin-top: 25px;
+	margin-left: 50px;
+	margin-top: 10px;
+	border: 1px solid rgb(189,195,199);
+	padding: 15px;
+	padding-bottom: 0px;
+	margin-bottom: 10px;
 }
+.csv span{
+	color: var(--main-blue);
+}
+
+#button_upload{
+	color: var(--main-white);
+	border-color: var(--main-blue);
+	background-color: var(--main-blue);
+	width: 100px;
+	height: 25px;
+
+}
+#button_upload:hover{
+	color: var(--main-blue);
+	border-color: var(--main-orange);
+	background-color: var(--main-orange);
+}
+
 
 /* css benjamin email senden*/
 #fenster{

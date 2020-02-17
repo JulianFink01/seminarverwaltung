@@ -50,9 +50,9 @@ if(!isset($_SESSION["loggedIn"])){
             <div class="csv">
               <form method="post" enctype="multipart/form-data" action="index.php?aktion=import_lehrer&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen">
                 <label>
-                  CSV Datei(*.csv)
-                  <input name="datei" type="file" size="50" accept=".csv" id="button2">
-                  <input type="submit" class="button" name="submit" value="Upload">
+                  <span>CSV Datei(*.csv)</span>
+                  <input name="datei" type="file" size="50" accept=".csv" class="button">
+                  <input type="submit" id="button_upload" name="submit" value="Upload">
                 </label>
               </form>
             </div>
