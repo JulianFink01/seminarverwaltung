@@ -28,8 +28,9 @@ if(!isset($_SESSION["loggedIn"])){
          <div id="kurs1">
          <a href="?aktion=kurse#allgemeiner"><?php echo $kurs->getTitel();?></a>
          <p><?php echo $kurs->getBeschreibung() ?></p>
-         <a href="?aktion=teilnehmerliste&kurs_id=<?php echo $kurs->getId()?>">bearbeiten</a>
+         <a href="#">bearbeiten</a>
          <a href="#">löschen</a>
+         <a href="?aktion=teilnehmerliste&kurs_id=<?php echo $kurs->getId()?>">teilnehmerliste</a>
          </div>
  <?php    } ?>
 
