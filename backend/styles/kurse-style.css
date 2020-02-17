@@ -118,21 +118,13 @@ table tr td.b_l{
 	text-align: left;
 }
 
-#teilnehmer_hinzu{
-	float: right;
-	margin-right: 45px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
 .status{
 			width: 70px;
 }
 
 .csv{
-	float: left;
-	margin-left: 45px;
-	margin-top: 25px;
+	float: right;
+	margin-right: 45px;
 }
 
 /* css benjamin email senden*/
@@ -228,6 +220,9 @@ margin-bottom: 20px;
 }
 #kurs1 a:hover{
 	color: var(--main-orange);
+}
+#kurs1 h1 {
+	color:  #e9f6ff;
 }
 #erstell_button {
 	margin: 0px 0px 0px 10px;
