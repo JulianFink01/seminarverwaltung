@@ -22,49 +22,6 @@
 </head>
 <body>
 
-  <?php
-
-    $daten = array ();
-    if(!empty($_POST['datum']) ){
-    $daten['datum']=$_POST['datum'];
-    }
-    if(!empty($_POST['titel']) ){
-    $daten['titel']=$_POST['titel'];
-    }
-    if(!empty($_POST['maxTeilnehmer']) ){
-    $daten['maxTeilnehmer']=$_POST['maxTeilnehmer'];
-    }
-    if(!empty($_POST['referend']) ){
-    $daten['referend']=$_POST['referend'];
-    }
-    if(!empty($_POST['beschreibung']) ){
-    $daten['beschreibung']=$_POST['beschreibung'];
-    }
-    if(!empty($_POST['ort_raum']) ){
-    $daten['ort_raum']=$_POST['ort_raum'];
-    }
-    if(!empty($_POST['kontakt']) ){
-    $daten['kontakt']=$_POST['kontakt'];
-    }
-    if(!empty($_POST['von']) ){
-    $daten['von']=$_POST['von'];
-    }
-    if(!empty($_POST['bis']) ){
-    $daten['bis']=$_POST['bis'];
-  //  $daten['unterschriftsliste_zweispaltig']=$_POST['unterschriftsliste_zweispaltig'];
-    }
-    if(!empty($_POST['koordination']) ){
-    $daten['koordination']=$_POST['koordination'];
-    }
-    if(!empty($_POST['anmeldeschluss']) ){
-    $daten['anmeldeschluss']=$_POST['anmeldeschluss'];
-    //$daten['fortbildung_id']=;
-    }
-    if(!empty($_POST['dauer']) ){
-    $daten['dauer']=$_POST['dauer'];
-    }
-  ?>
-
   <header id="kopf">
 <h1>Kurse - erstellen</h1>
   </header>
@@ -76,9 +33,6 @@
     <input type="date" name="datum" />
         <p>Beschreibung</p>
 
-    <!--<textarea id="textarea" cols="150" rows="20">
-        stop you violated the law ! Pay the cort a fine or serve your sentence. All your stolen goods are now forfited.
-    </textarea> -->
 
         <div id="summernote" >stop you <i> suck </i>violated the law ! Pay the <b>bliet</b> cort a fine or serve your sentence. All your stolen goods are now forfited. </div>
 
@@ -87,26 +41,22 @@
                $(document).ready(function() {
         $('#summernote').summernote({height: 280,width: 1200 });
 
-        console.log($('#summernote'));
-        //document.cookie=$('#summernote').summernote.innerHTML;
-
-        console.log($('#summernote').summernote('code'));
-
       });
 
 
     	</script>
 
 
-        <form action="#"  method="post">
+        <form action="index.php?aktion=kurse_erstellen&fortbildung_id=<?php echo ?>"  method="post">
         <P> uhrzeit </P>
              start:  &ensp;
-        <input type="number" value="12" name='von' id="start" class="zeit"  />
+        <input type="text" placeholder="10:00"  name='von' id="start" class="zeit"  />
            &ensp; ende:  &ensp;
-        <input type="number" value="12" name="bis" id="ende" class="zeit"/>
+        <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit"/>
             dauer: &ensp;
-        <input type="number" value =""   id="dauer" class="zeit"/>
+        <input type="number" value ="" name="dauer"  id="dauer" class="zeit"/>
 
+        <input type="hidden" id="beschreibung" name="beschreibung" />
             <br /> Teilnehmeranzahl  &emsp; Kontaktperson <br />
         <input type="number" name="maxTeilnehmer" id="zeilnehmeranzahl" />
 
@@ -116,19 +66,17 @@
 
         <input type="date" name="anmeldeschluss" id="anmeldeschluss" /> <br />
 
-        <input type="submit" onclick="myFunction()" id="senden" value="Senden">
-
-            <?php
-            var_dump($daten);
+        <br /> Raum  <br/>
+        <input type="text"  name="ortRaum" id="ortRaum" />
 
 
 
+        <input type="submit" onclick="myFunction(); return true;" id="senden" value="Senden">
 
-            ?>
 
             <script>
             function myFunction() {
-              alert($('#summernote').summernote('code'));
+              $('#beschreibung').value = $('#summernote').summernote('code');
             }
 
             </script>
