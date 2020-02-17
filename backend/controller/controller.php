@@ -69,10 +69,10 @@ class Controller{
       $this->addContext("template","alle_Kurse");
     }
 
-    public function remove_lehrer_nimmtTeil($email){
+    public function remove_lehrer_nimmtTeil(){
         //checken bei welchem teilnehmer/lehrer der butten gedrückt wurde
-        $teilnehmer = Teilnehmer::findeNachEmail($email);
-        $teilnehmer->loescheAusFortbildung();
+        $teilnehmer = Teilnehmer::finde($_GET["teilnehmer_id"]);
+        Fortbildung::finde($_GET["fortbildung_id"])->abmelden($teilnehmer);
         // Teilnehmer zu NimmtTeil entfernen
       $this->alle_Kurse();
       $this->addContext("template","alle_Kurse");

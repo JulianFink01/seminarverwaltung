@@ -28,8 +28,9 @@ if(!isset($_SESSION["loggedIn"])){
          <div id="kurs1">
          <a href="?aktion=kurse#allgemeiner"><?php echo $kurs->getTitel();?></a>
          <p><?php echo $kurs->getBeschreibung() ?></p>
-         <a href="?aktion=teilnehmerliste&kurs_id=<?php echo $kurs->getId()?>">bearbeiten</a>
+         <a href="#">bearbeiten</a>
          <a href="#">löschen</a>
+         <a href="?aktion=teilnehmerliste&kurs_id=<?php echo $kurs->getId()?>">teilnehmerliste</a>
          </div>
  <?php    } ?>
 
@@ -74,7 +75,7 @@ if(!isset($_SESSION["loggedIn"])){
                    <td><?php echo $teilnehmer->getEmail();?></td>
                    <td style="background-color: var(--main-<?php echo NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbildung,$teilnehmer)->getStatusFarbe();?>);">&nbsp;</td>
                    <td class="b_l">bearbeiten</td>
-                   <td class="b_l">löschen</td>
+                   <td class="b_l"><a href="index.php?aktion=remove_lehrer_nimmtTeil&teilnehmer_id=<?php echo $teilnehmer->getId()?>&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen">löschen</a></td>
                  </tr>
                  <?php } ?>
 
