@@ -221,6 +221,9 @@ margin-bottom: 20px;
 #kurs1 a:hover{
 	color: var(--main-orange);
 }
+#kurs1 h1 {
+	color:  #e9f6ff;
+}
 #erstell_button {
 	margin: 0px 0px 0px 10px;
 	padding: 0;

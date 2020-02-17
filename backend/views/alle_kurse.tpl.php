@@ -27,7 +27,7 @@ if(!isset($_SESSION["loggedIn"])){
            if($kurse != NULL){
              foreach($kurse as $kurs){ ?>
          <div id="kurs1">
-         <a href="?aktion=kurse#allgemeiner"><?php echo $kurs->getTitel();?></a>
+         <h1><?php echo $kurs->getTitel();?></h1>
          <p><?php echo $kurs->getShortBeschreibung() ?> ...</p>
          <a href="#">bearbeiten</a>
          <a href="?aktion=loesche&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>&kurs_id=<?php echo $kurs->getId()?>">löschen</a>
