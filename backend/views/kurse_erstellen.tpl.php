@@ -32,18 +32,19 @@ if(!isset($_SESSION["loggedIn"])){
   <header id="kurskopf">
     <header id="kopf">
 
-      <h1>Kurse - erstellen</h1>
+      <h1>Kurse erstellen</h1>
     </header>
     <div id="kurserstelleninhalt">
       <div id="box">
+          <form action="index.php?aktion=kurse_erstellen&fortbildung_id=<?php echo $_GET['fortbildung_id']?>"  method="post">
         <div id="input">
           <p class="einzug"> Titel<input type="text" name="titel" id="titel"/></p>
-          <p class="einzug"> Datum <input type="date" name="datum" /></p>
+          <p class="einzug"> Datum <input type="date" name="datum" id="datum"/></p>
         </div>
         <p>Beschreibung</p>
 
 
-        <div id="summernote" >stop you <i> suck </i>violated the law ! Pay the <b>bliet</b> cort a fine or serve your sentence. All your stolen goods are now forfited. </div>
+        <div id="summernote" ></div>
 
 
         <script>
@@ -56,36 +57,26 @@ if(!isset($_SESSION["loggedIn"])){
         </script>
 
 
-        <form action="#"  method="post">
+
           <p> Uhrzeit </p>
           <a>Dauer:</a> &ensp;
-          <input type="number" value =""   id="dauer" class="zeit"/>
+          <input type="number" name="dauer" id="dauer" class="zeit"/>
           <a>Start:</a>  &ensp;
           <input type="text" placeholder="10:00"  name='von' id="start" class="zeit"  />
           &ensp; <a>Ende:</a>  &ensp;
           <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit"/>
 
-        <form action="index.php?aktion=kurse_erstellen&fortbildung_id=<?php echo ?>"  method="post">
-        <P> uhrzeit </P>
-             start:  &ensp;
-        <input type="text" placeholder="10:00"  name='von' id="start" class="zeit"  />
-           &ensp; ende:  &ensp;
-        <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit"/>
-            dauer: &ensp;
-        <input type="number" name="dauer"  id="dauer" class="zeit"/>
 
 
-        <input type="text" name="kontakt" id="kontaktperson" />
-            <br /> koordination   &emsp;  Anmeldeschluss  <br />
-        <input type="text"  name="koordination" id="koordination" />
+            <br /> Koordination   &emsp;  Anmeldeschluss  <br />
+            <input type="text"  name="koordination" id="koordination" />
+            <input type="date" name="anmeldeschluss" id="anmeldeschluss">
 
           <input type="hidden" id="beschreibung" name="beschreibung" />
           <br /> Teilnehmeranzahl  &emsp; Kontaktperson <br />
           <input type="number" name="maxTeilnehmer" id="maxTeilnehmer" />
+          <input type="text" name="kontakt" id="kontakt />
 
-          <input type="text" name="kontakt" id="kontakt" />
-          <br /> Referent   &emsp;  Anmeldeschluss  <br />
-          <input type="text"  name="koordination" id="koordination" />
 
         <br /> Referent <br />
         <input type="text"  name="referent" id="referent" />
@@ -95,12 +86,13 @@ if(!isset($_SESSION["loggedIn"])){
 
 
 
-          <input type="submit" onclick="myFunction(); return true;" id="senden" value="Senden">
+          <input type="submit" onclick="return myFunction();" id="senden" value="Senden">
 
 
           <script>
           function myFunction() {
             $('#beschreibung').value = $('#summernote').summernote('code');
+            return true;
           }
 
           </script>

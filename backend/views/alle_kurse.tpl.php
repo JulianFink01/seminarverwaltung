@@ -38,7 +38,7 @@ if(!isset($_SESSION["loggedIn"])){
 </div>
 
   <div id="kurs_erstellbutton">
-  <a href="index.php?aktion=kurse_erstellen#allgemeiner"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
+  <a href="index.php?aktion=kurse_erstellen&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#allgemeiner"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
   </div>
 
         </section>
