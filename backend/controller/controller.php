@@ -61,6 +61,15 @@ class Controller{
       $this->addContext("template","alle_Kurse");
     }
 
+    public function remove_lehrer_nimmtTeil($email){
+        //checken bei welchem teilnehmer/lehrer der butten gedrückt wurde
+        $teilnehmer = Teilnehmer::findeNachEmail($email);
+        $teilnehmer->loescheAusFortbildung();
+        // Teilnehmer zu NimmtTeil entfernen
+      $this->alle_Kurse();
+      $this->addContext("template","alle_Kurse");
+    }
+
     /*public function detailsAnschauen(){
         $this->addContext("seminardetails", Seminar::finde($_GET["seminar_id"]));
     }*/
