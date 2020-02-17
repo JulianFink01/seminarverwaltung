@@ -30,7 +30,6 @@
       <div id="inhalt">
 
         <?php
-          require_once('models/fortbildung.php');
           foreach($fortbildungen as $fortbildung){
         ?>
 
