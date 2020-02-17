@@ -27,7 +27,10 @@ class Controller{
 
     }
     public function kurse_erstellen(){
-
+      $kurs = new Kurs($_POST);
+      $kurs->speichere();
+      $this->alle_Kurse();
+      $this->addContext("template","alle_Kurse");
     }
     public function send_email(){
       Funktionen::send_email();

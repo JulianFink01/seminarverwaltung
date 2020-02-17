@@ -118,21 +118,13 @@ table tr td.b_l{
 	text-align: left;
 }
 
-#teilnehmer_hinzu{
-	float: right;
-	margin-right: 45px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
 .status{
 			width: 70px;
 }
 
 .csv{
-	float: left;
-	margin-left: 45px;
-	margin-top: 25px;
+	float: right;
+	margin-right: 45px;
 }
 
 /* css benjamin email senden*/
@@ -163,6 +155,54 @@ table tr td.b_l{
 	padding: 10px 10px 20px 10px;
 	overflow-y: auto;
 }
+#kurskopf{
+	background-color: white;
+	border: 1px solid rgba(189,195,199);
+	box-shadow: 1px 5px 5px 0px #f0f0f0;
+	margin-left: 2.5%;
+	margin-top: 2.5%;
+	margin-right: 2.5%;
+	margin-bottom: 30px;
+	text-align: center;
+	padding-bottom: 5px;
+}
+#kurskopf h1{
+	background-color: white;
+	text-align: center;
+	font-size: 40px;
+	margin-top: 2%;
+	padding-bottom: 10px;
+	color: var(--main-blue);
+}
+#kurserstelleninhalt{
+	padding-top: 5px;
+	background-color: #fafafa;
+	border: 0.5px solid var(--dark-white);
+	width: 90%;
+	height: 740px;
+	margin: 0px 40px 0px 100px;
+	padding: 10px 100px 40px 100px;
+	overflow-y: auto;
+}
+#input{
+margin-bottom: 20px;
+
+}
+#input p input{
+	border: 0.5px solid var(--dark-white);
+}
+
+#box p{
+	color: var(--main-blue);
+	font-weight: bold;
+}
+#box a{
+	color: var(--main-blue);
+	font-weight: bold;
+	text-decoration: none;
+}
+
+
 #kurs1 {
 	padding: 20px;
 	margin: 10px;
@@ -241,21 +281,19 @@ table tr td.b_l{
 }
 #von {
 	padding: 0px 15px 0px 15px;
-	margin-left: 30px;
 	display: inline;
 		border: 1.2px solid #000;
 }
 #bis {
 	padding: 0px 15px 0px 15px;
-	margin-left: 30px;
 	display: inline;
 		border: 1.2px solid #000;
 }
 #dauer {
-	padding: 0px 30px 0px 30px;
-	margin-left: 100px;
+	padding: 0px 0px 0px 0px;
+	margin-right: 5px;
 	display: inline;
-		border: 1.2px solid #000;
+	border: 1.2px solid var(--dark-white);
 }
 #anmeldeschluss {
 	padding: 0px 30px 0px 30px;
