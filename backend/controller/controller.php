@@ -70,6 +70,10 @@ class Controller{
       $this->addContext("template","alle_Kurse");
     }
 
+    public function teilnehmerliste(){
+      $this->addContext("kurse",Kurs::finde($_GET['kurs_id']));
+    }
+
     /*public function detailsAnschauen(){
         $this->addContext("seminardetails", Seminar::finde($_GET["seminar_id"]));
     }*/
