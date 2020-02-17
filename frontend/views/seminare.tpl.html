@@ -2,13 +2,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="styles/main-style.css">
   <link rel="stylesheet" type="text/css" href="styles/seminar-style.css">
+    <title>Fortbildungsverwaltung - Seminare</title>
   <meta charset="UTF-8" />
 </head>
 
 <body>
   <?php
   $fortbildungen = Fortbildung::findeNachBenutzer($user);
-
+  if($fortbildungen == NULL){
+    echo'<div id="nicht-angemeldet"><p>Leider bist du für keine Fortbildung angemeldet!<span id="back-to-login"><br><a href="index.php?aktion=login">Zurück zum Login</a></span></p></div>';
+  }
   foreach($fortbildungen as $fortbildung){
     $kurse = $fortbildung->findeAlleKurse();
     ?>

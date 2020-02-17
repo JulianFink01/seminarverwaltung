@@ -1,6 +1,6 @@
 <?php
 if(!isset($_SESSION["loggedIn"])){
-  header('Location: index.php?aktion=login');
+header('Location: ../index.php?aktion=login');
 }
 ?>
 <head>

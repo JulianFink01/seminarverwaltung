@@ -4,7 +4,7 @@
 --login-blue: rgba(49, 83, 108);
 }
 html{
-  background-image: linear-gradient(45deg,var(--login-orange) 0%, var(--login-blue) 100%);
+background-color: var(--main-blue);
 }
 
 #login{
@@ -16,7 +16,7 @@ html{
     height: 50%;
     flex-direction: column;
     text-align: center;
-    background-color: var(--login-blue);
+    background-color: var(--main-orange);
     border-radius: 25px;
 }
 .login-item{
@@ -33,7 +33,7 @@ html{
   width: 80%;
 }
 #login-form legend{
-  color: var(--login-orange);
+  color: var(--main-blue);
   transform: translate(0,-100%);
   font-weight: bold;
   font-size: 20px;
@@ -54,8 +54,8 @@ html{
   background-repeat: no-repeat;
 }
 #login-form input[type="submit"]{
-  background-color: var(--login-orange);
-  color: var(--login-blue);
+  background-color: var(--main-blue);
+  color: var(--main-orange);
 }
 
 @media(min-width: 650px){

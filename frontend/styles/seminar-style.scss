@@ -199,7 +199,8 @@ background-color: white;
               .info-important{
                 color: darken($main-orange, 60%) !important;
                 .info-not-important{
-                  color: darken($main-orange, 60%) !important;
+
+                  color: darken($main-orange, 30%) !important;
                 }
               }
             }
@@ -247,4 +248,33 @@ background-color: white;
   animation-name: invisiblyGrowFontSize, fadeIn;
   animation-duration: 500ms, 200ms;
   animation-delay: 0ms, 500ms;
+}
+#nicht-angemeldet{
+  color: var(--main-blue);
+  text-align: center;
+  width: 90%;
+  margin-left: 5%;
+  font-size: 3rem;
+  height: 100%;
+  display: flex;
+  align-items:center;
+  vertical-align: middle;
+  p{
+    display: block;
+    #back-to-login{
+        display: block;
+      a{
+      display: block;
+      margin-top: 15px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      text-decoration: none;
+      color: var(--main-orange);
+      transition: 0.3s all ease-out;
+      &:hover{
+        color: var(--main-blue);
+      }
+      }
+    }
+  }
 }
