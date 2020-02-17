@@ -1,5 +1,5 @@
 <?php
-  session_start();
+
   if(isset( $_SESSION["loggedIn"])){
     header('Location: index.php?aktion=hauptseite');
   }
@@ -19,24 +19,13 @@
 
       <div class="login-item">
 
-        <form id="login-form" method="post">
-          <legend>Seminarverwaltung LBSHI</legend>
+        <form id="login-form" method="get" action="index.php?aktion=login">
+          <legend>Administrationpanel</legend>
           <input type="text" placeholder="Personal Key" name="key" required>
-          <input type="text" placeholder="Personal Key" name="passwd" required>
+          <input type="password" placeholder="Personal Key" name="passwd" required>
           <input type="submit" name="Login" value="Login">
         </form>
 
       </div>
   </div>
 </body>
-
-<?php
-  if(isset($_POST['Login'])){
-    if($_POST["key"] == "test" & $_POST["passwd"] == "test"){
-    $_SESSION["loggedIn"] = true;
-    header('Location: index.php?aktion=hauptseite');
-    }else{
-      header('Location: index.php?aktion=login');
-    }
-  }
-?>
