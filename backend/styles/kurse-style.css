@@ -126,14 +126,47 @@ table tr td.b_l{
 }
 
 .status{
-			width: 70px;
+	width: 70px;
 }
 
 .csv{
+<<<<<<< HEAD
+<<<<<<< HEAD
+	float: left;
+	margin-left: 50px;
+	margin-top: 10px;
+	border: 1px solid rgb(189,195,199);
+	padding: 15px;
+	padding-bottom: 0px;
+	margin-bottom: 10px;
+}
+.csv span{
+	color: var(--main-blue);
+}
+
+#button_upload{
+	color: var(--main-white);
+	border-color: var(--main-blue);
+	background-color: var(--main-blue);
+	width: 100px;
+	height: 25px;
+
+=======
+	float: right;
+	margin-right: 45px;
+>>>>>>> 8eb671ea6fc5263c23efa46bec1e9dc4b83ff0bc
+=======
 	float: left;
 	margin-left: 45px;
 	margin-top: 25px;
+>>>>>>> 1ce256f353f5292a96d5ff3b244d77b840aa7a60
 }
+#button_upload:hover{
+	color: var(--main-blue);
+	border-color: var(--main-orange);
+	background-color: var(--main-orange);
+}
+
 
 /* css benjamin email senden*/
 #fenster{
@@ -228,6 +261,9 @@ margin-bottom: 20px;
 }
 #kurs1 a:hover{
 	color: var(--main-orange);
+}
+#kurs1 h1 {
+	color:  #e9f6ff;
 }
 #erstell_button {
 	margin: 0px 0px 0px 10px;
