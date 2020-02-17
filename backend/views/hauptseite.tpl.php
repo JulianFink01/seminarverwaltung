@@ -12,12 +12,6 @@
     </header>
 
     <main id="hintergrund">
-      <div id="suchleiste">
-        <input type="search" placeholder="Suche nach Fortbildung" list="fortbildungsuche"/>
-        <datalist id="fortbildungsuche">
-          <option>$value</option>
-        </datalist>
-      </div>
       <div id="kurs_erstellbutton">
         <a onclick="triggerTextfeld()"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
             <form id="textfeld" action="index.php?aktion=saveFortbildung" method="post">

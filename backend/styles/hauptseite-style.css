@@ -82,6 +82,7 @@ form {
 #inhalt {
 	background-color: white;
 	float: left;
+	overflow-y: auto;
 	width: 60%;
 	height: 450px;
 	margin: 1% 0px 0px 3%;
@@ -90,7 +91,7 @@ form {
 
 
 #erstell_button {
-	margin: 0px 0px 0px 15px;
+	margin: 100px 0px 0px 15px;
 	padding: 0;
 	width: 100px;
 	height: 100px;
