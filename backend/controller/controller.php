@@ -78,6 +78,14 @@ class Controller{
       $this->addContext("template","alle_Kurse");
     }
 
+    public function lehrer_bearbeiten(){
+
+
+
+      $this->alle_Kurse();
+      $this->addContext("template","alle_Kurse");
+    }
+
     public function teilnehmerliste(){
       $this->addContext("kurse",Kurs::finde($_GET['kurs_id']));
       $this->addContext("teilnehmern",Teilnehmer::findeNachKurs(Kurs::finde($_GET['kurs_id'])));
