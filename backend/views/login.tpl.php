@@ -20,9 +20,9 @@
       <div class="login-item">
 
         <form id="login-form" method="get" action="index.php?aktion=login">
-          <legend>Seminarverwaltung LBSHI</legend>
+          <legend>Administrationpanel Fortbildungsverwaltung</legend>
           <input type="text" placeholder="Personal Key" name="key" required>
-          <input type="text" placeholder="Personal Key" name="passwd" required>
+          <input type="password" placeholder="Personal Key" name="passwd" required>
           <input type="submit" name="Login" value="Login">
         </form>
 
