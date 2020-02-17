@@ -20,6 +20,7 @@ public function __construct($daten = array())
             if (method_exists($this, $setterName)) {
                 $this->$setterName($v);
             }
+
         }
     }
 }
@@ -44,6 +45,7 @@ public function speichere()
         $this->_update();
     } else {
         // ansonsten einen INSERT
+        $this->genereateToken();
         $this->_insert();
     }
 }
@@ -81,7 +83,7 @@ public function getToken(){
 
 public function loesche()
 {
-    $sql = 'DELETE FROM teilnehmer WHERE id=?';
+    $sql = 'DELETE FROM f_teilnehmer WHERE id=?';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute( array($this->getId()) );
     // Objekt existiert nicht mehr in der DB, also muss die ID zurückgesetzt werden
@@ -95,7 +97,7 @@ private function _insert()
     //Token generiren
     $this->setToken("");
 
-    $sql = 'INSERT INTO teilnhermer (vorname, nachname, email, token)'
+    $sql = 'INSERT INTO f_teilnehmer (vorname, nachname, email, token)'
          . 'VALUES (:vorname, :nachname, :email, :token)';
 
     $abfrage = DB::getDB()->prepare($sql);
@@ -103,10 +105,15 @@ private function _insert()
     // setze die ID auf den von der DB generierten Wert
     $this->id = DB::getDB()->lastInsertId();
 }
-
+public function genereateToken(){
+  $email = $this->getEmail();
+  $arr = explode("@", $email, 2);
+  $first = $arr[0];
+  $this->setToken($first);
+}
 private function _update()
 {
-    $sql = 'UPDATE teilnhermer SET vorname=:vorname, nachname=:nachname, email=:email,token=:token'
+    $sql = 'UPDATE f_teilnehmer SET vorname=:vorname, nachname=:nachname, email=:email,token=:token'
         . 'WHERE id=:id';
     $abfrage = self::$db->prepare($sql);
     $abfrage->execute($this->toArray());
@@ -114,14 +121,14 @@ private function _update()
 /* ***** Public Methoden ***** */
 public static function findeAlle()
 {
-    $sql = 'SELECT * FROM teilnehmer';
+    $sql = 'SELECT * FROM f_teilnehmer';
     $abfrage = DB::getDB()->query($sql);
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
     return $abfrage->fetchAll();
 }
 
 public static function finde($id){
-  $sql = 'SELECT * FROM teilnehmer WHERE id=?';
+  $sql = 'SELECT * FROM f_teilnehmer WHERE id=?';
   $abfrage = DB::getDB()->prepare($sql);
   $abfrage->execute(array($id));
   $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
@@ -130,9 +137,9 @@ public static function finde($id){
 
 public static function findeNachKurs(Kurs $kurs)
 {
-    $sql = 'SELECT teilnehmer.* FROM teilnehmer '
-         . 'JOIN nimmt_teil ON teilnehmer.id=nimmt_teil.teilnehmer_id '
-         . 'WHERE nimmt_teil.kurs_id=?';
+    $sql = 'SELECT f_teilnehmer.* FROM f_teilnehmer '
+         . 'JOIN f_nimmt_teil ON f_teilnehmer.id=f_nimmt_teil.teilnehmer_id '
+         . 'WHERE f_nimmt_teil.kurs_id=?';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute( array($kurs->getId()));
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
@@ -140,23 +147,34 @@ public static function findeNachKurs(Kurs $kurs)
 }
 public static function findeNachToken($token)
 {
-    $sql = 'SELECT teilnehmer.* FROM teilnehmer '
+    $sql = 'SELECT f_teilnehmer.* FROM f_teilnehmer '
          . 'WHERE token like ?';
          $abfrage = DB::getDB()->prepare($sql);
          $abfrage->execute(array($token));
          $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
          return $abfrage->fetch();
 }
+public static function findeNachEmail($email)
+{
+    $sql = 'SELECT f_teilnehmer.* FROM f_teilnehmer '
+         . 'WHERE email like ?';
+         $abfrage = DB::getDB()->prepare($sql);
+         $abfrage->execute(array($email));
+         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
+         return $abfrage->fetch();
+}
 public static function findeNachFortbildung(Fortbildung $fortbildung)
 {
-    $sql = 'SELECT teilnehmer.* FROM teilnehmer '
-         . 'JOIN nimmt_teil ON teilnehmer.id=nimmt_teil.teilnehmer_id '
-         . 'WHERE nimmt_teil.fortbildung_id=?';
+    $sql = 'SELECT f_teilnehmer.* FROM f_teilnehmer '
+         . 'JOIN f_nimmt_teil ON f_teilnehmer.id=f_nimmt_teil.teilnehmer_id '
+         . 'WHERE f_nimmt_teil.fortbildung_id=?';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute( array($fortbildung->getId()) );
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
     return $abfrage->fetchAll();
 }
+
+
 public function getTermine(){
     return Kurs::findeNachBenutzer($this);
 }

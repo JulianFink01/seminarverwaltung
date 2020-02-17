@@ -126,9 +126,9 @@ public function speichere()
     return $bis;
   }
   public function getFormatedDate(){
-    $jahr = substr($this->getDatum(), 0, 3);
-    $monat = substr($this->getDatum(), 5, 6);
-    $tag = substr($this->getDatum(), 8, 9);
+    $jahr = substr($this->getDatum(), 0, 4);
+    $monat = substr($this->getDatum(), 5, 2);
+    $tag = substr($this->getDatum(), 8, 2);
 
     switch ($monat) {
       case '01':
@@ -170,9 +170,11 @@ public function speichere()
     }
 
     $datum = $tag.' '.$monat.' '.$jahr;
-    $von = substr($this->getVon(),0,1);
-    $bis = substr($this->getBis(),3,4);
-    $datum = $datum.' von '.$von.' - '.$bis;
+    $von = substr($this->getVon(),0,5);
+    $bis = substr($this->getBis(),0,5);
+    if($von!=""){
+    $datum = $datum.' von '.$von.' - '.$bis.' Uhr';
+    }
     return $datum;
 
   }
@@ -208,7 +210,7 @@ public function speichere()
   }
   public function loesche()
   {
-      $sql = 'DELETE FROM kurs WHERE id=?';
+      $sql = 'DELETE FROM f_kurs WHERE id=?';
       $abfrage = DB::getDB()->prepare($sql);
       $abfrage->execute( array($this->getId()) );
       // Objekt existiert nicht mehr in der DB, also muss die ID zurückgesetzt werden
@@ -221,7 +223,7 @@ public function speichere()
   /* ***** Private Methoden ***** */
 
   public function nimmtAnKursTeil(Teilnehmer $teilnehmer){
-    $sql = 'SELECT * FROM nimmt_teil WHERE kurs_id=? and teilnehmer_id = ? and fortbildung_id = ?';
+    $sql = 'SELECT * FROM f_nimmt_teil WHERE kurs_id=? and teilnehmer_id = ? and fortbildung_id = ?';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array($this->getId(), $teilnehmer->getId(), $this->getFortbildung_id()));
     $erg = $abfrage->fetchAll();
@@ -233,7 +235,7 @@ public function speichere()
   }
   //SELECT count(*) FROM nimmt_teil WHERE kurs_id=1 and fortbildung_id = 1
   public function getTeilnehmerAnzahl(){
-    $sql = 'SELECT count(*) as anzahl FROM nimmt_teil WHERE kurs_id=? and fortbildung_id = ?';
+    $sql = 'SELECT count(*) as anzahl FROM f_nimmt_teil WHERE kurs_id=? and fortbildung_id = ?';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array($this->getId(),$this->getFortbildung_id()));
     $erg = $abfrage->fetchAll();
@@ -244,7 +246,7 @@ public function speichere()
       //Token generiren
       $this->setToken("");
 
-      $sql = 'INSERT INTO kurs (id, datum, titel, maxTeilnehmer, referent, beschreibung, ort_raum,kontakt, von, bis, unterschriftsliste_zweispaltig, koordination, anmeldeschluss, fortbildung_id, dauer)'
+      $sql = 'INSERT INTO f_kurs (id, datum, titel, maxTeilnehmer, referent, beschreibung, ort_raum,kontakt, von, bis, unterschriftsliste_zweispaltig, koordination, anmeldeschluss, fortbildung_id, dauer)'
            . 'VALUES (:id, :datum, :titel, :maxTeilnehmer, :referent, :beschreibung, :ort_raum,:kontakt,:von,:bis,:unterschriftsliste_zweispaltig, :koordination, :anmeldeschluss, :fortbildung_id, :dauer)';
 
       $abfrage = DB::getDB()->prepare($sql);
@@ -255,7 +257,7 @@ public function speichere()
 
   private function _update()
   {
-      $sql = 'UPDATE teilnhermer SET id=:id, datum=:datum, titel=:titel,maxTeilnehmer=:maxTeilnehmer,referent=:referent,beschreibung=:beschreibung,ort_raum=:ort_raum,kontakt=:kontakt,von=:von,bis=:bis,unterschriftsliste_zweispaltig=:unterschriftsliste_zweispaltig,koordination=:koordination,anmeldeschluss=:anmeldeschluss,fortbildung_id=:fortbildung_id,dauer=:dauer'
+      $sql = 'UPDATE f_teilnhermer SET id=:id, datum=:datum, titel=:titel,maxTeilnehmer=:maxTeilnehmer,referent=:referent,beschreibung=:beschreibung,ort_raum=:ort_raum,kontakt=:kontakt,von=:von,bis=:bis,unterschriftsliste_zweispaltig=:unterschriftsliste_zweispaltig,koordination=:koordination,anmeldeschluss=:anmeldeschluss,fortbildung_id=:fortbildung_id,dauer=:dauer'
           . 'WHERE id=:id';
       $abfrage = self::$db->prepare($sql);
       $abfrage->execute($this->toArray());
@@ -264,14 +266,14 @@ public function speichere()
   /* ***** public Methoden ***** */
   public static function findeAlle()
   {
-      $sql = 'SELECT * FROM kurs';
+      $sql = 'SELECT * FROM f_kurs';
       $abfrage = DB::getDB()->query($sql);
       $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Kurs');
       return $abfrage->fetchAll();
   }
 
   public static function finde($id){
-    $sql = 'SELECT * FROM kurs WHERE id=?';
+    $sql = 'SELECT * FROM f_kurs WHERE id=?';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array($id));
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Kurs');
@@ -281,7 +283,7 @@ public function speichere()
 
   public static function findeNachFortbildung(Fortbildung $fortbildung)
   {
-      $sql = 'SELECT * FROM kurs WHERE fortbildung_id=?';
+      $sql = 'SELECT * FROM f_kurs WHERE fortbildung_id=?';
       $abfrage = DB::getDB()->prepare($sql);
       $abfrage->execute(array($fortbildung->getId()));
       $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Kurs');
@@ -299,7 +301,7 @@ public function speichere()
 
   public function loescheTeilnehmer(Teilnehmer $teilnehmer)
   {
-      $sql = 'Update nimmt_teil set kurs_id = null'
+      $sql = 'Update f_nimmt_teil set kurs_id = null'
            . 'WHERE teilnehmer_id=? AND kurs_id=?';
       $abfrage = DB::getDB()->prepare($sql);
       $abfrage->execute(array(
@@ -309,7 +311,7 @@ public function speichere()
   }
 
   public function teilnehmen(Teilnehmer $teilnehmer){
-    $sql = 'Update nimmt_teil set kurs_id = ? WHERE teilnehmer_id = ? and fortbildung_id = ?';
+    $sql = 'Update f_nimmt_teil set kurs_id = ? WHERE teilnehmer_id = ? and fortbildung_id = ?';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array(
       $this->getId(),
@@ -318,7 +320,7 @@ public function speichere()
     ));
   }
   public function abmelden(Teilnehmer $teilnehmer){
-    $sql = 'Update nimmt_teil set kurs_id = NULL WHERE teilnehmer_id = ? and fortbildung_id = ?';
+    $sql = 'Update f_nimmt_teil set kurs_id = NULL WHERE teilnehmer_id = ? and fortbildung_id = ?';
 
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array(

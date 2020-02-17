@@ -12,7 +12,11 @@ class Controller{
 
     public function hauptseite(){
         $this->addContext("fortbildungen", Fortbildung::findeAlle());
-
+    }
+    public function saveFortbildung(){
+      $fortbildung = new Fortbildung(array("name"=>$_POST['titel'],"status"=>1));
+      $fortbildung->speichere();
+      header("Location: index.php?aktion=hauptseite");
     }
     public function alle_Kurse(){
       $this->addContext("kurse", Kurs::findeNachFortbildung(Fortbildung::finde($_GET['fortbildung_id'])));
@@ -31,8 +35,27 @@ class Controller{
 
     public function import_lehrer(){
       $alleLehrer = Funktionen::importLehrer();
+
       foreach ($alleLehrer as $lehrer) {
-        // code...
+
+        //checken ob teilnehmer/lehrer in datenbank schon vorhanden ist
+        $teilnehmer = Teilnehmer::findeNachEmail($lehrer["Email"]);
+
+        if($teilnehmer == false){//wenn leherer keine email haben, sind nicht in DB
+          $teilnehmer = new Teilnehmer();
+          $teilnehmer->setVorname($lehrer["Vorname"]);
+          $teilnehmer->setNachname($lehrer["Nachname"]);
+          $teilnehmer->setEmail($lehrer["Email"]);
+          $teilnehmer->speichere();
+        }
+
+        if (NimmtTeil::findeNachFortbildungUndTeilnehemer(Fortbildung::finde($_GET['fortbildung_id']) , $teilnehmer) == false){
+          $teilnehmerNimmt = new NimmtTeil();
+          $teilnehmerNimmt->setFortbildung_id($_GET['fortbildung_id']);
+          $teilnehmerNimmt->setTeilnehmer_id($teilnehmer->getId());
+          $teilnehmerNimmt->speichere();
+        }
+        // Teilnehmer zu NimmtTeil hinzufügens
       }
       $this->alle_Kurse();
       $this->addContext("template","alle_Kurse");

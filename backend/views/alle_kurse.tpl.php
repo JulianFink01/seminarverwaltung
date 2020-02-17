@@ -83,7 +83,7 @@
 
             <div id="fenster">
             <form action="index.php?aktion=send_email&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>" method="post">
-              <textarea name="message" rows="50" cols="60" id="text"></textarea>
+              <textarea name="message" rows="30" cols="160" id="text"></textarea>
 
               <input type="submit" id="senden" name="senden" value="Senden"/>
       </div>

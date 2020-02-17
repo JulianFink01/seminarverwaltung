@@ -1,59 +1,126 @@
 <head>
+
+
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.js"></script>
+
+<!--
+    $movie = array( "title" => "Rear Window",
+                    "director" => "Alfred Hitchcock",
+                    "year" => 1954 );
+*/-->
+    <?php
+
+      $daten = array ();
+      if(!empty($_POST['datum']) ){
+      $daten['datum']=$_POST['datum'];
+      }
+      if(!empty($_POST['titel']) ){
+      $daten['titel']=$_POST['titel'];
+      }
+      if(!empty($_POST['maxTeilnehmer']) ){
+      $daten['maxTeilnehmer']=$_POST['maxTeilnehmer'];
+      }
+      if(!empty($_POST['referend']) ){
+      $daten['referend']=$_POST['referend'];
+      }
+      if(!empty($_POST['beschreibung']) ){
+      $daten['beschreibung']=$_POST['beschreibung'];
+      }
+      if(!empty($_POST['ort_raum']) ){
+      $daten['ort_raum']=$_POST['ort_raum'];
+      }
+      if(!empty($_POST['kontakt']) ){
+      $daten['kontakt']=$_POST['kontakt'];
+      }
+      if(!empty($_POST['von']) ){
+      $daten['von']=$_POST['von'];
+      }
+      if(!empty($_POST['bis']) ){
+      $daten['bis']=$_POST['bis'];
+    //  $daten['unterschriftsliste_zweispaltig']=$_POST['unterschriftsliste_zweispaltig'];
+      }
+      if(!empty($_POST['koordination']) ){
+      $daten['koordination']=$_POST['koordination'];
+      }
+      if(!empty($_POST['anmeldeschluss']) ){
+      $daten['anmeldeschluss']=$_POST['anmeldeschluss'];
+      //$daten['fortbildung_id']=;
+      }
+      if(!empty($_POST['dauer']) ){
+      $daten['dauer']=$_POST['dauer'];
+      }
+    ?>
+
   <!-- https://t3n.de/news/css3-dynamische-tabs-ohne-365861/-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="styles/main-style.css">
   <link rel="stylesheet" type="text/css" href="styles/kurse-style.css">
+
 </head>
 <body>
   <header id="kopf">
 <h1>Kurse - erstellen</h1>
   </header>
   <div id="hintergrund">
-<div id="leiste">
-    <article class="infobox">
-        <section id="allgemeiner">
+    <div id="box">
+        <p> Titel *</p>
+    <input type="text" name="titel" id="titel"/>
+        <p> Datum *</p>
+    <input type="date" name="datum" />
+        <p>Beschreibung</p>
 
-            <h2><a href="#allgemeiner">Inhalt</a></h2>
-            <div id="inhalt">
+    <!--<textarea id="textarea" cols="150" rows="20">
+        stop you violated the law ! Pay the cort a fine or serve your sentence. All your stolen goods are now forfited.
+    </textarea> -->
 
+        <div id="summernote" >stop you <i> suck </i>violated the law ! Pay the <b>bliet</b> cort a fine or serve your sentence. All your stolen goods are now forfited. </div>
+           <script>
+               $(document).ready(function() {
+        $('#summernote').summernote({height: 280,width: 1200 });
 
-          </div>
+        console.log($('#summernote'));
 
-        </section>
-        <section id="ansicht">
-            <h2><a href="#ansicht">Ansicht</a></h2>
-
-            <div id="ansicht_inhalt">
-              <div id="teilnehmeranzahl">
-
-              </div>
-               <h1 id="titel">Ich bin der Kurs Titel</h1>
-               <div id="beschreibung">
-               <p>dfdsfdsfdfsdfsfdffhgdfhfdfdgdfsgdffghgfhgfhfghgfhfghfhfghghgfhgf</p>
-             </div>
-             <div id="o_d">
-                <h1 id="ort">Bozen</h1>
-                <h1 id="datum">14.01.2100</h1>
-              </div>
-                <div id="zeit">
-                  <h1 id="von">12:00</h1>
-                  <h1 id="bis">15:00</h1>
-                  <h1 id="dauer">3h</h1>
-                  <h1 id="anmeldeschluss">12.05.1914</h1>
-                </div>
-                <div id="krk">
-                  <h1 id="kontakt">Schule</h1>
-                  <h1 id="referent">Direktor</h1>
-                  <h1 id="koordination">hahaha</h1>
-                </div>
+    });
 
 
-            </div>
-            <input type="button" id="erstellbutton" name="erstellen">
+  </script>
 
-        </section>
-    </article>
-</div>
+
+        <form action="#" method="post">
+        <P> uhrzeit </P>
+             start:  &ensp;
+        <input type="number" value="12" name='von' id="start" class="zeit"  />
+           &ensp; ende:  &ensp;
+        <input type="number" value="12" name="bis" id="ende" class="zeit"/>
+            dauer: &ensp;
+        <input type="number" value =""   id="dauer" class="zeit"/>
+
+            <br /> Teilnehmeranzahl  &emsp; Kontaktperson <br />
+        <input type="number" name="maxTeilnehmer" id="zeilnehmeranzahl" />
+
+        <input type="text" name="kontakt" id="kontaktperson" />
+            <br /> Referend   &emsp;  Anmeldeschluss  <br />
+        <input type="text"  name="koordination" id="referend" />
+
+        <input type="date" name="anmeldeschluss" id="anmeldeschluss" /> <br />
+
+        <input type="submit" id="senden" value="Senden">
+
+            <?php
+
+            var_dump($daten);
+
+
+
+
+            ?>
+    </form>
+    </div>
+
 </div>
 
 </body>

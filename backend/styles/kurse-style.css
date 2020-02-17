@@ -30,7 +30,7 @@ article.infobox section {
     position: absolute;
     display: block;
     width: 90%;
-    height: 650px;
+    height: 630px;
     top: 300px;
     background-color: var(--dark-white);
 		border: 0.5px solid var(--dark-white);
@@ -77,17 +77,6 @@ article.infobox section:target, article.infobox section:target h2 {
 
 article.infobox section:target h2 a {
     color: var(--main-blue);
-
-}
-#suchleiste {
-	margin: 4% 0px 3% 50px;
-	width: 10%;
-}
-#suchleiste input[type="search"]{
-	width: 500px;
-	height: 40px;
-	border-radius: 0px 0px 0px 0px;
-	color: var(--main-blue);
 
 }
 #kreisbutton div{
@@ -151,8 +140,9 @@ table tr td.b_l{
     margin-left: 12rem;
 }
 #senden{
-    margin: 0px 0px 0px 0px;
-    float: right;
+    position: absolute;
+		top: 600px;
+
     width: 150px;
     height: 30px;
 }
@@ -160,7 +150,7 @@ table tr td.b_l{
 	background-color: #fafafa;
 	float: left;
 	width: 75%;
-	height: 430px;
+	height: 560px;
 	margin: 0px 0px 0px 50px;
 	padding: 10px 10px 20px 10px;
 	overflow-y: auto;
