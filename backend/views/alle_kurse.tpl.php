@@ -68,7 +68,7 @@
                    <td><?php echo $teilnehmer->getEmail();?></td>
                    <td style="background-color: var(--main-<?php echo NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbildung,$teilnehmer)->getStatusFarbe();?>);">&nbsp;</td>
                    <td class="b_l">bearbeiten</td>
-                   <td class="b_l">löschen</td>
+                   <td class="b_l"><a href="index.php?aktion=remove_lehrer_nimmtTeil&teilnehmer_id=<?php echo $teilnehmer->getId()?>&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen">löschen</a></td>
                  </tr>
                  <?php } ?>
 
