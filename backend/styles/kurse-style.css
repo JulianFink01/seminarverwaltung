@@ -170,12 +170,8 @@ table tr td.b_l{
 #kurs1 p {
 	color: #e9f6ff;
 }
-#kurs1:hover{
-		background-color: var(--main-orange);
-		color: var(--main-blue);
-}
 #kurs1 a:hover{
-	color: var(--main-blue);
+	color: var(--main-orange);
 }
 #erstell_button {
 	margin: 0px 0px 0px 10px;

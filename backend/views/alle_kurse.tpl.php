@@ -9,8 +9,6 @@
  <h1>Kursverwaltung - <?php echo $fortbildung->getName() ?></h1>
    </header>
 
-  <div id="login_Feld"></div>
-
   <div id="leiste">
     <article class="infobox">
         <section id="allgemeiner">
