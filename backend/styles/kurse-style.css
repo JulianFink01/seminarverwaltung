@@ -118,21 +118,13 @@ table tr td.b_l{
 	text-align: left;
 }
 
-#teilnehmer_hinzu{
-	float: right;
-	margin-right: 45px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
 .status{
 			width: 70px;
 }
 
 .csv{
-	float: left;
-	margin-left: 45px;
-	margin-top: 25px;
+	float: right;
+	margin-right: 45px;
 }
 
 /* css benjamin email senden*/
