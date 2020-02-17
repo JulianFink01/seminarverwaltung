@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 class Controller{
 //https://remotemysql.com/phpmyadmin/index.php
     private $context = array();
@@ -32,7 +32,12 @@ class Controller{
     public function send_email(){
       Funktionen::send_email();
     }
-
+    public function login(){
+      if(isset($_SESSION["loggedIn"])){
+        $this->addContext("fortbildungen", Fortbildung::findeAlle());
+        $this->addContext("template","hauptseite");
+      }
+    }
     public function import_lehrer(){
       $alleLehrer = Funktionen::importLehrer();
 
@@ -57,6 +62,15 @@ class Controller{
         }
         // Teilnehmer zu NimmtTeil hinzufügens
       }
+      $this->alle_Kurse();
+      $this->addContext("template","alle_Kurse");
+    }
+
+    public function remove_lehrer_nimmtTeil($email){
+        //checken bei welchem teilnehmer/lehrer der butten gedrückt wurde
+        $teilnehmer = Teilnehmer::findeNachEmail($email);
+        $teilnehmer->loescheAusFortbildung();
+        // Teilnehmer zu NimmtTeil entfernen
       $this->alle_Kurse();
       $this->addContext("template","alle_Kurse");
     }

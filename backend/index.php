@@ -12,7 +12,7 @@ require_once 'models/funktionen.inc.php';
 require_once 'controller/controller.php';
 
 
-$aktion = isset($_GET['aktion'])?$_GET['aktion']:'hauptseite';
+$aktion = isset($_GET['aktion'])?$_GET['aktion']:'login';
 
 $controller = new Controller();
 
