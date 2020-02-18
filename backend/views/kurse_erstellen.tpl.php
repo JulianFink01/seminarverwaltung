@@ -27,66 +27,24 @@ if(!isset($_SESSION["loggedIn"])){
 </head>
 <body>
 
-  <<<<<<< HEAD
-  <?php
 
-  $daten = array ();
-  if(!empty($_POST['datum']) ){
-    $daten['datum']=$_POST['datum'];
-  }
-  if(!empty($_POST['titel']) ){
-    $daten['titel']=$_POST['titel'];
-  }
-  if(!empty($_POST['maxTeilnehmer']) ){
-    $daten['maxTeilnehmer']=$_POST['maxTeilnehmer'];
-  }
-  if(!empty($_POST['referend']) ){
-    $daten['referend']=$_POST['referend'];
-  }
-  if(!empty($_POST['beschreibung']) ){
-    $daten['beschreibung']=$_POST['beschreibung'];
-  }
-  if(!empty($_POST['ort_raum']) ){
-    $daten['ort_raum']=$_POST['ort_raum'];
-  }
-  if(!empty($_POST['kontakt']) ){
-    $daten['kontakt']=$_POST['kontakt'];
-  }
-  if(!empty($_POST['von']) ){
-    $daten['von']=$_POST['von'];
-  }
-  if(!empty($_POST['bis']) ){
-    $daten['bis']=$_POST['bis'];
-    //  $daten['unterschriftsliste_zweispaltig']=$_POST['unterschriftsliste_zweispaltig'];
-  }
-  if(!empty($_POST['koordination']) ){
-    $daten['koordination']=$_POST['koordination'];
-  }
-  if(!empty($_POST['anmeldeschluss']) ){
-    $daten['anmeldeschluss']=$_POST['anmeldeschluss'];
-    //$daten['fortbildung_id']=;
-  }
-  if(!empty($_POST['dauer']) ){
-    $daten['dauer']=$_POST['dauer'];
-  }
-  ?>
 
   <header id="kurskopf">
-    =======
     <header id="kopf">
-      >>>>>>> cb6e47704e07fc9c3fb6790bacbf3982a85aee1f
-      <h1>Kurse - erstellen</h1>
+
+      <h1>Kurse erstellen</h1>
     </header>
     <div id="kurserstelleninhalt">
       <div id="box">
+          <form action="index.php?aktion=kurse_erstellen&fortbildung_id=<?php echo $_GET['fortbildung_id']?>"  method="post">
         <div id="input">
           <p class="einzug"> Titel<input type="text" name="titel" id="titel"/></p>
-          <p class="einzug"> Datum <input type="date" name="datum" /></p>
+          <p class="einzug"> Datum <input type="date" name="datum" id="datum"/></p>
         </div>
         <p>Beschreibung</p>
 
 
-        <div id="summernote" >stop you <i> suck </i>violated the law ! Pay the <b>bliet</b> cort a fine or serve your sentence. All your stolen goods are now forfited. </div>
+        <div id="summernote" ></div>
 
 
         <script>
@@ -97,12 +55,12 @@ if(!isset($_SESSION["loggedIn"])){
 
 
         </script>
-        
 
-        <form action="#"  method="post">
+
+
           <p> Uhrzeit </p>
           <a>Dauer:</a> &ensp;
-          <input type="number" value =""   id="dauer" class="zeit"/>
+          <input type="number" name="dauer" id="dauer" class="zeit"/>
           <a>Start:</a>  &ensp;
           <input type="text" placeholder="10:00"  name='von' id="start" class="zeit"  />
           &ensp; <a>Ende:</a>  &ensp;
@@ -110,28 +68,31 @@ if(!isset($_SESSION["loggedIn"])){
 
 
 
+            <br /> Koordination   &emsp;  Anmeldeschluss  <br />
+            <input type="text"  name="koordination" id="koordination" />
+            <input type="date" name="anmeldeschluss" id="anmeldeschluss">
 
           <input type="hidden" id="beschreibung" name="beschreibung" />
           <br /> Teilnehmeranzahl  &emsp; Kontaktperson <br />
-          <input type="number" name="maxTeilnehmer" id="zeilnehmeranzahl" />
+          <input type="number" name="maxTeilnehmer" id="maxTeilnehmer" />
+          <input type="text" name="kontakt" id="kontakt />
 
-          <input type="text" name="kontakt" id="kontaktperson" />
-          <br /> Referend   &emsp;  Anmeldeschluss  <br />
-          <input type="text"  name="koordination" id="referend" />
 
-          <input type="date" name="anmeldeschluss" id="anmeldeschluss" /> <br />
+        <br /> Referent <br />
+        <input type="text"  name="referent" id="referent" />
 
           <br /> Raum  <br/>
-          <input type="text"  name="ortRaum" id="ortRaum" />
+          <input type="text"  name="ort_raum" id="ort_raum" />
 
 
 
-          <input type="submit" onclick="myFunction(); return true;" id="senden" value="Senden">
+          <input type="submit" onclick="return myFunction();" id="senden" value="Senden">
 
 
           <script>
           function myFunction() {
             $('#beschreibung').value = $('#summernote').summernote('code');
+            return true;
           }
 
           </script>

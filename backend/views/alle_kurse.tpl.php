@@ -24,21 +24,22 @@ if(!isset($_SESSION["loggedIn"])){
          <div id="inhalt">
 
            <?php
+           if($kurse != NULL){
              foreach($kurse as $kurs){ ?>
          <div id="kurs1">
-         <a href="?aktion=kurse#allgemeiner"><?php echo $kurs->getTitel();?></a>
-         <p><?php echo $kurs->getBeschreibung() ?></p>
+         <h1><?php echo $kurs->getTitel();?></h1>
+         <p><?php echo $kurs->getShortBeschreibung() ?> ...</p>
          <a href="#">bearbeiten</a>
-         <a href="#">löschen</a>
+         <a href="?aktion=loesche&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>&kurs_id=<?php echo $kurs->getId()?>">löschen</a>
          <a href="?aktion=teilnehmerliste&kurs_id=<?php echo $kurs->getId()?>">teilnehmerliste</a>
          </div>
- <?php    } ?>
+ <?php    }} ?>
 
 
 </div>
 
   <div id="kurs_erstellbutton">
-  <a href="index.php?aktion=kurse_erstellen#allgemeiner"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
+  <a href="index.php?aktion=kurse_erstellen&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#allgemeiner"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
   </div>
 
         </section>
@@ -50,15 +51,15 @@ if(!isset($_SESSION["loggedIn"])){
             <div class="csv">
               <form method="post" enctype="multipart/form-data" action="index.php?aktion=import_lehrer&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen">
                 <label>
-                  CSV Datei(*.csv)
-                  <input name="datei" type="file" size="50" accept=".csv" id="button2">
-                  <input type="submit" class="button" name="submit" value="Upload">
+                  <span>CSV Datei(*.csv)</span>
+                  <input name="datei" type="file" size="50" accept=".csv" class="button">
+                  <input type="submit" id="button_upload" name="submit" value="Upload">
                 </label>
               </form>
             </div>
 
             <div id="teilnehmer_hinzu">
-              <a href="index.php?aktion=lehrer_hinzufuegen#funktionen"><img width="60px" src="Images/teilnehmer-hinzufuegen.png" /></a>
+              <a href="index.php?aktion=lehrer_hinzufuegen#funktionen"><img width="60px" src="Images/teilnehmer-hinzufuegen.png" title="Teilnehmer hinzufuegen" /></a>
             </div>
 
              <div id="teilnehmer">
@@ -78,8 +79,8 @@ if(!isset($_SESSION["loggedIn"])){
                    <td><?php echo $teilnehmer->getNachname();?></td>
                    <td><?php echo $teilnehmer->getEmail();?></td>
                    <td style="background-color: var(--main-<?php echo NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbildung,$teilnehmer)->getStatusFarbe();?>);">&nbsp;</td>
-                   <td class="b_l"><a href="index.php?aktion=lehrer_bearbeiten&teilnehmer_id=<?php echo $teilnehmer->getId()?>&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen"><img width="45px" src="Images/teilnehmer-bearbeiten.png" /></a></td>
-                   <td class="b_l"><a href="index.php?aktion=remove_lehrer_nimmtTeil&teilnehmer_id=<?php echo $teilnehmer->getId()?>&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen"><img width="45px" src="Images/teilnehmer-entfernen.png" /></a></td>
+                   <td class="b_l"><a href="index.php?aktion=lehrer_bearbeiten&teilnehmer_id=<?php echo $teilnehmer->getId()?>&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen"><img width="45px" src="Images/teilnehmer-bearbeiten.png" title="Teilnehmer bearbeiten"/></a></td>
+                   <td class="b_l"><a href="index.php?aktion=remove_lehrer_nimmtTeil&teilnehmer_id=<?php echo $teilnehmer->getId()?>&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen"><img width="45px" src="Images/teilnehmer-entfernen.png" title="Teilnehmer entfernen" /></a></td>
                  </tr>
                  <?php } ?>
 
