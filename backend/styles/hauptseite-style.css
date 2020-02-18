@@ -58,7 +58,28 @@ form {
 }
 
 
+#button{
+	color: var(--main-white);
+	border-color: var(--main-blue);
+	background-color: var(--main-blue);
+	width: 100px;
+	height: 25px;
 
+=======
+	float: right;
+	margin-right: 45px;
+>>>>>>> 8eb671ea6fc5263c23efa46bec1e9dc4b83ff0bc
+=======
+	float: left;
+	margin-left: 45px;
+	margin-top: 25px;
+>>>>>>> 1ce256f353f5292a96d5ff3b244d77b840aa7a60
+}
+#button:hover{
+	color: var(--main-blue);
+	border-color: var(--main-orange);
+	background-color: var(--main-orange);
+}
 #kopf {
 	background-color: white;
 	border: 1px solid rgba(189,195,199);

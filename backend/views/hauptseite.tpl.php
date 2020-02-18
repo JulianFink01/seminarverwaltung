@@ -3,6 +3,7 @@ if(!isset($_SESSION["loggedIn"])){
   header('Location: ../index.php?aktion=login');
 }
 ?>
+<html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="styles/hauptseite-style.css">
@@ -22,7 +23,7 @@ if(!isset($_SESSION["loggedIn"])){
             <form id="textfeld" action="index.php?aktion=saveFortbildung" method="post">
               <legend>Fortbildung - erstellen:</legend>
               <input type="text" name="titel" placeholder="Titel"><br/>
-              <input type="submit" value="erstellen" name="erstellen" id="eingabe_b">
+              <input type="submit" value="erstellen" name="erstellen" id="button">
             </form>
 
       </div>
@@ -48,7 +49,7 @@ if(!isset($_SESSION["loggedIn"])){
 
 
 </body>
-
+</html>
 
 <script type="text/javascript">
 
