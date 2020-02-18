@@ -45,7 +45,6 @@ if(!isset($_SESSION["loggedIn"])){
         </section>
         <section id="funktionen">
             <h2><a href="#funktionen">Teilnehmer</a></h2>
-            <!--Simons arbeitsbereich  mit teiler-style-->
 
 
             <div class="csv">
