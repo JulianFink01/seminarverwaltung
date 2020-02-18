@@ -92,12 +92,11 @@ class Controller{
       header('Location: index.php?aktion=alle_kurse&fortbildung_id='.$_REQUEST["fortbildung_id"].'#allgemeiner');
     }
 
-    public function lehrer_bearbeiten(){
-
-
-
-      $this->alle_Kurse();
-      $this->addContext("template","alle_Kurse");
+    public function saveTeilnehmer(){
+      $teilnehmer = new Teilnehmer(array("vorname"=>$_POST['vorname'],"nachname"=>$_POST['nachname'], "email" =>$_POST['email']));
+      $teilnehmer->speichere();
+      Fortbildung::finde($_GET["fortbildung_id"])->teilnehmen($teilnehmer);
+      header('Location: index.php?aktion=alle_Kurse&fortbildung_id='.$_REQUEST['fortbildung_id'].'#funktionen');
     }
 
     public function teilnehmerliste(){

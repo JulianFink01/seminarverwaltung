@@ -91,10 +91,33 @@ td, th{
 	border: 0.5px solid var(--dark-white);
 	padding: 5px;
 }
-
+.showTeilnehmerErstellen{
+	height:auto !important;
+	overflow: visible !important;
+}
+#textfeld{
+	height: 0px;
+	overflow: hidden;
+	transition: 1s all;
+}
+#textfeld legend {
+	margin: 50px 0px 0px 15px;
+	font-size: 15px;
+}
+#textfeld input[type="text"] {
+	margin: 10px 0px 0px 15px;
+	padding-left: 5px;
+	width: 350px;
+	height: 30px;
+}
+#textfeld input[type="submit"] {
+	margin: 10px 0px 0px 265px;
+	width: 100px;
+	height: 30px;
+}
 #teilnehmer {
 	background-color: white;
-	width: 94%;
+	width: 70%;
 	margin: 50px 0px 0px 50px;
 	height: 450px;
 	overflow-y: auto;
@@ -123,6 +146,10 @@ table tr td.b_l{
 	margin-right: 45px;
 	margin-top: 10px;
 	margin-bottom: 10px;
+
+}
+#teilnehmer_hinzu legend{
+		color: var(--main-blue);
 }
 
 .status{
@@ -144,7 +171,7 @@ table tr td.b_l{
 	color: var(--main-blue);
 }
 
-#button_upload{
+#button{
 	color: var(--main-white);
 	border-color: var(--main-blue);
 	background-color: var(--main-blue);
@@ -161,7 +188,7 @@ table tr td.b_l{
 	margin-top: 25px;
 >>>>>>> 1ce256f353f5292a96d5ff3b244d77b840aa7a60
 }
-#button_upload:hover{
+#button:hover{
 	color: var(--main-blue);
 	border-color: var(--main-orange);
 	background-color: var(--main-orange);
