@@ -3,6 +3,7 @@ if(!isset($_SESSION["loggedIn"])){
   header('Location: ../index.php?aktion=login');
 }
 ?>
+<html>
 <head>
 
 
@@ -106,3 +107,4 @@ if(!isset($_SESSION["loggedIn"])){
     </div>
 
   </body>
+  </html>
