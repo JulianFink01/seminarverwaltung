@@ -99,6 +99,18 @@ class Controller{
       header('Location: index.php?aktion=alle_Kurse&fortbildung_id='.$_REQUEST['fortbildung_id'].'#funktionen');
     }
 
+    public function kurs_bearbeiten(){
+      var_dump($_POST);
+      $this->addContext("kurse", Kurs::finde($_GET['kurs_id']));
+    }
+    public function kurse_bearbeitung_speichern(){
+      $kurse = new Kurs(array("id"=>$_REQUEST['kurs_id'],"titel"=>$_POST['titel'], "datum" =>$_POST['datum'], "beschreibung" => 'summernote', "dauer" => $_POST['dauer'], "von" => $_POST['von'],
+      "bis" => $_POST['bis'], "koordination" => $_POST['koordination'], "anmeldeschluss" => $_POST['anmeldeschluss'], "kontaktperson" => $_POST['kontakt'], "maxTeilnehmer" => $_POST['maxTeilnehmer'], "referent" => $_POST['referent'],
+      "ort_raum" => $_POST['ort_raum'], "unterschriftsliste_zweispaltig" => NULL, "fortbildung_id" => $_REQUEST['fortbildung_id']));
+      $kurse->speichere();
+      header('Location: index.php?aktion=hauptseite');
+    }
+
     public function teilnehmerliste(){
       $this->addContext("kurse",Kurs::finde($_GET['kurs_id']));
       $this->addContext("teilnehmern",Teilnehmer::findeNachKurs(Kurs::finde($_GET['kurs_id'])));
