@@ -3,7 +3,7 @@
 
 class Teilnehmer{
 
-protected $id = 0;
+protected $id = NULL;
 protected $vorname = "";
 protected $nachname = "";
 protected $email = "";
@@ -94,8 +94,6 @@ public function loesche()
 
 private function _insert()
 {
-    //Token generiren
-    $this->setToken("");
 
     $sql = 'INSERT INTO f_teilnehmer (vorname, nachname, email, token)'
          . 'VALUES (:vorname, :nachname, :email, :token)';
@@ -106,10 +104,12 @@ private function _insert()
     $this->id = DB::getDB()->lastInsertId();
 }
 public function genereateToken(){
-  $email = $this->getEmail();
-  $arr = explode("@", $email, 2);
-  $first = $arr[0];
-  $this->setToken($first);
+
+
+  $generator = new RandomStringGenerator;
+  $tokenLength = 30;
+  $token = $generator->generate($tokenLength);
+  $this->setToken($token);
 }
 private function _update()
 {
@@ -186,6 +186,15 @@ public function nimmtAnKurseTeil(){
       return false;
     }else {
       return true;
+    }
+}
+public function nimmtAnKurseTeilInFortbildung($fortbildungid){
+  $fortbildung = Fortbildung::finde($fortbildungid);
+  $term = Kurs::findeNachBenutzerUndFortbildung($this, $fortbildung);
+  if(empty($term)){
+      return false;
+    }else {
+      return true;//1==true
     }
 }
 

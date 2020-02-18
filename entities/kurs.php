@@ -95,7 +95,7 @@ public function speichere()
     return $this->beschreibung;
   }
   public function getShortBeschreibung(){
-    return substr($this->beschreibung,0,200);
+    return substr($this->beschreibung,0,150);
   }
   public function setOrt_raum($ortRaum){
     $this->ort_raum = $ortRaum;
@@ -339,7 +339,10 @@ public function speichere()
   {
       return NimmtTeil::findeAlleKurseNachTeilnehmer($teilnehmer);
   }
-
+  public static function findeNachBenutzerUndFortbildung(Teilnehmer $teilnehmer, Fortbildung $fortbildung)
+  {
+      return NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbildung, $teilnehmer);
+  }
   public static function findeAlleTeilnehmer(Kurs $kurs){
     $result = NimmtTeil::findeAlleKursTeilnehmer($kurs);
     return $result;
