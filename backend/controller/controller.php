@@ -18,6 +18,7 @@ class Controller{
       header("Location: index.php?aktion=hauptseite");
     }
     public function alle_Kurse(){
+
       $this->addContext("kurse", Kurs::findeNachFortbildung(Fortbildung::finde($_GET['fortbildung_id'])));
       $this->addContext("teilnehmern", Fortbildung::findeAlleTeilnehmer(Fortbildung::finde($_GET['fortbildung_id'])));
       $this->addContext("fortbildung", Fortbildung::finde($_GET['fortbildung_id']));
@@ -26,10 +27,14 @@ class Controller{
 
     }
     public function kurse_erstellen(){
-      $kurs = new Kurs($_POST);
-      $kurs->speichere();
-      $this->alle_Kurse();
-      $this->addContext("template","alle_Kurse");
+      if ($_POST){
+        $kurs = new Kurs($_POST);
+        echo $kurs;
+        $kurs->speichere();
+        $this->alle_Kurse();
+        $this->addContext("template","alle_Kurse");
+      }
+
     }
     public function send_email(){
       Funktionen::send_email();
@@ -79,6 +84,12 @@ class Controller{
         // Teilnehmer zu NimmtTeil entfernen
       $this->alle_Kurse();
       $this->addContext("template","alle_Kurse");
+    }
+
+    public function loesche(){
+      $kurs = Kurs::finde($_GET['kurs_id']);
+      $kurs->loesche();
+      header('Location: index.php?aktion=alle_kurse&fortbildung_id='.$_REQUEST["fortbildung_id"].'#allgemeiner');
     }
 
     public function lehrer_bearbeiten(){
