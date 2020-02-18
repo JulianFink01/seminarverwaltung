@@ -339,7 +339,10 @@ public function speichere()
   {
       return NimmtTeil::findeAlleKurseNachTeilnehmer($teilnehmer);
   }
-
+  public static function findeNachBenutzerUndFortbildung(Teilnehmer $teilnehmer, Fortbildung $fortbildung)
+  {
+      return NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbildung, $teilnehmer);
+  }
   public static function findeAlleTeilnehmer(Kurs $kurs){
     $result = NimmtTeil::findeAlleKursTeilnehmer($kurs);
     return $result;

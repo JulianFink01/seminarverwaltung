@@ -188,6 +188,15 @@ public function nimmtAnKurseTeil(){
       return true;
     }
 }
+public function nimmtAnKurseTeilInFortbildung($fortbildungid){
+  $fortbildung = Fortbildung::finde($fortbildungid);
+  $term = Kurs::findeNachBenutzerUndFortbildung($this, $fortbildung);
+  if(empty($term)){
+      return false;
+    }else {
+      return true;//1==true
+    }
+}
 
 }
 
