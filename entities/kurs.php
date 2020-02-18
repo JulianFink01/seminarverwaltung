@@ -130,44 +130,7 @@ public function speichere()
     $monat = substr($this->getDatum(), 5, 2);
     $tag = substr($this->getDatum(), 8, 2);
 
-    switch ($monat) {
-      case '01':
-        $monat = "Jannuar";
-      break;
-      case '02':
-        $monat = "Februar";
-      break;
-      case '03':
-        $monat = "März";
-      break;
-      case '04':
-        $monat = "April";
-      break;
-      case '05':
-        $monat = "Mai";
-      break;
-      case '06':
-        $monat = "Juni";
-      break;
-      case '07':
-        $monat = "Juli";
-      break;
-      case '08':
-        $monat = "August";
-      break;
-      case '09':
-        $monat = "September";
-      break;
-      case '10':
-        $monat = "Oktober";
-      break;
-      case '11':
-        $monat = "November";
-      break;
-      case '12':
-        $monat = "Dezember";
-      break;
-    }
+    $monat = $this->formatMonth($monat);
 
     $datum = $tag.'. '.$monat.' '.$jahr;
     $von = substr($this->getVon(),0,5);
@@ -183,6 +146,14 @@ public function speichere()
     $monat = substr($this->getDatum(), 5, 2);
     $tag = substr($this->getDatum(), 8, 2);
 
+    $monat = $this->formatMonth($monat);
+
+    $datum = $tag.'. '.$monat.' '.$jahr;
+    return $datum;
+
+  }
+
+  public function formatMonth($monat){
     switch ($monat) {
       case '01':
         $monat = "Jannuar";
@@ -222,8 +193,7 @@ public function speichere()
       break;
     }
 
-    $datum = $tag.'. '.$monat.' '.$jahr;
-    return $datum;
+    return $monat;
 
   }
   public function setUnterschriftsliste_zweispaltig($bool){
@@ -258,9 +228,16 @@ public function speichere()
   }
   public function loesche()
   {
+
+      //Aus nimmt_teil löschen
+      $sql2 = 'UPDATE f_nimmt_teil set kurs_id = NULL WHERE kurs_id=?';
+      $abfrage2 = DB::getDB()->prepare($sql2);
+      $abfrage2->execute( array($this->getId()) );
+      //Kurs löschen
       $sql = 'DELETE FROM f_kurs WHERE id=?';
       $abfrage = DB::getDB()->prepare($sql);
       $abfrage->execute( array($this->getId()) );
+
       // Objekt existiert nicht mehr in der DB, also muss die ID zurückgesetzt werden
       $this->id = 0;
   }
