@@ -97,6 +97,9 @@ if(!isset($_SESSION["loggedIn"])){
 
           </script>
         </form>
+        <?php
+        echo $beschreibung
+        ?>
       </div>
 
     </div>
