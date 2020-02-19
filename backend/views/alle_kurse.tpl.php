@@ -1,3 +1,9 @@
+<?php
+if(!isset($_SESSION["loggedIn"])){
+  header('Location: ../index.php?aktion=login');
+}
+?>
+<html>
 <head>
   <!-- https://t3n.de/news/css3-dynamische-tabs-ohne-365861/-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
@@ -18,39 +24,51 @@
          <div id="inhalt">
 
            <?php
+           if($kurse != NULL){
              foreach($kurse as $kurs){ ?>
          <div id="kurs1">
-         <a href="?aktion=kurse#allgemeiner"><?php echo $kurs->getTitel();?></a>
-         <p><?php echo $kurs->getBeschreibung() ?></p>
-         <a href="#">bearbeiten</a>
-         <a href="#">löschen</a>
+         <h1><?php echo $kurs->getTitel();?></h1>
+         <p><?php echo $kurs->getShortBeschreibung() ?> ...</p>
+         <a href="?aktion=kurs_bearbeiten&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>&kurs_id=<?php echo $kurs->getId()?>">bearbeiten</a>
+         <a href="?aktion=loesche&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>&kurs_id=<?php echo $kurs->getId()?>">löschen</a>
+         <a href="?aktion=teilnehmerliste&kurs_id=<?php echo $kurs->getId()?>">teilnehmerliste</a>
          </div>
- <?php    } ?>
+ <?php    }} ?>
 
 
 </div>
 
   <div id="kurs_erstellbutton">
-  <a href="index.php?aktion=kurse_erstellen#allgemeiner"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
+  <a href="index.php?aktion=kurse_erstellen&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#allgemeiner"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
   </div>
 
         </section>
         <section id="funktionen">
             <h2><a href="#funktionen">Teilnehmer</a></h2>
-            <!--Simons arbeitsbereich  mit teiler-style-->
 
 
             <div class="csv">
               <form method="post" enctype="multipart/form-data" action="index.php?aktion=import_lehrer&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen">
                 <label>
-                  CSV Datei(*.csv)
-                  <input name="datei" type="file" size="50" accept=".csv" id="button2">
-                  <input type="submit" class="button" name="submit" value="Upload">
+                  <span>CSV Datei(*.csv)</span>
+                  <input name="datei" type="file" size="50" accept=".csv" class="button">
+                  <input type="submit" id="button" name="submit" value="Upload">
                 </label>
               </form>
             </div>
 
-             <div id="teilnehmer">
+            <div id="teilnehmer_hinzu">
+              <a onclick="triggerTextfeld()"><img width="75px" src="Images/teilnehmer-hinzufuegen.png" title="Teilnehmer hinzufuegen" /></a>
+                  <form id="textfeld" action="index.php?aktion=saveTeilnehmer&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>" method="post">
+                    <legend>Teilnehmer erstellen</legend>
+                    <input type="text" name="vorname" placeholder="Vorname"></br>
+                    <input type="text" name="nachname" placeholder="Nachname"></br>
+                    <input type="text" name="email" placeholder="E-Mail"></br>
+                    <input type="submit" value="erstellen" name="erstellen" id="button">
+                  </form>
+            </div>
+
+            <div id="teilnehmer">
                <table>
                  <tr>
                    <th>Vorname</th>
@@ -67,14 +85,12 @@
                    <td><?php echo $teilnehmer->getNachname();?></td>
                    <td><?php echo $teilnehmer->getEmail();?></td>
                    <td style="background-color: var(--main-<?php echo NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbildung,$teilnehmer)->getStatusFarbe();?>);">&nbsp;</td>
-                   <td class="b_l">bearbeiten</td>
-                   <td class="b_l">löschen</td>
+                   <td class="b_l"><a href="index.php?aktion=remove_lehrer_nimmtTeil&teilnehmer_id=<?php echo $teilnehmer->getId()?>&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen"><img width="45px" src="Images/teilnehmer-entfernen.png" title="Teilnehmer entfernen" /></a></td>
                  </tr>
                  <?php } ?>
 
              </table>
              </div>
-
         </section>
         <section id="emailsenden">
             <h2><a href="#emailsenden">E-Mail senden</a></h2>
@@ -83,7 +99,7 @@
             <form action="index.php?aktion=send_email&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>" method="post">
               <textarea name="message" rows="30" cols="160" id="text"></textarea>
 
-              <input type="submit" id="senden" name="senden" value="Senden"/>
+              <input type="submit" id="button" name="senden" value="Senden" />
       </div>
     </form>
 
@@ -92,3 +108,12 @@
   </div>
 
 </body>
+</html>
+
+<script type="text/javascript">
+
+  function triggerTextfeld(){
+    var textfeld = document.getElementById("textfeld");
+    textfeld.classList.toggle("showTeilnehmerErstellen");
+  }
+</script>

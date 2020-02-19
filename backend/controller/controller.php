@@ -1,5 +1,4 @@
 <?php
-session_start();
 class Controller{
 //https://remotemysql.com/phpmyadmin/index.php
     private $context = array();
@@ -19,6 +18,7 @@ class Controller{
       header("Location: index.php?aktion=hauptseite");
     }
     public function alle_Kurse(){
+
       $this->addContext("kurse", Kurs::findeNachFortbildung(Fortbildung::finde($_GET['fortbildung_id'])));
       $this->addContext("teilnehmern", Fortbildung::findeAlleTeilnehmer(Fortbildung::finde($_GET['fortbildung_id'])));
       $this->addContext("fortbildung", Fortbildung::finde($_GET['fortbildung_id']));
@@ -27,16 +27,27 @@ class Controller{
 
     }
     public function kurse_erstellen(){
+      if ($_POST){
+        $kurs = new Kurs($_POST);
+        echo $kurs;
+        $kurs->speichere();
+        $this->alle_Kurse();
+        $this->addContext("template","alle_Kurse");
+      }
 
     }
     public function send_email(){
       Funktionen::send_email();
     }
     public function login(){
-      if(isset($_SESSION["loggedIn"])){
-        $this->addContext("fortbildungen", Fortbildung::findeAlle());
-        $this->addContext("template","hauptseite");
+      if(isset($_GET["key"]) && isset($_GET["passwd"])){
+      if($_GET["key"] == "test" && $_GET["passwd"] == "test"){
+      $_SESSION["loggedIn"] = true;
+      header('Location: index.php?aktion=hauptseite');
+      }else{
+
       }
+    }
     }
     public function import_lehrer(){
       $alleLehrer = Funktionen::importLehrer();
@@ -66,13 +77,43 @@ class Controller{
       $this->addContext("template","alle_Kurse");
     }
 
-    public function remove_lehrer_nimmtTeil($email){
+    public function remove_lehrer_nimmtTeil(){
         //checken bei welchem teilnehmer/lehrer der butten gedrückt wurde
-        $teilnehmer = Teilnehmer::findeNachEmail($email);
-        $teilnehmer->loescheAusFortbildung();
+        $teilnehmer = Teilnehmer::finde($_GET["teilnehmer_id"]);
+        Fortbildung::finde($_GET["fortbildung_id"])->abmelden($teilnehmer);
         // Teilnehmer zu NimmtTeil entfernen
       $this->alle_Kurse();
       $this->addContext("template","alle_Kurse");
+    }
+
+    public function loesche(){
+      $kurs = Kurs::finde($_GET['kurs_id']);
+      $kurs->loesche();
+      header('Location: index.php?aktion=alle_kurse&fortbildung_id='.$_REQUEST["fortbildung_id"].'#allgemeiner');
+    }
+
+    public function saveTeilnehmer(){
+      $teilnehmer = new Teilnehmer(array("vorname"=>$_POST['vorname'],"nachname"=>$_POST['nachname'], "email" =>$_POST['email']));
+      $teilnehmer->speichere();
+      Fortbildung::finde($_GET["fortbildung_id"])->teilnehmen($teilnehmer);
+      header('Location: index.php?aktion=alle_Kurse&fortbildung_id='.$_REQUEST['fortbildung_id'].'#funktionen');
+    }
+
+    public function kurs_bearbeiten(){
+      var_dump($_POST);
+      $this->addContext("kurse", Kurs::finde($_GET['kurs_id']));
+    }
+    public function kurse_bearbeitung_speichern(){
+      $kurse = new Kurs(array("id"=>$_REQUEST['kurs_id'],"titel"=>$_POST['titel'], "datum" =>$_POST['datum'], "beschreibung" => 'summernote', "dauer" => $_POST['dauer'], "von" => $_POST['von'],
+      "bis" => $_POST['bis'], "koordination" => $_POST['koordination'], "anmeldeschluss" => $_POST['anmeldeschluss'], "kontaktperson" => $_POST['kontakt'], "maxTeilnehmer" => $_POST['maxTeilnehmer'], "referent" => $_POST['referent'],
+      "ort_raum" => $_POST['ort_raum'], "unterschriftsliste_zweispaltig" => NULL, "fortbildung_id" => $_REQUEST['fortbildung_id']));
+      $kurse->speichere();
+      header('Location: index.php?aktion=hauptseite');
+    }
+
+    public function teilnehmerliste(){
+      $this->addContext("kurse",Kurs::finde($_GET['kurs_id']));
+      $this->addContext("teilnehmern",Teilnehmer::findeNachKurs(Kurs::finde($_GET['kurs_id'])));
     }
 
     /*public function detailsAnschauen(){

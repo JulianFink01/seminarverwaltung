@@ -34,19 +34,19 @@ if(!isset($_SESSION["loggedIn"])){
   <header id="kurskopf">
     <header id="kopf">
 
-      <h1>Kurse erstellen</h1>
+      <h1><?php echo $kurse->getTitel() ?> bearbeiten</h1>
     </header>
     <div id="kurserstelleninhalt">
       <div id="box">
-          <form action="index.php?aktion=kurse_erstellen&fortbildung_id=<?php echo $_GET['fortbildung_id']?>"  method="post">
+          <form action="index.php?aktion=kurse_bearbeitung_speichern&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>&kurs_id=<?php echo $_GET['kurs_id']?>"  method="post">
         <div id="input">
-          <p class="einzug"> Titel<input type="text" name="titel" id="titel"/></p>
-          <p class="einzug"> Datum <input type="date" name="datum" id="datum"/></p>
+          <p class="einzug"> Titel<input type="text" name="titel" id="titel" value="<?php echo $kurse->getTitel()?>"/></p>
+          <p class="einzug"> Datum <input type="date" name="datum" id="datum" value="<?php echo $kurse->getDatum()?>"/></p>
         </div>
         <p>Beschreibung</p>
 
 
-        <div id="summernote" ></div>
+        <div id="summernote" ><?php echo $kurse->getBeschreibung()?></div>
 
 
         <script>
@@ -62,33 +62,33 @@ if(!isset($_SESSION["loggedIn"])){
 
           <p> Uhrzeit </p>
           <a>Dauer:</a> &ensp;
-          <input type="number" name="dauer" id="dauer" class="zeit"/>
+          <input type="number" name="dauer" id="dauer" class="zeit" value="<?php echo $kurse->getDauer()?>"/>
           <a>Start:</a>  &ensp;
-          <input type="text" placeholder="10:00"  name='von' id="start" class="zeit"  />
+          <input type="text"   name='von' id="start" class="zeit"  value="<?php echo $kurse->getVon()?>"/>
           &ensp; <a>Ende:</a>  &ensp;
-          <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit"/>
+          <input type="text"  name="bis" id="ende" class="zeit" value="<?php echo $kurse->getBis()?>"/>
 
 
 
             <br /> Koordination   &emsp;  Anmeldeschluss  <br />
-            <input type="text"  name="koordination" id="koordination" />
-            <input type="date" name="anmeldeschluss" id="anmeldeschluss">
+            <input type="text"  name="koordination" id="koordination" value="<?php echo $kurse->getKoordination()?>"/>
+            <input type="date" name="anmeldeschluss" id="anmeldeschluss" value="<?php echo $kurse->getAnmeldeSchluss()?>">
 
           <input type="hidden" id="beschreibung" name="beschreibung" />
           <br /> Teilnehmeranzahl  &emsp; Kontaktperson <br />
-          <input type="number" name="maxTeilnehmer" id="maxTeilnehmer" />
-          <input type="text" name="kontakt" id="kontakt />
+          <input type="number" name="maxTeilnehmer" id="maxTeilnehmer" value="<?php echo $kurse->getTeilnehmerAnzahl()?>"/>
+          <input type="text" name="kontakt" id="kontakt" value="<?php echo $kurse->getKontakt()?>"/>
 
 
         <br /> Referent <br />
-        <input type="text"  name="referent" id="referent" />
+        <input type="text"  name="referent" id="referent" value="<?php echo $kurse->getReferent()?>"/>
 
           <br /> Raum  <br/>
-          <input type="text"  name="ort_raum" id="ort_raum" />
+          <input type="text"  name="ort_raum" id="ort_raum" value="<?php echo $kurse->getOrt_raum()?>"/>
 
 
 
-          <input type="submit" onclick="return myFunction();" id="senden" value="Senden">
+          <input type="submit" id="button" value="Senden">
 
 
           <script>
@@ -107,4 +107,4 @@ if(!isset($_SESSION["loggedIn"])){
     </div>
 
   </body>
-  </html>
+</html>

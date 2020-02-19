@@ -66,13 +66,13 @@ public static function send_email() {
                 foreach ($zeilen as $zeile) {
                     if (trim($zeile) != "") {
                         $daten = explode($felder_trenner, $zeile);
-                      
+
                         // AN DIE RICHTIGE STELLE VOM ARRAY
                         $teilnehmer["Nachname"] = trim(utf8_encode($daten[0]));
                         $teilnehmer["Vorname"] = trim(utf8_encode($daten[1]));
                         $teilnehmer["Email"] = utf8_encode(trim($daten[2]));
 
-                        if ($teilnehmer["Nachname"] != "Nachname")
+                        if (strtolower($teilnehmer["Nachname"]) != "nachname")
                             $teilnehmer_all[] = $teilnehmer;   //return this Array
                     }
                 }

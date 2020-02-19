@@ -91,10 +91,33 @@ td, th{
 	border: 0.5px solid var(--dark-white);
 	padding: 5px;
 }
-
+.showTeilnehmerErstellen{
+	height:auto !important;
+	overflow: visible !important;
+}
+#textfeld{
+	height: 0px;
+	overflow: hidden;
+	transition: 1s all;
+}
+#textfeld legend {
+	margin: 50px 0px 0px 15px;
+	font-size: 15px;
+}
+#textfeld input[type="text"] {
+	margin: 10px 0px 0px 15px;
+	padding-left: 5px;
+	width: 350px;
+	height: 30px;
+}
+#textfeld input[type="submit"] {
+	margin: 10px 0px 0px 265px;
+	width: 100px;
+	height: 30px;
+}
 #teilnehmer {
 	background-color: white;
-	width: 94%;
+	width: 70%;
 	margin: 50px 0px 0px 50px;
 	height: 450px;
 	overflow-y: auto;
@@ -118,14 +141,58 @@ table tr td.b_l{
 	text-align: left;
 }
 
+#teilnehmer_hinzu{
+	float: right;
+	margin-right: 45px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+}
+#teilnehmer_hinzu legend{
+		color: var(--main-blue);
+}
+
 .status{
-			width: 70px;
+	width: 70px;
 }
 
 .csv{
+	float: left;
+	margin-left: 50px;
+	margin-top: 10px;
+	border: 1px solid rgb(189,195,199);
+	padding: 15px;
+	padding-bottom: 0px;
+	margin-bottom: 10px;
+	margin-right: 50px;
+}
+.csv span{
+	color: var(--main-blue);
+}
+
+#button{
+	color: var(--main-white);
+	border-color: var(--main-blue);
+	background-color: var(--main-blue);
+	width: 100px;
+	height: 25px;
+
+=======
 	float: right;
 	margin-right: 45px;
+>>>>>>> 8eb671ea6fc5263c23efa46bec1e9dc4b83ff0bc
+=======
+	float: left;
+	margin-left: 45px;
+	margin-top: 25px;
+>>>>>>> 1ce256f353f5292a96d5ff3b244d77b840aa7a60
 }
+#button:hover{
+	color: var(--main-blue);
+	border-color: var(--main-orange);
+	background-color: var(--main-orange);
+}
+
 
 /* css benjamin email senden*/
 #fenster{
@@ -155,6 +222,54 @@ table tr td.b_l{
 	padding: 10px 10px 20px 10px;
 	overflow-y: auto;
 }
+#kurskopf{
+	background-color: white;
+	border: 1px solid rgba(189,195,199);
+	box-shadow: 1px 5px 5px 0px #f0f0f0;
+	margin-left: 2.5%;
+	margin-top: 2.5%;
+	margin-right: 2.5%;
+	margin-bottom: 30px;
+	text-align: center;
+	padding-bottom: 5px;
+}
+#kurskopf h1{
+	background-color: white;
+	text-align: center;
+	font-size: 40px;
+	margin-top: 2%;
+	padding-bottom: 10px;
+	color: var(--main-blue);
+}
+#kurserstelleninhalt{
+	padding-top: 5px;
+	background-color: #fafafa;
+	border: 0.5px solid var(--dark-white);
+	width: 90%;
+	height: 740px;
+	margin: 0px 40px 0px 100px;
+	padding: 10px 100px 40px 100px;
+	overflow-y: auto;
+}
+#input{
+margin-bottom: 20px;
+
+}
+#input p input{
+	border: 0.5px solid var(--dark-white);
+}
+
+#box p{
+	color: var(--main-blue);
+	font-weight: bold;
+}
+#box a{
+	color: var(--main-blue);
+	font-weight: bold;
+	text-decoration: none;
+}
+
+
 #kurs1 {
 	padding: 20px;
 	margin: 10px;
@@ -172,6 +287,9 @@ table tr td.b_l{
 }
 #kurs1 a:hover{
 	color: var(--main-orange);
+}
+#kurs1 h1 {
+	color:  #e9f6ff;
 }
 #erstell_button {
 	margin: 0px 0px 0px 10px;
@@ -233,21 +351,19 @@ table tr td.b_l{
 }
 #von {
 	padding: 0px 15px 0px 15px;
-	margin-left: 30px;
 	display: inline;
 		border: 1.2px solid #000;
 }
 #bis {
 	padding: 0px 15px 0px 15px;
-	margin-left: 30px;
 	display: inline;
 		border: 1.2px solid #000;
 }
 #dauer {
-	padding: 0px 30px 0px 30px;
-	margin-left: 100px;
+	padding: 0px 0px 0px 0px;
+	margin-right: 5px;
 	display: inline;
-		border: 1.2px solid #000;
+	border: 1.2px solid var(--dark-white);
 }
 #anmeldeschluss {
 	padding: 0px 30px 0px 30px;

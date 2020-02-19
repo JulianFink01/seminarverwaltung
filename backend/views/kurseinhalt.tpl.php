@@ -1,3 +1,9 @@
+<?php
+if(!isset($_SESSION["loggedIn"])){
+  header('Location: ../index.php?aktion=login');
+}
+?>
+<html>
 <head>
 
     <?php
@@ -102,3 +108,4 @@
 
 
 </body>
+</html>
