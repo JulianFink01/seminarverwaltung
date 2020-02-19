@@ -35,12 +35,10 @@ if(!isset($_SESSION["loggedIn"])){
          </div>
  <?php    }} ?>
 
-
 </div>
-
-  <div id="kurs_erstellbutton">
-  <a href="index.php?aktion=kurse_erstellen&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#allgemeiner"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
-  </div>
+<div id="kurs_erstellbutton">
+<a href="index.php?aktion=kurse_erstellen&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#allgemeiner"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
+</div>
 
         </section>
         <section id="funktionen">
