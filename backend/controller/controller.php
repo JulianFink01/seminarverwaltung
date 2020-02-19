@@ -19,9 +19,9 @@ class Controller{
     }
     public function alle_Kurse(){
 
-      $this->addContext("kurse", Kurs::findeNachFortbildung(Fortbildung::finde($_GET['fortbildung_id'])));
-      $this->addContext("teilnehmern", Fortbildung::findeAlleTeilnehmer(Fortbildung::finde($_GET['fortbildung_id'])));
-      $this->addContext("fortbildung", Fortbildung::finde($_GET['fortbildung_id']));
+      $this->addContext("kurse", Kurs::findeNachFortbildung(Fortbildung::finde($_REQUEST['fortbildung_id'])));
+      $this->addContext("teilnehmern", Fortbildung::findeAlleTeilnehmer(Fortbildung::finde($_REQUEST['fortbildung_id'])));
+      $this->addContext("fortbildung", Fortbildung::finde($_REQUEST['fortbildung_id']));
 
 
 
@@ -29,10 +29,10 @@ class Controller{
     public function kurse_erstellen(){
       if ($_POST){
         $kurs = new Kurs($_POST);
-        echo $kurs;
         $kurs->speichere();
         $this->alle_Kurse();
         $this->addContext("template","alle_Kurse");
+
       }
 
     }
