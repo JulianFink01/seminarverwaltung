@@ -30,7 +30,7 @@ if(!isset($_SESSION["loggedIn"])){
 
 
 
-  <header id="kurskopf">
+
     <header id="kopf">
 
       <h1>Kurse erstellen</h1>
@@ -39,10 +39,10 @@ if(!isset($_SESSION["loggedIn"])){
       <div id="box">
           <form action="index.php?aktion=kurse_erstellen&fortbildung_id=<?php echo $_GET['fortbildung_id']?>"  method="post">
         <div id="input">
-          <p class="einzug"> Titel<input type="text" name="titel" id="titel"/></p>
-          <p class="einzug"> Datum <input type="date" name="datum" id="datum"/></p>
+          <p class="einzug"> Titel <input type="text" name="titel" id="titelkurs"/></p>
+          <p class="einzug"> Datum <input type="date" name="datum" id="datumkurs"/></p>
         </div>
-        <p>Beschreibung</p>
+        <p id="#">Beschreibung</p>
 
 
         <div id="summernote" ></div>
@@ -59,25 +59,36 @@ if(!isset($_SESSION["loggedIn"])){
 
 
 
-          <p> Uhrzeit </p>
-          <a>Dauer:</a> &ensp;
-          <input type="number" name="dauer" id="dauer" class="zeit"/>
-          <a>Start:</a>  &ensp;
-          <input type="text" placeholder="10:00"  name='von' id="start" class="zeit"  />
-          &ensp; <a>Ende:</a>  &ensp;
-          <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit"/>
+          <table id="kurszeiten">
+            <tr>
+              <td><a>Dauer:</a> &ensp;
+              <input type="number" name="dauer"  class="zeit"/>
+            </td>
+            <td>
+              <a>Start:</a>  &ensp;
+              <input type="text" placeholder="10:00"  name='von' id="start" class="zeit"  />
+            </td>
+            <td>
+              &ensp; <a>Ende:</a>  &ensp;
+              <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit"/>
+            </td>
+          </tr>
+        </table>
 
+        <div id=kursdaten>
+            <a> Koordination: </a>  &emsp;
+            <input type="text"  name="koordination" id="kurs_koordination" />
+            <a> Anmeldeschluss: </a>  &emsp;
+            <input type="date" name="anmeldeschluss" id="kurs_anmeldeschluss">
+          </div>
 
-
-            <br /> Koordination   &emsp;  Anmeldeschluss  <br />
-            <input type="text"  name="koordination" id="koordination" />
-            <input type="date" name="anmeldeschluss" id="anmeldeschluss">
-
+          <div id="kursdaten">
           <input type="hidden" id="beschreibung" name="beschreibung" />
-          <br /> Teilnehmeranzahl  &emsp; Kontaktperson <br />
+          <a> Teilnehmeranzahl:    </a>&emsp;
           <input type="number" name="maxTeilnehmer" id="maxTeilnehmer" />
-          <input type="text" name="kontakt" id="kontakt />
-
+          <a>  Kontaktperson: </a>
+          <input type="text" name="kontakt" id="kurs_kontakt" />
+        </div>
 
         <br /> Referent <br />
         <input type="text"  name="referent" id="referent" />
