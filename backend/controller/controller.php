@@ -93,9 +93,15 @@ class Controller{
     }
 
     public function saveTeilnehmer(){
-      $teilnehmer = new Teilnehmer(array("vorname"=>$_POST['vorname'],"nachname"=>$_POST['nachname'], "email" =>$_POST['email']));
-      $teilnehmer->speichere();
-      Fortbildung::finde($_GET["fortbildung_id"])->teilnehmen($teilnehmer);
+      $teilnehmer = Teilnehmer::findeNachEmail($_POST['email']);
+      if(!$teilnehmer){
+        $teilnehmer = new Teilnehmer(array("vorname"=>$_POST['vorname'],"nachname"=>$_POST['nachname'], "email" =>$_POST['email']));
+        $teilnehmer->speichere();
+      }
+      $fortbilung = Fortbildung::finde($_REQUEST["fortbildung_id"]);
+      if(!NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbilung, $teilnehmer)){
+        $fortbilung->teilnehmen($teilnehmer);
+      }
       header('Location: index.php?aktion=alle_Kurse&fortbildung_id='.$_REQUEST['fortbildung_id'].'#funktionen');
     }
 

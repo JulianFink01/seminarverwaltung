@@ -91,6 +91,10 @@ article.infobox section:target h2 a {
   background-repeat: no-repeat;
 }
 
+.kurs_icons{
+	margin-right: 10px;
+}
+
 /* css simon teilnehmerliste*/
 
 .showTeilnehmerErstellen{
