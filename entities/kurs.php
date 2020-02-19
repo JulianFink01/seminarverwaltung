@@ -277,7 +277,6 @@ public function speichere()
            . 'VALUES (:datum, :titel, :maxTeilnehmer, :referent, :beschreibung, :ort_raum,:kontakt,:von,:bis,:unterschriftsliste_zweispaltig, :koordination, :anmeldeschluss, :fortbildung_id, :dauer)';
 
       $abfrage = DB::getDB()->prepare($sql);
-      var_dump($this->toArray(false));
       $abfrage->execute($this->toArray(false));
       // setze die ID auf den von der DB generierten Wert
       $this->id = DB::getDB()->lastInsertId();

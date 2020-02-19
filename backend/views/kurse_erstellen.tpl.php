@@ -43,7 +43,7 @@ if(!isset($_SESSION["loggedIn"])){
 
         <script>
         $(document).ready(function() {
-          $('#summernote').summernote({height: 280,width: 1200 });
+          $('#summernote').summernote({height: 280,width: 1400 });
 
         });
 
@@ -77,19 +77,12 @@ if(!isset($_SESSION["loggedIn"])){
 
           <div id="kursdaten">
           <input type="hidden" id="beschreibung" name="beschreibung" />
-<<<<<<< HEAD
           <input type="hidden" id="fortbildung_id" name="fortbildung_id" value="<?php echo $_GET["fortbildung_id"]?>" />
-          <br /> Teilnehmeranzahl  &emsp; Kontaktperson <br />
+          <a> Teilnehmeranzahl: </a>
           <input type="number" name="maxTeilnehmer" id="maxTeilnehmer" />
+          <a>Kontaktperson: </a>
           <input type="text" name="kontakt" id="kontakt" />
-
-=======
-          <a> Teilnehmeranzahl:    </a>&emsp;
-          <input type="number" name="maxTeilnehmer" id="maxTeilnehmer" />
-          <a>  Kontaktperson: </a>
-          <input type="text" name="kontakt" id="kurs_kontakt" />
-        </div>
->>>>>>> 403f4da06310255e8530f5e1498527d316155196
+          </div>
 
         <br /> Referent <br />
         <input type="text"  name="referent" id="referent" />
@@ -99,7 +92,7 @@ if(!isset($_SESSION["loggedIn"])){
 
 
 
-          <input type="submit" onclick="myFunction()" id="senden" value="Senden">
+          <input class="Senden_erstellen "type="submit" onclick="myFunction()" value="Senden">
 
 
           <script>
