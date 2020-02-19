@@ -12,7 +12,7 @@ protected $ort_raum = "";
 protected $kontakt = "";
 protected $von = "";
 protected $bis = "";
-protected $unterschriftsliste_zweispaltig = false;
+protected $unterschriftsliste_zweispaltig = 0;
 protected $koordination = "";
 protected $anmeldeschluss = "";
 protected $fortbildung_id = 0;
@@ -197,7 +197,11 @@ public function speichere()
 
   }
   public function setUnterschriftsliste_zweispaltig($bool){
-    $this->unterschriftsliste_zweispaltig = $bool;
+    if($bool==false){
+      $this->unterschriftsliste_zweispaltig = 0;
+    }else{
+      $this->unterschriftsliste_zweispaltig = 1;
+    }
   }
   public function getUnterschriftsliste_zweispaltig(){
     return $this->unterschriftsliste_zweispaltig;
@@ -269,10 +273,11 @@ public function speichere()
   private function _insert()
   {
 
-      $sql = 'INSERT INTO f_kurs (id, datum, titel, maxTeilnehmer, referent, beschreibung, ort_raum,kontakt, von, bis, unterschriftsliste_zweispaltig, koordination, anmeldeschluss, fortbildung_id, dauer)'
-           . 'VALUES (:id, :datum, :titel, :maxTeilnehmer, :referent, :beschreibung, :ort_raum,:kontakt,:von,:bis,:unterschriftsliste_zweispaltig, :koordination, :anmeldeschluss, :fortbildung_id, :dauer)';
+      $sql = 'INSERT INTO f_kurs ( datum, titel, maxTeilnehmer, referent, beschreibung, ort_raum,kontakt, von, bis, unterschriftsliste_zweispaltig, koordination, anmeldeschluss, fortbildung_id, dauer)'
+           . 'VALUES (:datum, :titel, :maxTeilnehmer, :referent, :beschreibung, :ort_raum,:kontakt,:von,:bis,:unterschriftsliste_zweispaltig, :koordination, :anmeldeschluss, :fortbildung_id, :dauer)';
 
       $abfrage = DB::getDB()->prepare($sql);
+      var_dump($this->toArray(false));
       $abfrage->execute($this->toArray(false));
       // setze die ID auf den von der DB generierten Wert
       $this->id = DB::getDB()->lastInsertId();

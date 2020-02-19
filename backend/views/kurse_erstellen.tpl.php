@@ -13,15 +13,7 @@ if(!isset($_SESSION["loggedIn"])){
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.js"></script>
 
-  <!--
-  $movie = array( "title" => "Rear Window",
-  "director" => "Alfred Hitchcock",
-  "year" => 1954 );
-  */-->
 
-
-
-  <!-- https://t3n.de/news/css3-dynamische-tabs-ohne-365861/-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="styles/main-style.css">
   <link rel="stylesheet" type="text/css" href="styles/kurse-style.css">
@@ -38,7 +30,7 @@ if(!isset($_SESSION["loggedIn"])){
     </header>
     <div id="kurserstelleninhalt">
       <div id="box">
-          <form action="index.php?aktion=kurse_erstellen&fortbildung_id=<?php echo $_GET['fortbildung_id']?>"  method="post">
+          <form action="index.php?aktion=kurse_erstellen"  method="post">
         <div id="input">
           <p class="einzug"> Titel<input type="text" name="titel" id="titel"/></p>
           <p class="einzug"> Datum <input type="date" name="datum" id="datum"/></p>
@@ -75,9 +67,10 @@ if(!isset($_SESSION["loggedIn"])){
             <input type="date" name="anmeldeschluss" id="anmeldeschluss">
 
           <input type="hidden" id="beschreibung" name="beschreibung" />
+          <input type="hidden" id="fortbildung_id" name="fortbildung_id" value="<?php echo $_GET["fortbildung_id"]?>" />
           <br /> Teilnehmeranzahl  &emsp; Kontaktperson <br />
           <input type="number" name="maxTeilnehmer" id="maxTeilnehmer" />
-          <input type="text" name="kontakt" id="kontakt />
+          <input type="text" name="kontakt" id="kontakt" />
 
 
         <br /> Referent <br />
@@ -88,20 +81,21 @@ if(!isset($_SESSION["loggedIn"])){
 
 
 
-          <input type="submit" onclick="return myFunction();" id="senden" value="Senden">
+          <input type="submit" onclick="myFunction()" id="senden" value="Senden">
 
 
           <script>
           function myFunction() {
-            $('#beschreibung').value = $('#summernote').summernote('code');
-            return true;
+              //alert("i was cliecked");
+            var text= $('#summernote').summernote('code');
+            $('#beschreibung').val(text);
+            return false;
+
           }
 
           </script>
         </form>
-        <?php
-        echo $beschreibung
-        ?>
+
       </div>
 
     </div>
