@@ -57,8 +57,18 @@ border: 1px solid var(--dark-white);
 .Beschreibung{
   transition: 0.5s all ease-in;
   details {
+    &[open]{
+
+      summary{
+
+      }
+    }
     padding-bottom: 15px;
     summary{
+      &::-webkit-details-marker {
+      content: "+";
+      }
+
     margin: 0 2em 1.5em 2em;
     padding-left: 20px;
     font-size: 2em;
