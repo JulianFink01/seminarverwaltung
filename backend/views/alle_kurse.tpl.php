@@ -3,7 +3,7 @@ if(!isset($_SESSION["loggedIn"])){
   header('Location: ../index.php?aktion=login');
 }
 ?>
-
+<html>
 <head>
   <!-- https://t3n.de/news/css3-dynamische-tabs-ohne-365861/-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
@@ -29,7 +29,7 @@ if(!isset($_SESSION["loggedIn"])){
          <div id="kurs1">
          <h1><?php echo $kurs->getTitel();?></h1>
          <p><?php echo $kurs->getShortBeschreibung() ?> ...</p>
-         <a href="#">bearbeiten</a>
+         <a href="?aktion=kurs_bearbeiten&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>&kurs_id=<?php echo $kurs->getId()?>">bearbeiten</a>
          <a href="?aktion=loesche&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>&kurs_id=<?php echo $kurs->getId()?>">löschen</a>
          <a href="?aktion=teilnehmerliste&kurs_id=<?php echo $kurs->getId()?>">teilnehmerliste</a>
          </div>
@@ -45,7 +45,6 @@ if(!isset($_SESSION["loggedIn"])){
         </section>
         <section id="funktionen">
             <h2><a href="#funktionen">Teilnehmer</a></h2>
-            <!--Simons arbeitsbereich  mit teiler-style-->
 
 
             <div class="csv">
@@ -53,16 +52,23 @@ if(!isset($_SESSION["loggedIn"])){
                 <label>
                   <span>CSV Datei(*.csv)</span>
                   <input name="datei" type="file" size="50" accept=".csv" class="button">
-                  <input type="submit" id="button_upload" name="submit" value="Upload">
+                  <input type="submit" id="button" name="submit" value="Upload">
                 </label>
               </form>
             </div>
 
             <div id="teilnehmer_hinzu">
-              <a href="index.php?aktion=lehrer_hinzufuegen#funktionen"><img width="60px" src="Images/teilnehmer-hinzufuegen.png" title="Teilnehmer hinzufuegen" /></a>
+              <a onclick="triggerTextfeld()"><img width="75px" src="Images/teilnehmer-hinzufuegen.png" title="Teilnehmer hinzufuegen" /></a>
+                  <form id="textfeld" action="index.php?aktion=saveTeilnehmer&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>" method="post">
+                    <legend>Teilnehmer erstellen</legend>
+                    <input type="text" name="vorname" placeholder="Vorname"></br>
+                    <input type="text" name="nachname" placeholder="Nachname"></br>
+                    <input type="text" name="email" placeholder="E-Mail"></br>
+                    <input type="submit" value="erstellen" name="erstellen" id="button">
+                  </form>
             </div>
 
-             <div id="teilnehmer">
+            <div id="teilnehmer">
                <table>
                  <tr>
                    <th>Vorname</th>
@@ -79,14 +85,12 @@ if(!isset($_SESSION["loggedIn"])){
                    <td><?php echo $teilnehmer->getNachname();?></td>
                    <td><?php echo $teilnehmer->getEmail();?></td>
                    <td style="background-color: var(--main-<?php echo NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbildung,$teilnehmer)->getStatusFarbe();?>);">&nbsp;</td>
-                   <td class="b_l"><a href="index.php?aktion=lehrer_bearbeiten&teilnehmer_id=<?php echo $teilnehmer->getId()?>&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen"><img width="45px" src="Images/teilnehmer-bearbeiten.png" title="Teilnehmer bearbeiten"/></a></td>
                    <td class="b_l"><a href="index.php?aktion=remove_lehrer_nimmtTeil&teilnehmer_id=<?php echo $teilnehmer->getId()?>&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen"><img width="45px" src="Images/teilnehmer-entfernen.png" title="Teilnehmer entfernen" /></a></td>
                  </tr>
                  <?php } ?>
 
              </table>
              </div>
-
         </section>
         <section id="emailsenden">
             <h2><a href="#emailsenden">E-Mail senden</a></h2>
@@ -95,7 +99,7 @@ if(!isset($_SESSION["loggedIn"])){
             <form action="index.php?aktion=send_email&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>" method="post">
               <textarea name="message" rows="30" cols="160" id="text"></textarea>
 
-              <input type="submit" id="senden" name="senden" value="Senden"/>
+              <input type="submit" id="button" name="senden" value="Senden" />
       </div>
     </form>
 
@@ -104,3 +108,12 @@ if(!isset($_SESSION["loggedIn"])){
   </div>
 
 </body>
+</html>
+
+<script type="text/javascript">
+
+  function triggerTextfeld(){
+    var textfeld = document.getElementById("textfeld");
+    textfeld.classList.toggle("showTeilnehmerErstellen");
+  }
+</script>

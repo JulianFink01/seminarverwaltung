@@ -92,12 +92,23 @@ class Controller{
       header('Location: index.php?aktion=alle_kurse&fortbildung_id='.$_REQUEST["fortbildung_id"].'#allgemeiner');
     }
 
-    public function lehrer_bearbeiten(){
+    public function saveTeilnehmer(){
+      $teilnehmer = new Teilnehmer(array("vorname"=>$_POST['vorname'],"nachname"=>$_POST['nachname'], "email" =>$_POST['email']));
+      $teilnehmer->speichere();
+      Fortbildung::finde($_GET["fortbildung_id"])->teilnehmen($teilnehmer);
+      header('Location: index.php?aktion=alle_Kurse&fortbildung_id='.$_REQUEST['fortbildung_id'].'#funktionen');
+    }
 
-
-
-      $this->alle_Kurse();
-      $this->addContext("template","alle_Kurse");
+    public function kurs_bearbeiten(){
+      var_dump($_POST);
+      $this->addContext("kurse", Kurs::finde($_GET['kurs_id']));
+    }
+    public function kurse_bearbeitung_speichern(){
+      $kurse = new Kurs(array("id"=>$_REQUEST['kurs_id'],"titel"=>$_POST['titel'], "datum" =>$_POST['datum'], "beschreibung" => 'summernote', "dauer" => $_POST['dauer'], "von" => $_POST['von'],
+      "bis" => $_POST['bis'], "koordination" => $_POST['koordination'], "anmeldeschluss" => $_POST['anmeldeschluss'], "kontaktperson" => $_POST['kontakt'], "maxTeilnehmer" => $_POST['maxTeilnehmer'], "referent" => $_POST['referent'],
+      "ort_raum" => $_POST['ort_raum'], "unterschriftsliste_zweispaltig" => NULL, "fortbildung_id" => $_REQUEST['fortbildung_id']));
+      $kurse->speichere();
+      header('Location: index.php?aktion=hauptseite');
     }
 
     public function teilnehmerliste(){

@@ -82,9 +82,7 @@
                     $anzahl = $kurs->getTeilnehmerAnzahl();
                     $maxAnzahl =$kurs->getMaxTeilnehmer();
 
-                    echo $user->nimmtAnKurseTeilInFortbildung($kurs->getFortbildung_id());
-
-                    if(!$kurs->nimmtAnKursTeil($user) && !$user->nimmtAnKurseTeilInFortbildung($kurs->getFortbildung_id()) && $anzahl < $maxAnzahl){?>
+                    if(!$user->nimmtAnKursTeilInFortbildung($kurs->getFortbildung_id()) && $anzahl < $maxAnzahl){?>
 
                         <div class="info-text info-right">
                           <a href="index.php?aktion=anmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="anmelden" class="button">Anmelden</a>
@@ -106,8 +104,4 @@
       </footer>
       </div>
     </body>
-<<<<<<< HEAD
     </html>
-=======
-</html>
->>>>>>> 1b85ca8d69e3268ceb7e34eaaca14259f44e65d4
