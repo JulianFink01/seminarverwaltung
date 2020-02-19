@@ -86,6 +86,10 @@ article.infobox section:target h2 a {
   background-repeat: no-repeat;
 }
 
+.kurs_icons{
+	margin-right: 10px;
+}
+
 /* css simon teilnehmerliste*/
 td, th{
 	border: 0.5px solid var(--dark-white);
