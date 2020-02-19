@@ -104,9 +104,10 @@ class Controller{
       $this->addContext("kurse", Kurs::finde($_GET['kurs_id']));
     }
     public function kurse_bearbeitung_speichern(){
-      $kurse = new Kurs(array("id"=>$_REQUEST['kurs_id'],"titel"=>$_POST['titel'], "datum" =>$_POST['datum'], "beschreibung" => 'summernote', "dauer" => $_POST['dauer'], "von" => $_POST['von'],
-      "bis" => $_POST['bis'], "koordination" => $_POST['koordination'], "anmeldeschluss" => $_POST['anmeldeschluss'], "kontaktperson" => $_POST['kontakt'], "maxTeilnehmer" => $_POST['maxTeilnehmer'], "referent" => $_POST['referent'],
-      "ort_raum" => $_POST['ort_raum'], "unterschriftsliste_zweispaltig" => NULL, "fortbildung_id" => $_REQUEST['fortbildung_id']));
+      $daten = $_POST;
+      $daten['id'] = $_REQUEST['kurs_id'];
+      $kurse = new Kurs($daten);
+      var_dump($kurse);
       $kurse->speichere();
       header('Location: index.php?aktion=hauptseite');
     }
@@ -116,9 +117,7 @@ class Controller{
       $this->addContext("teilnehmern",Teilnehmer::findeNachKurs(Kurs::finde($_GET['kurs_id'])));
     }
 
-    /*public function detailsAnschauen(){
-        $this->addContext("seminardetails", Seminar::finde($_GET["seminar_id"]));
-    }*/
+  
 
     private function generatePage($template){
         extract($this->context);

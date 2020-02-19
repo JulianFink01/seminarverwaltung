@@ -32,8 +32,8 @@ if(!isset($_SESSION["loggedIn"])){
       <div id="box">
           <form action="index.php?aktion=kurse_erstellen"  method="post">
         <div id="input">
-          <p class="einzug"> Titel <input type="text" name="titel" id="titelkurs"/></p>
-          <p class="einzug"> Datum <input type="date" name="datum" id="datumkurs"/></p>
+          <p class="einzug"> Titel <input type="text" name="titel" id="titelkurs" required/></p>
+          <p class="einzug"> Datum <input type="date" name="datum" id="datumkurs" required/></p>
         </div>
         <p id="#">Beschreibung</p>
 
@@ -55,40 +55,40 @@ if(!isset($_SESSION["loggedIn"])){
           <table id="kurszeiten">
             <tr>
               <td><a>Dauer:</a> &ensp;
-              <input type="number" name="dauer"  class="zeit"/>
+              <input type="number" name="dauer"  class="zeit" required/>
             </td>
             <td>
               <a>Start:</a>  &ensp;
-              <input type="text" placeholder="10:00"  name='von' id="start" class="zeit"  />
+              <input type="text" placeholder="10:00"  name='von' id="start" class="zeit" required />
             </td>
             <td>
               &ensp; <a>Ende:</a>  &ensp;
-              <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit"/>
+              <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit"required/>
             </td>
           </tr>
         </table>
 
         <div id=kursdaten>
             <a> Koordination: </a>  &emsp;
-            <input type="text"  name="koordination" id="kurs_koordination" />
+            <input type="text"  name="koordination" id="kurs_koordination" required />
             <a> Anmeldeschluss: </a>  &emsp;
-            <input type="date" name="anmeldeschluss" id="kurs_anmeldeschluss">
+            <input type="date" name="anmeldeschluss" id="kurs_anmeldeschluss" required>
           </div>
 
           <div id="kursdaten">
           <input type="hidden" id="beschreibung" name="beschreibung" />
           <input type="hidden" id="fortbildung_id" name="fortbildung_id" value="<?php echo $_GET["fortbildung_id"]?>" />
           <a> Teilnehmeranzahl: </a>
-          <input type="number" name="maxTeilnehmer" id="maxTeilnehmer" />
+          <input type="number" name="maxTeilnehmer" id="maxTeilnehmer" required />
           <a>Kontaktperson: </a>
-          <input type="text" name="kontakt" id="kontakt" />
+          <input type="text" name="kontakt" id="kontakt" required/>
           </div>
 
         <br /> Referent <br />
-        <input type="text"  name="referent" id="referent" />
+        <input type="text"  name="referent" id="referent" required/>
 
           <br /> Raum  <br/>
-          <input type="text"  name="ort_raum" id="ort_raum" />
+          <input type="text"  name="ort_raum" id="ort_raum" required />
 
 
 

@@ -51,7 +51,7 @@ if(!isset($_SESSION["loggedIn"])){
 
         <script>
         $(document).ready(function() {
-          $('#summernote').summernote({height: 280,width: 1200 });
+          $('#summernote').summernote({height: 280,width: 1400 });
 
         });
 
@@ -75,6 +75,8 @@ if(!isset($_SESSION["loggedIn"])){
             <input type="date" name="anmeldeschluss" id="anmeldeschluss" value="<?php echo $kurse->getAnmeldeSchluss()?>">
 
           <input type="hidden" id="beschreibung" name="beschreibung" />
+          <input type="hidden" id="fortbildung_id" name="fortbildung_id" value="<?php echo $_GET["fortbildung_id"]?>" />
+
           <br /> Teilnehmeranzahl  &emsp; Kontaktperson <br />
           <input type="number" name="maxTeilnehmer" id="maxTeilnehmer" value="<?php echo $kurse->getTeilnehmerAnzahl()?>"/>
           <input type="text" name="kontakt" id="kontakt" value="<?php echo $kurse->getKontakt()?>"/>
@@ -88,20 +90,19 @@ if(!isset($_SESSION["loggedIn"])){
 
 
 
-          <input type="submit" id="button" value="Senden">
+          <input type="submit" class="Senden_erstellen " onclick="myFunction()" id="button" value="Senden">
 
 
           <script>
           function myFunction() {
-            $('#beschreibung').value = $('#summernote').summernote('code');
+            var text= $('#summernote').summernote('code');
+            $('#beschreibung').val(text);
             return true;
           }
 
           </script>
         </form>
-        <?php
-        echo $beschreibung
-        ?>
+
       </div>
 
     </div>
