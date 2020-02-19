@@ -25,7 +25,9 @@ body {
 #leiste {
 	margin-left: 100px;
 }
-
+#summernote{
+	width: 100% !important;
+}
 article.infobox section {
     position: absolute;
     display: block;
@@ -87,10 +89,7 @@ article.infobox section:target h2 a {
 }
 
 /* css simon teilnehmerliste*/
-td, th{
-	border: 0.5px solid var(--dark-white);
-	padding: 5px;
-}
+
 .showTeilnehmerErstellen{
 	height:auto !important;
 	overflow: visible !important;
@@ -132,9 +131,17 @@ td, th{
 		text-align: center;
 		color: var(--main-blue);
 }
+#teilnehmer td, th{
+	border: 0.5px solid var(--dark-white);
+	padding: 5px;
+}
 #teilnehmer table tr td{
 		text-align: center;
 		color: var(--main-blue);
+
+}
+.b_l{
+	border:none;
 }
 table tr td.b_l{
 	border: none;
@@ -176,16 +183,11 @@ table tr td.b_l{
 	background-color: var(--main-blue);
 	width: 100px;
 	height: 25px;
-
-=======
 	float: right;
 	margin-right: 45px;
->>>>>>> 8eb671ea6fc5263c23efa46bec1e9dc4b83ff0bc
-=======
 	float: left;
 	margin-left: 45px;
 	margin-top: 25px;
->>>>>>> 1ce256f353f5292a96d5ff3b244d77b840aa7a60
 }
 #button:hover{
 	color: var(--main-blue);
@@ -207,9 +209,9 @@ table tr td.b_l{
     margin-left: 12rem;
 }
 #senden{
-    position: absolute;
-		top: 600px;
-
+    position: relative;
+		top: 20px;
+		left: 320px;
     width: 150px;
     height: 30px;
 }
@@ -224,7 +226,7 @@ table tr td.b_l{
 }
 #kurskopf{
 	background-color: white;
-	border: 1px solid rgba(189,195,199);
+
 	box-shadow: 1px 5px 5px 0px #f0f0f0;
 	margin-left: 2.5%;
 	margin-top: 2.5%;
@@ -246,10 +248,36 @@ table tr td.b_l{
 	background-color: #fafafa;
 	border: 0.5px solid var(--dark-white);
 	width: 90%;
-	height: 740px;
 	margin: 0px 40px 0px 100px;
 	padding: 10px 100px 40px 100px;
 	overflow-y: auto;
+	margin-top: 50px;
+}
+.einzug{
+	text-align: left;
+
+}
+#kurs_beschreibung{
+	display: block;
+
+
+}
+#kurszeiten {
+	margin-top: 5rem;
+	text-align: left;
+
+	width: 100%;
+}
+#kursdaten{
+	margin-top: 3rem;
+	text-align: left;
+}
+.zeit {
+
+	height: 30px;
+	border: 1.2px solid #000;
+	margin-left: 2rem;
+
 }
 #input{
 margin-bottom: 20px;
@@ -306,6 +334,35 @@ margin-bottom: 20px;
  margin: 50px 0px 0px 1200px;
 
 }
+#kurs_koordination {
+	text-align: left;
+	border: 1.2px solid #000;
+	height: 30px;
+	display: inline;
+	margin-left: 20px;
+}
+#kurs_anmeldeschluss {
+	height: 30px;
+	margin-left: 20px;
+	display: inline;
+	  border: 1.2px solid #000;
+}
+#kurs_kontakt {
+	height: 30px;
+	border: 1.2px solid #000;
+	margin-left: 40px;
+	display: inline;
+}
+#maxTeilnehmer {
+	border: 1.2px solid #000;
+	height: 30px;
+}
+#datumkurs {
+	border: 1.2px solid #000;
+	margin-left: 3rem;
+	height: 30px;
+	display: inline-block;
+}
 #titel {
 	margin: 40px 0px 0px 20px;
 	font-size: 15px;
@@ -313,6 +370,15 @@ margin-bottom: 20px;
 	padding: 5px;
 	border: 1.2px solid #000;
 	text-align: center;
+}
+#titelkurs {
+	margin: 40px 0px 0px 20px;
+	font-size: 15px;
+	width: 450px;
+	padding: 5px;
+	border: 1.2px solid #000;
+	margin-left: 4.5rem;
+
 }
 #beschreibung {
 	margin: 20px 0px 0px 20px;
@@ -323,6 +389,10 @@ margin-bottom: 20px;
 	border: 1.2px solid #000;
 	text-align: left;
 	overflow-y: auto;
+}
+#kurszeiten tr td{
+	width: 33%;
+
 }
 #beschreibung p {
 	font-size: 15px;
