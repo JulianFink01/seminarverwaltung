@@ -25,7 +25,9 @@ body {
 #leiste {
 	margin-left: 100px;
 }
-
+#summernote{
+	width: 100% !important;
+}
 article.infobox section {
     position: absolute;
     display: block;
@@ -87,10 +89,7 @@ article.infobox section:target h2 a {
 }
 
 /* css simon teilnehmerliste*/
-td, th{
-	border: 0.5px solid var(--dark-white);
-	padding: 5px;
-}
+
 .showTeilnehmerErstellen{
 	height:auto !important;
 	overflow: visible !important;
@@ -132,9 +131,17 @@ td, th{
 		text-align: center;
 		color: var(--main-blue);
 }
+#teilnehmer td, th{
+	border: 0.5px solid var(--dark-white);
+	padding: 5px;
+}
 #teilnehmer table tr td{
 		text-align: center;
 		color: var(--main-blue);
+
+}
+.b_l{
+	border:none;
 }
 table tr td.b_l{
 	border: none;
@@ -207,6 +214,7 @@ table tr td.b_l{
     width: 150px;
     height: 30px;
 }
+}
 #inhalt {
 	background-color: #fafafa;
 	float: left;
@@ -240,11 +248,15 @@ table tr td.b_l{
 	background-color: #fafafa;
 	border: 0.5px solid var(--dark-white);
 	width: 90%;
+<<<<<<< HEAD
 	z-index: 1000;
 	height: 740px;
+=======
+>>>>>>> 0988095f87f13e7d2ce07b29db11c254fc8ab1cb
 	margin: 0px 40px 0px 100px;
 	padding: 10px 100px 40px 100px;
 	overflow-y: auto;
+	margin-top: 50px;
 }
 .einzug{
 	text-align: left;
@@ -258,6 +270,7 @@ table tr td.b_l{
 #kurszeiten {
 	margin-top: 5rem;
 	text-align: left;
+
 	width: 100%;
 }
 #kursdaten{
@@ -384,6 +397,7 @@ margin-top: 20px;
 }
 #kurszeiten tr td{
 	width: 33%;
+
 }
 #beschreibung p {
 	font-size: 15px;
