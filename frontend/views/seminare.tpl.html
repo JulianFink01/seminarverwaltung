@@ -48,6 +48,24 @@
               <p>
                 <?php echo $kurs->getShortBeschreibung();?>
               </p>
+              <?php
+
+              $abgelaufen = $kurs->istAbgelaufen();
+              $anzahl = $kurs->getTeilnehmerAnzahl();
+              $maxAnzahl =$kurs->getMaxTeilnehmer();
+                if($abgelaufen != true){
+                  if(!$user->nimmtAnKursTeilInFortbildung($kurs->getFortbildung_id()) && $anzahl < $maxAnzahl){
+                ?>
+
+                    <div class="info-text info-left">
+                      <a href="index.php?aktion=anmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="anmelden" class="button">Anmelden</a>
+                  </div>
+              <?php } elseif($kurs->nimmtAnKursTeil($user)){?>
+                    <div class="info-text info-left">
+                      <a href="index.php?aktion=abmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="abmelden" class="button">Abmelden</a>
+                    </div>
+              <?php }
+              }?>
               <div class="info-text info-right">
                 <a href="index.php?aktion=show_KursInfos&kursId=<?php echo $kurs->getId();?>&token=<?php echo $user->getToken();?>">Mehr Informationen</a>
               </div>

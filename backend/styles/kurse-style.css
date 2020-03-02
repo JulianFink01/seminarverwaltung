@@ -98,6 +98,11 @@ article.infobox section:target h2 a {
 .kurs_icons{
 	margin-right: 10px;
 }
+#zurueck{
+	margin: 2%;
+	float: left;
+	width: 75px;
+}
 #home{
 
 	position: absolute;
