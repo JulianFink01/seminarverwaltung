@@ -1,12 +1,10 @@
-<<<<<<< HEAD
+
 <?php
 if(!isset($_SESSION["loggedIn"])){
   header('Location: index.php?aktion=login');
 }
 ?>
-=======
 
->>>>>>> dba71c52ebd7180a69f763284583b06b2fb9c713
 <html>
 <head>
 
