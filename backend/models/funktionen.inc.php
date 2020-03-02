@@ -23,7 +23,7 @@ class Funktionen{
           $mailer->FromName = "Verwaltung Berufsschule";
           $mailer->addAddress($to, $key->getVorname()." ".$key->getNachname());
           $mailer->Subject = $subject;
-          $mailer->Body = $message."\n \n Anmeldung unter:\n https://seminarverwaltung1.000webhostapp.com/frontend/index.php?token=".$key->gettoken()."&aktion=login";
+          $mailer->Body = $message."\n \n Anmeldung unter:\n https://seminarverwaltung1.000webhostapp.com/frontend/index.php?token=".$key->gettoken()."&aktion=login";//link muss noch angepasst werden nachdem es sich auf dem server befindet
 
 
 
