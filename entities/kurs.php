@@ -156,7 +156,7 @@ public function speichere()
   public function formatMonth($monat){
     switch ($monat) {
       case '01':
-        $monat = "Jannuar";
+        $monat = "Januar";
       break;
       case '02':
         $monat = "Februar";
