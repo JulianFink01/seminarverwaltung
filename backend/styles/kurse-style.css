@@ -34,11 +34,7 @@ article.infobox section {
 
     position: absolute;
     display: block;
-<<<<<<< HEAD
     width: 95%;
-=======
-    width: 85%;
->>>>>>> e889285e9d74476a1a6c4f60f52eb038a33e8be7
     max-height: 630px;
     top: 300px;
     background-color: var(--dark-white);
