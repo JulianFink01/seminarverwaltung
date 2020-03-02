@@ -42,17 +42,9 @@ class Controller{
 
         $kurs = Kurs::finde($kursId);
 
-        $currentDate =  date("Y-m-d H:i:s");
-        $kursdate = $kurs->getDatum();
 
-        $abgelaufen = false;
 
-        if(new DateTime($kursdate) <= new DateTime($currentDate)){
-          $abgelaufen = true;
-        }else{
-            $abgelaufen = false;
-        }
-
+        $abgelaufen = $kurs->istAbgelaufen();
         $anzahl = $kurs->getTeilnehmerAnzahl();
         $maxAnzahl =$kurs->getMaxTeilnehmer();
 

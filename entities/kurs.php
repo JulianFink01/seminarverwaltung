@@ -141,6 +141,20 @@ public function speichere()
     return $datum;
 
   }
+  public function istAbgelaufen(){
+    $currentDate =  date("Y-m-d H:i:s");
+    $kursdate = $this->getDatum();
+
+    $abgelaufen = false;
+
+    if(new DateTime($kursdate) <= new DateTime($currentDate)){
+      $abgelaufen = true;
+    }else{
+        $abgelaufen = false;
+    }
+
+    return $abgelaufen;
+  }
   public function getFormatedAnmeldeschluss(){
     $jahr = substr($this->getDatum(), 0, 4);
     $monat = substr($this->getDatum(), 5, 2);
