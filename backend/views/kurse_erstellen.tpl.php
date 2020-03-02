@@ -59,11 +59,11 @@ if(!isset($_SESSION["loggedIn"])){
             </td>
             <td>
               <a>Start:</a>  &ensp;
-              <input type="text" placeholder="10:00"  name='von' id="start" class="zeit" required />
+              <input type="text" placeholder="10:00"  name='von' id="start" class="zeit"  pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" required />
             </td>
             <td>
               &ensp; <a>Ende:</a>  &ensp;
-              <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit"required/>
+              <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit"  pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" required/>
             </td>
           </tr>
         </table>
@@ -85,19 +85,13 @@ if(!isset($_SESSION["loggedIn"])){
           <input type="text"  name="ort_raum" id="ort_raum" required />
 
   </div>
-  <a href="?aktion=alle_kurse&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>#allgemeiner"><img class="kurs_icons" id="zurueck" src="Images/Home_icon.png" title="Zurück" /></a>
+  <a href="?aktion=alle_kurse&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>#allgemeiner"><img class="kurs_icons" id="zurueck" src="Images/zurueck_icon.png" title="Zurück" /></a>
           <input class="Senden_erstellen "type="submit" onclick="myFunction()" value="Senden">
 
 
           <script>
           function myFunction() {
 
-            if (!isNaN($('#von').val()))
-            {
-              alert($('#von').val());
-
-              return false;
-            }else {
               //alert("i was cliecked");
             var text= $('#summernote').summernote('code');
             $('#beschreibung').val(text);
@@ -106,7 +100,7 @@ if(!isset($_SESSION["loggedIn"])){
             return false;
 
           }
-        }
+        
           </script>
         </form>
 
