@@ -47,7 +47,7 @@
 
         <script>
         $(document).ready(function() {
-          $('#summernote').summernote({height: 280,width: 1400 });
+          $('#summernote').summernote({height: 280,width: 1100 });
 
         });
 
