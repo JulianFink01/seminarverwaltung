@@ -43,7 +43,7 @@ if(!isset($_SESSION["loggedIn"])){
 
         <script>
         $(document).ready(function() {
-          $('#summernote').summernote({height: 280,width: 1400 });
+          $('#summernote').summernote({height: 280,width: 1100 });
 
         });
 
@@ -68,29 +68,23 @@ if(!isset($_SESSION["loggedIn"])){
           </tr>
         </table>
 
-        <div id=kursdaten>
-            <a> Koordination: </a>  &emsp;
-            <input type="text"  name="koordination" id="kurs_koordination" required />
-            <a> Anmeldeschluss: </a>  &emsp;
-            <input type="date" name="anmeldeschluss" id="kurs_anmeldeschluss" required>
-          </div>
-
-          <div id="kursdaten">
+        <div class=kursdaten>
+            <a> Koordination: </a>
+            <input type="text"  name="koordination" id="kurs_koordination_erstellen" required />
+            <a> Anmeldeschluss: </a>
+          <input type="date" name="anmeldeschluss" id="kurs_anmeldeschluss_erstellen" required>
           <input type="hidden" id="beschreibung" name="beschreibung" />
           <input type="hidden" id="fortbildung_id" name="fortbildung_id" value="<?php echo $_GET["fortbildung_id"]?>" />
           <a> Teilnehmeranzahl: </a>
           <input type="number" name="maxTeilnehmer" id="maxTeilnehmer" required />
           <a>Kontaktperson: </a>
-          <input type="text" name="kontakt" id="kontakt" required/>
-          </div>
-
-        <br /> Referent <br />
+          <input type="text" name="kontakt" id="kontaktpersonen" required/>
+        <a> Referent: </a>
         <input type="text"  name="referent" id="referent" required/>
-
-          <br /> Raum  <br/>
+          <a>Raum : </a>
           <input type="text"  name="ort_raum" id="ort_raum" required />
 
-
+  </div>
 
           <input class="Senden_erstellen "type="submit" onclick="myFunction()" value="Senden">
 
