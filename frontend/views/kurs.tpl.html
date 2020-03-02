@@ -80,9 +80,10 @@
                 </div>
 
                   <?php
-                    $anzahl = $kurs->getTeilnehmerAnzahl();
-                    $maxAnzahl =$kurs->getMaxTeilnehmer();
 
+
+                  
+                    if($abgelaufen != true){
                     if(!$user->nimmtAnKursTeilInFortbildung($kurs->getFortbildung_id()) && $anzahl < $maxAnzahl){?>
 
                         <div class="info-text info-right">
@@ -92,7 +93,7 @@
                       <div class="info-text info-right">
                       <a href="index.php?aktion=abmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="abmelden" class="button">Abmelden</a>
                       </div>
-                    <?php }?>
+                    <?php }}?>
 
               </div>
           </div>
