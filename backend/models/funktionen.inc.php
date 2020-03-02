@@ -21,7 +21,7 @@ public static function send_email() {
 
 
 
-      $mailer->From = "roccasalvo.lukas@hotmail.com";//Miriam.Bolognani@berufsschule.bz
+      $mailer->From = "roccasalvo.lukas@hotmail.com";//info@berufsschule.bz
       $mailer-> addAddress($to, "Miriam Bolognani");
       $mailer->Subject = $subject;
       $mailer->Body = $message;
