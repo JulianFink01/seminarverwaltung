@@ -106,7 +106,6 @@ class Controller{
     }
 
     public function kurs_bearbeiten(){
-      var_dump($_POST);
       $this->addContext("kurse", Kurs::finde($_GET['kurs_id']));
     }
     public function kurse_bearbeitung_speichern(){
@@ -123,7 +122,7 @@ class Controller{
       $this->addContext("teilnehmern",Teilnehmer::findeNachKurs(Kurs::finde($_GET['kurs_id'])));
     }
 
-  
+
 
     private function generatePage($template){
         extract($this->context);
