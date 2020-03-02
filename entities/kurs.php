@@ -95,7 +95,7 @@ public function speichere()
     return $this->beschreibung;
   }
   public function getShortBeschreibung(){
-    return substr($this->beschreibung,0,150).'...';
+    return substr($this->beschreibung,0,150);
   }
   public function setOrt_raum($ortRaum){
     $this->ort_raum = $ortRaum;
@@ -156,7 +156,7 @@ public function speichere()
   public function formatMonth($monat){
     switch ($monat) {
       case '01':
-        $monat = "Jannuar";
+        $monat = "Januar";
       break;
       case '02':
         $monat = "Februar";
