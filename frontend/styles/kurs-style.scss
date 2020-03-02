@@ -112,14 +112,15 @@ details{
   }
 }
 .content-allgemein{
-  width: 80%;
+  margin: 0;
+  padding: 0;
+    width: 85%;
+  margin-left: 7.5%;
   margin-top: 5%;
   background-color: white;
-  transform: translateX(9%);
   .Content{
     background-color: var(--main-blue);
     margin: 0;
-    padding: 15px;
     border-bottom: 1px solid var(--dark-white);
     width: 100%;
     &:not(:first-child){
