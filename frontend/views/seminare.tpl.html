@@ -4,7 +4,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="styles/main-style.css">
   <link rel="stylesheet" type="text/css" href="styles/seminar-style.css">
-    <title>Fortbildungsverwaltung - Seminare</title>
+  <link rel="icon" href="../logo.jpg">
+  <title>Fortbildungsverwaltung - Seminare</title>
   <meta charset="UTF-8" />
 </head>
 
@@ -45,7 +46,7 @@
                 </div>
               </div>
               <p>
-                <?php echo $kurs->getShortBeschreibung();?>...
+                <?php echo $kurs->getShortBeschreibung();?>
               </p>
               <div class="info-text info-right">
                 <a href="index.php?aktion=show_KursInfos&kursId=<?php echo $kurs->getId();?>&token=<?php echo $user->getToken();?>">Mehr Informationen</a>
