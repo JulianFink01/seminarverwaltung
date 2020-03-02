@@ -58,7 +58,23 @@ form {
 }
 
 
-
+#button{
+	color: var(--main-white);
+	border-color: var(--main-blue);
+	background-color: var(--main-blue);
+	width: 100px;
+	height: 25px;
+	float: right;
+	margin-right: 45px;
+	float: left;
+	margin-left: 45px;
+	margin-top: 25px;
+}
+#button:hover{
+	color: var(--main-blue);
+	border-color: var(--main-orange);
+	background-color: var(--main-orange);
+}
 #kopf {
 	background-color: white;
 	border: 1px solid rgba(189,195,199);

@@ -12,7 +12,7 @@ protected $ort_raum = "";
 protected $kontakt = "";
 protected $von = "";
 protected $bis = "";
-protected $unterschriftsliste_zweispaltig = false;
+protected $unterschriftsliste_zweispaltig = 0;
 protected $koordination = "";
 protected $anmeldeschluss = "";
 protected $fortbildung_id = 0;
@@ -130,44 +130,7 @@ public function speichere()
     $monat = substr($this->getDatum(), 5, 2);
     $tag = substr($this->getDatum(), 8, 2);
 
-    switch ($monat) {
-      case '01':
-        $monat = "Jannuar";
-      break;
-      case '02':
-        $monat = "Februar";
-      break;
-      case '03':
-        $monat = "März";
-      break;
-      case '04':
-        $monat = "April";
-      break;
-      case '05':
-        $monat = "Mai";
-      break;
-      case '06':
-        $monat = "Juni";
-      break;
-      case '07':
-        $monat = "Juli";
-      break;
-      case '08':
-        $monat = "August";
-      break;
-      case '09':
-        $monat = "September";
-      break;
-      case '10':
-        $monat = "Oktober";
-      break;
-      case '11':
-        $monat = "November";
-      break;
-      case '12':
-        $monat = "Dezember";
-      break;
-    }
+    $monat = $this->formatMonth($monat);
 
     $datum = $tag.'. '.$monat.' '.$jahr;
     $von = substr($this->getVon(),0,5);
@@ -183,6 +146,14 @@ public function speichere()
     $monat = substr($this->getDatum(), 5, 2);
     $tag = substr($this->getDatum(), 8, 2);
 
+    $monat = $this->formatMonth($monat);
+
+    $datum = $tag.'. '.$monat.' '.$jahr;
+    return $datum;
+
+  }
+
+  public function formatMonth($monat){
     switch ($monat) {
       case '01':
         $monat = "Jannuar";
@@ -222,12 +193,15 @@ public function speichere()
       break;
     }
 
-    $datum = $tag.'. '.$monat.' '.$jahr;
-    return $datum;
+    return $monat;
 
   }
   public function setUnterschriftsliste_zweispaltig($bool){
-    $this->unterschriftsliste_zweispaltig = $bool;
+    if($bool==false){
+      $this->unterschriftsliste_zweispaltig = 0;
+    }else{
+      $this->unterschriftsliste_zweispaltig = 1;
+    }
   }
   public function getUnterschriftsliste_zweispaltig(){
     return $this->unterschriftsliste_zweispaltig;
@@ -258,9 +232,16 @@ public function speichere()
   }
   public function loesche()
   {
+
+      //Aus nimmt_teil löschen
+      $sql2 = 'UPDATE f_nimmt_teil set kurs_id = NULL WHERE kurs_id=?';
+      $abfrage2 = DB::getDB()->prepare($sql2);
+      $abfrage2->execute( array($this->getId()) );
+      //Kurs löschen
       $sql = 'DELETE FROM f_kurs WHERE id=?';
       $abfrage = DB::getDB()->prepare($sql);
       $abfrage->execute( array($this->getId()) );
+
       // Objekt existiert nicht mehr in der DB, also muss die ID zurückgesetzt werden
       $this->id = 0;
   }
@@ -292,8 +273,8 @@ public function speichere()
   private function _insert()
   {
 
-      $sql = 'INSERT INTO f_kurs (id, datum, titel, maxTeilnehmer, referent, beschreibung, ort_raum,kontakt, von, bis, unterschriftsliste_zweispaltig, koordination, anmeldeschluss, fortbildung_id, dauer)'
-           . 'VALUES (:id, :datum, :titel, :maxTeilnehmer, :referent, :beschreibung, :ort_raum,:kontakt,:von,:bis,:unterschriftsliste_zweispaltig, :koordination, :anmeldeschluss, :fortbildung_id, :dauer)';
+      $sql = 'INSERT INTO f_kurs ( datum, titel, maxTeilnehmer, referent, beschreibung, ort_raum,kontakt, von, bis, unterschriftsliste_zweispaltig, koordination, anmeldeschluss, fortbildung_id, dauer)'
+           . 'VALUES (:datum, :titel, :maxTeilnehmer, :referent, :beschreibung, :ort_raum,:kontakt,:von,:bis,:unterschriftsliste_zweispaltig, :koordination, :anmeldeschluss, :fortbildung_id, :dauer)';
 
       $abfrage = DB::getDB()->prepare($sql);
       $abfrage->execute($this->toArray(false));
@@ -303,7 +284,7 @@ public function speichere()
 
   private function _update()
   {
-      $sql = 'UPDATE f_teilnhermer SET id=:id, datum=:datum, titel=:titel,maxTeilnehmer=:maxTeilnehmer,referent=:referent,beschreibung=:beschreibung,ort_raum=:ort_raum,kontakt=:kontakt,von=:von,bis=:bis,unterschriftsliste_zweispaltig=:unterschriftsliste_zweispaltig,koordination=:koordination,anmeldeschluss=:anmeldeschluss,fortbildung_id=:fortbildung_id,dauer=:dauer'
+      $sql = 'UPDATE f_teilnehmer SET id=:id, datum=:datum, titel=:titel,maxTeilnehmer=:maxTeilnehmer,referent=:referent,beschreibung=:beschreibung,ort_raum=:ort_raum,kontakt=:kontakt,von=:von,bis=:bis,unterschriftsliste_zweispaltig=:unterschriftsliste_zweispaltig,koordination=:koordination,anmeldeschluss=:anmeldeschluss,fortbildung_id=:fortbildung_id,dauer=:dauer'
           . 'WHERE id=:id';
       $abfrage = self::$db->prepare($sql);
       $abfrage->execute($this->toArray());
@@ -339,7 +320,10 @@ public function speichere()
   {
       return NimmtTeil::findeAlleKurseNachTeilnehmer($teilnehmer);
   }
-
+  public static function findeNachBenutzerUndFortbildung(Teilnehmer $teilnehmer, Fortbildung $fortbildung)
+  {
+      return NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbildung, $teilnehmer);
+  }
   public static function findeAlleTeilnehmer(Kurs $kurs){
     $result = NimmtTeil::findeAlleKursTeilnehmer($kurs);
     return $result;

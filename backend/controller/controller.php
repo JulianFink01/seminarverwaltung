@@ -19,9 +19,9 @@ class Controller{
     }
     public function alle_Kurse(){
 
-      $this->addContext("kurse", Kurs::findeNachFortbildung(Fortbildung::finde($_GET['fortbildung_id'])));
-      $this->addContext("teilnehmern", Fortbildung::findeAlleTeilnehmer(Fortbildung::finde($_GET['fortbildung_id'])));
-      $this->addContext("fortbildung", Fortbildung::finde($_GET['fortbildung_id']));
+      $this->addContext("kurse", Kurs::findeNachFortbildung(Fortbildung::finde($_REQUEST['fortbildung_id'])));
+      $this->addContext("teilnehmern", Fortbildung::findeAlleTeilnehmer(Fortbildung::finde($_REQUEST['fortbildung_id'])));
+      $this->addContext("fortbildung", Fortbildung::finde($_REQUEST['fortbildung_id']));
 
 
 
@@ -29,10 +29,10 @@ class Controller{
     public function kurse_erstellen(){
       if ($_POST){
         $kurs = new Kurs($_POST);
-        echo $kurs;
         $kurs->speichere();
         $this->alle_Kurse();
         $this->addContext("template","alle_Kurse");
+
       }
 
     }
@@ -92,12 +92,30 @@ class Controller{
       header('Location: index.php?aktion=alle_kurse&fortbildung_id='.$_REQUEST["fortbildung_id"].'#allgemeiner');
     }
 
-    public function lehrer_bearbeiten(){
+    public function saveTeilnehmer(){
+      $teilnehmer = Teilnehmer::findeNachEmail($_POST['email']);
+      if(!$teilnehmer){
+        $teilnehmer = new Teilnehmer(array("vorname"=>$_POST['vorname'],"nachname"=>$_POST['nachname'], "email" =>$_POST['email']));
+        $teilnehmer->speichere();
+      }
+      $fortbilung = Fortbildung::finde($_REQUEST["fortbildung_id"]);
+      if(!NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbilung, $teilnehmer)){
+        $fortbilung->teilnehmen($teilnehmer);
+      }
+      header('Location: index.php?aktion=alle_Kurse&fortbildung_id='.$_REQUEST['fortbildung_id'].'#funktionen');
+    }
 
-
-
-      $this->alle_Kurse();
-      $this->addContext("template","alle_Kurse");
+    public function kurs_bearbeiten(){
+      var_dump($_POST);
+      $this->addContext("kurse", Kurs::finde($_GET['kurs_id']));
+    }
+    public function kurse_bearbeitung_speichern(){
+      $daten = $_POST;
+      $daten['id'] = $_REQUEST['kurs_id'];
+      $kurse = new Kurs($daten);
+      var_dump($kurse);
+      $kurse->speichere();
+      header('Location: index.php?aktion=hauptseite');
     }
 
     public function teilnehmerliste(){
@@ -105,9 +123,7 @@ class Controller{
       $this->addContext("teilnehmern",Teilnehmer::findeNachKurs(Kurs::finde($_GET['kurs_id'])));
     }
 
-    /*public function detailsAnschauen(){
-        $this->addContext("seminardetails", Seminar::finde($_GET["seminar_id"]));
-    }*/
+  
 
     private function generatePage($template){
         extract($this->context);

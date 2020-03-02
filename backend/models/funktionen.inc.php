@@ -72,7 +72,7 @@ public static function send_email() {
                         $teilnehmer["Vorname"] = trim(utf8_encode($daten[1]));
                         $teilnehmer["Email"] = utf8_encode(trim($daten[2]));
 
-                        if ($teilnehmer["Nachname"] != "nachname")
+                        if (strtolower($teilnehmer["Nachname"]) != "nachname")
                             $teilnehmer_all[] = $teilnehmer;   //return this Array
                     }
                 }

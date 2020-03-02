@@ -2,7 +2,7 @@
 <?php
 session_start();
 
-require_once '../entities/DB.php';
+require_once '../entities/db.php';
 require_once '../entities/fortbildung.php';
 require_once '../entities/kurs.php';
 require_once '../entities/nimmtteil.php';
