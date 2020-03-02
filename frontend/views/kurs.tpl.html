@@ -82,19 +82,7 @@
                   <?php
 
 
-                    $currentDate =  date("Y-m-d H:i:s");
-                    $kursdate = $kurs->getDatum();
-
-                    $abgelaufen = false;
-                    
-                    if(new DateTime($kursdate) <= new DateTime($currentDate)){
-                      $abgelaufen = true;
-                    }else{
-                        $abgelaufen = false;
-                    }
-
-                    $anzahl = $kurs->getTeilnehmerAnzahl();
-                    $maxAnzahl =$kurs->getMaxTeilnehmer();
+                  
                     if($abgelaufen != true){
                     if(!$user->nimmtAnKursTeilInFortbildung($kurs->getFortbildung_id()) && $anzahl < $maxAnzahl){?>
 
