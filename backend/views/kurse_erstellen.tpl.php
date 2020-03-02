@@ -97,13 +97,22 @@ if(!isset($_SESSION["loggedIn"])){
 
           <script>
           function myFunction() {
+
+            if (!isNaN($('#von').val()))
+            {
+              alert($('#von').val());
+
+              return false;
+            }else {
               //alert("i was cliecked");
             var text= $('#summernote').summernote('code');
             $('#beschreibung').val(text);
+
+
             return false;
 
           }
-
+        }
           </script>
         </form>
 
