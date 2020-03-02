@@ -30,7 +30,6 @@ public static function send_email() {
           echo "<p>failed to send mail</p></br />"
           . "<p>" . $mailer->ErrorInfo . "</p>";
       }
-      for($i = 0; $i <$mail)
     }
   }
 
