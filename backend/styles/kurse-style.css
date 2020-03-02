@@ -243,7 +243,7 @@ table tr td.b_l{
 	max-height: 600px;
 	margin: 0px 0px 0px 50px;
 	padding: 10px 10px 20px 10px;
-	overflow: scroll !important;
+	overflow: auto !important;
 }
 #fenster form textarea{
 	width: 100%;
