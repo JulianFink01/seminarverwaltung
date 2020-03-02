@@ -31,13 +31,12 @@ body {
 article.infobox section {
     position: absolute;
     display: block;
-    width: 70%;
-		margin-left: 15%;
+    width: 85%;
     max-height: 630px;
     top: 300px;
     background-color: var(--dark-white);
 		border: 0.5px solid var(--dark-white);
-
+		min-height: 630px;
 }
 
 article.infobox section h2 {
@@ -53,6 +52,8 @@ article.infobox section h2 {
     border: solid #ffffff;
     border-width: 1px 1px 0 0;
     z-index: 1;
+
+
 }
 article.infobox section:nth-child(2) h2 {
     left: 150px;
@@ -224,7 +225,7 @@ table tr td.b_l{
 #inhalt {
 	background-color: #fafafa;
 	float: left;
-	width: 75%;
+	width: 85%;
 	max-height: 600px;
 	margin: 0px 0px 0px 50px;
 	padding: 10px 10px 20px 10px;
