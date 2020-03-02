@@ -1,0 +1,35 @@
+#nicht-angemeldet{
+  color: var(--main-blue);
+  text-align: center;
+  width: 90%;
+  margin-left: 5%;
+  font-size: 3rem;
+  height: 100%;
+  display: table;
+  align-items:center;
+  vertical-align: middle;
+
+}
+#nicht-angemeldet p{
+  height:100%;
+  vertical-align: middle;
+
+}
+#nicht-angemeldet p #back-to-login{
+    display: block;
+}
+#nicht-angemeldet p #back-to-login a{
+  text-align: center;
+  vertical-align: middle;
+display: block;
+margin-top: 15px;
+cursor: pointer;
+font-size: 1.5rem;
+text-decoration: none;
+color: var(--main-orange);
+transition: 0.3s all ease-out;
+
+}
+#nicht-angemeldet p #back-to-login a:hover{
+  color: var(--main-blue);
+}

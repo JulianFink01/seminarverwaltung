@@ -109,6 +109,11 @@ class Controller{
       var_dump($_POST);
       $this->addContext("kurse", Kurs::finde($_GET['kurs_id']));
     }
+
+    public function show_email_tpl(){
+        $this->addContext("template", "send_email");
+    }
+
     public function kurse_bearbeitung_speichern(){
       $daten = $_POST;
       $daten['id'] = $_REQUEST['kurs_id'];
