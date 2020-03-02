@@ -1,6 +1,6 @@
 <?php
 if(!isset($_SESSION["loggedIn"])){
-  header('Location: index.php?aktion=login');
+  header('Location: ../index.php?aktion=login');
 }
 ?>
 <html>
@@ -12,6 +12,7 @@ if(!isset($_SESSION["loggedIn"])){
 </head>
 <body>
   <header id="kopf">
+    <a href="?aktion=hauptseite"><img class="kurs_icons" id="home" src="Images/Home_icon.png" title="Hauptseite" /></a>
  <h1>Kursverwaltung - <?php echo $fortbildung->getName() ?></h1>
    </header>
 
