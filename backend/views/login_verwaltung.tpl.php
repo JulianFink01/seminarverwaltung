@@ -5,7 +5,7 @@ if(!isset($_SESSION["loggedIn"])){
 ?>
 <html>
 <head>
-    <link rel="icon" href="../logo.png">
+    <link rel="icon" href="../styles/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="styles/main-style.css">
   <link rel="stylesheet" type="text/css" href="styles/login-style.css">
