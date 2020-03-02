@@ -62,11 +62,11 @@
           </td>
           <td>
             <a>Start:</a>  &ensp;
-            <input type="text" placeholder="10:00"  name='von' id="start" class="zeit" value="<?php echo $kurse->getVon()?>" required/>
+            <input type="text" placeholder="10:00"  name='von' id="start" class="zeit" value="<?php echo $kurse->getVon()?>" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" required/>
           </td>
           <td>
             &ensp; <a>Ende:</a>  &ensp;
-            <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit" value="<?php echo $kurse->getBis()?>" required/>
+            <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit" value="<?php echo $kurse->getBis()?>" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" required/>
           </td>
         </tr>
       </table>
