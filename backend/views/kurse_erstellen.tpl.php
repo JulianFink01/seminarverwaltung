@@ -59,11 +59,11 @@ if(!isset($_SESSION["loggedIn"])){
             </td>
             <td>
               <a>Start:</a>  &ensp;
-              <input type="text" placeholder="10:00"  name='von' id="start" class="zeit" required />
+              <input type="text" placeholder="10:00"  name='von' id="start" class="zeit"  pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" required />
             </td>
             <td>
               &ensp; <a>Ende:</a>  &ensp;
-              <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit"required/>
+              <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit"  pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" required/>
             </td>
           </tr>
         </table>
@@ -92,12 +92,6 @@ if(!isset($_SESSION["loggedIn"])){
           <script>
           function myFunction() {
 
-            if (!isNaN($('#von').val()))
-            {
-              alert($('#von').val());
-
-              return false;
-            }else {
               //alert("i was cliecked");
             var text= $('#summernote').summernote('code');
             $('#beschreibung').val(text);
@@ -106,7 +100,7 @@ if(!isset($_SESSION["loggedIn"])){
             return false;
 
           }
-        }
+        
           </script>
         </form>
 
