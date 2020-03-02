@@ -26,7 +26,7 @@ if(!isset($_SESSION["loggedIn"])){
            <?php
            if($kurse != NULL){
              foreach($kurse as $kurs){ ?>
-         <div id="kurs1">
+         <div class="kurs">
          <h1><?php echo $kurs->getTitel();?></h1>
          <p><?php echo $kurs->getShortBeschreibung() ?> ...</p>
          <a href="?aktion=kurs_bearbeiten&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>&kurs_id=<?php echo $kurs->getId()?>"><img class="kurs_icons" width="35px" src="Images/stift.png" title="bearbeiten" /></a>

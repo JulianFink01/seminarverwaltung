@@ -318,7 +318,7 @@ margin-bottom: 20px;
 }
 
 
-#kurs1 {
+.kurs {
 	padding: 20px;
 	margin: 10px;
 	margin-left: 0px;
@@ -326,18 +326,18 @@ margin-bottom: 20px;
 	cursor: pointer;
 	width: 70%;
 }
-#kurs1 a {
+.kurs a {
 	text-decoration: none;
 	font-size: 20px;
 	color: #e9f6ff;
 }
-#kurs1 p {
+.kurs p {
 	color: #e9f6ff;
 }
-#kurs1 a:hover{
+.kurs a:hover{
 	color: var(--main-orange);
 }
-#kurs1 h1 {
+.kurs h1 {
 	color:  #e9f6ff;
 }
 #erstell_button {

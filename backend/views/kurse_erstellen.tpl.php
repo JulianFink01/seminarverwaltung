@@ -30,7 +30,7 @@ if(!isset($_SESSION["loggedIn"])){
     </header>
     <div id="kurserstelleninhalt">
       <div id="box">
-          <form action="index.php?aktion=kurse_erstellen"  method="post">
+          <form action="index.php?aktion=kurse_erstellen#allgemeiner"  method="post">
         <div id="input">
           <p class="einzug"> Titel <input type="text" name="titel" id="titelkurs" required/></p>
           <p class="einzug"> Datum <input type="date" name="datum" id="datumkurs" required/></p>
