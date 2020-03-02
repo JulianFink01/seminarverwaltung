@@ -266,14 +266,17 @@ background-color: white;
   margin-left: 5%;
   font-size: 3rem;
   height: 100%;
-  display: flex;
+  display: table;
   align-items:center;
   vertical-align: middle;
   p{
-    display: block;
+    height:100%;
+    vertical-align: middle;
     #back-to-login{
         display: block;
       a{
+        text-align: center;
+        vertical-align: middle;
       display: block;
       margin-top: 15px;
       cursor: pointer;

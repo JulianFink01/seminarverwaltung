@@ -21,8 +21,8 @@
 
         <form id="login-form" method="get" action="index.php?aktion=login">
           <legend>Administrationpanel</legend>
-          <input type="text" placeholder="Personal Key" name="key" value="test" required>
-          <input type="password" placeholder="Personal Key" name="passwd"  value="test"required>
+          <input type="text" placeholder="Benutzername" name="key" required>
+          <input type="password" placeholder="Passwort" name="passwd" required>
           <input type="submit" name="Login" value="Login">
         </form>
 

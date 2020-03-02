@@ -123,7 +123,7 @@ class Controller{
       $this->addContext("teilnehmern",Teilnehmer::findeNachKurs(Kurs::finde($_GET['kurs_id'])));
     }
 
-  
+
 
     private function generatePage($template){
         extract($this->context);

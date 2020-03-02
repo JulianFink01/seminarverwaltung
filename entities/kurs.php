@@ -156,7 +156,7 @@ public function speichere()
   public function formatMonth($monat){
     switch ($monat) {
       case '01':
-        $monat = "Jannuar";
+        $monat = "Januar";
       break;
       case '02':
         $monat = "Februar";
@@ -284,7 +284,7 @@ public function speichere()
 
   private function _update()
   {
-      $sql = 'UPDATE f_teilnehmer SET id=:id, datum=:datum, titel=:titel,maxTeilnehmer=:maxTeilnehmer,referent=:referent,beschreibung=:beschreibung,ort_raum=:ort_raum,kontakt=:kontakt,von=:von,bis=:bis,unterschriftsliste_zweispaltig=:unterschriftsliste_zweispaltig,koordination=:koordination,anmeldeschluss=:anmeldeschluss,fortbildung_id=:fortbildung_id,dauer=:dauer WHERE id=:id';
+      $sql = 'UPDATE f_kurs SET id=:id, datum=:datum, titel=:titel,maxTeilnehmer=:maxTeilnehmer,referent=:referent,beschreibung=:beschreibung,ort_raum=:ort_raum,kontakt=:kontakt,von=:von,bis=:bis,unterschriftsliste_zweispaltig=:unterschriftsliste_zweispaltig,koordination=:koordination,anmeldeschluss=:anmeldeschluss,fortbildung_id=:fortbildung_id,dauer=:dauer WHERE id=:id';
       $abfrage = DB::getDB()->prepare($sql);
       $abfrage->execute($this->toArray());
   }

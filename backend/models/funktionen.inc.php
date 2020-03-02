@@ -2,36 +2,39 @@
 class Funktionen{
 
 
-public static function send_email() {
-
-    require_once 'PHPMailer-master/src/PHPMailer.php';
-    $mailer = new \PHPMailer\PHPMailer\PHPMailer();
-
-    $fortbildung = Fortbildung::finde($_REQUEST['fortbildung_id']);
-    $teilnehmer = NimmtTeil::findeAlleFortbildungTeilnehmer($fortbildung);
-    $fortbildungName = $fortbildung->getName();
-
-    foreach ($teilnehmer as $key) {
-      $mail = $key->getEmail();
+  public static function send_email() {
+     require_once 'PHPMailer-master/src/PHPMailer.php';
 
 
-      $to = strip_tags($mail);
-      $subject = strip_tags('Einladung zur Fortbildung: '.$fortbildungName);
+      $fortbildung = Fortbildung::finde($_REQUEST['fortbildung_id']);
+      $teilnehmer = NimmtTeil::findeAlleFortbildungTeilnehmer($fortbildung);
+
+      $subject = strip_tags('Einladung zur Fortbildung: '.$fortbildung->getName());
       $message = strip_tags($_POST['message']);//$_POST['message']
 
+      foreach ($teilnehmer as $key) {
+
+          $mailer = new \PHPMailer\PHPMailer\PHPMailer();
+          $mail = $key->getEmail();
+
+          $to = strip_tags($mail);
+
+          $mailer->From = "info@berufsschule.bz";
+          $mailer->FromName = "Verwaltung LBSHI Bozen";
+          $mailer->addAddress($to, $key->getVorname()." ".$key->getNachname());
+          $mailer->Subject = $subject;
+          $mailer->Body = $message."\n \n Anmeldung unter:\n https://PfadHierEinfügen/seminarverwaltung/frontend/index.php?token=".$key->gettoken()."&aktion=login";//Link muss noch angepasst werden, nachdem es sich auf dem Server befindet
 
 
-      $mailer->From = "roccasalvo.lukas@hotmail.com";//info@berufsschule.bz
-      $mailer-> addAddress($to, "Miriam Bolognani");
-      $mailer->Subject = $subject;
-      $mailer->Body = $message;
 
-      if (!$mailer->send()) {
-          echo "<p>failed to send mail</p></br />"
-          . "<p>" . $mailer->ErrorInfo . "</p>";
+          if (!$mailer->send()) {
+              echo "<p>failed to send mail</p></br />"
+              . "<p>" . $mailer->ErrorInfo . "</p>";
+          }
+
+        }
+
       }
-    }
-  }
 
 
     /*
