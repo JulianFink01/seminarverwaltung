@@ -93,7 +93,11 @@
 	margin-left: 40px;
 	display: inline;
 }
-
+#zurueck{
+	margin: 2%;
+	float: left;
+	width: 75px;
+}
 #koordination {
 	padding: 0px 30px 0px 30px;
 	border: 1.2px solid #000;
