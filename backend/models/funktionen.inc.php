@@ -20,10 +20,10 @@ class Funktionen{
           $to = strip_tags($mail);
 
           $mailer->From = "info@berufsschule.bz";
-          $mailer->FromName = "Verwaltung Berufsschule";
+          $mailer->FromName = "Verwaltung LBSHI Bozen";
           $mailer->addAddress($to, $key->getVorname()." ".$key->getNachname());
           $mailer->Subject = $subject;
-          $mailer->Body = $message."\n \n Anmeldung unter:\n https://seminarverwaltung1.000webhostapp.com/frontend/index.php?token=".$key->gettoken()."&aktion=login";//link muss noch angepasst werden nachdem es sich auf dem server befindet
+          $mailer->Body = $message."\n \n Anmeldung unter:\n https://PfadHierEinfügen/seminarverwaltung/frontend/index.php?token=".$key->gettoken()."&aktion=login";//Link muss noch angepasst werden, nachdem es sich auf dem Server befindet
 
 
 
