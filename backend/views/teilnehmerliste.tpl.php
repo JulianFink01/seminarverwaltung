@@ -3,6 +3,7 @@ if(!isset($_SESSION["loggedIn"])){
   header('Location: ../index.php?aktion=login');
 }
 ?>
+<html>
 <head>
   <!-- https://t3n.de/news/css3-dynamische-tabs-ohne-365861/-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
@@ -52,3 +53,4 @@ if(!isset($_SESSION["loggedIn"])){
 
 
 </body>
+</html>

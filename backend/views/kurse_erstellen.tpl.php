@@ -3,6 +3,7 @@ if(!isset($_SESSION["loggedIn"])){
   header('Location: ../index.php?aktion=login');
 }
 ?>
+<html>
 <head>
 
 
@@ -12,14 +13,7 @@ if(!isset($_SESSION["loggedIn"])){
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.js"></script>
 
-  <!--
-  $movie = array( "title" => "Rear Window",
-  "director" => "Alfred Hitchcock",
-  "year" => 1954 );
-  */-->
 
-
-  <!-- https://t3n.de/news/css3-dynamische-tabs-ohne-365861/-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="styles/main-style.css">
   <link rel="stylesheet" type="text/css" href="styles/kurse-style.css">
@@ -29,19 +23,19 @@ if(!isset($_SESSION["loggedIn"])){
 
 
 
-  <header id="kurskopf">
+
     <header id="kopf">
 
       <h1>Kurse erstellen</h1>
     </header>
     <div id="kurserstelleninhalt">
       <div id="box">
-          <form action="index.php?aktion=kurse_erstellen&fortbildung_id=<?php echo $_GET['fortbildung_id']?>"  method="post">
+          <form action="index.php?aktion=kurse_erstellen"  method="post">
         <div id="input">
-          <p class="einzug"> Titel<input type="text" name="titel" id="titel"/></p>
-          <p class="einzug"> Datum <input type="date" name="datum" id="datum"/></p>
+          <p class="einzug"> Titel <input type="text" name="titel" id="titelkurs" required/></p>
+          <p class="einzug"> Datum <input type="date" name="datum" id="datumkurs" required/></p>
         </div>
-        <p>Beschreibung</p>
+        <p id="#">Beschreibung</p>
 
 
         <div id="summernote" ></div>
@@ -49,7 +43,7 @@ if(!isset($_SESSION["loggedIn"])){
 
         <script>
         $(document).ready(function() {
-          $('#summernote').summernote({height: 280,width: 1200 });
+          $('#summernote').summernote({height: 280,width: 1400 });
 
         });
 
@@ -58,47 +52,64 @@ if(!isset($_SESSION["loggedIn"])){
 
 
 
-          <p> Uhrzeit </p>
-          <a>Dauer:</a> &ensp;
-          <input type="number" name="dauer" id="dauer" class="zeit"/>
-          <a>Start:</a>  &ensp;
-          <input type="text" placeholder="10:00"  name='von' id="start" class="zeit"  />
-          &ensp; <a>Ende:</a>  &ensp;
-          <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit"/>
+          <table id="kurszeiten">
+            <tr>
+              <td><a>Dauer:</a> &ensp;
+              <input type="number" name="dauer"  class="zeit" required/>
+            </td>
+            <td>
+              <a>Start:</a>  &ensp;
+              <input type="text" placeholder="10:00"  name='von' id="start" class="zeit" required />
+            </td>
+            <td>
+              &ensp; <a>Ende:</a>  &ensp;
+              <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit"required/>
+            </td>
+          </tr>
+        </table>
 
+        <div id=kursdaten>
+            <a> Koordination: </a>  &emsp;
+            <input type="text"  name="koordination" id="kurs_koordination" required />
+            <a> Anmeldeschluss: </a>  &emsp;
+            <input type="date" name="anmeldeschluss" id="kurs_anmeldeschluss" required>
+          </div>
 
-
-            <br /> Koordination   &emsp;  Anmeldeschluss  <br />
-            <input type="text"  name="koordination" id="koordination" />
-            <input type="date" name="anmeldeschluss" id="anmeldeschluss">
-
+          <div id="kursdaten">
           <input type="hidden" id="beschreibung" name="beschreibung" />
-          <br /> Teilnehmeranzahl  &emsp; Kontaktperson <br />
-          <input type="number" name="maxTeilnehmer" id="maxTeilnehmer" />
-          <input type="text" name="kontakt" id="kontakt />
-
+          <input type="hidden" id="fortbildung_id" name="fortbildung_id" value="<?php echo $_GET["fortbildung_id"]?>" />
+          <a> Teilnehmeranzahl: </a>
+          <input type="number" name="maxTeilnehmer" id="maxTeilnehmer" required />
+          <a>Kontaktperson: </a>
+          <input type="text" name="kontakt" id="kontakt" required/>
+          </div>
 
         <br /> Referent <br />
-        <input type="text"  name="referent" id="referent" />
+        <input type="text"  name="referent" id="referent" required/>
 
           <br /> Raum  <br/>
-          <input type="text"  name="ort_raum" id="ort_raum" />
+          <input type="text"  name="ort_raum" id="ort_raum" required />
 
 
 
-          <input type="submit" onclick="return myFunction();" id="senden" value="Senden">
+          <input class="Senden_erstellen "type="submit" onclick="myFunction()" value="Senden">
 
 
           <script>
           function myFunction() {
-            $('#beschreibung').value = $('#summernote').summernote('code');
-            return true;
+              //alert("i was cliecked");
+            var text= $('#summernote').summernote('code');
+            $('#beschreibung').val(text);
+            return false;
+
           }
 
           </script>
         </form>
+
       </div>
 
     </div>
 
   </body>
+  </html>

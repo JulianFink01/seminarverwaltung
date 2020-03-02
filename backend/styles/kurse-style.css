@@ -25,16 +25,21 @@ body {
 #leiste {
 	margin-left: 100px;
 }
-
+#summernote{
+	width: 100% !important;
+}
 article.infobox section {
     position: absolute;
     display: block;
-    width: 90%;
-    height: 630px;
+    width: 70%;
+		margin-left: 15%;
+    max-height: 630px;
     top: 300px;
     background-color: var(--dark-white);
 		border: 0.5px solid var(--dark-white);
+
 }
+
 article.infobox section h2 {
     position: absolute;
     left: 0;
@@ -47,7 +52,7 @@ article.infobox section h2 {
     background-color: var(--main-blue);
     border: solid #ffffff;
     border-width: 1px 1px 0 0;
-    z-index: 2;
+    z-index: 1;
 }
 article.infobox section:nth-child(2) h2 {
     left: 150px;
@@ -56,7 +61,7 @@ article.infobox section:nth-child(2) h2 {
 
 article.infobox section:nth-child(3) h2 {
     left: 300px;
-    z-index: 0;
+    z-index: 1;
 }
 
 article.infobox section h2 a {
@@ -86,18 +91,42 @@ article.infobox section:target h2 a {
   background-repeat: no-repeat;
 }
 
-/* css simon teilnehmerliste*/
-td, th{
-	border: 0.5px solid var(--dark-white);
-	padding: 5px;
+.kurs_icons{
+	margin-right: 10px;
 }
 
+/* css simon teilnehmerliste*/
+
+.showTeilnehmerErstellen{
+	height:auto !important;
+	overflow: visible !important;
+}
+#textfeld{
+	height: 0px;
+	overflow: hidden;
+	transition: 1s all;
+}
+#textfeld legend {
+	margin: 50px 0px 0px 15px;
+	font-size: 15px;
+}
+#textfeld input[type="text"] {
+	margin: 10px 0px 0px 15px;
+	padding-left: 5px;
+	width: 350px;
+	height: 30px;
+}
+#textfeld input[type="submit"] {
+	margin: 10px 0px 0px 265px;
+	width: 100px;
+	height: 30px;
+}
 #teilnehmer {
 	background-color: white;
-	width: 94%;
+	width: 70%;
 	margin: 50px 0px 0px 50px;
-	height: 450px;
-	overflow-y: auto;
+	height: 430px;
+	overflow-y: scroll;
 
 }
 #teilnehmer table {
@@ -109,9 +138,17 @@ td, th{
 		text-align: center;
 		color: var(--main-blue);
 }
+#teilnehmer td, th{
+	border: 0.5px solid var(--dark-white);
+	padding: 5px;
+}
 #teilnehmer table tr td{
 		text-align: center;
 		color: var(--main-blue);
+
+}
+.b_l{
+	border:none;
 }
 table tr td.b_l{
 	border: none;
@@ -123,6 +160,10 @@ table tr td.b_l{
 	margin-right: 45px;
 	margin-top: 10px;
 	margin-bottom: 10px;
+
+}
+#teilnehmer_hinzu legend{
+		color: var(--main-blue);
 }
 
 .status{
@@ -130,8 +171,6 @@ table tr td.b_l{
 }
 
 .csv{
-<<<<<<< HEAD
-<<<<<<< HEAD
 	float: left;
 	margin-left: 50px;
 	margin-top: 10px;
@@ -139,29 +178,25 @@ table tr td.b_l{
 	padding: 15px;
 	padding-bottom: 0px;
 	margin-bottom: 10px;
+	margin-right: 50px;
 }
 .csv span{
 	color: var(--main-blue);
 }
 
-#button_upload{
+#button{
 	color: var(--main-white);
 	border-color: var(--main-blue);
 	background-color: var(--main-blue);
 	width: 100px;
 	height: 25px;
-
-=======
 	float: right;
 	margin-right: 45px;
->>>>>>> 8eb671ea6fc5263c23efa46bec1e9dc4b83ff0bc
-=======
 	float: left;
 	margin-left: 45px;
 	margin-top: 25px;
->>>>>>> 1ce256f353f5292a96d5ff3b244d77b840aa7a60
 }
-#button_upload:hover{
+#button:hover{
 	color: var(--main-blue);
 	border-color: var(--main-orange);
 	background-color: var(--main-orange);
@@ -170,10 +205,9 @@ table tr td.b_l{
 
 /* css benjamin email senden*/
 #fenster{
-    margin: 80px 0px 0px 25px ;
 		padding-left: 0px;
-    height: 300px;
-    width: 1300px;
+    height: 640px;
+    width: 80%;
 }
 
 #cke_editor1 {
@@ -181,9 +215,9 @@ table tr td.b_l{
     margin-left: 12rem;
 }
 #senden{
-    position: absolute;
-		top: 600px;
-
+    position: relative;
+		top: 20px;
+		left: 320px;
     width: 150px;
     height: 30px;
 }
@@ -191,14 +225,27 @@ table tr td.b_l{
 	background-color: #fafafa;
 	float: left;
 	width: 75%;
-	height: 560px;
+	max-height: 600px;
 	margin: 0px 0px 0px 50px;
 	padding: 10px 10px 20px 10px;
-	overflow-y: auto;
+	overflow: scroll !important;
+}
+#fenster form textarea{
+	width: 100%;
+	margin: auto;
+	margin-left: 10%;
+}
+#fenster span{
+	margin-top: 40px;
+	font-size: 2em;
+	color: var(--main-blue);
+	width: 100%;
+	margin: auto;
+	margin-left: 10%;
 }
 #kurskopf{
 	background-color: white;
-	border: 1px solid rgba(189,195,199);
+
 	box-shadow: 1px 5px 5px 0px #f0f0f0;
 	margin-left: 2.5%;
 	margin-top: 2.5%;
@@ -224,6 +271,33 @@ table tr td.b_l{
 	margin: 0px 40px 0px 100px;
 	padding: 10px 100px 40px 100px;
 	overflow-y: auto;
+	margin-top: 50px;
+}
+.einzug{
+	text-align: left;
+
+}
+#kurs_beschreibung{
+	display: block;
+
+
+}
+#kurszeiten {
+	margin-top: 5rem;
+	text-align: left;
+
+	width: 100%;
+}
+#kursdaten{
+	margin-top: 3rem;
+	text-align: left;
+}
+.zeit {
+
+	height: 30px;
+	border: 1.2px solid #000;
+	margin-left: 2rem;
+
 }
 #input{
 margin-bottom: 20px;
@@ -250,6 +324,7 @@ margin-bottom: 20px;
 	margin-left: 0px;
 	background-color: var(--main-blue);
 	cursor: pointer;
+	width: 70%;
 }
 #kurs1 a {
 	text-decoration: none;
@@ -266,19 +341,47 @@ margin-bottom: 20px;
 	color:  #e9f6ff;
 }
 #erstell_button {
-	margin: 0px 0px 0px 10px;
 	padding: 0;
 	width: 100px;
 	height: 100px;
-	border-radius: 150px 150px 150px 150px;
+	border-radius: 150px;
   background-image: url("../Images/fortbildung_erstellButton.png");
   background-repeat: no-repeat;
   background-size: contain;
 
 }
 #kurs_erstellbutton {
- margin: 50px 0px 0px 1200px;
+margin-top: 20px;
 
+}
+#kurs_koordination {
+	text-align: left;
+	border: 1.2px solid #000;
+	height: 30px;
+	display: inline;
+	margin-left: 20px;
+}
+#kurs_anmeldeschluss {
+	height: 30px;
+	margin-left: 20px;
+	display: inline;
+	  border: 1.2px solid #000;
+}
+#kurs_kontakt {
+	height: 30px;
+	border: 1.2px solid #000;
+	margin-left: 40px;
+	display: inline;
+}
+#maxTeilnehmer {
+	border: 1.2px solid #000;
+	height: 30px;
+}
+#datumkurs {
+	border: 1.2px solid #000;
+	margin-left: 3rem;
+	height: 30px;
+	display: inline-block;
 }
 #titel {
 	margin: 40px 0px 0px 20px;
@@ -287,6 +390,15 @@ margin-bottom: 20px;
 	padding: 5px;
 	border: 1.2px solid #000;
 	text-align: center;
+}
+#titelkurs {
+	margin: 40px 0px 0px 20px;
+	font-size: 15px;
+	width: 450px;
+	padding: 5px;
+	border: 1.2px solid #000;
+	margin-left: 4.5rem;
+
 }
 #beschreibung {
 	margin: 20px 0px 0px 20px;
@@ -297,6 +409,10 @@ margin-bottom: 20px;
 	border: 1.2px solid #000;
 	text-align: left;
 	overflow-y: auto;
+}
+#kurszeiten tr td{
+	width: 33%;
+
 }
 #beschreibung p {
 	font-size: 15px;

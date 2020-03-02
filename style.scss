@@ -33,9 +33,6 @@ html, body{
       color: $main-blue;
         &:hover{
             background-color: lighten($main-orange, 25%) ;
-            a{
-              font-size: 2.3em;
-            }
         }
     }
     &:nth-child(2){
@@ -43,12 +40,11 @@ html, body{
       color: $main-orange;
       &:hover{
           background-color: lighten($main-blue, 15%) ;
-          a{
-            font-size: 2.3em;
-            @media only screen and (max-width: 1100px){
-                font-size: 3.3em;
-            }
-          }
+      }
+    }
+    &:hover{
+      a{
+        font-size: 2.3em;
       }
     }
     a{
@@ -56,7 +52,7 @@ html, body{
       text-decoration: none;
       color: inherit;
       font-size: 2em;
-      
+
       @media only screen and (max-width: 1100px){
           font-size: 3em;
       }
