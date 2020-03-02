@@ -6,6 +6,7 @@ if(!isset($_SESSION["loggedIn"])){
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" href="../logo.png">
         <title>Kurse Email gesendet</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" type="text/css" href="styles/main-style.css">

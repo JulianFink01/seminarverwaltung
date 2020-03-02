@@ -24,7 +24,7 @@ if(!isset($_SESSION["loggedIn"])){
       $daten['dauer']=;
     ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link rel="icon" href="../logo.png">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
