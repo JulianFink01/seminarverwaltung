@@ -39,6 +39,19 @@ class Controller{
         $this->addContext("user", Teilnehmer::findeNachToken($token));
         $this->addContext("kurs", Kurs::finde($kursId));
         $this->addContext("template", "kurs");
+
+        $kurs = Kurs::finde($kursId);
+
+
+
+        $abgelaufen = $kurs->istAbgelaufen();
+        $anzahl = $kurs->getTeilnehmerAnzahl();
+        $maxAnzahl =$kurs->getMaxTeilnehmer();
+
+        $this->addContext("anzahl", $anzahl);
+        $this->addContext("maxAnzahl", $maxAnzahl);
+        $this->addContext("abgelaufen", $abgelaufen);
+
       }
 
   }

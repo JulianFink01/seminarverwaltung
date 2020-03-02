@@ -85,7 +85,7 @@ if(!isset($_SESSION["loggedIn"])){
           <input type="text"  name="ort_raum" id="ort_raum" required />
 
   </div>
-
+  <a href="?aktion=alle_kurse&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>#allgemeiner"><img class="kurs_icons" id="zurueck" src="Images/Home_icon.png" title="Zurück" /></a>
           <input class="Senden_erstellen "type="submit" onclick="myFunction()" value="Senden">
 
 

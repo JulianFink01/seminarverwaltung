@@ -95,7 +95,7 @@ public function speichere()
     return $this->beschreibung;
   }
   public function getShortBeschreibung(){
-    return substr($this->beschreibung,0,150);
+    return substr($this->beschreibung,0,150).'...';
   }
   public function setOrt_raum($ortRaum){
     $this->ort_raum = $ortRaum;
@@ -140,6 +140,20 @@ public function speichere()
     }
     return $datum;
 
+  }
+  public function istAbgelaufen(){
+    $currentDate =  date("Y-m-d H:i:s");
+    $kursdate = $this->getDatum();
+
+    $abgelaufen = false;
+
+    if(new DateTime($kursdate) <= new DateTime($currentDate)){
+      $abgelaufen = true;
+    }else{
+        $abgelaufen = false;
+    }
+
+    return $abgelaufen;
   }
   public function getFormatedAnmeldeschluss(){
     $jahr = substr($this->getDatum(), 0, 4);

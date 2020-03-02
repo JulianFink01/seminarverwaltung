@@ -22,22 +22,24 @@ body {
 	margin-top: 2%;
 	padding-bottom: 10px;
 }
-#leiste {
-	margin-left: 100px;
-}
+
 #summernote{
 	width: 100% !important;
 }
+#leiste{
+	margin-left: 2.5%;
+	margin-right: 2.5%;
+}
 article.infobox section {
+
     position: absolute;
     display: block;
-    width: 70%;
-		margin-left: 15%;
+    width: 95%;
     max-height: 630px;
     top: 300px;
     background-color: var(--dark-white);
 		border: 0.5px solid var(--dark-white);
-
+		min-height: 630px;
 }
 
 article.infobox section h2 {
@@ -53,6 +55,8 @@ article.infobox section h2 {
     border: solid #ffffff;
     border-width: 1px 1px 0 0;
     z-index: 1;
+
+
 }
 article.infobox section:nth-child(2) h2 {
     left: 150px;
@@ -94,7 +98,18 @@ article.infobox section:target h2 a {
 .kurs_icons{
 	margin-right: 10px;
 }
+#zurueck{
+	margin: 2%;
+	float: left;
+	width: 75px;
+}
+#home{
 
+	position: absolute;
+	top: 6.5%;
+	left:4%;
+	width:5%;
+}
 /* css simon teilnehmerliste*/
 
 .showTeilnehmerErstellen{
@@ -224,11 +239,11 @@ table tr td.b_l{
 #inhalt {
 	background-color: #fafafa;
 	float: left;
-	width: 75%;
+	width: 85%;
 	max-height: 600px;
 	margin: 0px 0px 0px 50px;
 	padding: 10px 10px 20px 10px;
-	overflow: scroll !important;
+	overflow: auto !important;
 }
 #fenster form textarea{
 	width: 100%;
@@ -337,7 +352,7 @@ margin-bottom: 20px;
 	margin-left: 0px;
 	background-color: var(--main-blue);
 	cursor: pointer;
-	width: 70%;
+	width: 95%;
 }
 .kurs a {
 	text-decoration: none;
