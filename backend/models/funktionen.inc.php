@@ -11,6 +11,8 @@ class Funktionen{
 
       $subject = strip_tags('Einladung zur Fortbildung: '.$fortbildung->getName());
       $message = strip_tags($_POST['message']);//$_POST['message']
+      $vars = parse_ini_file("../variables.ini", TRUE);
+      $mailvars = $vars["Mail"];
 
       foreach ($teilnehmer as $key) {
 
@@ -23,7 +25,7 @@ class Funktionen{
           $mailer->FromName = "Verwaltung LBSHI Bozen";
           $mailer->addAddress($to, $key->getVorname()." ".$key->getNachname());
           $mailer->Subject = $subject;
-          $mailer->Body = $message."\n \n Anmeldung unter:\n https://PfadHierEinfügen/seminarverwaltung/frontend/index.php?token=".$key->gettoken()."&aktion=login";//Link muss noch angepasst werden, nachdem es sich auf dem Server befindet
+          $mailer->Body = $message."\n \n Anmeldung unter:\n ".$mailvars["url"]."/seminarverwaltung/frontend/index.php?token=".$key->gettoken()."&aktion=login";
 
 
 

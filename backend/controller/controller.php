@@ -40,8 +40,10 @@ class Controller{
       Funktionen::send_email();
     }
     public function login(){
+      $vars = parse_ini_file("../variables.ini", TRUE);
+      $verwaltung = $vars["Verwaltung"];
       if(isset($_POST["key"]) && isset($_POST["passwd"])){
-      if($_POST["key"] == "test" && $_POST["passwd"] == "test"){
+      if($_POST["key"] == $verwaltung["username"] && $_POST["passwd"] == $verwaltung["password"]){
       $_SESSION["loggedIn"] = true;
       header('Location: index.php?aktion=hauptseite');
       }else{

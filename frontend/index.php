@@ -12,10 +12,10 @@
 
     $controller = new Controller();
 
-    if(method_exists($controller, $aktion)){
+   if(method_exists($controller, $aktion)){
       $controller->run($aktion);
-    }else{
-      $controller->run("login");
-    }
+   }else{
+     $controller->run("login");
+   }
 
 ?>
