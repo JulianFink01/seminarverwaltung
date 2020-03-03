@@ -88,6 +88,10 @@ class Controller{
       $this->addContext("template","alle_kurse");
     }
 
+    public function loescheFortbildung(){
+      $fortbilung = Fortbildung::finde($_GET['kurs_id']);      
+    }
+
     public function loesche(){
       $kurs = Kurs::finde($_GET['kurs_id']);
       $kurs->loesche();
