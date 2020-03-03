@@ -3,6 +3,7 @@ if(!isset($_SESSION["loggedIn"])){
   header('Location: index.php?aktion=login');
 }
 ?>
+<!DOCTYPE html>
 <html>
 <head>
     <link rel="icon" href="../styles/logo.png">
@@ -14,7 +15,7 @@ if(!isset($_SESSION["loggedIn"])){
   <div id="login">
 
       <div class="login-item">
-          <img src="Images/login-icon.png" alt="login-image">
+          <img src="images/login-icon.png" alt="login-image">
       </div>
 
       <div class="login-item">

@@ -3,6 +3,7 @@ if(!isset($_SESSION["loggedIn"])){
   header('Location: ../index.php?aktion=login');
 }
 ?>
+<!DOCTYPE html>
 <html>
 <head>
   <!-- https://t3n.de/news/css3-dynamische-tabs-ohne-365861/-->
@@ -13,7 +14,7 @@ if(!isset($_SESSION["loggedIn"])){
 </head>
 <body>
   <header id="kopf">
-    <a href="?aktion=hauptseite"><img class="kurs_icons" id="home" src="Images/Home_icon.png" title="Hauptseite" /></a>
+    <a href="?aktion=hauptseite"><img class="kurs_icons" id="home" src="images/Home_icon.png" title="Hauptseite" /></a>
  <h1>Kursverwaltung - <?php echo $fortbildung->getName() ?></h1>
    </header>
 
@@ -30,15 +31,15 @@ if(!isset($_SESSION["loggedIn"])){
              foreach($kurse as $kurs){ ?>
          <div class="kurs">
          <h1><?php echo $kurs->getTitel();?></h1>
-         <a href="?aktion=kurs_bearbeiten&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>&kurs_id=<?php echo $kurs->getId()?>"><img class="kurs_icons" width="35px" src="Images/stift.png" title="bearbeiten" /></a>
-         <a href="?aktion=loesche&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>&kurs_id=<?php echo $kurs->getId()?>"><img class="kurs_icons" width="35px" src="Images/muelleimer_icon.png" title="löschen" /></a>
-         <a href="?aktion=teilnehmerliste&kurs_id=<?php echo $kurs->getId()?>" target="drucken"><img class="kurs_icons" width="35px" src="Images/Personen.png" title="Teilnehmerliste" /></a>
+         <a href="?aktion=kurs_bearbeiten&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>&kurs_id=<?php echo $kurs->getId()?>"><img class="kurs_icons" width="35px" src="images/stift.png" title="bearbeiten" /></a>
+         <a href="?aktion=loesche&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>&kurs_id=<?php echo $kurs->getId()?>"><img class="kurs_icons" width="35px" src="images/muelleimer_icon.png" title="löschen" /></a>
+         <a href="?aktion=teilnehmerliste&kurs_id=<?php echo $kurs->getId()?>" target="drucken"><img class="kurs_icons" width="35px" src="images/Personen.png" title="Teilnehmerliste" /></a>
          </div>
  <?php    }} ?>
 
 </div>
 <div id="kurs_erstellbutton">
-<a href="index.php?aktion=kurse_erstellen&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#allgemeiner"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
+<a href="index.php?aktion=kurse_erstellen&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#allgemeiner"><img src="images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
 </div>
 
         </section>
@@ -57,7 +58,7 @@ if(!isset($_SESSION["loggedIn"])){
             </div>
 
             <div id="teilnehmer_hinzu">
-              <a onclick="triggerTextfeld()"><img width="75px" src="Images/teilnehmer-hinzufuegen.png" title="Teilnehmer hinzufuegen" /></a>
+              <a onclick="triggerTextfeld()"><img width="75px" src="images/teilnehmer-hinzufuegen.png" title="Teilnehmer hinzufuegen" /></a>
                   <form id="textfeld" action="index.php?aktion=saveTeilnehmer&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>" method="post">
                     <legend>Teilnehmer erstellen</legend>
                     <input type="text" name="vorname" placeholder="Vorname"></br>
@@ -84,7 +85,7 @@ if(!isset($_SESSION["loggedIn"])){
                    <td><?php echo $teilnehmer->getNachname();?></td>
                    <td><?php echo $teilnehmer->getEmail();?></td>
                    <td style="background-color: var(--main-<?php echo NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbildung,$teilnehmer)->getStatusFarbe();?>);">&nbsp;</td>
-                   <td class="b_l"><a href="index.php?aktion=remove_lehrer_nimmtTeil&teilnehmer_id=<?php echo $teilnehmer->getId()?>&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen"><img width="45px" src="Images/teilnehmer-entfernen.png" title="Teilnehmer entfernen" /></a></td>
+                   <td class="b_l"><a href="index.php?aktion=remove_lehrer_nimmtTeil&teilnehmer_id=<?php echo $teilnehmer->getId()?>&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen"><img width="45px" src="images/teilnehmer-entfernen.png" title="Teilnehmer entfernen" /></a></td>
                  </tr>
                  <?php } ?>
 

@@ -3,6 +3,7 @@ if(!isset($_SESSION["loggedIn"])){
   header('Location: index.php?aktion=login');
 }
 ?>
+<!DOCTYPE html>
 <html>
 <head>
     <link rel="icon" href="../styles/logo.png">
@@ -14,7 +15,7 @@ if(!isset($_SESSION["loggedIn"])){
 <body>
    <main>
   <header id="kopf">
-    <img src="../backend/Images/Logo.png" alt="Logo"/>
+    <img src="../backend/images/Logo.png" alt="Logo"/>
    </header>
    <div id="beschreibung">
      <h1>Unterschriftenliste</h1>

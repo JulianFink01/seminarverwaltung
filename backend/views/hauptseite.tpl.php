@@ -3,6 +3,7 @@ if(!isset($_SESSION["loggedIn"])){
   header('Location: index.php?aktion=login');
 }
 ?>
+<!DOCTYPE html>
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +21,7 @@ if(!isset($_SESSION["loggedIn"])){
 
     <main id="hintergrund">
       <div id="kurs_erstellbutton">
-        <a onclick="triggerTextfeld()"><img src="Images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
+        <a onclick="triggerTextfeld()"><img src="images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
             <form id="textfeld" action="index.php?aktion=saveFortbildung" method="post">
               <legend>Fortbildung - erstellen:</legend>
               <input type="text" name="titel" placeholder="Titel"><br/>
