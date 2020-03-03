@@ -36,11 +36,13 @@ if(!isset($_SESSION["loggedIn"])){
         ?>
 
         <div id="textdeco">
-          <a href="index.php?aktion=alle_kurse&fortbildung_id=<?php echo $fortbildung->getId();?>#allgemeiner" >
+
               <div class="f_inhalt">
+                <a href="index.php?aktion=alle_kurse&fortbildung_id=<?php echo $fortbildung->getId();?>#allgemeiner" >
                 <?php echo $fortbildung->getName();?>
+              </a>
+                <a href="?aktion=loescheFortbildung&fortbildung_id=<?php echo $fortbildung->getId();?>" id="loesche_f"><img class="kurs_icons" width="35px" src="images/muelleimer_icon.png" title="löschen" /></a>
               </div>
-            </a>
         <?php }?>
 
       </div>
