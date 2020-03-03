@@ -40,8 +40,8 @@ class Controller{
       Funktionen::send_email();
     }
     public function login(){
-      if(isset($_GET["key"]) && isset($_GET["passwd"])){
-      if($_GET["key"] == "test" && $_GET["passwd"] == "test"){
+      if(isset($_POST["key"]) && isset($_POST["passwd"])){
+      if($_POST["key"] == "test" && $_POST["passwd"] == "test"){
       $_SESSION["loggedIn"] = true;
       header('Location: index.php?aktion=hauptseite');
       }else{
