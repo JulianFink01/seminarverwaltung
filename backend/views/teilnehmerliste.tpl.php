@@ -3,6 +3,7 @@ if(!isset($_SESSION["loggedIn"])){
   header('Location: index.php?aktion=login');
 }
 ?>
+<!DOCTYPE html>
 <html>
 <head>
     <link rel="icon" href="../logo.png">

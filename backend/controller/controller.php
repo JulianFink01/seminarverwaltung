@@ -17,7 +17,7 @@ class Controller{
       $fortbildung->speichere();
       header("Location: index.php?aktion=hauptseite");
     }
-    public function alle_Kurse(){
+    public function alle_kurse(){
 
       $this->addContext("kurse", Kurs::findeNachFortbildung(Fortbildung::finde($_REQUEST['fortbildung_id'])));
       $this->addContext("teilnehmern", Fortbildung::findeAlleTeilnehmer(Fortbildung::finde($_REQUEST['fortbildung_id'])));
@@ -30,8 +30,8 @@ class Controller{
       if ($_POST){
         $kurs = new Kurs($_POST);
         $kurs->speichere();
-        $this->alle_Kurse();
-        $this->addContext("template","alle_Kurse");
+        $this->alle_kurse();
+        $this->addContext("template","alle_kurse");
 
       }
 
@@ -73,8 +73,8 @@ class Controller{
         }
         // Teilnehmer zu NimmtTeil hinzufügens
       }
-      $this->alle_Kurse();
-      $this->addContext("template","alle_Kurse");
+      $this->alle_kurse();
+      $this->addContext("template","alle_kurse");
     }
 
     public function remove_lehrer_nimmtTeil(){
@@ -82,8 +82,8 @@ class Controller{
         $teilnehmer = Teilnehmer::finde($_GET["teilnehmer_id"]);
         Fortbildung::finde($_GET["fortbildung_id"])->abmelden($teilnehmer);
         // Teilnehmer zu NimmtTeil entfernen
-      $this->alle_Kurse();
-      $this->addContext("template","alle_Kurse");
+      $this->alle_kurse();
+      $this->addContext("template","alle_kurse");
     }
 
     public function loesche(){
@@ -102,7 +102,7 @@ class Controller{
       if(!NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbilung, $teilnehmer)){
         $fortbilung->teilnehmen($teilnehmer);
       }
-      header('Location: index.php?aktion=alle_Kurse&fortbildung_id='.$_REQUEST['fortbildung_id'].'#funktionen');
+      header('Location: index.php?aktion=alle_kurse&fortbildung_id='.$_REQUEST['fortbildung_id'].'#funktionen');
     }
 
     public function kurs_bearbeiten(){
@@ -119,7 +119,7 @@ class Controller{
       $kurse = new Kurs($daten);
       var_dump($kurse);
       $kurse->speichere();
-      header('Location: index.php?aktion=hauptseite');
+      header('Location: index.php?aktion=alle_kurse&fortbildung_id='.$_REQUEST['fortbildung_id'].'#allgemeiner');
     }
 
     public function teilnehmerliste(){

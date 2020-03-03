@@ -4,6 +4,7 @@
     header('Location: index.php?aktion=hauptseite');
   }
 ?>
+<!DOCTYPE html>
 <html>
 <head>
     <link rel="icon" href="../logo.png">
