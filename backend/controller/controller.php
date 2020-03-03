@@ -89,7 +89,13 @@ class Controller{
     }
 
     public function loescheFortbildung(){
-      $fortbilung = Fortbildung::finde($_GET['kurs_id']);      
+      $fortbildung = Fortbildung::finde($_GET['fortbildung_id']);
+      $kurse = Kurs::findeNachFortbildung($fortbildung);
+      foreach($kurse as $k){
+        $k->loesche();
+      }
+      $fortbildung->loesche();
+      header('Location: index.php?aktion=hauptseite');
     }
 
     public function loesche(){
