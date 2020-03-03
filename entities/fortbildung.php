@@ -4,7 +4,7 @@ class Fortbildung{
 
 protected $id = 0;
 protected $name = "";
-protected $status = true;
+protected $status = true ;
 
 public function __construct($daten = array())
 {

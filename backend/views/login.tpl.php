@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="icon" href="../logo.png">
+    <link rel="icon" href="../styles/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="styles/main-style.css">
   <link rel="stylesheet" type="text/css" href="styles/login-style.css">
@@ -21,7 +21,7 @@
 
       <div class="login-item">
 
-        <form id="login-form" method="get" action="index.php?aktion=login">
+        <form id="login-form" method="post" action="index.php?aktion=login">
           <legend>Administrationpanel</legend>
           <input type="text" placeholder="Benutzername" name="key" required>
           <input type="password" placeholder="Passwort" name="passwd" required>
