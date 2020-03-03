@@ -44,8 +44,9 @@ class Controller{
       $verwaltung = $vars["Verwaltung"];
       if(isset($_POST["key"]) && isset($_POST["passwd"])){
       if($_POST["key"] == $verwaltung["username"] && $_POST["passwd"] == $verwaltung["password"]){
-      $_SESSION["loggedIn"] = true;
-      header('Location: index.php?aktion=hauptseite');
+        $_SESSION["loggedIn"] = true;
+        $this->addContext("template","hauptseite");
+          $this->addContext("fortbildungen", Fortbildung::findeAlle());
       }else{
 
       }
