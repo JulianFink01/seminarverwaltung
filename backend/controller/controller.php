@@ -46,6 +46,7 @@ class Controller{
       if($_POST["key"] == $verwaltung["username"] && $_POST["passwd"] == $verwaltung["password"]){
         $_SESSION["loggedIn"] = true;
         $this->addContext("template","hauptseite");
+          $this->addContext("fortbildungen", Fortbildung::findeAlle());
       }else{
 
       }
@@ -89,8 +90,6 @@ class Controller{
     }
 
     public function loescheFortbildung(){
-
-      $fortbilung = Fortbildung::finde($_GET['kurs_id']);
       $fortbildung = Fortbildung::finde($_GET['fortbildung_id']);
       $kurse = Kurs::findeNachFortbildung($fortbildung);
       foreach($kurse as $k){
