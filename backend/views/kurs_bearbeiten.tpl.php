@@ -37,7 +37,7 @@
           <form action="index.php?aktion=kurse_bearbeitung_speichern&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>&kurs_id=<?php echo $_GET['kurs_id']?>"  method="post">
         <div id="input">
           <p class="einzug"> Titel<input type="text" name="titel" id="titelkurs" value="<?php echo $kurse->getTitel()?>" required/></p>
-          <p class="einzug"> Datum <input type="date" name="datum" id="datumkurs" value="<?php echo $kurse->getDatum()?>" required/></p>
+          <p class="einzug"> Datum <input type="date" name="datum" id="datumkurs" placeholder="tt.mm.jjjj" value="<?php echo $kurse->getDatum()?>" required/></p>
         </div>
         <p>Beschreibung</p>
 
@@ -57,34 +57,34 @@
 
         <table id="kurszeiten">
           <tr>
-            <td><a>Dauer:</a> &ensp;
-            <input type="number" name="dauer"  class="zeit" value="<?php echo $kurse->getDauer()?>" required/>
+            <td><a>Dauer in Stunden:</a> &ensp;
+            <input type="number" name="dauer"  class="zeit" value="<?php echo $kurse->getDauer()?>" />
           </td>
           <td>
             <a>Start:</a>  &ensp;
-            <input type="text" placeholder="10:00"  name='von' id="start" class="zeit" value="<?php echo $kurse->getVon()?>" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" required/>
+            <input type="text" placeholder="10:00"  name='von' id="start" class="zeit" value="<?php echo $kurse->getVon()?>" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" />
           </td>
           <td>
             &ensp; <a>Ende:</a>  &ensp;
-            <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit" value="<?php echo $kurse->getBis()?>" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" required/>
+            <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit" value="<?php echo $kurse->getBis()?>" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" />
           </td>
         </tr>
       </table>
 
       <div class=kursdaten>
           <a> Koordination: </a>
-          <input type="text"  name="koordination" id="kurs_koordination_erstellen" value="<?php echo $kurse->getKoordination()?>" required/>
+          <input type="text"  name="koordination" id="kurs_koordination_erstellen" value="<?php echo $kurse->getKoordination()?>" />
           <a> Anmeldeschluss: </a>
-        <input type="date" name="anmeldeschluss" id="kurs_anmeldeschluss_erstellen" value="<?php echo $kurse->getAnmeldeSchluss()?>" required/>
+        <input type="date" name="anmeldeschluss" id="kurs_anmeldeschluss_erstellen" placeholder="tt.mm.jjjj" value="<?php echo $kurse->getAnmeldeSchluss()?>" required/>
         <input type="hidden" id="beschreibung" name="beschreibung" />
         <input type="hidden" id="fortbildung_id" name="fortbildung_id" value="<?php echo $_GET["fortbildung_id"]?>" />
         <a> Teilnehmeranzahl: </a>
-        <input type="number" name="maxTeilnehmer" id="maxTeilnehmer" value="<?php echo $kurse->getTeilnehmerAnzahl()?>" required/>
+        <input type="number" name="maxTeilnehmer" id="maxTeilnehmer" value="<?php echo $kurse->getMaxTeilnehmer()?>" required/>
         <a>Kontaktperson: </a>
         <input type="text" name="kontakt" id="kontaktpersonen" value="<?php echo $kurse->getKontakt()?>" required/>
       <a> Referent: </a>
       <input type="text"  name="referent" id="referent" value="<?php echo $kurse->getReferent()?>" required/>
-        <a>Raum : </a>
+        <a>Raum/Ort: </a>
         <input type="text"  name="ort_raum" id="ort_raum" value="<?php echo $kurse->getOrt_raum()?>" required/>
 
 </div>
