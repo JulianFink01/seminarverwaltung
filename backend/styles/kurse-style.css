@@ -252,10 +252,9 @@ table tr td.b_l{
 }
 #fenster span{
 	margin-top: 40px;
-	font-size: 2em;
+	font-size: 1.5em;
 	color: var(--main-blue);
 	width: 100%;
-	margin: auto;
 	margin-left: 10%;
 }
 #kurskopf{
