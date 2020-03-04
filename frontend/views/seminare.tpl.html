@@ -15,6 +15,15 @@
   if($fortbildungen == NULL){
     echo'<div id="nicht-angemeldet"><p>Leider bist du für keine Fortbildung angemeldet!<span id="back-to-login"><br><a href="index.php?aktion=login">Zurück zum Login</a></span></p></div>';
   }
+  $statusbool = false;
+  foreach($fortbildungen as $fortbildung){
+    if($fortbildung->getStatus() == true){
+      $statusbool = true;
+    }
+  }
+  if($statusbool == false){
+    echo'<div id="nicht-angemeldet"><p>Leider bist du für keine aktive Fortbildung angemeldet!<span id="back-to-login"><br><a href="index.php?aktion=login">Zurück zum Login</a></span></p></div>';
+  }
   foreach($fortbildungen as $fortbildung){
     if($fortbildung->getStatus() == true){
     $kurse = $fortbildung->findeAlleKurse();
