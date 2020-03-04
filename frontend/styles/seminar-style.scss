@@ -136,10 +136,6 @@ background-color: white;
     }
 }
 .info-right{
-  transition: 0.5s all ease-in;
-  &:hover{
-    background-color: lighten($main-blue, 10%);
-  }
   float: right;
     margin-right:1.5em;
     cursor: pointer;
@@ -149,10 +145,6 @@ background-color: white;
     color: white !important;}
 }
 .info-left{
-  transition: 0.5s all ease-in;
-  &:hover{
-    background-color: lighten($main-blue, 10%);
-  }
     float: left;
     left:1.5em;
     cursor: pointer;

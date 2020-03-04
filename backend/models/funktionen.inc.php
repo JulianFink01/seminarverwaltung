@@ -21,8 +21,8 @@ class Funktionen{
 
           $to = strip_tags($mail);
 
-          $mailer->From = "info@berufsschule.bz";
-          $mailer->FromName = "Verwaltung LBSHI Bozen";
+          $mailer->From = "sekretariat@berufsschule.bz";
+          $mailer->FromName = "LBSHI Schule";
           $mailer->addAddress($to, $key->getVorname()." ".$key->getNachname());
           $mailer->Subject = $subject;
           $mailer->Body = $message."\n \n Anmeldung unter:\n ".$mailvars["url"]."/seminarverwaltung/frontend/index.php?token=".$key->gettoken()."&aktion=login";
