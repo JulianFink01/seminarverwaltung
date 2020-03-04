@@ -13,7 +13,7 @@
   <?php
   $fortbildungen = Fortbildung::findeNachBenutzer($user);
   if($fortbildungen == NULL){
-    echo'<div id="nicht-angemeldet"><p>Leider bist du für keine Fortbildung angemeldet!<span id="back-to-login"><br><a href="index.php?aktion=login">Zurück zum Login</a></span></p></div>';
+    echo'<div id="nicht-angemeldet"><p>Leider bist du für keine aktive Fortbildung angemeldet!<span id="back-to-login"><br><a href="index.php?aktion=login">Zurück zum Login</a></span></p></div>';
   }
   $statusbool = false;
   foreach($fortbildungen as $fortbildung){
