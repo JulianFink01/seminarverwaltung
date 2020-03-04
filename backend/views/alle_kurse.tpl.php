@@ -76,8 +76,6 @@ if(!isset($_SESSION["loggedIn"])){
                    <th>Email</th>
                    <th>Token</th>
                    <th>Status</th>
-
-
                  </tr>
 
                  <?php foreach ($teilnehmern as $teilnehmer){
