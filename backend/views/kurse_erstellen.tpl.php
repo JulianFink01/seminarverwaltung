@@ -34,7 +34,7 @@ if(!isset($_SESSION["loggedIn"])){
           <form action="index.php?aktion=kurse_erstellen#allgemeiner"  method="post">
         <div id="input">
           <p class="einzug"> Titel <input type="text" name="titel" id="titelkurs" required/></p>
-          <p class="einzug"> Datum <input type="date" name="datum" id="datumkurs" required/></p>
+          <p class="einzug"> Datum <input type="date" name="datum" id="datumkurs" required placeholder="31-12-2020"/></p>
         </div>
         <p id="#">Beschreibung</p>
 
@@ -55,16 +55,16 @@ if(!isset($_SESSION["loggedIn"])){
 
           <table id="kurszeiten">
             <tr>
-              <td><a>Dauer:</a> &ensp;
-              <input type="number" name="dauer"  class="zeit" required/>
+              <td><a>Dauer in Stunden:</a> &ensp;
+              <input type="number" name="dauer"  class="zeit" value="0"/>
             </td>
             <td>
               <a>Start:</a>  &ensp;
-              <input type="text" placeholder="10:00"  name='von' id="start" class="zeit"  pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" required />
+              <input type="text" placeholder="10:00"  name='von' id="start" class="zeit"  pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"  />
             </td>
             <td>
               &ensp; <a>Ende:</a>  &ensp;
-              <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit"  pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" required/>
+              <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit"  pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" />
             </td>
           </tr>
         </table>
@@ -76,13 +76,13 @@ if(!isset($_SESSION["loggedIn"])){
           <input type="date" name="anmeldeschluss" id="kurs_anmeldeschluss_erstellen" >
           <input type="hidden" id="beschreibung" name="beschreibung" />
           <input type="hidden" id="fortbildung_id" name="fortbildung_id" value="<?php echo $_GET["fortbildung_id"]?>" />
-          <a> Teilnehmeranzahl: </a>
+          <a> Maximale Teilnehmer: </a>
           <input type="number" name="maxTeilnehmer" id="maxTeilnehmer" required />
           <a>Kontaktperson: </a>
-          <input type="text" name="kontakt" id="kontaktpersonen" required/>
+          <input type="text" name="kontakt" id="kontaktpersonen" />
         <a> Referent: </a>
         <input type="text"  name="referent" id="referent" required/>
-          <a>Raum : </a>
+          <a>Raum/Ort : </a>
           <input type="text"  name="ort_raum" id="ort_raum" required />
 
   </div>
