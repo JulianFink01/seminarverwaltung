@@ -91,6 +91,10 @@ class Controller{
 
     public function loescheFortbildung(){
       $fortbildung = Fortbildung::finde($_GET['fortbildung_id']);
+      $teilnehmer = Fortbildung::findeAlleTeilnehmer($fortbildung);
+      foreach($teilnehmer as $t){
+        $fortbildung->abmelden($t);
+      }
       $kurse = Kurs::findeNachFortbildung($fortbildung);
       foreach($kurse as $k){
         $k->loesche();
