@@ -117,6 +117,14 @@ class NimmtTeil{
     return  $abfrage->fetchAll();
 
   }
+  public static function findeAlleUnangemeldetenFortbildungTeilnehmer(Fortbildung $fortbildung){
+    $sql = 'SELECT f_teilnehmer.* FROM f_teilnehmer, f_nimmt_teil where f_teilnehmer.id = f_nimmt_teil.teilnehmer_id and f_nimmt_teil.fortbildung_id=? and f_nimmt_teil.kurs_id is NULL';
+    $abfrage = DB::getDB()->prepare($sql);
+    $abfrage->execute(array($fortbildung->getId()));
+    $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
+    return  $abfrage->fetchAll();
+
+  }
   public static function findeAlleKurseNachTeilnehmer(Teilnehmer $teilnehmer){
     $sql = 'SELECT f_kurs.* FROM f_kurs JOIN f_nimmt_teil on f_kurs.id = f_nimmt_teil.kurs_id WHERE f_nimmt_teil.teilnehmer_id=?';
     $abfrage = DB::getDB()->prepare($sql);

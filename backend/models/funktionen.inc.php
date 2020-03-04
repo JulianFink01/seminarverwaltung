@@ -7,11 +7,11 @@ class Funktionen{
 
 
       $fortbildung = Fortbildung::finde($_REQUEST['fortbildung_id']);
-      $teilnehmer = NimmtTeil::findeAlleFortbildungTeilnehmer($fortbildung);
+      $teilnehmer = NimmtTeil::findeAlleUnangemeldetenFortbildungTeilnehmer($fortbildung);
 
       $subject = strip_tags('Einladung zur Fortbildung: '.$fortbildung->getName());
       $message = strip_tags($_POST['message']);//$_POST['message']
-      $vars = parse_ini_file("../variables.ini", TRUE);
+      $vars = parse_ini_file("../entities/variables.ini.php", TRUE);
       $mailvars = $vars["Mail"];
 
       foreach ($teilnehmer as $key) {

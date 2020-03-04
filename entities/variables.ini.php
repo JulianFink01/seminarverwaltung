@@ -1,3 +1,6 @@
+<?php
+
+
 [Database]
 host = remotemysql.com:3306
 name = LFMy3l1Qfg
@@ -10,3 +13,4 @@ url = https://testURLfindetmaninderIncDatei.html
 [Verwaltung]
 username = test
 password = test
+?>

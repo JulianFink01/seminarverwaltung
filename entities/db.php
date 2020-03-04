@@ -13,7 +13,7 @@ class DB {
 
        if (self::$db == NULL){
         try{
-          $vars = parse_ini_file("../variables.ini", TRUE);
+          $vars = parse_ini_file("../entities/variables.ini.php", TRUE);
           $dbvars = $vars["Database"];
          self::$db = new PDO('mysql:host='.$dbvars["host"].';dbname='.$dbvars["name"].';charset=UTF8',$dbvars["user"],$dbvars["password"]);
          //self::$db = new PDO('mysql:host=185.27.134.10;dbname=epiz_25059888_seminarverwaltung', 'epiz_25059888', 'ElZZDMb1lR');

@@ -40,7 +40,7 @@ class Controller{
       Funktionen::send_email();
     }
     public function login(){
-      $vars = parse_ini_file("../variables.ini", TRUE);
+      $vars = parse_ini_file("../entities/variables.ini.php", TRUE);
       $verwaltung = $vars["Verwaltung"];
       if(isset($_POST["key"]) && isset($_POST["passwd"])){
       if($_POST["key"] == $verwaltung["username"] && $_POST["passwd"] == $verwaltung["password"]){
