@@ -81,7 +81,7 @@
         <a> Teilnehmeranzahl: </a>
         <input type="number" name="maxTeilnehmer" id="maxTeilnehmer" value="<?php echo $kurse->getMaxTeilnehmer()?>" required/>
         <a>Kontaktperson: </a>
-        <input type="text" name="kontakt" id="kontaktpersonen" value="<?php echo $kurse->getKontakt()?>" required/>
+        <input type="text" name="kontakt" id="kontaktpersonen" value="<?php echo $kurse->getKontakt()?>" />
       <a> Referent: </a>
       <input type="text"  name="referent" id="referent" value="<?php echo $kurse->getReferent()?>" required/>
         <a>Raum/Ort: </a>
