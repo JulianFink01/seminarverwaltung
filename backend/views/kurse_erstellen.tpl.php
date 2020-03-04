@@ -71,9 +71,9 @@ if(!isset($_SESSION["loggedIn"])){
 
         <div class=kursdaten>
             <a> Koordination: </a>
-            <input type="text"  name="koordination" id="kurs_koordination_erstellen" required />
+            <input type="text"  name="koordination" id="kurs_koordination_erstellen"  />
             <a> Anmeldeschluss: </a>
-          <input type="date" name="anmeldeschluss" id="kurs_anmeldeschluss_erstellen" required>
+          <input type="date" name="anmeldeschluss" id="kurs_anmeldeschluss_erstellen" >
           <input type="hidden" id="beschreibung" name="beschreibung" />
           <input type="hidden" id="fortbildung_id" name="fortbildung_id" value="<?php echo $_GET["fortbildung_id"]?>" />
           <a> Teilnehmeranzahl: </a>
