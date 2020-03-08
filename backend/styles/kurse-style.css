@@ -141,7 +141,7 @@ article.infobox section:target h2 a {
 	width: 70%;
 	margin: 50px 0px 0px 50px;
 	height: 430px;
-	overflow-y: scroll;
+	overflow-y: auto;
 
 }
 #teilnehmer table {

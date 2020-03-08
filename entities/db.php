@@ -17,6 +17,7 @@ class DB {
           $dbvars = $vars["Database"];
          self::$db = new PDO('mysql:host='.$dbvars["host"].';dbname='.$dbvars["name"].';charset=UTF8',$dbvars["user"],$dbvars["password"]);
          //self::$db = new PDO('mysql:host=185.27.134.10;dbname=epiz_25059888_seminarverwaltung', 'epiz_25059888', 'ElZZDMb1lR');
+         //self::$db = new PDO('mysql:host=localhost;dbname=seminarverwaltung', 'root', '');
          self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch (PDOException $e){
