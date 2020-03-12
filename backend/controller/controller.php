@@ -134,7 +134,6 @@ class Controller{
       $daten = $_POST;
       $daten['id'] = $_REQUEST['kurs_id'];
       $kurse = new Kurs($daten);
-      var_dump($kurse);
       $kurse->speichere();
       header('Location: index.php?aktion=alle_kurse&fortbildung_id='.$_REQUEST['fortbildung_id'].'#allgemeiner');
     }
