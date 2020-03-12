@@ -52,8 +52,8 @@ if(!isset($_SESSION["loggedIn"])){
                 <label>
                   <span>CSV Datei(*.csv)</span>
                   <input name="datei" type="file" size="50" accept=".csv" class="button">
-                  <input type="submit" id="button" name="submit" value="Upload">
                 </label>
+                <input type="submit" id="csv_button" name="submit" value="Upload">
               </form>
             </div>
 

@@ -138,7 +138,7 @@ article.infobox section:target h2 a {
 }
 #teilnehmer {
 	background-color: white;
-	width: 70%;
+	width: 75%;
 	margin: 50px 0px 0px 50px;
 	height: 430px;
 	overflow-y: auto;
@@ -172,7 +172,7 @@ table tr td.b_l{
 
 #teilnehmer_hinzu{
 	float: right;
-	margin-right: 45px;
+	margin-right: 25px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 
@@ -199,7 +199,24 @@ table tr td.b_l{
 	color: var(--main-blue);
 }
 
+#csv_button{
+	border-style: none;
+	color: var(--main-white);
+	border-color: var(--main-blue);
+	background-color: var(--main-blue);
+	width: 100px;
+	height: 25px;
+	float: right;
+}
+
+#csv_button:hover{
+	color: var(--main-blue);
+	border-color: var(--main-orange);
+	background-color: var(--main-orange);
+}
+
 #button{
+	border-style: none;
 	color: var(--main-white);
 	border-color: var(--main-blue);
 	background-color: var(--main-blue);
