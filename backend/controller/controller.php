@@ -17,6 +17,22 @@ class Controller{
       $fortbildung->speichere();
       header("Location: index.php?aktion=hauptseite");
     }
+
+    public function duplicateFortbildung(){
+      $alteFortbildung = Fortbildung::finde($_GET['fortbildung_id']);
+      $dupliFortbildung = new Fortbildung(array("name"=>$alteFortbildung->getName(),"status"=>$alteFortbildung->getStatus()));
+      $dupliFortbildung->speichere();
+      $altKurs = Kurs::findeNachFortbildung($alteFortbildung);
+      foreach ($altKurs as $alterKurs) {
+        $dupliKurs = new Kurs(array("titel"=>$alterKurs->getTitel(),"datum"=>$alterKurs->getDatum(),"maxTeilnehmer"=>$alterKurs->getTeilnehmerAnzahl(),"referent"=>$alterKurs->getReferent(),"beschreibung"=>$alterKurs->getBeschreibung(),"ort_raum"=>$alterKurs->getOrt_raum(),"kontakt"=>$alterKurs->getKontakt(),
+        "von"=>$alterKurs->getVon(),"bis"=>$alterKurs->getBis(),"unterschriftsliste_zweispaltig"=>$alterKurs->getUnterschriftsliste_zweispaltig(),"koordination"=>$alterKurs->getKoordination(),"anmeldeschluss"=>$alterKurs->getAnmeldeSchluss(),"dauer"=>$alterKurs->getDauer(),"fortbildung_id"=>$dupliFortbildung->getId()));
+        $dupliKurs->speichere();
+      }
+
+      header("Location: index.php?aktion=hauptseite");
+
+    }
+
     public function alle_kurse(){
 
       $this->addContext("kurse", Kurs::findeNachFortbildung(Fortbildung::finde($_REQUEST['fortbildung_id'])));
