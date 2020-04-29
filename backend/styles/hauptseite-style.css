@@ -180,6 +180,10 @@ p.eintrag_unten span {
 #loesche_f{
 	float: right;
 }
+#duplicate_f{
+	float: right;
+	margin-right: 5px;
+}
 
 
 @media only screen and (max-width: 800px) {
