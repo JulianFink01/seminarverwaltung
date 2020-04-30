@@ -74,6 +74,10 @@
                     <div class="info-text info-left">
                       <a href="index.php?aktion=abmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="abmelden" class="button">Abmelden</a>
                     </div>
+              <?php }elseif(!$user->nimmtAnKursTeilInFortbildung($kurs->getFortbildung_id()) && $maxAnzahl == 0){?>
+                <div class="info-text info-left">
+                <a href="index.php?aktion=anmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="anmelden" class="button">Anmelden</a>
+                </div>
               <?php }
               }?>
               <div class="info-text info-right">

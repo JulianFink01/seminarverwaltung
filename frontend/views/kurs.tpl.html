@@ -83,7 +83,7 @@
 
 
 
-                    if($abgelaufen != true){
+                    if($abgelaufen != true || $abgelaufen == null){
                     if(!$user->nimmtAnKursTeilInFortbildung($kurs->getFortbildung_id()) && $anzahl < $maxAnzahl){?>
 
                         <div class="info-text info-right">
@@ -92,6 +92,10 @@
                     <?php } elseif($kurs->nimmtAnKursTeil($user)){?>
                       <div class="info-text info-right">
                       <a href="index.php?aktion=abmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="abmelden" class="button">Abmelden</a>
+                      </div>
+                    <?php } elseif(!$user->nimmtAnKursTeilInFortbildung($kurs->getFortbildung_id()) && $maxAnzahl == 0){?>
+                      <div class="info-text info-right">
+                      <a href="index.php?aktion=anmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="anmelden" class="button">Anmelden</a>
                       </div>
                     <?php }}?>
 

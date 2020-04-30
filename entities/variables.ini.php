@@ -3,9 +3,9 @@
 
 [Database]
 host = remotemysql.com:3306
-name = LFMy3l1Qfg
-user = LFMy3l1Qfg
-password = lLOUtV5SMO
+name = UsNSSxycdr
+user = UsNSSxycdr
+password = NaYCKB35nU
 
 [Mail]
 url = https://testURLfindetmaninderIncDatei.html
