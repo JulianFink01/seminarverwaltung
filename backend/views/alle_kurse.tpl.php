@@ -14,7 +14,7 @@ if(!isset($_SESSION["loggedIn"])){
 </head>
 <body>
   <header id="kopf">
-    <a href="?aktion=hauptseite"><img class="kurs_icons" id="home" src="images/Home_icon.png" title="Hauptseite" /></a>
+    <a href="?aktion=hauptseite"><img class="kurs_icons" id="home" src="images/home_icon.png" title="Hauptseite" /></a>
  <h1>Kursverwaltung - <?php echo $fortbildung->getName() ?></h1>
    </header>
 
@@ -33,7 +33,7 @@ if(!isset($_SESSION["loggedIn"])){
          <h1><?php echo $kurs->getTitel();?></h1>
          <a href="?aktion=kurs_bearbeiten&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>&kurs_id=<?php echo $kurs->getId()?>"><img class="kurs_icons" width="35px" src="images/stift.png" title="bearbeiten" /></a>
          <a href="?aktion=loesche&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>&kurs_id=<?php echo $kurs->getId()?>"><img class="kurs_icons" width="35px" src="images/muelleimer_icon.png" title="löschen" /></a>
-         <a href="?aktion=teilnehmerliste&kurs_id=<?php echo $kurs->getId()?>" target="drucken"><img class="kurs_icons" width="35px" src="images/Personen.png" title="Teilnehmerliste" /></a>
+         <a href="?aktion=teilnehmerliste&kurs_id=<?php echo $kurs->getId()?>" target="drucken"><img class="kurs_icons" width="35px" src="images/personen.png" title="Teilnehmerliste" /></a>
          </div>
  <?php    }} ?>
 
