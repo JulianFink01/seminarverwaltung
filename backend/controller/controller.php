@@ -13,6 +13,7 @@ class Controller{
         $this->addContext("fortbildungen", Fortbildung::findeAlle());
     }
     public function saveFortbildung(){
+      $StatusFoto = " ";
       $fortbildung = new Fortbildung(array("name"=>$_POST['titel'],"status"=>1));
       $fortbildung->speichere();
       header("Location: index.php?aktion=hauptseite");
@@ -31,6 +32,20 @@ class Controller{
 
       header("Location: index.php?aktion=hauptseite");
 
+    }
+    public function statusAendern(){
+      $fortbildung = Fortbildung::finde($_GET['fortbildung_id']);
+      $f_Status = new Fortbildung(array("id"=>$_GET['forbildung_id'],"name"=>$fortbildung->getName(),"status"=>$fortbildung->getStatus()));
+
+      if ($f_Status->getStatus() == 1) {
+        $f_Status->setStatus(0);
+        $f_Status->speichere();
+      }else {
+        $f_Status->setStatus(1);
+        $f_Status->speichere();
+      }
+
+      header("Location: index.php?aktion=hauptseite");
     }
 
     public function alle_kurse(){
