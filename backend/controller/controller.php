@@ -35,14 +35,15 @@ class Controller{
     }
     public function statusAendern(){
       $fortbildung = Fortbildung::finde($_GET['fortbildung_id']);
-      $f_Status = new Fortbildung(array("id"=>$_GET['forbildung_id'],"name"=>$fortbildung->getName(),"status"=>$fortbildung->getStatus()));
-
-      if ($f_Status->getStatus() == 1) {
-        $f_Status->setStatus(0);
-        $f_Status->speichere();
+      echo $fortbildung->__toString();
+      if ($fortbildung->getStatus() == 1) {
+        $fortbildung->setStatus(0);
+        $fortbildung->speichere();
+        echo "war 1";
       }else {
-        $f_Status->setStatus(1);
-        $f_Status->speichere();
+        $fortbildung->setStatus(1);
+        $fortbildung->speichere();
+        echo "war 0";
       }
 
       header("Location: index.php?aktion=hauptseite");
