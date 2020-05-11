@@ -75,7 +75,7 @@
           <a> Koordination: </a>
           <input type="text"  name="koordination" id="kurs_koordination_erstellen" value="<?php echo $kurse->getKoordination()?>" />
           <a> Anmeldeschluss: </a>
-        <input type="date" name="anmeldeschluss" id="kurs_anmeldeschluss_erstellen" placeholder="tt.mm.jjjj" value="<?php echo $kurse->getAnmeldeSchluss()?>" required/>
+        <input type="date" name="anmeldeschluss" id="kurs_anmeldeschluss_erstellen" placeholder="tt.mm.jjjj" value="<?php echo $kurse->getAnmeldeSchluss()?>" />
         <input type="hidden" id="beschreibung" name="beschreibung" />
         <input type="hidden" id="fortbildung_id" name="fortbildung_id" value="<?php echo $_GET["fortbildung_id"]?>" />
         <a> Teilnehmeranzahl: </a>
