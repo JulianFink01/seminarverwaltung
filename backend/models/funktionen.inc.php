@@ -25,6 +25,7 @@ class Funktionen{
           $mailer->FromName = "LBSHI Schule";
           $mailer->addAddress($to, $key->getVorname()." ".$key->getNachname());
           $mailer->Subject = $subject;
+          $mailer->CharSet ="UTF-8";
           $mailer->Body = $message."\n \n Anmeldung unter:\n ".$mailvars["url"]."/seminarverwaltung/frontend/index.php?token=".$key->gettoken()."&aktion=login";
 
 
@@ -37,17 +38,6 @@ class Funktionen{
         }
 
       }
-
-
-    /*
-    $msg = $_POST['message'];
-
-    // use wordwrap() if lines are longer than 70 characters
-    $msg = wordwrap($msg,100);
-
-    // send email
-    mail("Miriam.Bolognani@berufsschule.bz","Einladung zur Fortbildung",$msg);
-    */
 
   public static function importLehrer() {
 
