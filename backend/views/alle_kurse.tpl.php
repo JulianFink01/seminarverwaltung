@@ -53,7 +53,7 @@ if(!isset($_SESSION["loggedIn"])){
                   <span>CSV Datei(*.csv)</span>
                   <input name="datei" type="file" size="50" accept=".csv" class="button">
                 </label>
-                <input type="submit" id="csv_button" name="submit" value="Upload">
+                <input type="submit" id="csv_button" name="submit" value="hochladen">
               </form>
             </div>
 
@@ -61,9 +61,9 @@ if(!isset($_SESSION["loggedIn"])){
               <a onclick="triggerTextfeld()"><img width="75px" src="images/teilnehmer-hinzufuegen.png" title="Teilnehmer hinzufuegen" /></a>
                   <form id="textfeld" action="index.php?aktion=saveTeilnehmer&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>" method="post">
                     <legend>Teilnehmer erstellen</legend>
-                    <input type="text" name="vorname" placeholder="Vorname"></br>
-                    <input type="text" name="nachname" placeholder="Nachname"></br>
-                    <input type="text" name="email" placeholder="E-Mail"></br>
+                    <input type="text" name="vorname" placeholder="Vorname" required></br>
+                    <input type="text" name="nachname" placeholder="Nachname" required></br>
+                    <input type="text" name="email" placeholder="E-Mail" required></br>
                     <input type="submit" value="erstellen" name="erstellen" id="button">
                   </form>
             </div>

@@ -23,7 +23,7 @@ if(!isset($_SESSION["loggedIn"])){
       <div id="kurs_erstellbutton">
         <a onclick="triggerTextfeld()"><img src="images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
             <form id="textfeld" action="index.php?aktion=saveFortbildung" method="post">
-              <legend>Veranstaltungen - erstellen:</legend>
+              <legend>Veranstaltungen erstellen:</legend>
               <input type="text" name="titel" placeholder="Titel"><br/>
               <input type="submit" value="erstellen" name="erstellen" id="button">
             </form>
