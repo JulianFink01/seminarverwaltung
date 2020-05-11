@@ -4,7 +4,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="styles/main-style.css">
   <link rel="stylesheet" type="text/css" href="styles/kurs-style.css">
-    <link rel="icon" href="../styles/logo.png">
+  <link rel="stylesheet" type="text/css" href="styles/footer-style.css">
+  <link rel="icon" href="../styles/logo.png">
   <meta charset="UTF-8">
     <title>Fortbildungsverwaltung - Kurs</title>
 </head>
@@ -57,7 +58,11 @@
 
                     <details class="<?php if($istEingeschrieben){echo 'meinDetails';} ?>">
                     <summary>
-                      <a >Teilnehmer: <?php echo ' '.$kurs->getTeilnehmerAnzahl();?> /<?php echo ' '.$kurs->getMaxTeilnehmer();?></a>
+                      <?php if($kurs->getMaxTeilnehmer() != 0){ ?>
+                        <a >Teilnehmer: <?php echo ' '.$kurs->getTeilnehmerAnzahl();?> /<?php echo ' '.$kurs->getMaxTeilnehmer();?></a>
+                        <?php }else{?>
+                          <a >Angemeldet: <?php echo ' '.$kurs->getTeilnehmerAnzahl(); }?></a>
+
                       </summary>
                       <ul id="teilnehmer-liste">
                       <?php
@@ -103,11 +108,14 @@
           </div>
         </div>
       </div>
-      <footer>
+      <footer id="footer1">
         <h1>
           <a class="footer-info-text" href="index.php?token=<?php echo $user->getToken()?>&aktion=show_seminare">Zurück zu den Seminaren</a>
         </h1>
       </footer>
       </div>
+      <?php
+      include("views/impressum.tpl.html");
+      ?>
     </body>
     </html>

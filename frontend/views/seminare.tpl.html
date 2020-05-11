@@ -4,7 +4,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="styles/main-style.css">
   <link rel="stylesheet" type="text/css" href="styles/seminar-style.css">
-    <link rel="icon" href="../styles/logo.png">
+  <link rel="stylesheet" type="text/css" href="styles/footer-style.css">
+  <link rel="icon" href="../styles/logo.png">
   <title>Fortbildungsverwaltung - Seminare</title>
   <meta charset="UTF-8" />
 </head>
@@ -46,7 +47,11 @@
           <details>
             <summary>
               <a><?php echo $kurs->getTitel();?></a>
+              <?php if($kurs->getMaxTeilnehmer() != 0){ ?>
               <a class="right"><?php echo $kurs->getTeilnehmerAnzahl()?>/<?php echo $kurs->getMaxTeilnehmer()?> Teilnehmer</a>
+            <?php }else{?>
+              <a class="right"><?php echo $kurs->getTeilnehmerAnzahl();?> Angemeldet</a>
+              <?php } ?>
             </summary>
             <div class="informations">
 
@@ -91,5 +96,9 @@
     </div>
         </div>
       <?php }}?>
+
+      <?php
+      include("views/impressum.tpl.html");
+      ?>
   </body>
   </html>
