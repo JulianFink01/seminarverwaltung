@@ -120,6 +120,7 @@ class Controller{
       $this->alle_kurse();
       $this->addContext("template","alle_kurse");
     }
+    
     public function loescheFortbildung(){
       $fortbildung = Fortbildung::finde($_GET['fortbildung_id']);
       $teilnehmer = Fortbildung::findeAlleTeilnehmer($fortbildung);
