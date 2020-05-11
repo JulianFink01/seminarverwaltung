@@ -286,9 +286,10 @@ public function speichere()
   }
   private function _insert()
   {
+  $this->setAnmeldeschluss(NULL);
+  $sql = 'INSERT INTO f_kurs ( datum, titel, maxTeilnehmer, referent, beschreibung, ort_raum,kontakt, von, bis, unterschriftsliste_zweispaltig, koordination, anmeldeschluss, fortbildung_id, dauer)'
+       . 'VALUES (:datum, :titel, :maxTeilnehmer, :referent, :beschreibung, :ort_raum,:kontakt,:von,:bis,:unterschriftsliste_zweispaltig, :koordination, :anmeldeschluss, :fortbildung_id, :dauer)';
 
-      $sql = 'INSERT INTO f_kurs ( datum, titel, maxTeilnehmer, referent, beschreibung, ort_raum,kontakt, von, bis, unterschriftsliste_zweispaltig, koordination, anmeldeschluss, fortbildung_id, dauer)'
-           . 'VALUES (:datum, :titel, :maxTeilnehmer, :referent, :beschreibung, :ort_raum,:kontakt,:von,:bis,:unterschriftsliste_zweispaltig, :koordination, :anmeldeschluss, :fortbildung_id, :dauer)';
 
       $abfrage = DB::getDB()->prepare($sql);
       $abfrage->execute($this->toArray(false));
