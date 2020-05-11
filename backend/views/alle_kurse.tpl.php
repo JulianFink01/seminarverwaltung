@@ -87,7 +87,7 @@ if(!isset($_SESSION["loggedIn"])){
                    <td><?php echo $teilnehmer->getToken();?></td>
                    <td style="background-color: var(--main-<?php echo NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbildung,$teilnehmer)->getStatusFarbe();?>);">&nbsp;</td>
                    <td class="b_l"><a href="index.php?aktion=remove_lehrer_nimmtTeil&teilnehmer_id=<?php echo $teilnehmer->getId()?>&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen"><img width="45px" src="images/teilnehmer-entfernen.png" title="Teilnehmer entfernen" /></a></td>
-                   <td class="b_l"><a onclick="triggerTextfeld()"><img width="45px" src="images/teilnehmer-bearbeiten.png" title="Teilnehmer bearbeiten" /></a></td>
+                   <!--<td class="b_l"><a onclick="triggerTextfeld()"><img width="45px" src="images/teilnehmer-bearbeiten.png" title="Teilnehmer bearbeiten" /></a></td>-->
                  </tr>
                  <?php } ?>
 
