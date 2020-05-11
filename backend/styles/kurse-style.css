@@ -268,11 +268,13 @@ table tr td.b_l{
 	margin-left: 10%;
 }
 #fenster span{
-	margin-top: 40px;
-	font-size: 1.5em;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 1.4em;
 	color: var(--main-blue);
 	width: 100%;
 	margin-left: 10%;
+	display: block;
 }
 #kurskopf{
 	background-color: white;

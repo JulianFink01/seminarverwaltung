@@ -98,7 +98,9 @@ if(!isset($_SESSION["loggedIn"])){
             <h2><a href="#emailsenden">E-Mail senden</a></h2>
 
             <div id="fenster">
-              <span>Email senden</span>
+              <span>Der hier eingegebene Text wird zusammen mit einem personalisierten Anmeldelink an die Lehrer versendet.
+                 Er kann auch als Erinnerungsemail für diejenigen genutzt werden, die sich noch nicht angemeldet haben,
+                  da die Email immer nur an diejenigen, die sich noch nicht eingeteilt haben.</span>
             <form action="index.php?aktion=send_email&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>" method="post">
               <textarea name="message" rows="30" cols="160" id="text"></textarea>
 
