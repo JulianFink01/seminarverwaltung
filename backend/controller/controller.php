@@ -75,11 +75,11 @@ class Controller{
           $token = $_POST["token"];
 
 
-          $user = Teilnehmer::finde($token);
-          $user->setVorname($vorname);
-          $user->setVorname($nachname);
-          $user->setVorname($email);
-          $user->speichere();
+          $teil = Teilnehmer::findeNachToken($token);
+          $teil->setVorname($vorname);
+          $teil->setNachname($nachname);
+          $teil->setEmail($email);
+          $teil->speichere();
 
           header('Location: index.php?aktion=hauptseite');
 
