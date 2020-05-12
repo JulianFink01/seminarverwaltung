@@ -76,9 +76,13 @@ class Controller{
 
 
           $teil = Teilnehmer::findeNachToken($token);
-          $teil->setVorname($vorname);
-          $teil->setNachname($nachname);
-          $teil->setEmail($email);
+          if($vorname != '' && $vorname != ' '){
+            $teil->setVorname($vorname);}
+            if($nachname != '' && $nachname != ' '){
+              $teil->setNachname($nachname);}
+            if($email != '' && $email != ' '){
+              $teil->setEmail($email);}
+
           $teil->speichere();
 
           header('Location: index.php?aktion=hauptseite');
