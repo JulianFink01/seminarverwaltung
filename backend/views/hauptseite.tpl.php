@@ -57,7 +57,7 @@ if(!isset($_SESSION["loggedIn"])){
                 <a href="?aktion=loescheFortbildung&fortbildung_id=<?php echo $fortbildung->getId();?>" id="loesche_f"><img class="kurs_icons" width="35px" src="images/muelleimer_icon.png" title="löschen" /></a>
                 <a href="?aktion=duplicateFortbildung&fortbildung_id=<?php echo $fortbildung->getId();?>" id="duplicate_f"><img class="kurs_icons" width="35px" src="images/clon_icon.png" title="duplizieren" /></a>
                 <a href="?aktion=statusAendern&fortbildung_id=<?php echo $fortbildung->getId();?>" id="duplicate_f"><img class="kurs_icons" width="35px" src="<?php echo $img_status;?>" title="Status ändern" /></a>
-
+                <a onclick="bearbeiteName('<?php echo $fortbildung->getName();?>','<?php echo $fortbildung->getId();?>')"><img class="kurs_icons" width="25px" height="25px" src="images/stift.png" title="Name ändern" /></a>
               </div>
         <?php }?>
 
@@ -66,7 +66,9 @@ if(!isset($_SESSION["loggedIn"])){
 
 
   </main>
-
+  <?php
+    include("views/aendereVeranstaltungstitel.tpl.html");
+  ?>
 
 </body>
 </html>
@@ -76,5 +78,39 @@ if(!isset($_SESSION["loggedIn"])){
   function triggerTextfeld(){
     var textfeld = document.getElementById("textfeld");
     textfeld.classList.toggle("show");
+  }
+  function bearbeiteName(titel,fid){
+    var field = document.getElementById("titel-aendern");
+    var form = document.getElementById("t_aendern_form");
+    field.classList.toggle("show_name");
+
+    var l = document.createElement("LEGEND");
+    var t = document.createTextNode("Veranstaltungstitel ändern");
+            l.appendChild(t);
+    var br1 = document.createElement("BR");
+    var br2 = document.createElement("BR");
+
+    var n = document.createElement("input");
+                  n.type = "text";
+                  n.name = "titel";
+                  n.placeholder = titel;
+    var id = document.createElement("input");
+                      id.type = "hidden";
+                      id.name = "fid";
+                      id.placeholder = fid;
+    var submit = document.createElement("input");
+                      submit.id = "tbutton";
+                      submit.type = "submit";
+                      submit.name = "submit";
+                      submit.value = "ändern";
+                      submit.placeholder = "ändern";
+
+    form.innerHTML = "";
+    form.appendChild(l);
+    form.appendChild(n);
+    form.appendChild(br1);
+    form.appendChild(br2);
+    form.appendChild(id);
+    form.appendChild(submit);
   }
 </script>

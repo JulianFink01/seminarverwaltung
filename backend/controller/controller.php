@@ -89,6 +89,21 @@ class Controller{
 
 
     }
+    public function titel_aendern(){
+      $name = $_POST["titel"];
+
+          $fort = Fortbildung::finde($_POST['fid']);
+          if($name != '' && $name != ' '){
+            $fort->setName($name);
+          }
+
+
+          $fort->speichere();
+
+          header('Location: index.php?aktion=hauptseite');
+
+
+    }
     public function send_email(){
       Funktionen::send_email();
       header('Location: index.php?aktion=hauptseite');
