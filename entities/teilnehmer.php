@@ -113,10 +113,10 @@ public function genereateToken(){
 }
 private function _update()
 {
-    $sql = 'UPDATE f_teilnehmer SET vorname=:vorname, nachname=:nachname, email=:email,token=:token'
-        . 'WHERE id=:id';
-    $abfrage = self::$db->prepare($sql);
-    $abfrage->execute($this->toArray());
+    $sql = 'UPDATE f_teilnehmer SET vorname=?, nachname=?, email=?,token=?'
+        . 'WHERE id=?';
+    $abfrage =  DB::getDB()->prepare($sql);
+    $abfrage->execute(array($this->getVorname(), $this->getNachname(),$this->getEmail(),$this->getToken(),$this->getId()));
 }
 /* ***** Public Methoden ***** */
 public static function findeAlle()
