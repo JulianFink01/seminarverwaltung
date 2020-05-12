@@ -81,7 +81,7 @@ class Controller{
           $user->setVorname($email);
           $user->speichere();
 
-        //  header('Location: index.php?aktion=hauptseite');
+          header('Location: index.php?aktion=hauptseite');
 
 
     }
