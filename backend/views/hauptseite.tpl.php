@@ -112,6 +112,5 @@ if(!isset($_SESSION["loggedIn"])){
     form.appendChild(br2);
     form.appendChild(id);
     form.appendChild(submit);
-    
   }
 </script>

@@ -93,7 +93,6 @@ class Controller{
       $name = $_POST["titel"];
 
           $fort = Fortbildung::finde($_POST['fid']);
-          
           if($name != '' && $name != ' '){
             $fort->setName($name);
           }
