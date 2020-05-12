@@ -10,6 +10,7 @@ if(!isset($_SESSION["loggedIn"])){
     <link rel="icon" href="../styles/logo.png">
   <link rel="stylesheet" type="text/css" href="styles/hauptseite-style.css">
   <link rel="stylesheet" type="text/css" href="styles/main-style.css">
+    <meta name="noindex" content="noindex" />
 </head>
 
 <body>

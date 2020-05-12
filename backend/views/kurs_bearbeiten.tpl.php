@@ -16,7 +16,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="styles/kurs_bearbeiten-style.css">
   <link rel="stylesheet" type="text/css" href="styles/main-style.css">
-
+  <meta name="noindex" content="noindex" />
 
   <!-- https://t3n.de/news/css3-dynamische-tabs-ohne-365861/-->
 

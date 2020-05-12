@@ -11,6 +11,7 @@ if(!isset($_SESSION["loggedIn"])){
         <meta charset="utf-8" />
         <link rel="stylesheet" type="text/css" href="styles/main-style.css">
         <link rel="stylesheet" type="text/css" href="styles/send_email.css">
+          <meta name="noindex" content="noindex" />
     </head>
     <body>
 

@@ -11,6 +11,7 @@ if(!isset($_SESSION["loggedIn"])){
     <link rel="icon" href="../styles/logo.png">
   <link rel="stylesheet" type="text/css" href="styles/main-style.css">
 <link rel="stylesheet" type="text/css" href="styles/kurse-style.css">
+  <meta name="noindex" content="noindex" />
 </head>
 <body>
   <header id="kopf">

@@ -31,7 +31,7 @@ if(!isset($_SESSION["loggedIn"])){
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.js"></script>
-
+  <meta name="noindex" content="noindex" />
   <link rel="stylesheet" type="text/css" href="styles/kurseinhalt.css">
 
 </head>
