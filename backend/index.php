@@ -15,6 +15,11 @@ require_once 'models/funktionen.inc.php';
 require_once 'controller/controller.php';
 
 
+if(isset($_SESSION["Info_mail"])){
+  echo "<script type='text/javascript'>alert('".$_SESSION["Info_mail"]."')</script>";
+  unset($_SESSION["Info_mail"]);
+}
+
 $aktion = isset($_GET['aktion'])?$_GET['aktion']:'login';
 
 $controller = new Controller();
