@@ -70,6 +70,7 @@ class Controller{
     }
     public function send_email(){
       Funktionen::send_email();
+      header('Location: index.php?aktion=hauptseite');
     }
     public function login(){
       $vars = parse_ini_file("../entities/variables.ini.php", TRUE);
@@ -120,7 +121,7 @@ class Controller{
       $this->alle_kurse();
       $this->addContext("template","alle_kurse");
     }
-    
+
     public function loescheFortbildung(){
       $fortbildung = Fortbildung::finde($_GET['fortbildung_id']);
       $teilnehmer = Fortbildung::findeAlleTeilnehmer($fortbildung);
@@ -158,9 +159,6 @@ class Controller{
       $this->addContext("kurse", Kurs::finde($_GET['kurs_id']));
     }
 
-    public function show_email_tpl(){
-        $this->addContext("template", "send_email");
-    }
 
     public function kurse_bearbeitung_speichern(){
       $daten = $_POST;

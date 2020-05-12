@@ -31,8 +31,9 @@ class Funktionen{
 
 
           if (!$mailer->send()) {
-              echo "<p>failed to send mail</p></br />"
-              . "<p>" . $mailer->ErrorInfo . "</p>";
+              $_SESSION["Info_mail"] = "Fehler beim versenden ihrer Email!";
+          }else{
+                  $_SESSION["Info_mail"] = "Deine Email wurde erfolgreich versendet!";
           }
 
         }
