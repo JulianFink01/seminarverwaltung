@@ -93,7 +93,7 @@ private function _update()
     $sql = 'UPDATE f_fortbildung SET name=?, id=?, status=?'
         . 'WHERE id=?';
     $abfrage = DB::getDB()->prepare($sql);
-    $abfrage->execute(array($this->getName(), $this->getId(), $this->getStatus(),$this->getId()));
+    $abfrage->execute($this->toArray());
 }
 
 /* ***** public Methoden ***** */
