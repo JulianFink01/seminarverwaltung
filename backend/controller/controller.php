@@ -68,6 +68,23 @@ class Controller{
       }
 
     }
+    public function teilnehmer_bearbeiten(){
+      $vorname = $_POST["vorname"];
+        $nachname = $_POST["nachname"];
+          $email = $_POST["email"];
+          $token = $_POST["token"];
+
+
+          $user = Teilnehmer::finde($token);
+          $user->setVorname($vorname);
+          $user->setVorname($nachname);
+          $user->setVorname($email);
+          $user->speichere();
+
+          header('Location: index.php?aktion=hauptseite');
+
+
+    }
     public function send_email(){
       Funktionen::send_email();
       header('Location: index.php?aktion=hauptseite');

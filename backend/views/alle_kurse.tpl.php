@@ -88,7 +88,7 @@ if(!isset($_SESSION["loggedIn"])){
                    <td><?php echo $teilnehmer->getToken();?></td>
                    <td style="background-color: var(--main-<?php echo NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbildung,$teilnehmer)->getStatusFarbe();?>);">&nbsp;</td>
                    <td class="b_l"><a href="index.php?aktion=remove_lehrer_nimmtTeil&teilnehmer_id=<?php echo $teilnehmer->getId()?>&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen"><img width="45px" src="images/teilnehmer-entfernen.png" title="Teilnehmer entfernen" /></a></td>
-                   <!--<td class="b_l"><a onclick="triggerTextfeld()"><img width="45px" src="images/teilnehmer-bearbeiten.png" title="Teilnehmer bearbeiten" /></a></td>-->
+                   <td class="b_l"><a onclick="bearbeiteBenutzer('<?php echo $teilnehmer->getToken();?>','<?php echo $teilnehmer->getVorname();?>', '<?php echo $teilnehmer->getNachname();?>', '<?php echo $teilnehmer->getEmail();?>' )"><img width="45px" src="images/teilnehmer-bearbeiten.png" title="Teilnehmer bearbeiten" /></a></td>
                  </tr>
                  <?php } ?>
 
@@ -112,14 +112,50 @@ if(!isset($_SESSION["loggedIn"])){
         </section>
     </article>
   </div>
-
+<?php
+  include("views/bearbeite_teilnehmer.tpl.html");
+?>
 </body>
 </html>
 
 <script type="text/javascript">
 
-  function triggerTextfeld(){
-    var textfeld = document.getElementById("textfeld");
-    textfeld.classList.toggle("showTeilnehmerErstellen");
-  }
+function triggerTextfeld(){
+  var textfeld = document.getElementById("textfeld");
+  textfeld.classList.toggle("showTeilnehmerErstellen");
+}
+
+function bearbeiteBenutzer(token, vorname, nachname, email){
+  var field = document.getElementById("teilnehmer-bearbeiten");
+  var form = document.getElementById("t_bearbeiten_form");
+  field.classList.toggle("show_teilnehmer");
+
+
+  var vn = document.createElement("input");
+                vn.type = "text";
+                vn.name = "vorname";
+                vn.placeholder = vorname;
+                var nn = document.createElement("input");
+                              nn.type = "text";
+                              nn.name = "nachname";
+                              nn.placeholder = nachname;
+                              var em = document.createElement("input");
+                                            em.type = "email";
+                                            em.name = "email";
+                                            em.placeholder = email;
+                                            var t = document.createElement("input");
+                                                          t.type = "hidden";
+                                                          t.name = "token";
+                                                          t.value = token;
+                                                          var submit = document.createElement("input");
+                                                          submit.type = "submit";
+                                                          submit.name = "submit";
+                                                          submit.placeholder = "ändern";
+                form.innerHTML = "";
+  form.appendChild(vn);
+  form.appendChild(nn);
+  form.appendChild(em);
+  form.appendChild(t);
+  form.appendChild(submit);
+}
 </script>
