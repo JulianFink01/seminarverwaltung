@@ -85,7 +85,7 @@ class Controller{
 
           $teil->speichere();
 
-          header('Location: index.php?aktion=hauptseite');
+          header('Location: index.php?aktion=alle_kurse&fortbildung_id='.$_POST["fortbildung_id"].'#funktionen');
 
 
     }

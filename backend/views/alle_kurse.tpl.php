@@ -88,7 +88,7 @@ if(!isset($_SESSION["loggedIn"])){
                    <td><?php echo $teilnehmer->getToken();?></td>
                    <td style="background-color: var(--main-<?php echo NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbildung,$teilnehmer)->getStatusFarbe();?>);">&nbsp;</td>
                    <td class="b_l"><a href="index.php?aktion=remove_lehrer_nimmtTeil&teilnehmer_id=<?php echo $teilnehmer->getId()?>&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen"><img width="45px" src="images/teilnehmer-entfernen.png" title="Teilnehmer entfernen" /></a></td>
-                   <td class="b_l"><a onclick="bearbeiteBenutzer('<?php echo $teilnehmer->getToken();?>','<?php echo $teilnehmer->getVorname();?>', '<?php echo $teilnehmer->getNachname();?>', '<?php echo $teilnehmer->getEmail();?>' )"><img width="45px" src="images/teilnehmer-bearbeiten.png" title="Teilnehmer bearbeiten" /></a></td>
+                   <td class="b_l"><a onclick="bearbeiteBenutzer('<?php echo $teilnehmer->getToken();?>','<?php echo $teilnehmer->getVorname();?>', '<?php echo $teilnehmer->getNachname();?>', '<?php echo $teilnehmer->getEmail();?>', '<?php echo $_REQUEST['fortbildung_id']?>' )"><img width="45px" src="images/teilnehmer-bearbeiten.png" title="Teilnehmer bearbeiten" /></a></td>
                  </tr>
                  <?php } ?>
 
@@ -125,37 +125,55 @@ function triggerTextfeld(){
   textfeld.classList.toggle("showTeilnehmerErstellen");
 }
 
-function bearbeiteBenutzer(token, vorname, nachname, email){
+function bearbeiteBenutzer(token, vorname, nachname, email,fortbildung_id){
   var field = document.getElementById("teilnehmer-bearbeiten");
   var form = document.getElementById("t_bearbeiten_form");
   field.classList.toggle("show_teilnehmer");
 
+  var l = document.createElement("LEGEND");
+  var t = document.createTextNode("Teilnehmer bearbeiten");
+          l.appendChild(t);
+  var br1 = document.createElement("BR");
+  var br2 = document.createElement("BR");
+  var br3 = document.createElement("BR");
 
   var vn = document.createElement("input");
                 vn.type = "text";
                 vn.name = "vorname";
                 vn.placeholder = vorname;
-                var nn = document.createElement("input");
-                              nn.type = "text";
-                              nn.name = "nachname";
-                              nn.placeholder = nachname;
-                              var em = document.createElement("input");
-                                            em.type = "email";
-                                            em.name = "email";
-                                            em.placeholder = email;
-                                            var t = document.createElement("input");
-                                                          t.type = "hidden";
-                                                          t.name = "token";
-                                                          t.value = token;
-                                                          var submit = document.createElement("input");
-                                                          submit.type = "submit";
-                                                          submit.name = "submit";
-                                                          submit.placeholder = "ändern";
-                form.innerHTML = "";
+  var nn = document.createElement("input");
+                    nn.type = "text";
+                    nn.name = "nachname";
+                    nn.placeholder = nachname;
+  var em = document.createElement("input");
+                    em.type = "email";
+                    em.name = "email";
+                    em.placeholder = email;
+  var t = document.createElement("input");
+                    t.type = "hidden";
+                    t.name = "token";
+                    t.value = token;
+  var fid = document.createElement("input");
+                    fid.type = "hidden";
+                    fid.name = "fortbildung_id";
+                    fid.value = fortbildung_id;
+  var submit = document.createElement("input");
+                    submit.id = "tbutton";
+                    submit.type = "submit";
+                    submit.name = "submit";
+                    submit.value = "ändern";
+                    submit.placeholder = "ändern";
+
+  form.innerHTML = "";
+  form.appendChild(l);
   form.appendChild(vn);
+  form.appendChild(br1);
   form.appendChild(nn);
+  form.appendChild(br2);
   form.appendChild(em);
+  form.appendChild(br3);
   form.appendChild(t);
+  form.appendChild(fid);
   form.appendChild(submit);
 }
 </script>
