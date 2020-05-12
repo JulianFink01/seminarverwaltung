@@ -77,7 +77,7 @@ if(!isset($_SESSION["loggedIn"])){
           <input type="hidden" id="beschreibung" name="beschreibung" />
           <input type="hidden" id="fortbildung_id" name="fortbildung_id" value="<?php echo $_GET["fortbildung_id"]?>" />
           <a> Maximale Teilnehmer: </a>
-          <input type="number" name="maxTeilnehmer" id="maxTeilnehmer" required />
+          <input type="number" name="maxTeilnehmer" id="maxTeilnehmer" />
           <a>Kontaktperson: </a>
           <input type="text" name="kontakt" id="kontaktpersonen" />
         <a> Referent: </a>

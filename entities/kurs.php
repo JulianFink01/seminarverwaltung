@@ -286,7 +286,12 @@ public function speichere()
   }
   private function _insert()
   {
-  $this->setAnmeldeschluss(NULL);
+    if($this->getMaxTeilnehmer() <= 0){
+      $this->setMaxTeilnehmer(NULL);
+    }
+    if($this->getAnmeldeschluss() == ""){
+      $this->setAnmeldeschluss(NULL);
+    }
   $sql = 'INSERT INTO f_kurs ( datum, titel, maxTeilnehmer, referent, beschreibung, ort_raum,kontakt, von, bis, unterschriftsliste_zweispaltig, koordination, anmeldeschluss, fortbildung_id, dauer)'
        . 'VALUES (:datum, :titel, :maxTeilnehmer, :referent, :beschreibung, :ort_raum,:kontakt,:von,:bis,:unterschriftsliste_zweispaltig, :koordination, :anmeldeschluss, :fortbildung_id, :dauer)';
 
@@ -299,7 +304,12 @@ public function speichere()
 
   private function _update()
   {
-    $this->setAnmeldeschluss(NULL);
+    if($this->getMaxTeilnehmer() <= 0){
+      $this->setMaxTeilnehmer(NULL);
+    }
+    if($this->getAnmeldeschluss() == ""){
+      $this->setAnmeldeschluss(NULL);
+    }
       $sql = 'UPDATE f_kurs SET id=:id, datum=:datum, titel=:titel,maxTeilnehmer=:maxTeilnehmer,referent=:referent,beschreibung=:beschreibung,ort_raum=:ort_raum,kontakt=:kontakt,von=:von,bis=:bis,unterschriftsliste_zweispaltig=:unterschriftsliste_zweispaltig,koordination=:koordination,anmeldeschluss=:anmeldeschluss,fortbildung_id=:fortbildung_id,dauer=:dauer WHERE id=:id';
       $abfrage = DB::getDB()->prepare($sql);
       $abfrage->execute($this->toArray());
