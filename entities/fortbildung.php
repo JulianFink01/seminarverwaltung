@@ -90,10 +90,10 @@ private function _insert()
 
 private function _update()
 {
-    $sql = 'UPDATE f_fortbildung SET name=?, id=?, status=?'
+    $sql = 'UPDATE f_fortbildung SET name=?, status=?'
         . 'WHERE id=?';
     $abfrage = DB::getDB()->prepare($sql);
-    $abfrage->execute($this->toArray());
+    $abfrage->execute(array($this->getName(), $this->getStatus(), $this->getId()));
 }
 
 /* ***** public Methoden ***** */

@@ -90,9 +90,14 @@ class Controller{
 
     }
     public function titel_aendern(){
-      $name = $_POST["titel"];
+
+
+        $name = $_POST["titel"];
 
           $fort = Fortbildung::finde($_POST['fid']);
+
+          echo $name;
+          echo $_POST['fid'];
           if($name != '' && $name != ' '){
             $fort->setName($name);
           }
