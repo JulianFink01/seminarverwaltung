@@ -98,7 +98,7 @@ if(!isset($_SESSION["loggedIn"])){
             <form action="index.php?aktion=send_email&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>" method="post">
               <textarea name="message" rows="30" cols="160" id="text"></textarea>
 
-              <input type="submit" id="button" name="senden" value="Senden" />
+              <input id="btn_email_sendn"type="submit" id="button" name="senden" value="Senden" />
       </div>
     </form>
 

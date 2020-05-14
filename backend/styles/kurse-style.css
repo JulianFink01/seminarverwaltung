@@ -585,7 +585,17 @@ margin-top: 20px;
 	margin-left: 45px;
 	margin-top: 25px;
 }
-
+#btn_email_sendn{
+	float: right;
+	width: 15%;
+	height: 40px;
+	margin-top: 30px;
+	transform: translateX(78%);
+	background-color: var(--main-blue);
+	box-shadow: none;
+	border-radius: none;
+	color: white;
+}
 
 #t_bearbeiten_form{
 	margin-top: 10em;
