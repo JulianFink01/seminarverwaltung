@@ -28,10 +28,6 @@ class Funktionen{
           $mailer->CharSet ="UTF-8";
           $mailer->Body = $message."\n \n Anmeldung unter:\n ".$mailvars["url"]."/".$mailvars["urlUnterordner"]."/index.php?token=".$key->gettoken()."&aktion=login";
 
-
-          echo $mailvars["url"]."/".$mailvars["urlUnterordner"]."/index.php";
-
-
           if (!$mailer->send()) {
               $_SESSION["Info_mail"] = "Fehler beim versenden ihrer Email!";
           }else{
