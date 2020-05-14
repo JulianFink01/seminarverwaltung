@@ -26,7 +26,8 @@ class Funktionen{
           $mailer->addAddress($to, $key->getVorname()." ".$key->getNachname());
           $mailer->Subject = $subject;
           $mailer->CharSet ="UTF-8";
-          $mailer->Body = $message."\n \n Anmeldung unter:\n ".$mailvars["url"]."/seminarverwaltung/frontend/index.php?token=".$key->gettoken()."&aktion=login";
+          $mailer->Body = $message."\n \n Anmeldung unter:\n ".$mailvars["url"]."/".$mailvars["urlUnterordner"]."/index.php?token=".$key->gettoken()."&aktion=login";
+
 
           if (!$mailer->send()) {
               $_SESSION["Info_mail"] = "Fehler beim versenden ihrer Email!";
