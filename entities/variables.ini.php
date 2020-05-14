@@ -9,7 +9,7 @@ password = NaYCKB35nU
 
 [Mail]
 url = https://testURLfindetmaninderIncDatei.html
-
+urlUnterordner = seminarverwaltung/frontend;
 [Verwaltung]
 username = test
 password = test
