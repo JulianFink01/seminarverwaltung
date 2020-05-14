@@ -51,7 +51,7 @@ if(!isset($_SESSION["loggedIn"])){
 
                 <a href="?aktion=loescheFortbildung&fortbildung_id=<?php echo $fortbildung->getId();?>" id="loesche_f"><img class="kurs_icons" width="35px" src="images/muelleimer_icon.png" title="löschen" /></a>
                 <a href="?aktion=duplicateFortbildung&fortbildung_id=<?php echo $fortbildung->getId();?>" id="duplicate_f"><img class="kurs_icons" width="35px" src="images/clon_icon.png" title="duplizieren" /></a>
-                <a href="?aktion=statusAendern&fortbildung_id=<?php echo $fortbildung->getId();?>" id="duplicate_f"><img class="kurs_icons" width="35px" src="<?php echo $img_status;?>" title="Status ändern" /></a>
+                <a href="?aktion=statusAendern&fortbildung_id=<?php echo $fortbildung->getId();?>" id="duplicate_f"><img class="kurs_icons" width="35px" src="<?php echo $img_status;?>" title="aktivieren/deaktivieren" /></a>
                 <a href="#" onclick="bearbeiteName('<?php echo $fortbildung->getName();?>',<?php echo $fortbildung->getId();?>)" id="duplicate_f"><img class="kurs_icons" width="35px"  src="images/stift.png" title="Name ändern" /></a>
               </div>
         <?php }?>
