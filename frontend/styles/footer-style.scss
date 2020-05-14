@@ -8,7 +8,7 @@ $main-orange: rgba(255, 203, 0, 1);
   left: 0;
   right: 0;
   background-color: $main-orange;
-  div{
+  #imp-body{
     width: 100%;
     height: 100%;
     #footer-title{
@@ -34,20 +34,15 @@ $main-orange: rgba(255, 203, 0, 1);
       max-height: 60%;
       display: flex;
       flex-direction: row;
-    #footer-logo{
-      img{
-        width: 100%;
-        height: 100%;
-      }
-      height: 100%;
-      width: 34%;
-      margin-top: 20px;
-    }
+
     table{
       height: 100%;
-      width: 65%;
+      width: 100%;
       #table-tr-title{
         height: 35%;
+      }
+      tbody{
+        width: 100%;
       }
       tr{
         height: 21%;
@@ -65,6 +60,18 @@ $main-orange: rgba(255, 203, 0, 1);
         }
       }
     }
+  }
+  #footer-logo{
+    img{
+      width: 40%;
+      height: 100%;
+    }
+    margin: auto;
+    text-align: center;
+    height: 30%;
+    width: auto;
+    margin-top: 35px;
+    display: block;
   }
   }
 }
