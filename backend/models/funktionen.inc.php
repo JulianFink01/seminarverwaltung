@@ -28,11 +28,8 @@ class Funktionen{
           $mailer->CharSet ="UTF-8";
           $mailer->Body = $message."\n \n Anmeldung unter:\n ".$mailvars["url"]."/seminarverwaltung/frontend/index.php?token=".$key->gettoken()."&aktion=login";
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 889e149457721385057b83833b72aa0afcf838ba
           if (!$mailer->send()) {
               $_SESSION["Info_mail"] = "Fehler beim versenden ihrer Email!";
           }else{
