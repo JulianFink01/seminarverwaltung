@@ -78,7 +78,7 @@ if(!isset($_SESSION["loggedIn"])){
                    <td><?php echo $teilnehmer->getNachname();?></td>
                    <td><?php echo $teilnehmer->getEmail();?></td>
                    <td><?php echo $teilnehmer->getToken();?></td>
-                   <td class="hidden" ><?php if(NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbildung,$teilnehmer)->getStatusFarbe() == 'blue'){echo 'B';}else{echo 'A';} ?></td>
+                   <td class="hidden" ><?php if(NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbildung,$teilnehmer)->getStatusFarbe() == 'blue'){echo 'A';}else{echo 'B';} ?></td>
                    <td style="background-color: var(--main-<?php echo NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbildung,$teilnehmer)->getStatusFarbe();?>);">&nbsp;</td>
                    <td class="b_l"><a href="index.php?aktion=remove_lehrer_nimmtTeil&teilnehmer_id=<?php echo $teilnehmer->getId()?>&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen"><img width="45px" src="images/teilnehmer-entfernen.png" title="Teilnehmer entfernen" /></a></td>
                    <td class="b_l"><a onclick="bearbeiteBenutzer('<?php echo $teilnehmer->getToken();?>','<?php echo $teilnehmer->getVorname();?>', '<?php echo $teilnehmer->getNachname();?>', '<?php echo $teilnehmer->getEmail();?>', '<?php echo $_REQUEST['fortbildung_id']?>' )"><img width="45px" src="images/teilnehmer-bearbeiten.png" title="Teilnehmer bearbeiten" /></a></td>
