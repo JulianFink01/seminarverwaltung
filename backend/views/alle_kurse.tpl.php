@@ -124,7 +124,12 @@ function triggerTextfeld(){
   var textfeld = document.getElementById("textfeld");
   textfeld.classList.toggle("showTeilnehmerErstellen");
 }
-
+function closePopUp(){
+  var field = document.getElementById("teilnehmer-bearbeiten");
+  field.classList.toggle("show_teilnehmer");
+  document.getElementById("leiste").classList.toggle("blur");
+  document.getElementById("kopf").classList.toggle("blur");
+}
 function bearbeiteBenutzer(token, vorname, nachname, email,fortbildung_id){
   var field = document.getElementById("teilnehmer-bearbeiten");
   var form = document.getElementById("t_bearbeiten_form");
@@ -140,15 +145,15 @@ function bearbeiteBenutzer(token, vorname, nachname, email,fortbildung_id){
   var vn = document.createElement("input");
                 vn.type = "text";
                 vn.name = "vorname";
-                vn.placeholder = vorname;
+                vn.value = vorname;
   var nn = document.createElement("input");
                     nn.type = "text";
                     nn.name = "nachname";
-                    nn.placeholder = nachname;
+                    nn.value = nachname;
   var em = document.createElement("input");
                     em.type = "email";
                     em.name = "email";
-                    em.placeholder = email;
+                    em.value = email;
   var t = document.createElement("input");
                     t.type = "hidden";
                     t.name = "token";
@@ -175,5 +180,8 @@ function bearbeiteBenutzer(token, vorname, nachname, email,fortbildung_id){
   form.appendChild(t);
   form.appendChild(fid);
   form.appendChild(submit);
+
+  document.getElementById("leiste").classList.toggle("blur");
+  document.getElementById("kopf").classList.toggle("blur");
 }
 </script>

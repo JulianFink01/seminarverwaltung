@@ -13,23 +13,18 @@ if(!isset($_SESSION["loggedIn"])){
     <meta name="noindex" content="noindex" />
 </head>
 
-<body>
+<body >
 
   <div id="gesamt">
     <header id="kopf">
       <h1>Verwaltung der Veranstaltungen</h1>
+      <div id="back">  <a onclick="triggerTextfeld()"><img src="images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
+    </div>
+
     </header>
 
     <main id="hintergrund">
-      <div id="kurs_erstellbutton">
-        <a onclick="triggerTextfeld()"><img src="images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
-            <form id="textfeld" action="index.php?aktion=saveFortbildung" method="post">
-              <legend>Veranstaltungen erstellen:</legend>
-              <input type="text" name="titel" placeholder="Titel"><br/>
-              <input type="submit" value="erstellen" name="erstellen" id="button">
-            </form>
 
-      </div>
       <div id="inhalt">
 
         <?php
@@ -57,7 +52,7 @@ if(!isset($_SESSION["loggedIn"])){
                 <a href="?aktion=loescheFortbildung&fortbildung_id=<?php echo $fortbildung->getId();?>" id="loesche_f"><img class="kurs_icons" width="35px" src="images/muelleimer_icon.png" title="löschen" /></a>
                 <a href="?aktion=duplicateFortbildung&fortbildung_id=<?php echo $fortbildung->getId();?>" id="duplicate_f"><img class="kurs_icons" width="35px" src="images/clon_icon.png" title="duplizieren" /></a>
                 <a href="?aktion=statusAendern&fortbildung_id=<?php echo $fortbildung->getId();?>" id="duplicate_f"><img class="kurs_icons" width="35px" src="<?php echo $img_status;?>" title="Status ändern" /></a>
-                <a onclick="bearbeiteName('<?php echo $fortbildung->getName();?>',<?php echo $fortbildung->getId();?>)"><img class="kurs_icons" width="25px" height="25px" src="images/stift.png" title="Name ändern" /></a>
+                <a href="#" onclick="bearbeiteName('<?php echo $fortbildung->getName();?>',<?php echo $fortbildung->getId();?>)" id="duplicate_f"><img class="kurs_icons" width="35px"  src="images/stift.png" title="Name ändern" /></a>
               </div>
         <?php }?>
 
@@ -66,8 +61,10 @@ if(!isset($_SESSION["loggedIn"])){
 
 
   </main>
+</div>
   <?php
     include("views/aendereVeranstaltungstitel.tpl.html");
+      include("views/kurs_hinzufuegen.tpl.html");
   ?>
 
 </body>
@@ -76,9 +73,17 @@ if(!isset($_SESSION["loggedIn"])){
 <script type="text/javascript">
 
   function triggerTextfeld(){
-    var textfeld = document.getElementById("textfeld");
-    textfeld.classList.toggle("show");
+    var field = document.getElementById("kurs-add");
+    field.classList.toggle("show_name");
+    document.getElementById("gesamt").classList.toggle("blur");
   }
+
+  function closePopUp(){
+    var field = document.getElementById("titel-aendern");
+    field.classList.toggle("show_name");
+    document.getElementById("gesamt").classList.toggle("blur");
+  }
+
   function bearbeiteName(titel,fid){
     var field = document.getElementById("titel-aendern");
     var form = document.getElementById("t_aendern_form");
@@ -93,7 +98,7 @@ if(!isset($_SESSION["loggedIn"])){
     var n = document.createElement("input");
                   n.type = "text";
                   n.name = "titel";
-                  n.placeholder = titel;
+                  n.value = titel;
     var id = document.createElement("input");
                       id.type = "hidden";
                       id.name = "fid";
@@ -103,7 +108,6 @@ if(!isset($_SESSION["loggedIn"])){
                       submit.type = "submit";
                       submit.name = "submit";
                       submit.value = "ändern";
-                      submit.placeholder = "ändern";
 
     form.innerHTML = "";
     form.appendChild(l);
@@ -112,5 +116,6 @@ if(!isset($_SESSION["loggedIn"])){
     form.appendChild(br2);
     form.appendChild(id);
     form.appendChild(submit);
+document.getElementById("gesamt").classList.toggle("blur");
   }
 </script>

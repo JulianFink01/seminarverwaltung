@@ -31,10 +31,11 @@
     <header id="kopf">
 
       <h1><?php echo $kurse->getTitel() ?> bearbeiten</h1>
+      <div id="back"><a  href="?aktion=alle_kurse&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>#allgemeiner"><img id="zurueck" src="images/zurueck_icon.png" title="Zurück" /></a></div>
     </header>
     <div id="kurserstelleninhalt">
       <div id="box">
-          <form action="index.php?aktion=kurse_bearbeitung_speichern&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>&kurs_id=<?php echo $_GET['kurs_id']?>"  method="post">
+      <form action="index.php?aktion=kurse_bearbeitung_speichern&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>&kurs_id=<?php echo $_GET['kurs_id']?>"  method="post">
         <div id="input">
           <p class="einzug"> Titel<input type="text" name="titel" id="titelkurs" value="<?php echo $kurse->getTitel()?>" required/></p>
           <p class="einzug"> Datum <input type="date" name="datum" id="datumkurs" placeholder="tt.mm.jjjj" value="<?php echo $kurse->getDatum()?>" required/></p>
@@ -58,7 +59,7 @@
         <table id="kurszeiten">
           <tr>
             <td><a>Dauer in Stunden:</a> &ensp;
-            <input type="number" name="dauer"  class="zeit" value="<?php echo $kurse->getDauer()?>" />
+            <input type="number" name="dauer"  class="zeit" value="<?php if($kurse->getDauer()!=null){echo $kurse->getDauer();}else{echo '8';}?>" />
           </td>
           <td>
             <a>Start:</a>  &ensp;
@@ -91,7 +92,7 @@
 
 
 
-          <a href="?aktion=alle_kurse&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>#allgemeiner"><img class="kurs_icons" id="zurueck" src="images/zurueck_icon.png" title="Zurück" /></a>
+
           <input type="submit" class="Senden_erstellen" onclick="myFunction()" id="button" value="Senden">
 
 
@@ -101,13 +102,11 @@
             $('#beschreibung').val(text);
             return true;
           }
-
           </script>
         </form>
 
       </div>
-
-    </div>
+</div>
 
   </body>
 </html>

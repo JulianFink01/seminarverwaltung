@@ -388,9 +388,9 @@ margin-bottom: 20px;
 }
 #erstell_button {
 	padding: 0;
-	width: 100px;
-	height: 100px;
-	border-radius: 150px;
+	width: 5%;
+	float: right;
+	margin-right: 3%;
   background-image: url("../images/fortbildung_erstellButton.png");
   background-repeat: no-repeat;
   background-size: contain;
@@ -532,16 +532,18 @@ margin-top: 20px;
 	width: 50%;
 	display: none;
 	height: 50%;
-overflow: auto;
+	overflow: hidden;
 	margin: auto;
-	-webkit-box-shadow: 0px 10px 194px 200px rgba(233,185,103,1);
-	-moz-box-shadow: 0px 10px 194px 200px rgba(233,185,103,1);
-	box-shadow: 0px 10px 194px 200px rgba(233,185,103,1);
 	transition: 1s all ease-in;
 	background-color:  rgba(49, 83, 108);
-
 	z-index: 999099999999;
 	transform: translate(50%,0%);
+	-webkit-filter: blur(0px);
+	-moz-filter: blur(0px);
+	-o-filter: blur(0px);
+	-ms-filter: blur(0px);
+	filter: blur(0px);
+	border-radius: 1px;
 
 }
 
@@ -567,27 +569,45 @@ overflow: auto;
 	height: 100%;
 }
 #t_bearbeiten_form input[type="text"]{
-	margin: 10px 0px 0px 10em;
-	padding-left: 5px;
+	margin-left: 15%;
 	width: 70%;
 	height: 30px;
 }
 #t_bearbeiten_form input[type="email"]{
-	margin: 10px 0px 0px 10em;
-	padding-left: 5px;
+	margin-left: 15%;
 	width: 70%;
 	height: 30px;
 }
 #t_bearbeiten_form input[type="submit"] {
-	margin: 10px 0px 0px 50em;
-	width: 15%;
+	margin-left: 15%;
+	width: 70%;
 	height: 30px;
 }
 #t_bearbeiten_form legend {
-	margin: 10px 0px 20px 5em;
+	width: 100%;
+	margin-bottom: 35px;
+	text-align: center;
 	color: var(--main-white);
 	font-size: 25px;
 
+}
+#close{
+	position: relative;
+	right: 0;
+	top: 0;
+	padding: 15px;
+	color: var(--main-orange);
+	font-size: 20px;
+	float: right;
+	font-weight: bold;
+	cursor: pointer;
+}
+.blur{
+	-webkit-filter: blur(5px);
+ -moz-filter: blur(5px);
+ -o-filter: blur(5px);
+ -ms-filter: blur(5px);
+ filter: blur(5px);
 }
 @media screen and (max-width: 27rem){
     #feld{

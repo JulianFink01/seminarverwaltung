@@ -68,6 +68,7 @@ public function speichere()
     $this->datum = $datum;
   }
   public function getDatum(){
+
     return $this->datum;
   }
   public function setTitel($titel){
@@ -384,7 +385,48 @@ public function speichere()
 
     ));
   }
+  public function completeKurs(){
+      if($this->getDatum()==null){
+        $this->setDatum(date());
+      }
 
+      if($this->getTitel()==null){
+        $this->setTitel("Unbennanter Kurs");
+      }
+
+      if($this->getMaxTeilnehmer() == null){
+        $this->setMaxTeilnehmer(100);
+      }
+
+      if($this->getReferent() == null){
+        $this->setReferent("Kein Refferent");
+      }
+
+      if($this->getBeschreibung() == null){
+        $this->setBeschreibung("Keine Beschreibung vorhanden");
+      }
+      if($this->getOrt_raum() == null){
+        $this->setOrt_raum(" ");
+      }
+      if($this->getKontakt() == null){
+        $this->setKontakt(" ");
+      }
+      if($this->getVon() == null){
+        $this->setVon("00:00:00");
+      }
+      if($this->getBis() == null){
+        $this->setBis("24:00:00");
+      }
+      if($this->getKoordination() == null){
+        $this->setKoordination(" ");
+      }
+      if($this->getAnmeldeSchluss() == null){
+        $this->setAnmeldeschluss(date('Y-m-d', strtotime('+1 year')));
+      }
+      if($this->getDauer()==null){
+        $this->setDauer("8");
+      }
+  }
 }
 
 
