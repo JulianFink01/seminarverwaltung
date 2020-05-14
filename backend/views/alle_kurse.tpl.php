@@ -57,26 +57,18 @@ if(!isset($_SESSION["loggedIn"])){
                 <input type="submit" id="csv_button" name="submit" value="hochladen">
               </form>
             </div>
+            <div id="t_erstellen_btn"><a onclick="teilnehmerErstellen()"><img width="75px" src="images/teilnehmer-hinzufuegen.png" title="Teilnehmer hinzufuegen" /></a></div>
 
-            <div id="teilnehmer_hinzu">
-              <a onclick="triggerTextfeld()"><img width="75px" src="images/teilnehmer-hinzufuegen.png" title="Teilnehmer hinzufuegen" /></a>
-                  <form id="textfeld" action="index.php?aktion=saveTeilnehmer&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>" method="post">
-                    <legend>Teilnehmer erstellen</legend>
-                    <input type="text" name="vorname" placeholder="Vorname" required></br>
-                    <input type="text" name="nachname" placeholder="Nachname" required></br>
-                    <input type="text" name="email" placeholder="E-Mail" required></br>
-                    <input type="submit" value="erstellen" name="erstellen" id="button">
-                  </form>
-            </div>
+
 
             <div id="teilnehmer">
-               <table>
+               <table id="teilnehmer-tabelle">
                  <tr>
-                   <th>Vorname</th>
-                   <th>Nachname</th>
+                   <th onclick="sortTableAlphabeticalVorname()">Vorname ↓</th>
+                   <th onclick="sortTableAlphabeticalNachname()">Nachname ↓</th>
                    <th>Email</th>
                    <th>Token</th>
-                   <th>Status</th>
+                   <th onclick="sortTableStatus()">Status ↓</th>
                  </tr>
 
                  <?php foreach ($teilnehmern as $teilnehmer){
@@ -86,6 +78,7 @@ if(!isset($_SESSION["loggedIn"])){
                    <td><?php echo $teilnehmer->getNachname();?></td>
                    <td><?php echo $teilnehmer->getEmail();?></td>
                    <td><?php echo $teilnehmer->getToken();?></td>
+                   <td class="hidden" ><?php if(NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbildung,$teilnehmer)->getStatusFarbe() == 'blue'){echo 'B';}else{echo 'A';} ?></td>
                    <td style="background-color: var(--main-<?php echo NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbildung,$teilnehmer)->getStatusFarbe();?>);">&nbsp;</td>
                    <td class="b_l"><a href="index.php?aktion=remove_lehrer_nimmtTeil&teilnehmer_id=<?php echo $teilnehmer->getId()?>&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen"><img width="45px" src="images/teilnehmer-entfernen.png" title="Teilnehmer entfernen" /></a></td>
                    <td class="b_l"><a onclick="bearbeiteBenutzer('<?php echo $teilnehmer->getToken();?>','<?php echo $teilnehmer->getVorname();?>', '<?php echo $teilnehmer->getNachname();?>', '<?php echo $teilnehmer->getEmail();?>', '<?php echo $_REQUEST['fortbildung_id']?>' )"><img width="45px" src="images/teilnehmer-bearbeiten.png" title="Teilnehmer bearbeiten" /></a></td>
@@ -114,15 +107,18 @@ if(!isset($_SESSION["loggedIn"])){
   </div>
 <?php
   include("views/bearbeite_teilnehmer.tpl.html");
+  include("views/teilnehmer_erstellen.tpl.html");
 ?>
 </body>
 </html>
 
 <script type="text/javascript">
 
-function triggerTextfeld(){
-  var textfeld = document.getElementById("textfeld");
-  textfeld.classList.toggle("showTeilnehmerErstellen");
+function teilnehmerErstellen(){
+  var textfeld = document.getElementById("teilnehmer-erstellen");
+  textfeld.classList.toggle("show_teilnehmer");
+  document.getElementById("leiste").classList.toggle("blur");
+  document.getElementById("kopf").classList.toggle("blur");
 }
 function closePopUp(){
   var field = document.getElementById("teilnehmer-bearbeiten");
@@ -183,5 +179,96 @@ function bearbeiteBenutzer(token, vorname, nachname, email,fortbildung_id){
 
   document.getElementById("leiste").classList.toggle("blur");
   document.getElementById("kopf").classList.toggle("blur");
+}
+
+function sortTableAlphabeticalVorname() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("teilnehmer-tabelle");
+  switching = true;
+
+  while (switching) {
+
+    switching = false;
+    rows = table.rows;
+
+    for (i = 1; i < (rows.length - 1); i++) {
+
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("TD")[0].innerHTML+rows[i].getElementsByTagName("TD")[1].innerHTML;
+      y = rows[i+1].getElementsByTagName("TD")[0].innerHTML+rows[i+1].getElementsByTagName("TD")[1].innerHTML;
+
+      // Check if the two rows should switch place:
+      if (x.toLowerCase() > y.toLowerCase()) {
+        // If so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+function sortTableStatus() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("teilnehmer-tabelle");
+  switching = true;
+
+  while (switching) {
+
+    switching = false;
+    rows = table.rows;
+
+    for (i = 1; i < (rows.length - 1); i++) {
+
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("TD")[4].innerHTML;
+      y = rows[i+1].getElementsByTagName("TD")[4].innerHTML;
+
+      // Check if the two rows should switch place:
+      if (x.toLowerCase() > y.toLowerCase()) {
+        // If so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+function sortTableAlphabeticalNachname() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("teilnehmer-tabelle");
+  switching = true;
+
+  while (switching) {
+
+    switching = false;
+    rows = table.rows;
+
+    for (i = 1; i < (rows.length - 1); i++) {
+
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("TD")[1].innerHTML+rows[i].getElementsByTagName("TD")[0].innerHTML;
+      y = rows[i+1].getElementsByTagName("TD")[1].innerHTML+rows[i+1].getElementsByTagName("TD")[0].innerHTML;
+
+      // Check if the two rows should switch place:
+      if (x.toLowerCase() > y.toLowerCase()) {
+        // If so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
 }
 </script>

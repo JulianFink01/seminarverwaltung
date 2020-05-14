@@ -33,7 +33,7 @@ if(!isset($_SESSION["loggedIn"])){
 
         <div id="textdeco">
 
-              <div class="f_inhalt">
+              <div class="f_inhalt <?php if($fortbildung->getStatus() == 0){echo 'disabled';}?>">
                 <a href="index.php?aktion=alle_kurse&fortbildung_id=<?php echo $fortbildung->getId();?>#allgemeiner" >
                 <?php echo $fortbildung->getName();?>
               </a>

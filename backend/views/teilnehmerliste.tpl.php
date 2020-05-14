@@ -20,7 +20,7 @@ if(!isset($_SESSION["loggedIn"])){
    <div id="beschreibung">
      <h1>Unterschriftenliste</h1>
      <p>THEMA: <?php echo $kurse->getTitel()?></p>
-     <p>TAG: <?php echo $kurse->getDatum()?></p>
+     <p>TAG: <?php echo str_replace('/', '.', date("d/m/Y", strtotime($kurse->getDatum())));?></p>
      <p>UHRZEIT: von <?php echo $kurse->getVon()?> bis <?php echo $kurse->getBis()?></p>
      <p>REFERENT: <?php echo $kurse->getReferent()?></p>
      <p>RAUM: <?php echo $kurse->getOrt_raum()?></p>

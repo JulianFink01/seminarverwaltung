@@ -137,7 +137,6 @@ article.infobox section:target h2 a {
 	height: 30px;
 }
 #teilnehmer {
-	background-color: white;
 	width: 75%;
 	margin: 50px 0px 0px 50px;
 	height: 430px;
@@ -147,6 +146,9 @@ article.infobox section:target h2 a {
 #teilnehmer table {
 	  border-collapse: collapse;
 		width: 100%;
+}
+.hidden{
+	display: none !important;
 }
 #teilnehmer table tr th{
 		height: 50px;
@@ -546,7 +548,29 @@ margin-top: 20px;
 	border-radius: 1px;
 
 }
-
+#t_erstellen_btn{
+	width: 10%;
+	float: right;
+	margin-top: 3%;
+}
+#teilnehmer-erstellen{
+	position: fixed;
+	width: 50%;
+	display: none;
+	height: 50%;
+	overflow: hidden;
+	margin: auto;
+	transition: 1s all ease-in;
+	background-color:  rgba(49, 83, 108);
+	z-index: 999099999999;
+	transform: translate(50%,0%);
+	-webkit-filter: blur(0px);
+	-moz-filter: blur(0px);
+	-o-filter: blur(0px);
+	-ms-filter: blur(0px);
+	filter: blur(0px);
+	border-radius: 1px;
+}
 
 #tbutton {
 	border-style: none;

@@ -120,6 +120,9 @@ form {
   background-size: contain;
 	cursor: pointer;
 }
+.disabled{
+	background-color: rgba(175,176,196) !important;
+}
 #back{
 	position: absolute;
 	display: block;
