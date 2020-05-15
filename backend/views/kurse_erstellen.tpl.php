@@ -26,8 +26,11 @@ if(!isset($_SESSION["loggedIn"])){
 
 
     <header id="kopf">
+      <div id="logout"><a href="?aktion=logout"><img class="kurs_icons" id="home" src="images/logout.png" title="Abmelden" /></a></div>
 
       <h1>Kurse erstellen</h1>
+      <div id="back">  <a href="?aktion=alle_kurse&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>#allgemeiner"><img class="kurs_icons" id="zurueck" src="images/zurueck_icon.png" title="Zurück" /></a></div>
+
     </header>
     <div id="kurserstelleninhalt">
       <div id="box">
@@ -44,7 +47,7 @@ if(!isset($_SESSION["loggedIn"])){
 
         <script>
         $(document).ready(function() {
-          $('#summernote').summernote({height: 280,width: 1100 });
+          $('#summernote').summernote({height: 280});
 
         });
 
@@ -86,11 +89,13 @@ if(!isset($_SESSION["loggedIn"])){
           <input type="text"  name="ort_raum" id="ort_raum" required />
 
   </div>
-  <a href="?aktion=alle_kurse&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>#allgemeiner"><img class="kurs_icons" id="zurueck" src="images/zurueck_icon.png" title="Zurück" /></a>
+
           <input class="Senden_erstellen "type="submit" onclick="myFunction()" value="Senden">
 
 
-          <script>
+          <script type="text/javascript">
+
+
           function myFunction() {
 
               //alert("i was cliecked");

@@ -207,11 +207,11 @@ p.eintrag_unten span {
 	position: fixed;
 	width: 50%;
 	display: none;
-	height: 50%;
+	height:auto;
 	overflow: hidden;
-margin: auto;
+	margin: auto;
 	transition: 1s all ease-in;
-	background-color:  rgba(49, 83, 108);
+	background-color:  var(--main-blue);
 	z-index: 999099999999;
 	transform: translate(50%,0%);
 	-webkit-filter: blur(0px);
@@ -225,11 +225,11 @@ margin: auto;
 	position: fixed;
 	width: 50%;
 	display: none;
-	height: 50%;
+	height: auto;
 	overflow: hidden;
 margin: auto;
 	transition: 1s all ease-in;
-	background-color:  rgba(49, 83, 108);
+	background-color: var(--main-blue);
 	z-index: 999099999999;
 	transform: translate(50%,0%);
 	-webkit-filter: blur(0px);
@@ -246,10 +246,13 @@ margin: auto;
 	background-color: var(--main-orange);
 	margin-left: 15%;
 	width: 70%;
-	height: 30px
+	height: 30px;
+}
+#tbutton:last-child{
+	margin-bottom: 3em;
 }
 #t_aendern_form{
-	margin-top: 10em;
+	margin-top: 3em;
 	width: 100%;
 	height: 100%;
 }

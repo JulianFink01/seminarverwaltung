@@ -8,6 +8,10 @@ class Controller{
         $this->$aktion();
         $this->generatePage($aktion);
     }
+    public function logout(){
+        session_destroy ();
+          header("Location: ../index.html");
+    }
 
     public function hauptseite(){
         $this->addContext("fortbildungen", Fortbildung::findeAlle());

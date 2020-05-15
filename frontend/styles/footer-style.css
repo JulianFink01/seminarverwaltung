@@ -54,7 +54,8 @@
       height: 30%;
       width: auto;
       margin-top: 35px;
-      display: block; }
+      display: block;
+      padding: 2em; }
       #impressum #imp-body #footer-logo img {
         width: 40%;
         height: 100%; }

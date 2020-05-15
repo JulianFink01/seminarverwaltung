@@ -1,6 +1,6 @@
 <div id="teilnehmer-erstellen">
     <span id="close" onclick="teilnehmerErstellen()">X</span>
-    <form action="index.php?aktion=teilnehmer_bearbeiten" id="t_bearbeiten_form" method="post">
+    <form action="index.php?aktion=saveTeilnehmer&fortbildung_id=<?php echo $fortbildung->getId() ?>" id="t_bearbeiten_form" method="post">
 
 
             <form id="textfeld" action="index.php?aktion=saveTeilnehmer&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>" method="post">

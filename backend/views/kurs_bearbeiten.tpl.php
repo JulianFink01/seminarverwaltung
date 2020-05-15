@@ -1,3 +1,8 @@
+<?php
+if(!isset($_SESSION["loggedIn"])){
+  header('Location: index.php?aktion=login');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +34,7 @@
 
 
     <header id="kopf">
-
+      <div id="logout"><a href="?aktion=logout"><img class="kurs_icons" id="home" src="images/logout.png" title="Abmelden" /></a></div>
       <h1><?php echo $kurse->getTitel() ?> bearbeiten</h1>
       <div id="back"><a  href="?aktion=alle_kurse&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>#allgemeiner"><img id="zurueck" src="images/zurueck_icon.png" title="Zurück" /></a></div>
     </header>
@@ -48,7 +53,7 @@
 
         <script>
         $(document).ready(function() {
-          $('#summernote').summernote({height: 280,width: 1100 });
+          $('#summernote').summernote({height: 280,width: 100 });
 
         });
 
@@ -96,7 +101,8 @@
           <input type="submit" class="Senden_erstellen" onclick="myFunction()" id="button" value="Senden">
 
 
-          <script>
+          <script type="text/javascript">
+
           function myFunction() {
             var text= $('#summernote').summernote('code');
             $('#beschreibung').val(text);

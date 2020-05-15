@@ -3,17 +3,29 @@
   padding-top:10px;
   padding-left: 10px;
 }
+body{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
 #beschreibung{
-  text-align: left;
-    margin-left: 5%;
+  display: block;
+  text-align: center;
+  width: 100%;
     margin-top: 50px;
 
 }
 #beschreibung p{
   line-height: 7px;
 }
+#teilnehmer{
+  margin-top: 5em;
+width: 100%;
+text-align: center;
+}
 table{
-  margin-top:30px;
+  margin-left: 25%;
+  width: 50%;
   border-collapse: collapse;
 }
 .nr{

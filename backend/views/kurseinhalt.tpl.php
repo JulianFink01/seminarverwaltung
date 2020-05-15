@@ -39,6 +39,7 @@ if(!isset($_SESSION["loggedIn"])){
 <body>
 
   <header id="kopf">
+    <div id="logout"><a href="?aktion=logout"><img class="kurs_icons" id="home" src="images/logout.png" title="Abmelden" /></a></div>
 
 <h1>Kurse - Verwaltung</h1>
   </header>

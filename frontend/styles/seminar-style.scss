@@ -27,7 +27,7 @@ border: 1px solid var(--dark-white);
   -webkit-box-shadow: 1px 5px 5px 0px rgba(240,240,240,1);
   -moz-box-shadow: 1px 5px 5px 0px rgba(240,240,240,1);
   box-shadow: 1px 5px 5px 0px rgba(240,240,240,1);
-
+  position: relative !important;
   h1{
     background-color: white;
     margin: 0;

@@ -14,3 +14,15 @@ html, body{
   margin: 0;
 
 }
+
+#logout{
+	position: absolute;
+	left: 1%;
+	height: 10%;
+	transform: translate(110%, 30%);
+}
+#logout a img{
+	float:right;
+	height: 100% !important;
+	width: auto;
+}

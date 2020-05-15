@@ -1,6 +1,6 @@
 <?php
 if(!isset($_SESSION["loggedIn"])){
-  header('Location: ../index.php?aktion=login');
+  header('Location: index.php?aktion=login');
 }
 ?>
 <!DOCTYPE html>
@@ -15,8 +15,10 @@ if(!isset($_SESSION["loggedIn"])){
 </head>
 <body>
   <header id="kopf">
-    <a href="?aktion=hauptseite"><img class="kurs_icons" id="home" src="images/home_icon.png" title="Hauptseite" /></a>
  <h1>Kursverwaltung - <?php echo $fortbildung->getName() ?></h1>
+   <div id="home-redi"><a href="?aktion=hauptseite"><img class="kurs_icons" id="home" src="images/home_icon.png" title="Hauptseite" /></a></div>
+   <div id="logout"><a href="?aktion=logout"><img class="kurs_icons" id="home" src="images/logout.png" title="Abmelden" /></a></div>
+
    </header>
 
   <div id="leiste">
@@ -40,7 +42,7 @@ if(!isset($_SESSION["loggedIn"])){
 
 </div>
 <div id="kurs_erstellbutton">
-<a href="index.php?aktion=kurse_erstellen&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#allgemeiner"><img src="images/fortbildung_erstellButton.png" id="erstell_button" alt="erstellen" /></a>
+<a href="index.php?aktion=kurse_erstellen&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#allgemeiner"><img src="images/fortbildung_erstellButton.png" title="Kurs erstellen"id="erstell_button" alt="erstellen" /></a>
 </div>
 
         </section>
@@ -94,7 +96,7 @@ if(!isset($_SESSION["loggedIn"])){
             <div id="fenster">
               <span>Der hier eingegebene Text wird zusammen mit einem personalisierten Anmeldelink an die Lehrer versendet.
                  Er kann auch als Erinnerungsemail für diejenigen genutzt werden, die sich noch nicht angemeldet haben,
-                  da die Email immer nur an diejenigen, die sich noch nicht eingeteilt haben.</span>
+                  da die Email immer nur an diejenigen geschickt wird, die sich noch nicht eingeteilt haben.</span>
             <form action="index.php?aktion=send_email&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>" method="post">
               <textarea name="message" rows="30" cols="160" id="text"></textarea>
 
@@ -107,7 +109,7 @@ if(!isset($_SESSION["loggedIn"])){
   </div>
 <?php
   include("views/bearbeite_teilnehmer.tpl.html");
-  include("views/teilnehmer_erstellen.tpl.html");
+  include("views/teilnehmer_erstellen.tpl.php");
 ?>
 </body>
 </html>

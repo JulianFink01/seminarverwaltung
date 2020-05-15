@@ -11,7 +11,10 @@ class Controller{
     $this->$aktion();
     $this->generatePage($aktion);
   }
-
+  public function logout(){
+      session_destroy ();
+        header("Location: ../index.html");
+  }
   public function login(){
     if (isset ($_REQUEST['token'])){
         $token = $_REQUEST['token'];
