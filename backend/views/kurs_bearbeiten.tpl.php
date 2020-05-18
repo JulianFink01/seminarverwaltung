@@ -35,8 +35,8 @@ if(!isset($_SESSION["loggedIn"])){
 
     <header id="kopf">
       <div id="logout"><a href="?aktion=logout"><img class="kurs_icons" id="home" src="images/logout.png" title="Abmelden" /></a></div>
+      <div id="home-redi"><a href="?aktion=hauptseite"><img class="kurs_icons" id="home" src="images/home_icon.png" title="Hauptseite" /></a></div>
       <h1><?php echo $kurse->getTitel() ?> bearbeiten</h1>
-      <div id="back"><a  href="?aktion=alle_kurse&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>#allgemeiner"><img id="zurueck" src="images/zurueck_icon.png" title="Zurück" /></a></div>
     </header>
     <div id="kurserstelleninhalt">
       <div id="box">
@@ -49,6 +49,7 @@ if(!isset($_SESSION["loggedIn"])){
 
 
         <div id="summernote" ><?php echo $kurse->getBeschreibung()?></div>
+
 
 
         <script>
@@ -99,6 +100,7 @@ if(!isset($_SESSION["loggedIn"])){
 
 
           <input type="submit" class="Senden_erstellen" onclick="myFunction()" id="button" value="Senden">
+          <div id="back"><a  href="?aktion=alle_kurse&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>#allgemeiner"><img id="zurueck" src="images/zurueck_icon.png" title="Zurück" /></a></div>
 
 
           <script type="text/javascript">

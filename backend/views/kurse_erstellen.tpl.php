@@ -22,15 +22,11 @@ if(!isset($_SESSION["loggedIn"])){
 </head>
 <body>
 
-
-
-
-    <header id="kopf">
-      <div id="logout"><a href="?aktion=logout"><img class="kurs_icons" id="home" src="images/logout.png" title="Abmelden" /></a></div>
-
-      <h1>Kurse erstellen</h1>
-      <div id="back">  <a href="?aktion=alle_kurse&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>#allgemeiner"><img class="kurs_icons" id="zurueck" src="images/zurueck_icon.png" title="Zurück" /></a></div>
-
+  <header id="kopf">
+    <div id="logout"><a href="?aktion=logout"><img class="kurs_icons" id="home" src="images/logout.png" title="Abmelden" /></a></div>
+    <div id="home-redi"><a href="?aktion=hauptseite"><img class="kurs_icons" id="home" src="images/home_icon.png" title="Hauptseite" /></a></div>
+    <h1>Kurse erstellen</h1>
+  </header>
     </header>
     <div id="kurserstelleninhalt">
       <div id="box">
@@ -91,6 +87,7 @@ if(!isset($_SESSION["loggedIn"])){
   </div>
 
           <input class="Senden_erstellen "type="submit" onclick="myFunction()" value="Senden">
+          <div id="back">  <a href="?aktion=alle_kurse&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>#allgemeiner"><img class="kurs_icons" id="zurueck" src="images/zurueck_icon.png" title="Zurück" /></a></div>
 
 
           <script type="text/javascript">
