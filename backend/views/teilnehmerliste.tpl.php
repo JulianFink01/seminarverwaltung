@@ -19,11 +19,23 @@ if(!isset($_SESSION["loggedIn"])){
    </header>
    <div id="beschreibung">
      <h1>Unterschriftenliste</h1>
-     <p>THEMA: <?php echo $kurse->getTitel()?></p>
-     <p>TAG: <?php echo str_replace('/', '.', date("d/m/Y", strtotime($kurse->getDatum())));?></p>
-     <p>UHRZEIT: von <?php echo $kurse->getVon()?> bis <?php echo $kurse->getBis()?></p>
-     <p>REFERENT: <?php echo $kurse->getReferent()?></p>
-     <p>RAUM: <?php echo $kurse->getOrt_raum()?></p>
+     <table id="infos-table">
+       <tr>
+     <td>THEMA:</td><td><?php echo $kurse->getTitel()?></td>
+   </tr>
+    <tr>
+     <td>TAG:</td><td><?php echo str_replace('/', '.', date("d/m/Y", strtotime($kurse->getDatum())));?></td>
+   </tr>
+    <tr>
+     <td>UHRZEIT: </td><td>von <?php echo $kurse->getVon()?> bis <?php echo $kurse->getBis()?></td>
+   </tr>
+    <tr>
+     <td>REFERENT:</td><td> <?php echo $kurse->getReferent()?></td>
+   </tr>
+    <tr>
+     <td>RAUM:</td><td><?php echo $kurse->getOrt_raum()?></td>
+   </tr>
+ </table>
    </div>
    <div id="teilnehmer">
      <table>
