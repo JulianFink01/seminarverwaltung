@@ -25,7 +25,7 @@ if(!isset($_SESSION["loggedIn"])){
     </header>
 
     <main id="hintergrund">
-      <div id="f-erstellen">  <a onclick="triggerTextfeld()"><img src="images/fortbildung_erstellButton.png" title="Name ändern" id="erstell_button" alt="erstellen" /></a>
+      <div id="f-erstellen">  <a onclick="triggerTextfeld()"><img src="images/fortbildung_erstellButton.png" title="Veranstaltung erstellen" id="erstell_button" alt="erstellen" /></a>
       </div>
 
       <div id="inhalt">
