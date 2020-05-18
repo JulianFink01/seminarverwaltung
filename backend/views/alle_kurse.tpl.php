@@ -1,8 +1,6 @@
-<?php
-if(!isset($_SESSION["loggedIn"])){
+<?php if(!isset($_SESSION["loggedIn"])){
   header('Location: index.php?aktion=login');
-}
-?>
+}?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,9 +13,9 @@ if(!isset($_SESSION["loggedIn"])){
 </head>
 <body>
   <header id="kopf">
- <h1>Kursverwaltung - <?php echo $fortbildung->getName() ?></h1>
    <div id="home-redi"><a href="?aktion=hauptseite"><img class="kurs_icons" id="home" src="images/home_icon.png" title="Hauptseite" /></a></div>
    <div id="logout"><a href="?aktion=logout"><img class="kurs_icons" id="home" src="images/logout.png" title="Abmelden" /></a></div>
+   <h1>Kursverwaltung - <?php echo $fortbildung->getName() ?></h1>
 
    </header>
 
@@ -94,11 +92,11 @@ if(!isset($_SESSION["loggedIn"])){
             <h2><a href="#emailsenden">E-Mail senden</a></h2>
 
             <div id="fenster">
-              <span>Der hier eingegebene Text wird zusammen mit einem personalisierten Anmeldelink an die Lehrer versendet.
+              <span id="email-text">Der hier eingegebene Text wird zusammen mit einem personalisierten Anmeldelink an die Lehrer versendet.
                  Er kann auch als Erinnerungsemail für diejenigen genutzt werden, die sich noch nicht angemeldet haben,
                   da die Email immer nur an diejenigen geschickt wird, die sich noch nicht eingeteilt haben.</span>
             <form action="index.php?aktion=send_email&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>" method="post">
-              <textarea name="message" rows="30" cols="160" id="text"></textarea>
+              <textarea placeholder="Ihre Nachricht:"name="message" rows="30" cols="160" id="text"></textarea>
 
               <input id="btn_email_sendn"type="submit" id="button" name="senden" value="Senden" />
       </div>

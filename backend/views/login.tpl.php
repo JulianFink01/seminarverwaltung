@@ -1,9 +1,5 @@
-<?php
-
-  if(isset( $_SESSION["loggedIn"])){
-    header('Location: index.php?aktion=hauptseite');
-  }
-?>
+<?php if(isset( $_SESSION["loggedIn"])){
+    header('Location: index.php?aktion=hauptseite');}?>
 <!DOCTYPE html>
 <html>
 <head>
