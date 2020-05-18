@@ -62,7 +62,7 @@ article.infobox section {
     position: absolute;
     display: block;
     width: 95%;
-    max-height: 630px;
+    height: 60%;
     top: 300px;
     background-color: var(--dark-white);
 		border: 0.5px solid var(--dark-white);
@@ -283,13 +283,11 @@ table tr td.b_l{
     height: 30px;
 }
 #inhalt {
-	background-color: #fafafa;
 	float: left;
 	width: 85%;
-	max-height: 600px;
-	margin: 0px 0px 0px 50px;
-	padding: 10px 10px 20px 10px;
-	overflow: auto !important;
+	height: 90%;
+	margin-left: 5%;
+	overflow: scroll !important;
 }
 #fenster form textarea{
 	width: 100%;
@@ -299,7 +297,8 @@ table tr td.b_l{
 #fenster span{
 	margin-top: 20px;
 	margin-bottom: 20px;
-	font-size: 1.4em;
+	font-size: 20px;
+	text-align: justify;
 	color: var(--main-blue);
 	width: 100%;
 	margin-left: 10%;
@@ -360,7 +359,8 @@ padding-bottom: 150px;
 .kursdaten a , input{
 	width: 25%;
 	margin-bottom: 5px;
-	text-align: center;
+	text-align: left;
+		padding-left: 3%;
 }
 .kursdaten a , input:nth-child(1){
 	text-align: left;
@@ -560,7 +560,7 @@ margin-top: 20px;
 	color: white;
 	padding: 10px;
 	margin-top: 30px;
-	font-size: 20px;
+	font-size: 15px;
 	border: 0.5px solid white;
 
 }
@@ -628,8 +628,10 @@ margin-top: 20px;
 #btn_email_sendn{
 	float: right;
 	width: 15%;
+	text-align: 18px;
+	margin-bottom: 20px;
 	height: 40px;
-	margin-top: 30px;
+	margin-top: 20px;
 	transform: translateX(78%);
 	background-color: var(--main-blue);
 	box-shadow: none;
