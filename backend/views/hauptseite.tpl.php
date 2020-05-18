@@ -17,14 +17,17 @@ if(!isset($_SESSION["loggedIn"])){
 
   <div id="gesamt">
     <header id="kopf">
-      <div id="logout"><a href="?aktion=logout"><img class="kurs_icons" id="home" src="images/logout.png" title="Abmelden" /></a></div>
+
       <h1>Verwaltung der Veranstaltungen</h1>
-      <div id="back">  <a onclick="triggerTextfeld()"><img src="images/fortbildung_erstellButton.png" title="Name ändern" id="erstell_button" alt="erstellen" /></a>
-    </div>
+      <div id="logout_hauptseite"><a href="?aktion=logout"><img class="kurs_icons" id="home" src="images/logout.png" title="Abmelden" /></a></div>
+
+
 
     </header>
 
     <main id="hintergrund">
+      <div id="f-erstellen">  <a onclick="triggerTextfeld()"><img src="images/fortbildung_erstellButton.png" title="Name ändern" id="erstell_button" alt="erstellen" /></a>
+      </div>
 
       <div id="inhalt">
 

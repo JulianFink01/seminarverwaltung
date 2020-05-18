@@ -123,17 +123,17 @@ form {
 .disabled{
 	background-color: rgba(175,176,196) !important;
 }
-#back{
+
+#f-erstellen{
 	position: absolute;
 	display: block;
-	float: right;
-	right: 1%;
-	height: 60%;
+	height: 10%;
+	margin-top: 11%;
+	margin-left: 90%;
 	transform: translate(0,-230%);
 }
-#back a img{
-	float:right;
-	height: 100% !important;
+#f-erstellen a img{
+	height: 80% !important;
 	width: auto;
 }
 #hintergrund {
@@ -287,6 +287,27 @@ margin: auto;
 	float: right;
 	font-weight: bold;
 	cursor: pointer;
+}
+#logout_hauptseite{
+	position: absolute;
+	display: block;
+	float: right;
+	right: 6%;
+	height: 80%;
+	margin: 0;
+	transform: translate(-30%,-115%);
+}
+#logout_hauptseite a img{
+	float:right;
+	height: 100% !important;
+	width: auto;
+}
+#home{
+
+	position: absolute;
+	top: 6.5%;
+	left:4%;
+	width:5%;
 }
 @media only screen and (max-width: 800px) {
 
