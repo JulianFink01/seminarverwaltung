@@ -104,7 +104,7 @@ form {
 	width: 90%;
 	height: 450px;
 	margin-left: 5%;
-	margin-top: 7%;
+	margin-top: 10%;
 	padding: 10px 10px 20px 0px;
 }
 
@@ -129,6 +129,7 @@ form {
 	display: block;
 	height: 10%;
 	margin-top: 11%;
+	margin-bottom: 5%;
 	margin-left: 90%;
 	transform: translate(0,-230%);
 }
@@ -319,9 +320,7 @@ body{
 	margin: auto;
 	width: 800px;
 }
-#inhalt{
-	width: 400px;
-}
+
 #kopf {
 	margin: auto;
 	width: 800px;

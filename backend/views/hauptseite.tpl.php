@@ -17,9 +17,8 @@ if(!isset($_SESSION["loggedIn"])){
 
   <div id="gesamt">
     <header id="kopf">
-
+      <div id="logout"><a href="?aktion=logout"><img class="kurs_icons" id="home" src="images/logout.png" title="Abmelden" /></a></div>
       <h1>Verwaltung der Veranstaltungen</h1>
-      <div id="logout_hauptseite"><a href="?aktion=logout"><img class="kurs_icons" id="home" src="images/logout.png" title="Abmelden" /></a></div>
 
 
 
