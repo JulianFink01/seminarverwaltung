@@ -38,7 +38,7 @@ if(!isset($_SESSION["loggedIn"])){
  </table>
    </div>
    <div id="teilnehmer">
-     <table>
+     <table id="tn-table">
        <tr>
          <th class="nr">Nr.</th>
          <th>Name</th>

@@ -39,7 +39,6 @@ html{
   font-size: 25px;
 }
 #login-form input{
-  width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 10px;
@@ -61,6 +60,7 @@ html{
   background-repeat: no-repeat;
 }
 #login-form input[type="submit"]{
+
   background-color: var(--main-blue);
   color: var(--main-orange);
 }
