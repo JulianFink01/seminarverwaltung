@@ -218,24 +218,28 @@ table tr td.b_l{
 	float: left;
 	margin-left: 50px;
 	margin-top: 10px;
-	border: 1px solid rgb(189,195,199);
 	padding: 15px;
-	padding-bottom: 0px;
-	margin-bottom: 10px;
+	padding-bottom: 15px;
+	width: 75%;
 	margin-right: 50px;
 }
 .csv span{
 	color: var(--main-blue);
 }
-
+#t_erstellen_btn{
+	width: 10%;
+	float: right;
+	margin-left: 20%;
+}
 #csv_button{
 	border-style: none;
 	color: var(--main-white);
-	border-color: var(--main-blue);
 	background-color: var(--main-blue);
-	width: 100px;
+	width: 10%;
+	padding: 0;
+	margin: 0;
+	text-align: center;
 	height: 25px;
-	float: right;
 }
 
 #csv_button:hover{
@@ -588,11 +592,7 @@ margin-top: 20px;
 	border-radius: 1px;
 
 }
-#t_erstellen_btn{
-	width: 10%;
-	float: right;
-	margin-top: 3%;
-}
+
 #teilnehmer-erstellen{
 	position: fixed;
 	width: 50%;

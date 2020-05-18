@@ -54,10 +54,11 @@
                   <span>CSV Datei(*.csv)</span>
                   <input name="datei" type="file" size="50" accept=".csv" class="button">
                 </label>
-                <input type="submit" id="csv_button" name="submit" value="hochladen">
+                <div id="t_erstellen_btn"><a onclick="teilnehmerErstellen()"><img width="75px" src="images/teilnehmer-hinzufuegen.png" title="Teilnehmer hinzufuegen" /></a></div>
+
+                <input type="submit" id="csv_button" name="submit" value="Hochladen">
               </form>
             </div>
-            <div id="t_erstellen_btn"><a onclick="teilnehmerErstellen()"><img width="75px" src="images/teilnehmer-hinzufuegen.png" title="Teilnehmer hinzufuegen" /></a></div>
 
 
 
