@@ -15,7 +15,7 @@ if(!isset($_SESSION["loggedIn"])){
 
 <body >
 
-  <div id="gesamt">
+
     <header id="kopf">
       <div id="logout"><a href="?aktion=logout"><img class="kurs_icons" id="home" src="images/logout.png" title="Abmelden" /></a></div>
       <h1>Verwaltung der Veranstaltungen</h1>
@@ -64,7 +64,7 @@ if(!isset($_SESSION["loggedIn"])){
 
 
   </main>
-</div>
+
   <?php
     include("views/aendereVeranstaltungstitel.tpl.html");
       include("views/kurs_hinzufuegen.tpl.html");

@@ -17,7 +17,7 @@
    <div id="logout"><a href="?aktion=logout"><img class="kurs_icons" id="home" src="images/logout.png" title="Abmelden" /></a></div>
    <h1>Kursverwaltung - <?php echo $fortbildung->getName() ?></h1>
 
-   </header>
+ </header>
 
   <div id="leiste">
     <article class="infobox">
@@ -96,7 +96,7 @@
                  Er kann auch als Erinnerungsemail für diejenigen genutzt werden, die sich noch nicht angemeldet haben,
                   da die Email immer nur an diejenigen geschickt wird, die sich noch nicht eingeteilt haben.</span>
             <form action="index.php?aktion=send_email&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>" method="post">
-              <textarea placeholder="Ihre Nachricht:"name="message" rows="30" cols="160" id="text"></textarea>
+              <textarea placeholder="Ihre Nachricht:" name="message" rows="20" cols="100" id="text"></textarea>
 
               <input id="btn_email_sendn"type="submit" id="button" name="senden" value="Senden" />
       </div>

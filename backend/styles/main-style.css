@@ -14,10 +14,10 @@ html, body{
   margin: 0;
 
 }#logout{
-	position: absolute;
+  position: absolute;
 	display: block;
 	float: right;
-	left: 1%;
+	right: 8%;
 	height: 80%;
   margin-top: 0.5%;
 }

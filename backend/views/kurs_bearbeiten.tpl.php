@@ -31,7 +31,7 @@
 
 
     <header id="kopf">
-      <div id="logout"><a href="?aktion=logout"><img class="kurs_icons" id="home" src="images/logout.png" title="Abmelden" /></a></div>
+      <div id="logout-fromBearbeiten"><a href="?aktion=logout"><img class="kurs_icons" id="home" src="images/logout.png" title="Abmelden" /></a></div>
       <div id="home-redi"><a href="?aktion=hauptseite"><img class="kurs_icons" id="home" src="images/home_icon.png" title="Hauptseite" /></a></div>
       <h1><?php echo $kurse->getTitel() ?> bearbeiten</h1>
     </header>
@@ -66,11 +66,11 @@
           </td>
           <td>
             <a>Start:</a>  &ensp;
-            <input type="text" placeholder="10:00"  name='von' id="start" class="zeit" value="<?php echo $kurse->getVon()?>" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" />
+            <input type="text" placeholder="10:00"  name='von' id="start" class="zeit" value="<?php echo $kurse->getVon()?>" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" required/>
           </td>
           <td>
             &ensp; <a>Ende:</a>  &ensp;
-            <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit" value="<?php echo $kurse->getBis()?>" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" />
+            <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit" value="<?php echo $kurse->getBis()?>" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" required/>
           </td>
         </tr>
       </table>

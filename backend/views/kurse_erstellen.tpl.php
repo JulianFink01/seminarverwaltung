@@ -56,11 +56,11 @@
             </td>
             <td>
               <a>Start:</a>  &ensp;
-              <input type="text" placeholder="10:00"  name='von' id="start" class="zeit"  pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"  />
+              <input type="text" placeholder="10:00"  name='von' id="start" class="zeit"  pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"  required/>
             </td>
             <td>
               &ensp; <a>Ende:</a>  &ensp;
-              <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit"  pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" />
+              <input type="text" placeholder="10:00"  name="bis" id="ende" class="zeit"  pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" required/>
             </td>
           </tr>
         </table>

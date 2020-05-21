@@ -120,7 +120,7 @@
 	position: absolute;
 	display: block;
 	float: right;
-	right: 1%;
+	left: 1%;
 	height: 80%;
   margin-top: 0.5%;
 }
@@ -130,6 +130,19 @@
 	width: auto;
 
 
+}
+#logout-fromBearbeiten{
+  position: absolute;
+	display: block;
+	float: right;
+	right: 5%;
+	height: 80%;
+  margin-top: 0.5%;
+}
+#logout-fromBearbeiten a img{
+	float:right;
+	height: 100% !important;
+	width: auto;
 }
 
 #koordination {
@@ -198,7 +211,6 @@
 }
 .kursdaten a , input:nth-child(1){
 	text-align: left;
-	padding-left: 5%;
 }
 .kursdaten input{
 	border: 1.2px solid #000;
@@ -281,7 +293,8 @@ text-align: left;
 
 #datumkurs {
 	border: 1.2px solid #000;
-	margin-left: 3rem;
+	margin-left: 2.5rem;
+	padding-left: 5px;
 	height: 30px;
 	display: inline-block;
 }
