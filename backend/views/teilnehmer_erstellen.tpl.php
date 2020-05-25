@@ -8,7 +8,7 @@
               <input type="text" name="vorname" placeholder="Vorname" required><br><br>
               <input type="text" name="nachname" placeholder="Nachname" required><br><br>
               <input type="text" name="email" placeholder="E-Mail" required><br>
-              <input id="tbutton"type="submit" value="erstellen" name="erstellen" id="button">
+              <input id="tbutton"type="submit" value="Erstellen" name="erstellen" id="button">
             </form>
     </form>
 </div>
