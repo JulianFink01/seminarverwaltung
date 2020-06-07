@@ -14,7 +14,7 @@
 <body>
   <header id="kopf">
    <div id="home-redi"><a href="?aktion=hauptseite"><img class="kurs_icons" id="home" src="images/home_icon.png" title="Hauptseite" /></a></div>
-   <div id="logout"><a href="?aktion=logout"><img class="kurs_icons" id="home" src="images/logout.png" title="Abmelden" /></a></div>
+   <div id="logout"><a href="?aktion=logout"><img class="kurs_icons" id="outlog" src="images/logout.png" title="Abmelden" /></a></div>
    <h1>Kursverwaltung - <?php echo $fortbildung->getName() ?></h1>
 
  </header>
