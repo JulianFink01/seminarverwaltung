@@ -23,6 +23,6 @@ html, body{
 }
 #logout a img{
 	float:right;
-	height: 90% !important;
-	width: auto;
+	width: 90% !important;
+	height: auto;
 }
