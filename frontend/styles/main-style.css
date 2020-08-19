@@ -13,7 +13,20 @@ html, body{
   padding: 0;
   margin: 0;
 
-}#logout{
+}#logoutkurse{
+  position: absolute;
+	display: block;
+	float: right;
+	right: 7%;
+  height: 8%;
+  margin-top: 2%;
+}
+#logoutkurse a img{
+	float:right;
+	height: 90% !important;
+	width: auto;
+}
+#logout{
   position: absolute;
 	display: block;
 	float: right;
