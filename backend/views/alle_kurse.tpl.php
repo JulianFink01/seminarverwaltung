@@ -4,11 +4,13 @@
 <html>
 <head>
   <!-- https://t3n.de/news/css3-dynamische-tabs-ohne-365861/-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8" >
     <link rel="icon" href="../styles/logo.png">
   <link rel="stylesheet" type="text/css" href="styles/main-style.css">
 <link rel="stylesheet" type="text/css" href="styles/kurse-style.css">
   <meta name="noindex" content="noindex" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 </head>
 <body>
   <header id="kopf">

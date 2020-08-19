@@ -16,6 +16,7 @@
   <link rel="stylesheet" type="text/css" href="styles/main-style.css">
   <link rel="stylesheet" type="text/css" href="styles/kurse-style.css">
   <meta name="noindex" content="noindex" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 </head>
 <body>
 
@@ -52,7 +53,7 @@
           <table id="kurszeiten">
             <tr>
               <td><a>Dauer in Stunden:</a> &ensp;
-              <input type="number" name="dauer"  class="zeit" value="0"/>
+              <input type="number" name="dauer" step="0.5"  class="zeit" value="0"/>
             </td>
             <td>
               <a>Start:</a>  &ensp;

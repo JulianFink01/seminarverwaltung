@@ -9,6 +9,7 @@ if(!isset($_SESSION["loggedIn"])){
     <link rel="stylesheet" type="text/css" href="styles/main-style.css">
   <link rel="stylesheet" type="text/css" href="styles/hauptseite-style.css">
     <meta name="noindex" content="noindex" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 </head>
 
 <body >

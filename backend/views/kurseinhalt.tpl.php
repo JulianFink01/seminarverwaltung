@@ -30,6 +30,7 @@
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.js"></script>
   <meta name="noindex" content="noindex" />
   <link rel="stylesheet" type="text/css" href="styles/kurseinhalt.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
 </head>
 

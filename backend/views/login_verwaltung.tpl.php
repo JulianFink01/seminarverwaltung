@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="styles/main-style.css">
   <link rel="stylesheet" type="text/css" href="styles/login-style.css">
     <meta name="noindex" content="noindex" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 </head>
 <body>
   <div id="login">
