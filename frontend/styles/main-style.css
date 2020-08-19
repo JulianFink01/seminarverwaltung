@@ -18,11 +18,11 @@ html, body{
 	display: block;
 	float: right;
 	right: 1%;
-	height: 40%;
-  margin-top: 2%;
+  height: 80%;
+  margin-top: 0.5%;
 }
 #logout a img{
 	float:right;
-	width: 90% !important;
-	height: auto;
+	height: 90% !important;
+	width: auto;
 }
