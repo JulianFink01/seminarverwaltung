@@ -63,7 +63,7 @@ CREATE TABLE `f_kurs` (
   `koordination` varchar(45) DEFAULT NULL,
   `anmeldeschluss` date DEFAULT NULL,
   `fortbildung_id` int(11) NOT NULL,
-  `dauer` int(11) DEFAULT NULL
+  `dauer` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
