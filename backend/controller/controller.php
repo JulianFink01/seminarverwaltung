@@ -37,17 +37,28 @@ class Controller{
       header("Location: index.php?aktion=hauptseite");
 
     }
+    public function duplicateKurs(){
+      $alteFortbildung = Fortbildung::finde($_GET['fortbildung_id']);
+      //$altKurs = Kurs::findeNachFortbildung($alteFortbildung);
+      $alterKurs = Kurs::finde($_GET['kurs_id']);
+
+        $dupliKurs = new Kurs(array("titel"=>$alterKurs->getTitel(),"datum"=>$alterKurs->getDatum(),"maxTeilnehmer"=>$alterKurs->getMaxTeilnehmer(),"referent"=>$alterKurs->getReferent(),"beschreibung"=>$alterKurs->getBeschreibung(),"ort_raum"=>$alterKurs->getOrt_raum(),"kontakt"=>$alterKurs->getKontakt(),
+        "von"=>$alterKurs->getVon(),"bis"=>$alterKurs->getBis(),"unterschriftsliste_zweispaltig"=>$alterKurs->getUnterschriftsliste_zweispaltig(),"koordination"=>$alterKurs->getKoordination(),"anmeldeschluss"=>$alterKurs->getAnmeldeSchluss(),"dauer"=>$alterKurs->getDauer(),"fortbildung_id"=>$alteFortbildung->getId()));
+        $dupliKurs->speichere();
+
+
+      header('Location: index.php?aktion=alle_kurse&fortbildung_id='.$_GET["fortbildung_id"].'#allgemeiner');
+
+    }
     public function statusAendern(){
       $fortbildung = Fortbildung::finde($_GET['fortbildung_id']);
       echo $fortbildung->__toString();
       if ($fortbildung->getStatus() == 1) {
         $fortbildung->setStatus(0);
         $fortbildung->speichere();
-        echo "war 1";
       }else {
         $fortbildung->setStatus(1);
         $fortbildung->speichere();
-        echo "war 0";
       }
 
       header("Location: index.php?aktion=hauptseite");
