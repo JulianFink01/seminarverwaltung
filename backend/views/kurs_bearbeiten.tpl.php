@@ -63,7 +63,7 @@
         <table id="kurszeiten">
           <tr>
             <td><a>Dauer in Stunden:</a> &ensp;
-            <input type="number" name="dauer"  class="zeit" value="<?php if($kurse->getDauer()!=null){echo $kurse->getDauer();}else{echo '8';}?>" />
+            <input type="number" name="dauer" step="0.5" class="zeit" value="<?php if($kurse->getDauer()!=null){echo $kurse->getDauer();}else{echo '8';}?>" />
           </td>
           <td>
             <a>Start:</a>  &ensp;
