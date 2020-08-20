@@ -420,9 +420,6 @@ public function speichere()
       if($this->getKoordination() == null){
         $this->setKoordination(" ");
       }
-      if($this->getAnmeldeSchluss() == null){
-        $this->setAnmeldeschluss(date('Y-m-d', strtotime('+1 year')));
-      }
       if($this->getDauer()==null){
         $this->setDauer("8");
       }
