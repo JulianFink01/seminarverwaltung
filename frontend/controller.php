@@ -77,7 +77,9 @@ class Controller{
     $kurs = Kurs::finde($kursId);
     $user = Teilnehmer::findeNachToken($token);
     $kurs->teilnehmen($user);
+    Funktionen::send_bestaetigungs_email();
     $this->show_seminare();
+
   }
   private function generatePage($template){
     extract($this->context);

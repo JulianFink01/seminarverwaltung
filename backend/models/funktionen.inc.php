@@ -78,6 +78,47 @@ class Funktionen{
         return $teilnehmer_all;
     }
 
+    public static function send_bestaetigungs_email() {
+       require_once 'PHPMailer-master/src/PHPMailer.php';
+
+
+        $fortbildung = Fortbildung::finde($_REQUEST['fortbildung_id']);
+        //->$teilnehmer = NimmtTeil::findeAlleUnangemeldetenFortbildungTeilnehmer($fortbildung);
+
+        $subject = strip_tags('Bestätigung fürs Anmelden bei: '.$fortbildung->getName());
+        $message = strip_tags('Zur Erinnerung: Am '.$fortbildung->getDatum().' von '.$fortbilung->getVon().' - '.$fortbildung->getBis().' Uhr');//$_POST['message']
+        $vars = parse_ini_file("../entities/variables.ini.php", TRUE);
+        $mailvars = $vars["Mail"];
+
+        foreach ($teilnehmer as $key) {
+
+            $mailer = new \PHPMailer\PHPMailer\PHPMailer();
+            $mail = $key->getEmail();
+
+            $to = strip_tags($mail);
+
+            $mailer->From = "sekretariat@berufsschule.bz";
+            $mailer->FromName = "LBSHI Schule";
+            $mailer->addAddress($to, $key->getVorname()." ".$key->getNachname());
+            $mailer->Subject = $subject;
+            $mailer->CharSet ="UTF-8";
+            $mailer->Body = $message."\n \n Anmeldung ändern unter:\n ".$mailvars["url"]."/".$mailvars["urlUnterordner"]."/index.php?token=".$key->gettoken()."&aktion=login";
+
+
+
+
+            if (!$mailer->send()) {
+                $_SESSION["Info_mail"] = "Fehler beim versenden ihrer Email!";
+            }else{
+                    $_SESSION["Info_mail"] = "Deine Email wurde erfolgreich versendet!";
+            }
+
+          }
+
+        }
+
+
+
 
 
 }

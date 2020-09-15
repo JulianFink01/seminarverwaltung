@@ -4,6 +4,7 @@
     require_once("../entities/kurs.php");
     require_once("../entities/nimmtteil.php");
     require_once("../entities/teilnehmer.php");
+    require_once('../backend/models/funktionen.inc.php');
 
 
     require_once('controller.php');
