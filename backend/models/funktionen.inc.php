@@ -4,15 +4,13 @@ class Funktionen{
 
   public static function send_email() {
      require_once 'PHPMailer-master/src/PHPMailer.php';
-
+      require_once("../entities/variables.ini.php");
 
       $fortbildung = Fortbildung::finde($_REQUEST['fortbildung_id']);
       $teilnehmer = NimmtTeil::findeAlleUnangemeldetenFortbildungTeilnehmer($fortbildung);
 
       $subject = strip_tags('Einladung zur Fortbildung: '.$fortbildung->getName());
       $message = strip_tags($_POST['message']);//$_POST['message']
-      $vars = parse_ini_file("../entities/variables.ini.php", TRUE);
-      $mailvars = $vars["Mail"];
 
       foreach ($teilnehmer as $key) {
 
@@ -26,7 +24,7 @@ class Funktionen{
           $mailer->addAddress($to, $key->getVorname()." ".$key->getNachname());
           $mailer->Subject = $subject;
           $mailer->CharSet ="UTF-8";
-          $mailer->Body = $message."\n \n Anmeldung unter:\n ".$mailvars["url"]."/".$mailvars["urlUnterordner"]."/index.php?token=".$key->gettoken()."&aktion=login";
+          $mailer->Body = $message."\n \n Anmeldung unter:\n ".M_URL."/".M_URLUNTERORDNER."/index.php?token=".$key->gettoken()."&aktion=login";
 
 
 
@@ -83,7 +81,7 @@ class Funktionen{
 
 
         $fortbildung = Fortbildung::finde($_REQUEST['fortbildung_id']);
-        //->$teilnehmer = NimmtTeil::findeAlleUnangemeldetenFortbildungTeilnehmer($fortbildung);
+        $teilnehmer = NimmtTeil::findeAlleUnangemeldetenFortbildungTeilnehmer($fortbildung);
 
         $subject = strip_tags('Bestätigung fürs Anmelden bei: '.$fortbildung->getName());
         $message = strip_tags('Zur Erinnerung: Am '.$fortbildung->getDatum().' von '.$fortbilung->getVon().' - '.$fortbildung->getBis().' Uhr');//$_POST['message']

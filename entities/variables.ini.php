@@ -1,16 +1,16 @@
 <?php
 
+//[Database]
+define("D_HOST", "remotemysql.com:3306");
+define("D_NAME", "UsNSSxycdr");
+define("D_USER", "UsNSSxycdr");
+define("D_PASSWORD", "NaYCKB35nU");
 
-[Database]
-host = remotemysql.com:3306
-name = UsNSSxycdr
-user = UsNSSxycdr
-password = NaYCKB35nU
+//[Mail]
+define("M_URL", "https://testURLfindetmaninderIncDatei.html");
+define("M_URLUNTERORDNER", "seminarverwaltung/frontend");
 
-[Mail]
-url = https://testURLfindetmaninderIncDatei.html
-urlUnterordner = seminarverwaltung/frontend;
-[Verwaltung]
-username = test
-password = test
+//[Verwaltung]
+define("V_USERNAME", "test");
+define("V_PASSWORD", "test");
 ?>

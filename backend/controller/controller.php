@@ -129,10 +129,8 @@ class Controller{
       header('Location: index.php?aktion=hauptseite');
     }
     public function login(){
-      $vars = parse_ini_file("../entities/variables.ini.php", TRUE);
-      $verwaltung = $vars["Verwaltung"];
       if(isset($_POST["key"]) && isset($_POST["passwd"])){
-      if($_POST["key"] == $verwaltung["username"] && $_POST["passwd"] == $verwaltung["password"]){
+      if($_POST["key"] ==V_USERNAME && $_POST["passwd"] ==V_PASSWORD){
         $_SESSION["loggedIn"] = true;
         $this->addContext("template","hauptseite");
           $this->addContext("fortbildungen", Fortbildung::findeAlle());
