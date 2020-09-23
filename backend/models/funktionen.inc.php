@@ -83,8 +83,8 @@ class Funktionen{
         $kurs = Kurs::finde($kursId);
         $teilnehmer = Teilnehmer::findeNachToken($token);
 
-        $subject = strip_tags('Bestätigung fürs Anmelden bei: '.$kurs->getTitel());
-        $message = strip_tags('Vielen Dank, dass Sie sich bei '.$kurs->getTitel().' angemeldet haben! \n \n Zur Erinnerung: '.'\n \t'.'Datum: '.$kurs->getDatum().', von '.$kurs->getVon().' bis '.$kurs->getBis().' Uhr!'.'\n \t'.'Ort/Raum: '.$kurs->getOrt_raum().'\n \n'.'LG LBSHI');//$_POST['message']
+        $subject = strip_tags('Bestätigung der Anmelden bei: '.$kurs->getTitel());
+        $message = strip_tags('Hiermit wird die An(Ab)meldung zu '.$kurs->getTitel().' am '.$kurs->getDatum().' von '.$kurs->getVon().' bis '.$kurs->getBis().' im Raum/Ort '.$kurs->getOrt_raum().' bestätigt.');//$_POST['message']
         $vars = parse_ini_file("../entities/variables.ini.php", TRUE);
         $mailvars = $vars["Mail"];
 
