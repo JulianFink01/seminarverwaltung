@@ -76,15 +76,15 @@ class Funktionen{
         return $teilnehmer_all;
     }
 
-    public static function send_bestaetigungs_email() {
+    public static function send_bestaetigungs_email($kursId, $token) {
        require_once 'PHPMailer-master/src/PHPMailer.php';
 
 
-        $fortbildung = Fortbildung::finde($_REQUEST['fortbildung_id']);
-        $teilnehmer = NimmtTeil::findeAlleUnangemeldetenFortbildungTeilnehmer($fortbildung);
+        $kurs = Kurs::finde($kursId);
+        $teilnehmer = Teilnehmer::findeNachToken($token);
 
-        $subject = strip_tags('Bestätigung fürs Anmelden bei: '.$fortbildung->getName());
-        $message = strip_tags('Zur Erinnerung: Am '.$fortbildung->getDatum().' von '.$fortbilung->getVon().' - '.$fortbildung->getBis().' Uhr');//$_POST['message']
+        $subject = strip_tags('Bestätigung fürs Anmelden bei: '.$kurs->getTitel());
+        $message = strip_tags('Vielen Dank, dass Sie sich bei '.$kurs->getTitel().' angemeldet haben! \n \n Zur Erinnerung: '.'\n \t'.'Datum: '.$kurs->getDatum().' , von '.$kurs->getVon().' bis '.$kurs->getBis().' Uhr!'.'\n \t'.'Ort/Raum: '.$kurs->getOrt_raum().'\n \n'.'LG LBSHI';//$_POST['message']
         $vars = parse_ini_file("../entities/variables.ini.php", TRUE);
         $mailvars = $vars["Mail"];
 

@@ -26,6 +26,7 @@ class Controller{
         }
       }
   }
+
   public function show_seminare(){
     if (isset ($_REQUEST['token'])){
         $token = $_REQUEST['token'];
@@ -79,8 +80,10 @@ class Controller{
     $kurs->teilnehmen($user);
    // Funktionen::send_bestaetigungs_email();
     $this->show_seminare();
+    Funktionen::send_bestaetigungs_email($kursId,$token);
 
   }
+
   private function generatePage($template){
     extract($this->context);
     require_once 'views/'.$template.".tpl.html";
