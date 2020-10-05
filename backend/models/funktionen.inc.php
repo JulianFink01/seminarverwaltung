@@ -77,44 +77,38 @@ class Funktionen{
     }
 
     public static function send_bestaetigungs_email($kursId, $token) {
-       require_once 'PHPMailer-master/src/PHPMailer.php';
+        require_once 'PHPMailer-master/src/PHPMailer.php';
 
-
+        error_reporting(E_ALL);
         $kurs = Kurs::finde($kursId);
         $teilnehmer = Teilnehmer::findeNachToken($token);
 
         $subject = strip_tags('Bestätigung der Anmelden bei: '.$kurs->getTitel());
         $message = strip_tags('Hiermit wird die An(Ab)meldung zu '.$kurs->getTitel().' am '.$kurs->getDatum().' von '.$kurs->getVon().' bis '.$kurs->getBis().' im Raum/Ort '.$kurs->getOrt_raum().' bestätigt.');//$_POST['message']
-        $vars = parse_ini_file("../entities/variables.ini.php", TRUE);
-        $mailvars = $vars["Mail"];
-
-        foreach ($teilnehmer as $key) {
-
-            $mailer = new \PHPMailer\PHPMailer\PHPMailer();
-            $mail = $key->getEmail();
-
-            $to = strip_tags($mail);
-
-            $mailer->From = "sekretariat@berufsschule.bz";
-            $mailer->FromName = "LBSHI Schule";
-            $mailer->addAddress($to, $key->getVorname()." ".$key->getNachname());
-            $mailer->Subject = $subject;
-            $mailer->CharSet ="UTF-8";
-            $mailer->Body = $message."\n \n Anmeldung ändern unter:\n ".$mailvars["url"]."/".$mailvars["urlUnterordner"]."/index.php?token=".$key->gettoken()."&aktion=login";
 
 
 
+        $mailer = new \PHPMailer\PHPMailer\PHPMailer();
+        $mail = $teilnehmer->getEmail();
 
-            if (!$mailer->send()) {
-                $_SESSION["Info_mail"] = "Fehler beim versenden ihrer Email!";
-            }else{
-                    $_SESSION["Info_mail"] = "Deine Email wurde erfolgreich versendet!";
-            }
+        $to = strip_tags($mail);
 
-          }
+        $mailer->From = "sekretariat@berufsschule.bz";
+        $mailer->FromName = "LBSHI Schule";
+        $mailer->addAddress($to, $teilnehmer->getVorname()." ".$teilnehmer->getNachname());
+        $mailer->Subject = $subject;
+        $mailer->CharSet ="UTF-8";
+        $mailer->Body = $message."\n \n Anmeldung ändern unter:\n ".M_URL."/".M_URLUNTERORDNER."/index.php?token=".$teilnehmer->getToken()."&aktion=login";
 
+        if (!$mailer->send()) {
+            $_SESSION["Info_mail"] = "Fehler beim versenden ihrer Email!";
+        }else{
+            $_SESSION["Info_mail"] = "Deine Email wurde erfolgreich versendet!";
         }
 
+
+
+    }
 
 
 
