@@ -97,7 +97,7 @@
 
 
 
-          <input type="submit" class="Senden_erstellen" onclick="myFunction()" id="button" value="Senden">
+          <input type="submit" class="Senden_erstellen" onclick="myFunction()" id="button" value="speichern">
           <div id="back"><a  href="?aktion=alle_kurse&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>#allgemeiner"><img id="zurueck" src="images/zurueck_icon.png" title="Zurück" /></a></div>
 
 

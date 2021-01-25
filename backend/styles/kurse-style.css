@@ -174,30 +174,28 @@ left: 10%;
 	width: 100px;
 	height: 30px;
 }
-#teilnehmer {
-	width: 75%;
-	margin: 50px 0px 0px 50px;
+#teilnehmer-tabelle {
+	width: 100%;
 	height: 430px;
-	overflow-y: auto;
-
+	padding: 0px 20px;
 }
-#teilnehmer table {
+#teilnehmer-tabelle table {
 	  border-collapse: collapse;
 		width: 100%;
 }
 .hidden{
 	display: none !important;
 }
-#teilnehmer table tr th{
+#teilnehmer-tabelle table tr th{
 		height: 50px;
 		text-align: center;
 		color: var(--main-blue);
 }
-#teilnehmer td, th{
+#teilnehmer-tabelle td, th{
 	border: 0.5px solid var(--dark-white);
 	padding: 5px;
 }
-#teilnehmer table tr td{
+#teilnehmer-tabelle table tr td{
 		text-align: center;
 		color: var(--main-blue);
 

@@ -100,8 +100,8 @@ class Funktionen{
         $kurs = Kurs::finde($kursId);
         $teilnehmer = Teilnehmer::findeNachToken($token);
 
-        $subject = strip_tags('Bestätigung der Anmelden bei: '.$kurs->getTitel());
-        $message = strip_tags('Hiermit wird die An(Ab)meldung zu '.$kurs->getTitel().' am '.$kurs->getDatum().' von '.$kurs->getVon().' bis '.$kurs->getBis().' im Raum/Ort '.$kurs->getOrt_raum().' bestätigt.');//$_POST['message']
+        $subject = strip_tags('Anmeldung bei: '.$kurs->getTitel());
+        $message = strip_tags('Hiermit wird die Anmeldung zu '.$kurs->getTitel().' am '.$kurs->getDatum().' von '.$kurs->getVon().' bis '.$kurs->getBis().' im Raum/Ort '.$kurs->getOrt_raum().' bestätigt.');//$_POST['message']
 
 
 

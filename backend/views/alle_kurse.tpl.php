@@ -64,7 +64,7 @@
 
 
 
-            <div id="teilnehmer">
+
                <table id="teilnehmer-tabelle">
                  <tr>
                    <th onclick="sortTableAlphabeticalVorname()">Vorname ↓</th>
@@ -89,7 +89,6 @@
                  <?php } ?>
 
              </table>
-             </div>
         </section>
         <section id="emailsenden">
             <h2><a href="#emailsenden">E-Mail senden</a></h2>
@@ -101,7 +100,7 @@
             <form action="index.php?aktion=send_email&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>" method="post">
               <textarea placeholder="Ihre Nachricht:" name="message" rows="20" cols="100" id="text"></textarea>
 
-              <input id="btn_email_sendn"type="submit" id="button" name="senden" value="Senden" />
+              <input id="btn_email_sendn"type="submit" id="button" name="senden" value="Email senden" />
       </div>
     </form>
 
