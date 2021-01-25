@@ -13,7 +13,7 @@ class DB {
 
        if (self::$db == NULL){
         try{
-         self::$db = new PDO('mysql:host='.D_HOST.';dbname='.D_NAME.';charset=UTF8',D_USER,D_PASSWORD);
+         self::$db = new PDO('mysql:host=localhost;dbname=seminarverwaltung;charset=UTF8,root');
          self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch (PDOException $e){

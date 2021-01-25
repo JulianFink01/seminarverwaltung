@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e551e066-16df-4e29-9ac0-fadfd28aa247" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="PhpServers">
+    <servers>
+      <server host="localhost" id="3d9e6496-286a-4a2a-816d-4eb40fae6275" name="Seminarverwaltung" port="8023" />
+    </servers>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3" />
+  <component name="ProjectId" id="1hdAvRf0ceNKg0lwuKnx4hHFtdA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="settings.php.debug.servers" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e551e066-16df-4e29-9ac0-fadfd28aa247" name="Default Changelist" comment="" />
+      <created>1600330828124</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600330828124</updated>
+      <workItem from="1600330830213" duration="450000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="308" y="112" key="#CLI_Interpreters" timestamp="1600331184831">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="308" y="112" key="#CLI_Interpreters/0.0.1440.900/-288.-1080.1920.1080@0.0.1440.900" timestamp="1600331184831" />
+    <state x="388" y="100" key="#PHP" timestamp="1600331203001">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="388" y="100" key="#PHP/0.0.1440.900/-288.-1080.1920.1080@0.0.1440.900" timestamp="1600331203001" />
+    <state x="307" y="124" key="#Servers" timestamp="1600331048873">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="307" y="124" key="#Servers/0.0.1440.900/-288.-1080.1920.1080@0.0.1440.900" timestamp="1600331048873" />
+    <state x="184" y="112" width="1071" height="724" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600331074046">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="184" y="112" width="1071" height="724" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/-288.-1080.1920.1080@0.0.1440.900" timestamp="1600331074046" />
+    <state width="1398" height="304" key="GridCell.Tab.0.bottom" timestamp="1600331281412">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="304" key="GridCell.Tab.0.bottom/0.0.1440.900/-288.-1080.1920.1080@0.0.1440.900" timestamp="1600331281412" />
+    <state width="1398" height="304" key="GridCell.Tab.0.center" timestamp="1600331281411">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="304" key="GridCell.Tab.0.center/0.0.1440.900/-288.-1080.1920.1080@0.0.1440.900" timestamp="1600331281411" />
+    <state width="1398" height="304" key="GridCell.Tab.0.left" timestamp="1600331281410">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="304" key="GridCell.Tab.0.left/0.0.1440.900/-288.-1080.1920.1080@0.0.1440.900" timestamp="1600331281410" />
+    <state width="1398" height="304" key="GridCell.Tab.0.right" timestamp="1600331281412">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="304" key="GridCell.Tab.0.right/0.0.1440.900/-288.-1080.1920.1080@0.0.1440.900" timestamp="1600331281412" />
+    <state width="1398" height="304" key="GridCell.Tab.1.bottom" timestamp="1600331281414">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="304" key="GridCell.Tab.1.bottom/0.0.1440.900/-288.-1080.1920.1080@0.0.1440.900" timestamp="1600331281414" />
+    <state width="1398" height="304" key="GridCell.Tab.1.center" timestamp="1600331281413">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="304" key="GridCell.Tab.1.center/0.0.1440.900/-288.-1080.1920.1080@0.0.1440.900" timestamp="1600331281413" />
+    <state width="1398" height="304" key="GridCell.Tab.1.left" timestamp="1600331281413">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="304" key="GridCell.Tab.1.left/0.0.1440.900/-288.-1080.1920.1080@0.0.1440.900" timestamp="1600331281413" />
+    <state width="1398" height="304" key="GridCell.Tab.1.right" timestamp="1600331281414">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="304" key="GridCell.Tab.1.right/0.0.1440.900/-288.-1080.1920.1080@0.0.1440.900" timestamp="1600331281414" />
+    <state width="1398" height="304" key="GridCell.Tab.2.bottom" timestamp="1600331281416">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="304" key="GridCell.Tab.2.bottom/0.0.1440.900/-288.-1080.1920.1080@0.0.1440.900" timestamp="1600331281416" />
+    <state width="1398" height="304" key="GridCell.Tab.2.center" timestamp="1600331281415">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="304" key="GridCell.Tab.2.center/0.0.1440.900/-288.-1080.1920.1080@0.0.1440.900" timestamp="1600331281415" />
+    <state width="1398" height="304" key="GridCell.Tab.2.left" timestamp="1600331281415">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="304" key="GridCell.Tab.2.left/0.0.1440.900/-288.-1080.1920.1080@0.0.1440.900" timestamp="1600331281415" />
+    <state width="1398" height="304" key="GridCell.Tab.2.right" timestamp="1600331281416">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="304" key="GridCell.Tab.2.right/0.0.1440.900/-288.-1080.1920.1080@0.0.1440.900" timestamp="1600331281416" />
+    <state x="221" y="89" key="SettingsEditor" timestamp="1600331149620">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="221" y="89" key="SettingsEditor/0.0.1440.900/-288.-1080.1920.1080@0.0.1440.900" timestamp="1600331149620" />
+  </component>
+</project>

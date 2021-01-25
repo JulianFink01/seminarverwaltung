@@ -1,123 +1,150 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="styles/main-style.css">
-  <link rel="stylesheet" type="text/css" href="styles/kurs-style.css">
-  <link rel="stylesheet" type="text/css" href="styles/footer-style.css">
-  <link rel="icon" href="../styles/logo.png">
-  <meta charset="UTF-8">
-  <meta name="noindex" content="noindex" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles/main-style.css">
+    <link rel="stylesheet" type="text/css" href="styles/kurs-style.css">
+    <link rel="stylesheet" type="text/css" href="styles/footer-style.css">
+    <link rel="icon" href="../styles/logo.png">
+    <meta charset="UTF-8">
+    <meta name="noindex" content="noindex"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>Fortbildungsverwaltung - Kurs</title>
 </head>
 
-  <body>
+<body>
 
-      <div class="kurs">
-      <header>
-        <div id="logoutkurse"><a href="?aktion=logout"><img class="kurs_icons" id="home" src="images/logout.png" title="Abmelden" /></a></div>
+<div class="kurs">
+    <header>
+        <div id="logoutkurse"><a href="?aktion=logout"><img class="kurs_icons" id="home" src="images/logout.png"
+                                                            title="Abmelden"/></a></div>
 
         <h1>
-          <?php echo $kurs->getTitel(); ?>
-          <a class="header-info-text"> Kurs / <?php echo $user->getVorname().' '.$user->getNachname()?></a>
+            <?php echo $kurs->getTitel(); ?>
+            <a class="header-info-text"> Kurs / <?php echo $user->getVorname().' '.$user->getNachname()?></a>
         </h1>
-      </header>
-      <div class="content-allgemein">
-      <?php
+    </header>
+    <div class="content-allgemein">
+        <?php
 
         $istEingeschrieben = $kurs->nimmtAnKursTeil($user);
         ?>
         <div class="Content <?php if($istEingeschrieben){echo 'meinKurs';} ?>">
-          <div class="Beschreibung">
+            <div class="Beschreibung">
 
-              <div class="informations">
+                <div class="informations">
 
-                <div class="Infos">
-                  <div class="info-text">
-                    <a>Am <span class="info-important"><?php echo $kurs->getFormatedDate()?></span></a>
-                  </div>
-                  <div class="info-text">
-                    <a>Referent: <span class="info-important"><?php echo $kurs->getReferent()?></span></a>
-                  </div>
-                  <div class="info-text">
-                    <a>Ort / Raum: <span class="info-important"><?php echo $kurs->getOrt_raum()?></span></a>
-                  </div>
-                  <div class="info-text">
-                    <a>Kontakt: <span class="info-important"><?php echo $kurs->getKontakt()?></span></a>
-                  </div>
-                  <div class="info-text">
-                    <a>Koordination: <span class="info-important"><?php echo $kurs->getKoordination()?></span></a>
-                  </div>
-                  <div class="info-text">
-                    <a>Anmeldeschluss: <span class="info-important"><?php echo $kurs->getFormatedAnmeldeschluss()?></span></a>
-                  </div>
-                </div>
-                <p>
-                  <?php echo $kurs->getBeschreibung();?>
-                </p>
-                <div class="info-text">
+                    <div class="Infos">
+                        <div class="info-text">
+                            <a>Am <span class="info-important"><?php echo $kurs->getFormatedDate()?></span></a>
+                        </div>
+                        <div class="info-text">
+                            <a>Referent: <span class="info-important"><?php echo $kurs->getReferent()?></span></a>
+                        </div>
+                        <div class="info-text">
+                            <a>Ort / Raum: <span class="info-important"><?php echo $kurs->getOrt_raum()?></span></a>
+                        </div>
+                        <div class="info-text">
+                            <a>Kontakt: <span class="info-important"><?php echo $kurs->getKontakt()?></span></a>
+                        </div>
+                        <div class="info-text">
+                            <a>Koordination: <span class="info-important"><?php echo $kurs->
+                                getKoordination()?></span></a>
+                        </div>
+                        <div class="info-text">
+                            <a>Anmeldeschluss: <span class="info-important"><?php echo $kurs->
+                                getFormatedAnmeldeschluss()?></span></a>
+                        </div>
+                    </div>
+                    <p>
+                        <?php echo $kurs->getBeschreibung();?>
+                    </p>
+                    <div class="info-text">
 
-                    <details class="<?php if($istEingeschrieben){echo 'meinDetails';} ?>">
-                    <summary>
-                      <?php if($kurs->getMaxTeilnehmer() != 0){ ?>
-                        <a >Teilnehmer: <?php echo ' '.$kurs->getTeilnehmerAnzahl();?> /<?php echo ' '.$kurs->getMaxTeilnehmer();?></a>
-                        <?php }else{?>
-                          <a >Angemeldet: <?php echo ' '.$kurs->getTeilnehmerAnzahl(); }?></a>
+                        <details class="<?php if($istEingeschrieben){echo 'meinDetails';} ?>">
+                            <summary>
+                                <?php if($kurs->getMaxTeilnehmer() != 0){ ?>
+                                <a>Teilnehmer: <?php echo ' '.$kurs->getTeilnehmerAnzahl();?> /<?php echo ' '.$kurs->
+                                    getMaxTeilnehmer();?></a>
+                                <?php }else{?>
+                                <a>Angemeldet: <?php echo ' '.$kurs->getTeilnehmerAnzahl(); }?></a>
 
-                      </summary>
-                      <ul id="teilnehmer-liste">
-                      <?php
+                            </summary>
+                            <ul id="teilnehmer-liste">
+                                <?php
 
                         $teilnhemer = $kurs->getAllTeilnehmer();
-                        foreach($teilnhemer as $t){
+                                foreach($teilnhemer as $t){
 
-                          ?>
-                            <li><?php
+                                ?>
+                                <li><?php
                               echo $t->getVorname().' '.$t->getNachname();
-                            ?></li>
-                          <?php
+                                    ?>
+                                </li>
+                                <?php
 
                         }
 
                       ?>
-                      </ul>
-                    </details>
+                            </ul>
+                        </details>
 
-                </div>
+                    </div>
+                    <!-- Checcking if user has Time for course-->
+                    <?php
+                    $user_already_joined_curse_at_this_time = false;
+                    $already_kurs = Kurs::findeNachBenutzer($user);
+                    foreach($already_kurs as $k){
+                    $kurs_time = $k->getDatum();
+                    $kurs_von = $k->getVon();
+                    $kurs_bis = $k->getBis();
 
-                  <?php
+
+                    if($kurs->getDatum() == $kurs_time){
+                        if($k->getBis() > $kurs->getVon()){
+                            if($kurs->getId() != $k->getId()){
+                                $user_already_joined_curse_at_this_time = true;
+                                }
+                            }
+                        }
+                    }?>
+                    <?php
 
 
 
                     if($abgelaufen != true || $abgelaufen == null){
-                    if(!$user->nimmtAnKursTeilInFortbildung($kurs->getFortbildung_id()) && $anzahl < $maxAnzahl){?>
+                    if(!$user->nimmtAnKursTeilInFortbildung($kurs->getFortbildung_id()) && $anzahl < $maxAnzahl && !$user_already_joined_curse_at_this_time){?>
 
-                        <div class="info-text info-right">
-                          <a href="index.php?aktion=anmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="anmelden" class="button">Anmelden</a>
-                      </div>
-                    <?php } elseif($kurs->nimmtAnKursTeil($user)){?>
-                      <div class="info-text info-right">
-                      <a href="index.php?aktion=abmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="abmelden" class="button">Abmelden</a>
-                      </div>
-                    <?php } elseif(!$user->nimmtAnKursTeilInFortbildung($kurs->getFortbildung_id()) && $maxAnzahl == 0){?>
-                      <div class="info-text info-right">
-                      <a href="index.php?aktion=anmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>" id="anmelden" class="button">Anmelden</a>
-                      </div>
+                    <div class="info-text info-right">
+                        <a href="index.php?aktion=anmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>"
+                           id="anmelden" class="button">Anmelden</a>
+                    </div>
+                    <?php } elseif($kurs->nimmtAnKursTeil($user) ){?>
+                    <div class="info-text info-right">
+                        <a href="index.php?aktion=abmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>"
+                           id="abmelden" class="button">Abmelden</a>
+                    </div>
+                    <?php } elseif(!$user->nimmtAnKursTeilInFortbildung($kurs->getFortbildung_id()) && $maxAnzahl ==
+                    0 && !$user_already_joined_curse_at_this_time){?>
+                    <div class="info-text info-right">
+                        <a href="index.php?aktion=anmelden&kursId=<?php echo $kurs->getId()?>&token=<?php echo $user->getToken() ?>"
+                           id="anmelden" class="button">Anmelden</a>
+                    </div>
                     <?php }}?>
 
-              </div>
-          </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <footer id="footer1">
+    </div>
+    <footer id="footer1">
         <h1>
-          <a class="footer-info-text" href="index.php?token=<?php echo $user->getToken()?>&aktion=show_seminare">Zurück zu den Seminaren</a>
+            <a class="footer-info-text" href="index.php?token=<?php echo $user->getToken()?>&aktion=show_seminare">Zurück
+                zu den Seminaren</a>
         </h1>
-      </footer>
-      </div>
-      <?php
+    </footer>
+</div>
+<?php
       include("views/impressum.tpl.html");
       ?>
-    </body>
-    </html>
+</body>
+</html>
