@@ -69,6 +69,7 @@ class Controller{
     $user = Teilnehmer::findeNachToken($token);
     $kurs->abmelden($user);
     $this->show_seminare();
+    Funktionen::send_bestaetigungs_email_abmeldung($kursId,$token);
   }
   public function anmelden(){
     $kursId = $_REQUEST['kursId'];
