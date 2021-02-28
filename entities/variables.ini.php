@@ -1,10 +1,10 @@
 <?php
 
 //[Database]
-define("D_HOST", "remotemysql.com:3306");
-define("D_NAME", "UsNSSxycdr");
-define("D_USER", "UsNSSxycdr");
-define("D_PASSWORD", "NaYCKB35nU");
+define("D_HOST", "localhost");
+define("D_NAME", "seminarverwaltung");
+define("D_USER", "root");
+define("D_PASSWORD", "");
 
 //[Mail]
 define("M_URL", "https://testURLfindetmaninderIncDatei.html");
