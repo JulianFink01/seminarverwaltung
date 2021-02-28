@@ -84,7 +84,7 @@
 
   </div>
 
-          <input class="Senden_erstellen "type="submit" onclick="myFunction()" value="speichern">
+          <input class="Senden_erstellen "type="submit" onclick="myFunction()" value="<?php if(isset($_GET['kurs_id'])){echo 'Bearbeiten';}else{echo 'Speichern';} ?>">
           <div id="back">  <a href="?aktion=alle_kurse&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>#allgemeiner"><img class="kurs_icons" id="zurueck" src="images/zurueck_icon.png" title="Zurück" /></a></div>
 
 

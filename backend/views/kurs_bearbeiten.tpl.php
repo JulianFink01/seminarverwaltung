@@ -93,11 +93,7 @@
         <input type="text"  name="ort_raum" id="ort_raum" value="<?php echo $kurse->getOrt_raum()?>" required/>
 
 </div>
-
-
-
-
-          <input type="submit" class="Senden_erstellen" onclick="myFunction()" id="button" value="speichern">
+          <input type="submit" class="Senden_erstellen" onclick="myFunction()" id="button" value="Bearbeiten">
           <div id="back"><a  href="?aktion=alle_kurse&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>#allgemeiner"><img id="zurueck" src="images/zurueck_icon.png" title="Zurück" /></a></div>
 
 
