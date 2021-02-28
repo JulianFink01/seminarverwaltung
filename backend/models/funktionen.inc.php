@@ -122,9 +122,36 @@ class Funktionen{
         }else{
             $_SESSION["Info_mail"] = "Deine Email wurde erfolgreich versendet!";
         }
+    }
+    public static function send_bestaetigungs_email_abmeldung($kursId, $token) {
+        require_once 'PHPMailer-master/src/PHPMailer.php';
+
+        error_reporting(E_ALL);
+        $kurs = Kurs::finde($kursId);
+        $teilnehmer = Teilnehmer::findeNachToken($token);
+
+        $subject = strip_tags('Abmeldung bei: '.$kurs->getTitel());
+        $message = strip_tags('Hiermit wird die Abmeldung bei '.$kurs->getTitel().' am '.$kurs->getDatum().' von '.$kurs->getVon().' bis '.$kurs->getBis().' im Raum/Ort '.$kurs->getOrt_raum().' bestätigt.');//$_POST['message']
 
 
 
+        $mailer = new \PHPMailer\PHPMailer\PHPMailer();
+        $mail = $teilnehmer->getEmail();
+
+        $to = strip_tags($mail);
+
+        $mailer->From = "sekretariat@berufsschule.bz";
+        $mailer->FromName = "LBSHI Schule";
+        $mailer->addAddress($to, $teilnehmer->getVorname()." ".$teilnehmer->getNachname());
+        $mailer->Subject = $subject;
+        $mailer->CharSet ="UTF-8";
+        $mailer->Body = $message."\n \n Neue Anmeldung unter:\n ".M_URL."/".M_URLUNTERORDNER."/index.php?token=".$teilnehmer->getToken()."&aktion=login";
+
+        if (!$mailer->send()) {
+            $_SESSION["Info_mail"] = "Fehler beim versenden ihrer Email!";
+        }else{
+            $_SESSION["Info_mail"] = "Deine Email wurde erfolgreich versendet!";
+        }
     }
 
 
