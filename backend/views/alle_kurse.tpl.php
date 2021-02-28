@@ -98,7 +98,7 @@
                  Er kann auch als Erinnerungsemail für diejenigen genutzt werden, die sich noch nicht angemeldet haben,
                   da die Email immer nur an diejenigen geschickt wird, die sich noch nicht eingeteilt haben.</span>
             <form action="index.php?aktion=send_email&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>" method="post">
-              <textarea placeholder="Ihre Nachricht:" name="message" rows="20" cols="100" id="text"></textarea>
+              <textarea placeholder="Ihre Nachricht:" name="message" rows="20" cols="100" id="text" required></textarea>
 
               <input id="btn_email_sendn"type="submit" id="button" name="senden" value="Email senden" />
       </div>
