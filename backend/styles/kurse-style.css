@@ -64,11 +64,10 @@ article.infobox section {
     position: absolute;
     display: block;
     width: 95%;
-    height: 60%;
+    height: auto;
     top: 300px;
     background-color: var(--dark-white);
 		border: 0.5px solid var(--dark-white);
-		min-height: 630px;
 }
 
 article.infobox section h2 {
@@ -709,4 +708,11 @@ margin-top: 20px;
 }
 @media screen and (max-width: 27rem){
 
+}
+
+.tabElem *{
+	display: none !important;
+}
+.tabElem h2, .tabElem, .tabElem h2 a{
+	display: block !important;
 }

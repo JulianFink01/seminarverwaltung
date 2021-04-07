@@ -22,8 +22,8 @@
 
   <div id="leiste">
     <article class="infobox">
-        <section id="allgemeiner">
-            <h2><a href="#allgemeiner">Kurse</a></h2>
+        <section id="allgemeiner" class="tab activeTab" >
+            <h2 ><a href="#allgemeiner" onclick="toggleTab(document.getElementById('allgemeiner'))">Kurse</a></h2>
 
 
          <div id="inhalt">
@@ -46,8 +46,8 @@
 </div>
 
         </section>
-        <section id="funktionen">
-            <h2><a href="#funktionen">Teilnehmer</a></h2>
+        <section id="funktionen" class="tab tabElem" >
+            <h2 ><a href="#funktionen"  onclick="toggleTab(document.getElementById('funktionen'))">Teilnehmer</a></h2>
 
 
             <div class="csv">
@@ -90,8 +90,8 @@
 
              </table>
         </section>
-        <section id="emailsenden">
-            <h2><a href="#emailsenden">E-Mail senden</a></h2>
+        <section id="emailsenden" class="tab tabElem" >
+            <h2 ><a href="#emailsenden" onclick="toggleTab(document.getElementById('emailsenden'))">E-Mail senden</a></h2>
 
             <div id="fenster">
               <span id="email-text">Der hier eingegebene Text wird zusammen mit einem personalisierten Anmeldelink an die Lehrer versendet.
@@ -273,4 +273,20 @@ function sortTableAlphabeticalNachname() {
     }
   }
 }
+</script>
+<script>
+    function toggleTab(elem){
+        var tabs = document.getElementsByClassName('tab');
+        for(var tab of tabs){
+            tab.classList.remove('activeTab');
+            if(!tab.classList.contains('tabElem')){
+                tab.classList.add('tabElem');
+            }
+        }
+        elem.classList.add('activeTab');
+        elem.classList.remove('tabElem');
+    }
+
+    var url = window.location.href.split('#')[1];
+    toggleTab(document.getElementById(url));
 </script>
