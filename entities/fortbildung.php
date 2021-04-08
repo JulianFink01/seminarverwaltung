@@ -103,7 +103,7 @@ public function findeAlleKurse(){
 }
 public static function findeAlle()
 {
-    $sql = 'SELECT * FROM f_fortbildung ORDER BY status desc, id desc';
+    $sql = 'SELECT * FROM f_fortbildung ORDER BY status desc, id asc';
     $abfrage = DB::getDB()->query($sql);
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fortbildung');
     return $abfrage->fetchAll();
