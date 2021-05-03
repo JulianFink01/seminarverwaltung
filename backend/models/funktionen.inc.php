@@ -16,6 +16,18 @@ class Funktionen{
             foreach ($teilnehmer as $key) {
 
                 $mailer = new \PHPMailer\PHPMailer\PHPMailer();
+                $mail->IsSMTP();
+                $mail->Mailer = "smtp";
+                $mail->SMTPDebug  = 1;  
+                $mail->SMTPAuth   = TRUE;
+                $mail->SMTPSecure = "tls";
+                $mail->Port       = 587;
+                $mail->Host       = "smtp.gmail.com";
+                $mail->Username   = "your-email@gmail.com";
+                $mail->Password   = "your-gmail-password";
+
+
+
                 $mail = $key->getEmail();
 
                 $to = strip_tags($mail);
