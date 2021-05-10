@@ -16,16 +16,20 @@ class Funktionen{
             foreach ($teilnehmer as $key) {
 
                 $mailer = new \PHPMailer\PHPMailer\PHPMailer();
-                $mail->IsSMTP();
-                $mail->Mailer = "smtp";
-                $mail->SMTPDebug  = 1;  
-                $mail->SMTPAuth   = TRUE;
-                $mail->SMTPSecure = "tls";
-                $mail->Port       = 587;
-                $mail->Host       = "smtp.gmail.com";
-                $mail->Username   = "your-email@gmail.com";
-                $mail->Password   = "your-gmail-password";
-
+               
+                // Nur für Entwicklung
+                require_once('PHPMailer-master/src/Exception.php');
+                require_once('PHPMailer-master/src/SMTP.php');
+                $mailer->IsSMTP();
+                $mailer->Mailer = "smtp";
+                $mailer->SMTPDebug  = 0;  
+                $mailer->SMTPAuth   = TRUE;
+                $mailer->SMTPSecure = "tls";
+                $mailer->Port       = 587;
+                $mailer->Host       = "smtp.gmail.com";
+                $mailer->Username   = "berufsschulebozen.anmeldung@gmail.com";
+                $mailer->Password   = "Lbshi-12345";
+                // Nur für Entwicklung
 
 
                 $mail = $key->getEmail();
@@ -118,6 +122,20 @@ class Funktionen{
 
 
         $mailer = new \PHPMailer\PHPMailer\PHPMailer();
+        // Nur für Entwicklung
+        require_once('PHPMailer-master/src/Exception.php');
+        require_once('PHPMailer-master/src/SMTP.php');
+        $mailer->IsSMTP();
+        $mailer->Mailer = "smtp";
+        $mailer->SMTPDebug  = 0;  
+        $mailer->SMTPAuth   = TRUE;
+        $mailer->SMTPSecure = "tls";
+        $mailer->Port       = 587;
+        $mailer->Host       = "smtp.gmail.com";
+        $mailer->Username   = "berufsschulebozen.anmeldung@gmail.com";
+        $mailer->Password   = "Lbshi-12345";
+        // Nur für Entwicklung
+
         $mail = $teilnehmer->getEmail();
 
         $to = strip_tags($mail);
@@ -135,6 +153,7 @@ class Funktionen{
             $_SESSION["Info_mail"] = "Deine Email wurde erfolgreich versendet!";
         }
     }
+
     public static function send_bestaetigungs_email_abmeldung($kursId, $token) {
         require_once 'PHPMailer-master/src/PHPMailer.php';
 
@@ -148,6 +167,19 @@ class Funktionen{
 
 
         $mailer = new \PHPMailer\PHPMailer\PHPMailer();
+        // Nur für Entwicklung
+        require_once('PHPMailer-master/src/Exception.php');
+        require_once('PHPMailer-master/src/SMTP.php');
+        $mailer->IsSMTP();
+        $mailer->Mailer = "smtp";
+        $mailer->SMTPDebug  = 0;  
+        $mailer->SMTPAuth   = TRUE;
+        $mailer->SMTPSecure = "tls";
+        $mailer->Port       = 587;
+        $mailer->Host       = "smtp.gmail.com";
+        $mailer->Username   = "berufsschulebozen.anmeldung@gmail.com";
+        $mailer->Password   = "Lbshi-12345";
+        // Nur für Entwicklung
         $mail = $teilnehmer->getEmail();
 
         $to = strip_tags($mail);
