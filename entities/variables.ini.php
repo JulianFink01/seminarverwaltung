@@ -9,6 +9,7 @@ define("D_PASSWORD", "");
 //[Mail]
 define("M_URL", "https://testURLfindetmaninderIncDatei.html");
 define("M_URLUNTERORDNER", "seminarverwaltung/frontend");
+define("M_MODE", "development"); //production
 
 //[Verwaltung]
 define("V_USERNAME", "test");
