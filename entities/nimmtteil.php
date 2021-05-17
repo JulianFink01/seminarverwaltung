@@ -70,7 +70,7 @@ class NimmtTeil{
       return $orange;
     }
   }
-  public static function loescheAusFortbildung()
+  public function loescheAusFortbildung() //  $this-> kann nicht von einer Statischen Function aufgerufen werden.
   {
       $sql = 'DELETE FROM f_nimmt_teil WHERE teilnehmer_id=?';
       $abfrage = DB::getDB()->prepare($sql);
@@ -103,14 +103,14 @@ class NimmtTeil{
   /* ***** public Methoden **** */
 
   public static function findeAlleKursTeilnehmer(Kurs $kurs){
-    $sql = 'SELECT f_teilnehmer.* FROM f_teilnehmer JOIN f_nimmt_teil on f_teilnehmer.id = f_nimmt_teil.teilnehmer_id WHERE kurs_id=?';
+    $sql = 'SELECT f_teilnehmer.* FROM f_teilnehmer JOIN f_nimmt_teil ON f_teilnehmer.id = f_nimmt_teil.teilnehmer_id WHERE kurs_id=?';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array($kurs->getId()));
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
     return $abfrage->fetchAll();
   }
   public static function findeAlleFortbildungTeilnehmer(Fortbildung $fortbildung){
-    $sql = 'SELECT f_teilnehmer.* FROM f_teilnehmer JOIN f_nimmt_teil on f_teilnehmer.id = f_nimmt_teil.teilnehmer_id WHERE fortbildung_id=?';
+    $sql = 'SELECT f_teilnehmer.* FROM f_teilnehmer JOIN f_nimmt_teil ON f_teilnehmer.id = f_nimmt_teil.teilnehmer_id WHERE fortbildung_id=?';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array($fortbildung->getId()));
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
@@ -118,7 +118,7 @@ class NimmtTeil{
 
   }
   public static function findeAlleUnangemeldetenFortbildungTeilnehmer(Fortbildung $fortbildung){
-    $sql = 'SELECT f_teilnehmer.* FROM f_teilnehmer, f_nimmt_teil where f_teilnehmer.id = f_nimmt_teil.teilnehmer_id and f_nimmt_teil.fortbildung_id=? and f_nimmt_teil.kurs_id is NULL';
+    $sql = 'SELECT f_teilnehmer.* FROM f_teilnehmer, f_nimmt_teil WHERE f_teilnehmer.id = f_nimmt_teil.teilnehmer_id AND f_nimmt_teil.fortbildung_id=? AND f_nimmt_teil.kurs_id is NULL';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array($fortbildung->getId()));
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Teilnehmer');
@@ -126,14 +126,14 @@ class NimmtTeil{
 
   }
   public static function findeAlleKurseNachTeilnehmer(Teilnehmer $teilnehmer){
-    $sql = 'SELECT f_kurs.* FROM f_kurs JOIN f_nimmt_teil on f_kurs.id = f_nimmt_teil.kurs_id WHERE f_nimmt_teil.teilnehmer_id=?';
+    $sql = 'SELECT f_kurs.* FROM f_kurs JOIN f_nimmt_teil ON f_kurs.id = f_nimmt_teil.kurs_id WHERE f_nimmt_teil.teilnehmer_id=?';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array($teilnehmer->getId()));
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Kurs');
     return $abfrage->fetchAll();
   }
   public static function findeAlleFortbildungenNachTeilnehmer(Teilnehmer $teilnehmer){
-    $sql = 'SELECT f_fortbildung.* FROM f_fortbildung JOIN f_nimmt_teil on f_fortbildung.id = f_nimmt_teil.fortbildung_id WHERE f_nimmt_teil.teilnehmer_id=?';
+    $sql = 'SELECT f_fortbildung.* FROM f_fortbildung JOIN f_nimmt_teil ON f_fortbildung.id = f_nimmt_teil.fortbildung_id WHERE f_nimmt_teil.teilnehmer_id=?';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array($teilnehmer->getId()));
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fortbildung');
@@ -141,7 +141,7 @@ class NimmtTeil{
   }
 
   public static function findeNachFortbildungUndTeilnehemer(Fortbildung $fortbilung, Teilnehmer $teilnehmer){
-    $sql = 'SELECT * FROM f_nimmt_teil WHERE f_nimmt_teil.teilnehmer_id=? and f_nimmt_teil.fortbildung_id = ?';
+    $sql = 'SELECT * FROM f_nimmt_teil WHERE f_nimmt_teil.teilnehmer_id=? AND f_nimmt_teil.fortbildung_id = ?';
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute(array($teilnehmer->getId(), $fortbilung->getId()));
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'NimmtTeil');
