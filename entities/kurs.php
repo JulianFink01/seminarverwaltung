@@ -68,7 +68,6 @@ public function speichere()
     $this->datum = $datum;
   }
   public function getDatum(){
-
     return $this->datum;
   }
   public function setTitel($titel){
@@ -387,7 +386,7 @@ public function speichere()
   }
   public function completeKurs(){
       if($this->getDatum()==null){
-        $this->setDatum(date());
+        $this->setDatum(date("Y-m-d")); //  Ich binn mir nicht sicher ob bei diesem das aktuelle Datum gemeint ist; auf jedem fall bracht DATE einen Parameter.
       }
 
       if($this->getTitel()==null){
