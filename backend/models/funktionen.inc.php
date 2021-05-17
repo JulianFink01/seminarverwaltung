@@ -30,7 +30,7 @@ class Funktionen{
         $message = strip_tags($_POST['email_text']);//$_POST['message']
         if (is_array($teilnehmer)) {
             foreach ($teilnehmer as $key) {
-                $body_message = "\n \n Zum Kurs:\n " . M_URL . "/" . M_URLUNTERORDNER . "/index.php?aktion=" . $key->gettoken() . "&aktion=login";
+                $body_message = "";
 
                 Funktionen::mailer($subject, $message, $body_message, $key);
             }
