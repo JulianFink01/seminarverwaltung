@@ -628,6 +628,49 @@ margin-top: 20px;
 	border-radius: 1px;
 }
 
+#email_teilnehmer_senden{
+	position: fixed;
+	width: 50%;
+	display: none;
+	height: auto;
+	overflow: hidden;
+	margin: auto;
+	transition: 1s all ease-in;
+		background-color: var(--main-blue);
+	z-index: 999099999999;
+	transform: translate(50%,0%);
+	-webkit-filter: blur(0px);
+	-moz-filter: blur(0px);
+	-o-filter: blur(0px);
+	-ms-filter: blur(0px);
+	filter: blur(0px);
+	border-radius: 1px;
+
+}
+
+#email_titel{
+	width: 100%;
+	margin-bottom: 35px;
+	margin-top: 35px;
+	text-align: center;
+	color: var(--main-white) ;
+	font-size: 25px;
+	
+
+}
+
+#email_text{
+	
+	margin-left: 15%;
+	font-size: 15px;
+	width: 70%;
+	height: 120px;
+	align-items: center;
+
+}
+
+
+
 #tbutton {
 	border-style: none;
 	color: var(--main-blue);

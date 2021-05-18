@@ -34,10 +34,11 @@
          <div class="kurs">
          <h1><?php echo $kurs->getTitel();?></h1>
          <a href="?aktion=kurs_bearbeiten&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>&kurs_id=<?php echo $kurs->getId()?>"><img class="kurs_icons" width="35px" src="images/stift.png" title="bearbeiten" /></a>
-         <a href="?aktion=loesche&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>&kurs_id=<?php echo $kurs->getId()?>"><img class="kurs_icons" width="35px" src="images/muelleimer_icon.png" title="löschen" /></a>
          <a href="?aktion=teilnehmerliste&kurs_id=<?php echo $kurs->getId()?>" target="drucken"><img class="kurs_icons" width="35px" src="images/personen.png" title="Teilnehmerliste" /></a>
+         <a onclick="teilnehmer_senden()"><img class="kurs_icons" width="35px" src="images/email-hinzufuegen.png" title="Email an Teilnehmer"/></a>
          <a href="?aktion=duplicateKurs&fortbildung_id=<?php echo $fortbildung->getId();?>&kurs_id=<?php echo $kurs->getId()?>" id="duplicate_f"><img class="kurs_icons" width="35px" src="images/clon_icon.png" title="duplizieren" /></a>
-         </div>
+         <a href="?aktion=loesche&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>&kurs_id=<?php echo $kurs->getId()?>"><img class="kurs_icons" width="35px" src="images/muelleimer_icon.png" title="löschen" /></a> 
+        </div>
  <?php    }} ?>
 
 </div>
@@ -110,6 +111,7 @@
 <?php
   include("views/bearbeite_teilnehmer.tpl.html");
   include("views/teilnehmer_erstellen.tpl.php");
+  include("views/email_teilnehmer_senden.tpl.php");
 ?>
 </body>
 </html>
@@ -289,4 +291,12 @@ function sortTableAlphabeticalNachname() {
 
     var url = window.location.href.split('#')[1];
     toggleTab(document.getElementById(url));
+</script>
+<script>
+  function teilnehmer_senden(){
+  var textfeld = document.getElementById("email_teilnehmer_senden");
+  textfeld.classList.toggle("show_teilnehmer");
+  document.getElementById("leiste").classList.toggle("blur");
+  document.getElementById("kopf").classList.toggle("blur");
+  }
 </script>
