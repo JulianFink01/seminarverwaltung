@@ -104,6 +104,32 @@ class Controller{
 
 
     }
+
+    public function send_email_teilnehmer(){
+
+      //Email Text auslesen
+
+      $email_inhalt = "";
+
+      if($_POST){
+
+        $email_inhalt = $_POST["email_text"];
+
+      }
+
+      //Email an alle Teilnehmer senden(Function aufrufen)
+
+      if(!empty($email_inhalt)){
+
+      Funktionen::send_email_teilnehmer();
+
+      }
+
+      //Alle Kurse anzeigen
+
+      header('Location: index.php?aktion=alle_kurse&fortbildung_id='.$_REQUEST['fortbildung_id'].'#allgemeiner');
+    }
+
     public function titel_aendern(){
 
 
