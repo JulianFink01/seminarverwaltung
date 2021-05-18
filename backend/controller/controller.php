@@ -224,16 +224,18 @@ class Controller{
     }
 
     public function teilnehmerliste(){
-      $this->addContext("kurse",Kurs::finde($_GET['kurs_id']));
+      $kurs = Kurs::finde($_GET['kurs_id']);
+      $kurseZeitBis = str_replace(":", ".", $kurs->getBis());
+      $kurseZeitVon = str_replace(":", ".", $kurs->getVon());
+      $this->addContext("kurse",$kurs);
       $this->addContext("teilnehmern",Teilnehmer::findeNachKurs(Kurs::finde($_GET['kurs_id'])));
+      $this->addContext("vormittag", ($kurseZeitBis <= 12.00));
+      $this->addContext("nachmittag", ($kurseZeitVon >= 12.00));
     }
-
-
 
     private function generatePage($template){
         extract($this->context);
         require_once 'views/'.$template.".tpl.php";
-
     }
 
     private function addContext($key, $value){
