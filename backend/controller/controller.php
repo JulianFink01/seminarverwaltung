@@ -11,6 +11,7 @@ class Controller{
     public function logout(){
         session_destroy ();
           header("Location: ../index.html");
+          $this->addContext("template", "login");
     }
 
     public function hauptseite(){

@@ -106,6 +106,7 @@ class Controller
       $kurs->getOrt_raum()
     );
     $event->save();
+    $this->addContext("template", "login");
   }
 
   private function generatePage($template)

@@ -35,7 +35,7 @@ if(!isset($_SESSION["loggedIn"])){
 
         <div id="textdeco">
 
-              <div class="f_inhalt <?php if($fortbildung->getStatus() == 0){echo 'disabled';}?>">
+        <div class="f_inhalt <?php if($fortbildung->getStatus() == 0){echo 'disabled';}?>">
                 <a href="index.php?aktion=alle_kurse&fortbildung_id=<?php echo $fortbildung->getId();?>#allgemeiner" >
                 <?php echo $fortbildung->getName();?>
               </a>
@@ -56,6 +56,8 @@ if(!isset($_SESSION["loggedIn"])){
                 <a href="?aktion=statusAendern&fortbildung_id=<?php echo $fortbildung->getId();?>" id="duplicate_f"><img class="kurs_icons" width="35px" src="<?php echo $img_status;?>" title="aktivieren/deaktivieren" /></a>
                 <a href="#" onclick="bearbeiteName('<?php echo $fortbildung->getName();?>',<?php echo $fortbildung->getId();?>)" id="duplicate_f"><img class="kurs_icons" width="35px"  src="images/stift.png" title="Name ändern" /></a>
               </div>
+
+              
         <?php }?>
 
       </div>
