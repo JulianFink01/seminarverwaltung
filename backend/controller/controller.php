@@ -43,7 +43,7 @@ class Controller{
       //$altKurs = Kurs::findeNachFortbildung($alteFortbildung);
       $alterKurs = Kurs::finde($_GET['kurs_id']);
 
-        $dupliKurs = new Kurs(array("titel"=>$alterKurs->getTitel(),"datum"=>$alterKurs->getDatum(),"maxTeilnehmer"=>$alterKurs->getMaxTeilnehmer(),"referent"=>$alterKurs->getReferent(),"beschreibung"=>$alterKurs->getBeschreibung(),"ort_raum"=>$alterKurs->getOrt_raum(),"kontakt"=>$alterKurs->getKontakt(),
+        $dupliKurs = new Kurs(array("titel"=>$alterKurs->getTitel()." Kopie","datum"=>$alterKurs->getDatum(),"maxTeilnehmer"=>$alterKurs->getMaxTeilnehmer(),"referent"=>$alterKurs->getReferent(),"beschreibung"=>$alterKurs->getBeschreibung(),"ort_raum"=>$alterKurs->getOrt_raum(),"kontakt"=>$alterKurs->getKontakt(),
         "von"=>$alterKurs->getVon(),"bis"=>$alterKurs->getBis(),"unterschriftsliste_zweispaltig"=>$alterKurs->getUnterschriftsliste_zweispaltig(),"koordination"=>$alterKurs->getKoordination(),"anmeldeschluss"=>$alterKurs->getAnmeldeSchluss(),"dauer"=>$alterKurs->getDauer(),"fortbildung_id"=>$alteFortbildung->getId()));
         $dupliKurs->speichere();
 
@@ -51,6 +51,25 @@ class Controller{
       header('Location: index.php?aktion=alle_kurse&fortbildung_id='.$_GET["fortbildung_id"].'#allgemeiner');
 
     }
+
+    public function folgeKurs(){
+      $alteFortbildung = Fortbildung::finde($_GET['fortbildung_id']);
+      //$altKurs = Kurs::findeNachFortbildung($alteFortbildung);
+      $alterKurs = Kurs::finde($_GET['kurs_id']);
+
+        $dupliKurs = new Kurs(array("titel"=>$alterKurs->getTitel()." Folgekurs","datum"=>$alterKurs->getDatum(),"maxTeilnehmer"=>$alterKurs->getMaxTeilnehmer(),"referent"=>$alterKurs->getReferent(),"beschreibung"=>$alterKurs->getBeschreibung(),"ort_raum"=>$alterKurs->getOrt_raum(),"kontakt"=>$alterKurs->getKontakt(),
+        "von"=>$alterKurs->getVon(),"bis"=>$alterKurs->getBis(),"unterschriftsliste_zweispaltig"=>$alterKurs->getUnterschriftsliste_zweispaltig(),"koordination"=>$alterKurs->getKoordination(),"anmeldeschluss"=>$alterKurs->getAnmeldeSchluss(),"dauer"=>$alterKurs->getDauer(),"fortbildung_id"=>$alteFortbildung->getId()));
+        $dupliKurs->speichere();
+
+        //im alten Kurus die ID des folgekurs einfügen
+        $alterKurs->setF_folgekurs_id($dupliKurs->getId());
+        $alterKurs->speichere();
+
+
+      header('Location: index.php?aktion=alle_kurse&fortbildung_id='.$_GET["fortbildung_id"].'#allgemeiner');
+
+    }
+
     public function statusAendern(){
       $fortbildung = Fortbildung::finde($_GET['fortbildung_id']);
       echo $fortbildung->__toString();

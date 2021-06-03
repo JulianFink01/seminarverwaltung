@@ -37,6 +37,7 @@
          <a href="?aktion=teilnehmerliste&kurs_id=<?php echo $kurs->getId()?>" target="drucken"><img class="kurs_icons" width="35px" src="images/personen.png" title="Teilnehmerliste" /></a>
          <a onclick="teilnehmer_senden()"><img class="kurs_icons" width="35px" src="images/email-hinzufuegen.png" title="Email an Teilnehmer"/></a>
          <a href="?aktion=duplicateKurs&fortbildung_id=<?php echo $fortbildung->getId();?>&kurs_id=<?php echo $kurs->getId()?>" id="duplicate_f"><img class="kurs_icons" width="35px" src="images/clon_icon.png" title="duplizieren" /></a>
+         <a href="?aktion=folgeKurs&fortbildung_id=<?php echo $fortbildung->getId();?>&kurs_id=<?php echo $kurs->getId()?>" id="sub_kurs"><img class="kurs_icons" width="35px" src="images/sub_kurs_icon.png" title="Folgekurs erstellen" /></a>
          <a href="?aktion=loesche&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>&kurs_id=<?php echo $kurs->getId()?>"><img class="kurs_icons" width="35px" src="images/muelleimer_icon.png" title="löschen" /></a> 
         </div>
  <?php    }} ?>
