@@ -2775,7 +2775,7 @@ class PHPMailer
         if ($this->alternativeExists()) {
             $type[] = 'alt';
         }
-        if ($this->inlineImageExists()) {
+        if ($this->inlineimagesExists()) {
             $type[] = 'inline';
         }
         if ($this->attachmentExists()) {
@@ -3350,7 +3350,7 @@ class PHPMailer
      *
      * @param string $path        Path to the attachment
      * @param string $cid         Content ID of the attachment; Use this to reference
-     *                            the content when using an embedded image in HTML
+     *                            the content when using an embedded images in HTML
      * @param string $name        Overrides the attachment name
      * @param string $encoding    File encoding (see $Encoding)
      * @param string $type        File MIME type
@@ -3358,7 +3358,7 @@ class PHPMailer
      *
      * @return bool True on successfully adding an attachment
      */
-    public function addEmbeddedImage($path, $cid, $name = '', $encoding = self::ENCODING_BASE64, $type = '', $disposition = 'inline')
+    public function addEmbeddedimages($path, $cid, $name = '', $encoding = self::ENCODING_BASE64, $type = '', $disposition = 'inline')
     {
         if (!static::isPermittedPath($path) || !@is_file($path)) {
             $this->setError($this->lang('file_access') . $path);
@@ -3398,17 +3398,17 @@ class PHPMailer
      *
      * @param string $string      The attachment binary data
      * @param string $cid         Content ID of the attachment; Use this to reference
-     *                            the content when using an embedded image in HTML
+     *                            the content when using an embedded images in HTML
      * @param string $name        A filename for the attachment. If this contains an extension,
      *                            PHPMailer will attempt to set a MIME type for the attachment.
-     *                            For example 'file.jpg' would get an 'image/jpeg' MIME type.
+     *                            For example 'file.jpg' would get an 'images/jpeg' MIME type.
      * @param string $encoding    File encoding (see $Encoding), defaults to 'base64'
      * @param string $type        MIME type - will be used in preference to any automatically derived type
      * @param string $disposition Disposition to use
      *
      * @return bool True on successfully adding an attachment
      */
-    public function addStringEmbeddedImage(
+    public function addStringEmbeddedimages(
         $string,
         $cid,
         $name = '',
@@ -3459,7 +3459,7 @@ class PHPMailer
      *
      * @return bool
      */
-    public function inlineImageExists()
+    public function inlineimagesExists()
     {
         foreach ($this->attachment as $attachment) {
             if ('inline' == $attachment[6]) {
@@ -3756,7 +3756,7 @@ class PHPMailer
      * overwriting any existing values in Body and AltBody.
      * Do not source $message content from user input!
      * $basedir is prepended when handling relative URLs, e.g. <img src="/images/a.png"> and must not be empty
-     * will look for an image file in $basedir/images/a.png and convert it to inline.
+     * will look for an images file in $basedir/images/a.png and convert it to inline.
      * If you don't provide a $basedir, relative paths will be left untouched (and thus probably break in email)
      * Converts data-uri images into embedded attachments.
      * If you don't want to apply these transformations to your HTML, just set Body and AltBody directly.
@@ -3778,8 +3778,8 @@ class PHPMailer
             }
             foreach ($images[2] as $imgindex => $url) {
                 // Convert data URIs into embedded images
-                //e.g. "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                if (preg_match('#^data:(image/(?:jpe?g|gif|png));?(base64)?,(.+)#', $url, $match)) {
+                //e.g. "data:images/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                if (preg_match('#^data:(images/(?:jpe?g|gif|png));?(base64)?,(.+)#', $url, $match)) {
                     if (count($match) == 4 and static::ENCODING_BASE64 == $match[2]) {
                         $data = base64_decode($match[3]);
                     } elseif ('' == $match[2]) {
@@ -3788,12 +3788,12 @@ class PHPMailer
                         //Not recognised so leave it alone
                         continue;
                     }
-                    //Hash the decoded data, not the URL so that the same data-URI image used in multiple places
+                    //Hash the decoded data, not the URL so that the same data-URI images used in multiple places
                     //will only be embedded once, even if it used a different encoding
                     $cid = hash('sha256', $data) . '@phpmailer.0'; // RFC2392 S 2
 
                     if (!$this->cidExists($cid)) {
-                        $this->addStringEmbeddedImage($data, $cid, 'embed' . $imgindex, static::ENCODING_BASE64, $match[1]);
+                        $this->addStringEmbeddedimages($data, $cid, 'embed' . $imgindex, static::ENCODING_BASE64, $match[1]);
                     }
                     $message = str_replace(
                         $images[0][$imgindex],
@@ -3823,7 +3823,7 @@ class PHPMailer
                     if (strlen($directory) > 1 and '/' != substr($directory, -1)) {
                         $directory .= '/';
                     }
-                    if ($this->addEmbeddedImage(
+                    if ($this->addEmbeddedimages(
                         $basedir . $directory . $filename,
                         $cid,
                         $filename,
@@ -3968,19 +3968,19 @@ class PHPMailer
             'ra' => 'audio/x-realaudio',
             'wav' => 'audio/x-wav',
             'mka' => 'audio/x-matroska',
-            'bmp' => 'image/bmp',
-            'gif' => 'image/gif',
-            'jpeg' => 'image/jpeg',
-            'jpe' => 'image/jpeg',
-            'jpg' => 'image/jpeg',
-            'png' => 'image/png',
-            'tiff' => 'image/tiff',
-            'tif' => 'image/tiff',
-            'webp' => 'image/webp',
-            'heif' => 'image/heif',
-            'heifs' => 'image/heif-sequence',
-            'heic' => 'image/heic',
-            'heics' => 'image/heic-sequence',
+            'bmp' => 'images/bmp',
+            'gif' => 'images/gif',
+            'jpeg' => 'images/jpeg',
+            'jpe' => 'images/jpeg',
+            'jpg' => 'images/jpeg',
+            'png' => 'images/png',
+            'tiff' => 'images/tiff',
+            'tif' => 'images/tiff',
+            'webp' => 'images/webp',
+            'heif' => 'images/heif',
+            'heifs' => 'images/heif-sequence',
+            'heic' => 'images/heic',
+            'heics' => 'images/heic-sequence',
             'eml' => 'message/rfc822',
             'css' => 'text/css',
             'html' => 'text/html',

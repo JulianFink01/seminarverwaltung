@@ -14,7 +14,7 @@
   <div id="login">
 
       <div class="login-item">
-          <img src="images/login-icon.png" alt="login-image">
+          <img src="images/login-icon.png" alt="login-images">
       </div>
 
       <div class="login-item">
