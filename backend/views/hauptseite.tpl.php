@@ -76,7 +76,9 @@ if (!isset($_SESSION["loggedIn"])) header('Location: index.php?aktion=login');
 
 					</div>
 				</div>
-			<?php } ?>
+			<?php
+			}
+			?>
 
 		</div>
 
