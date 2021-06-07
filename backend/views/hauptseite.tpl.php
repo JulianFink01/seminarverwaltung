@@ -41,7 +41,7 @@ if(!isset($_SESSION["loggedIn"])){
               </a>
 
               <?php
-              //Loading right image
+              //Loading right images
               $img_status = 'images/status_aendern.png';
               if($fortbildung->getStatus() == 1){
                 $img_status = 'images/status_aendern_durchgestrichen.png';
