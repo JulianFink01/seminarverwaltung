@@ -49,9 +49,11 @@ if (!isset($_GET['code']) && !isset($_GET['provider'])) {
 	<html>
 
 	<body>Select Provider:<br />
+
 		<a href='?provider=Google'>Google</a><br />
 		<a href='?provider=Yahoo'>Yahoo</a><br />
 		<a href='?provider=Microsoft'>Microsoft/Outlook/Hotmail/Live/Office365</a><br />
+
 	</body>
 
 	</html>
@@ -65,25 +67,14 @@ session_start();
 
 $providerName = '';
 
-if (array_key_exists(
-	'provider',
-	$_GET
-)) {
+if (array_key_exists('provider', $_GET)) {
 	$providerName = $_GET['provider'];
 	$_SESSION['provider'] = $providerName;
-} elseif (array_key_exists(
-	'provider',
-	$_SESSION
-)) {
+} elseif (array_key_exists('provider', $_SESSION)) {
 	$providerName = $_SESSION['provider'];
 }
-if (!in_array($providerName, [
-	'Google',
-	'Microsoft',
-	'Yahoo'
-])) {
+if (!in_array($providerName, ['Google', 'Microsoft', 'Yahoo']))
 	exit('Only Google, Microsoft and Yahoo OAuth2 providers are currently supported in this script.');
-}
 
 //These details are obtained by setting up an app in the Google developer console,
 //or whichever provider you're using.
@@ -107,29 +98,19 @@ $provider = null;
 switch ($providerName) {
 	case 'Google':
 		$provider = new Google($params);
-		$options = [
-			'scope' => [
-				'https://mail.google.com/'
-			]
-		];
+		$options = ['scope' => ['https://mail.google.com/']];
 		break;
 	case 'Yahoo':
 		$provider = new Yahoo($params);
 		break;
 	case 'Microsoft':
 		$provider = new Microsoft($params);
-		$options = [
-			'scope' => [
-				'wl.imap',
-				'wl.offline_access'
-			]
-		];
+		$options = ['scope' => ['wl.imap', 'wl.offline_access']];
 		break;
 }
 
-if (null === $provider) {
+if (null === $provider)
 	exit('Provider missing');
-}
 
 if (!isset($_GET['code'])) {
 	// If we don't have an authorization code then get one
@@ -147,9 +128,7 @@ if (!isset($_GET['code'])) {
 	// Try to get an access token (using the authorization code grant)
 	$token = $provider->getAccessToken(
 		'authorization_code',
-		[
-			'code' => $_GET['code']
-		]
+		['code' => $_GET['code']]
 	);
 	// Use this to interact with an API on the users behalf
 	// Use this to get a new access token if the old one expires

@@ -183,17 +183,16 @@ class Funktionen
 
 		$mailer->From = "sekretariat@berufsschule.bz";
 		$mailer->FromName = "LBSHI Schule";
-		$mailer->addAddress($to, $teilnehmer->getVorname() . " "
-			. $teilnehmer->getNachname());
+		$mailer->addAddress(
+			$to,
+			$teilnehmer->getVorname() . " " . $teilnehmer->getNachname()
+		);
 		$mailer->Subject = $subject;
 		$mailer->CharSet = "UTF-8";
 		$mailer->Body = $message . $body_message;
 
-
-		if ($mailer->send()) {
-			$_SESSION["Info_mail"] = "Deine Email wurde erfolgreich versendet!";
-		} else {
-			$_SESSION["Info_mail"] = "Fehler beim versenden ihrer Email!";
-		}
+		$_SESSION["Info_mail"] = ($mailer->send())
+			? "Deine Email wurde erfolgreich versendet!"
+			: "Fehler beim versenden ihrer Email!";
 	}
 }
