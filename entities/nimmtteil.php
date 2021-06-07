@@ -1,5 +1,4 @@
 <?php
-
 class NimmtTeil
 {
 	protected $fortbildung_id = 0;
@@ -82,6 +81,7 @@ class NimmtTeil
 		$this->id = 0;
 	}
 
+
 	/* ***** Private Methoden ***** */
 
 	private function _insert()
@@ -106,6 +106,7 @@ class NimmtTeil
 			$this->toArray()
 		);
 	}
+
 
 	/* ***** public Methoden **** */
 

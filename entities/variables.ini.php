@@ -14,4 +14,3 @@ define("M_MODE", "development"); //production
 //[Verwaltung]
 define("V_USERNAME", "test");
 define("V_PASSWORD", "test");
-?>

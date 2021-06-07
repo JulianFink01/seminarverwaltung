@@ -1,5 +1,4 @@
 <?php
-
 class Fortbildung
 {
 	protected $id = 0;
@@ -90,6 +89,7 @@ class Fortbildung
 		$this->id = 0;
 	}
 
+
 	/* ***** Private Methoden ***** */
 
 	private function _insert()
@@ -118,7 +118,9 @@ class Fortbildung
 		);
 	}
 
+
 	/* ***** public Methoden ***** */
+
 	public function findeAlleKurse()
 	{
 		return Kurs::findeNachFortbildung($this);

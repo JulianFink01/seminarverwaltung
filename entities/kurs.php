@@ -1,5 +1,4 @@
 <?php
-
 class Kurs
 {
 	protected $id = 0;
@@ -327,6 +326,7 @@ class Kurs
 		return NimmtTeil::findeAlleKursTeilnehmer($this);
 	}
 
+
 	/* ***** Private Methoden ***** */
 
 	public function nimmtAnKursTeil(Teilnehmer $teilnehmer)
@@ -377,6 +377,7 @@ class Kurs
 			$this->toArray()
 		);
 	}
+
 
 	/* ***** public Methoden ***** */
 
