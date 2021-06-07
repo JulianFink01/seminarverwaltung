@@ -45,19 +45,27 @@ if (!isset($_SESSION["loggedIn"])) header('Location: index.php?aktion=login');
 
 
 	<div id="kurserstelleninhalt">
+
 		<div id="box">
 			<form action="index.php?aktion=kurse_bearbeitung_speichern&fortbildung_id=<?php echo $_REQUEST['fortbildung_id'] ?>&kurs_id=<?php echo $_GET['kurs_id'] ?>" method="post">
 
 				<div id="input">
+					<?php if ($kurse->istFolgekursVon()!=Null) { ?>
+					
+						<p id="istFolgekursvon" >  
+							Folgekurs von: <label><?php echo $kurse->istFolgekursVon()->getTitel()?></label>
+						</p>
 
-					<p class="einzug"> Titel
-						<input type="text" name="titel" id="titelkurs" value="<?php echo $kurse->getTitel() ?>" required />
-					</p>
+					<?php } ?>
+		
+						<p class="einzug"> Titel
+							<input type="text" name="titel" id="titelkurs" value="<?php echo $kurse->getTitel() ?>" required />
+						</p>
 
-					<p class="einzug"> Datum
-						<input type="date" name="datum" id="datumkurs" placeholder="tt.mm.jjjj" value="<?php echo $kurse->getDatum() ?>" required />
-					</p>
-
+						<p class="einzug"> Datum
+							<input type="date" name="datum" id="datumkurs" placeholder="tt.mm.jjjj" value="<?php echo $kurse->getDatum() ?>" required />
+						</p>
+				
 				</div>
 
 				<p>Beschreibung</p>
