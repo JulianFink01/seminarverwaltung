@@ -125,7 +125,7 @@ if (!isset($_SESSION["loggedIn"])) header('Location: index.php?aktion=login');
 				<script type="text/javascript">
 					function myFunction() {
 						//alert("i was cliecked");
-						var text = $('#summernote').summernote('code');
+						let text = $('#summernote').summernote('code');
 						$('#beschreibung').val(text);
 						return false;
 					}
