@@ -19,7 +19,7 @@ if (!isset($_SESSION["loggedIn"])) header('Location: index.php?aktion=login');
 
 <body>
 
-  <header id="kopf">
+	<header id="kopf">
 
 		<div id="home-redi">
 			<a href="?aktion=hauptseite">
@@ -110,16 +110,16 @@ if (!isset($_SESSION["loggedIn"])) header('Location: index.php?aktion=login');
 
 						<label>
 							<span>CSV Datei(*.csv)</span>
-							<input name="datei" type="file" size="50" accept=".csv" class="button">
+							<input id="csv_datei" name="datei" type="file" size="50" accept=".csv" class="button" onchange="hinzufugegen_Freischalten()">
 						</label>
 
 						<div id="t_erstellen_btn">
 							<a onclick="teilnehmerErstellen()">
-								<img width="75px" src="images/teilnehmer-hinzufuegen.png" title="Teilnehmer hinzufuegen" />
+								<img width="75px" src="images/teilnehmer-hinzufuegen.png" title="Teilnehmer hinzufuegen"  />
 							</a>
 						</div>
 
-						<input type="submit" id="csv_button" name="submit" value="Hochladen">
+						<input type="submit" id="csv_button" name="submit" value="Hochladen" disabled>
 
 					</form>
 				</div>
@@ -388,5 +388,17 @@ if (!isset($_SESSION["loggedIn"])) header('Location: index.php?aktion=login');
 		textfeld.classList.toggle("show_teilnehmer");
 		document.getElementById("leiste").classList.toggle("blur");
 		document.getElementById("kopf").classList.toggle("blur");
+	}
+
+
+	function hinzufugegen_Freischalten() {
+		const file = document.getElementById("csv_datei");
+		const button = document.getElementById("csv_button");
+		if (file.files.length == 0) {
+			button.disabled = true;			
+		} else {
+			button.disabled = false;			
+		}
+
 	}
 </script>
