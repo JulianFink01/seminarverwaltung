@@ -400,9 +400,20 @@ public function speichere()
     for ($i=0; $i < count($alleKurse); $i++) {
       if($this->getId() == $alleKurse->getF_folgekurs_id()){
         return $alleKurse[$i];
-      }
+      }else{
       return null;
     }
+  }
+}
+
+  public function hatFolgekurs(){
+    if($this->getF_folgekurs_id() != null){
+      return true;
+    }else{
+      return false;
+    }
+
+
   }
 
   public function completeKurs(){
