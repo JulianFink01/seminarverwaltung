@@ -19,7 +19,7 @@ if (!isset($_SESSION["loggedIn"])) header('Location: index.php?aktion=login');
 
 <body>
 
-	<header id="kopf">
+  <header id="kopf">
 
 		<div id="home-redi">
 			<a href="?aktion=hauptseite">
