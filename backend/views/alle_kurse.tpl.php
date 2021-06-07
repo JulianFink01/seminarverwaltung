@@ -18,111 +18,6 @@ if (!isset($_SESSION["loggedIn"])) header('Location: index.php?aktion=login');
 
 
 <body>
-<<<<<<< HEAD
-  <header id="kopf">
-   <div id="home-redi"><a href="?aktion=hauptseite"><img class="kurs_icons" id="home" src="images/home_icon.png" title="Hauptseite" /></a></div>
-   <div id="logout"><a href="?aktion=logout"><img id="outlog" src="images/logout.png" title="Abmelden" /></a></div>
-   <h1>Kursverwaltung - <?php echo $fortbildung->getName() ?></h1>
-
- </header>
-
-  <div id="leiste">
-    <article class="infobox">
-        <section id="allgemeiner" class="tab activeTab" >
-            <h2 ><a href="#allgemeiner" onclick="toggleTab(document.getElementById('allgemeiner'))">Kurse</a></h2>
-
-
-         <div id="inhalt">
-
-           <?php
-           if($kurse != NULL){
-             foreach($kurse as $kurs){ ?>
-         <div class="kurs">
-         <h1><?php echo $kurs->getTitel();?></h1>
-         <a href="?aktion=kurs_bearbeiten&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>&kurs_id=<?php echo $kurs->getId()?>"><img class="kurs_icons" width="35px" src="images/stift.png" title="bearbeiten" /></a>
-         <a href="?aktion=teilnehmerliste&kurs_id=<?php echo $kurs->getId()?>" target="drucken"><img class="kurs_icons" width="35px" src="images/personen.png" title="Teilnehmerliste" /></a>
-         <a onclick="teilnehmer_senden()"><img class="kurs_icons" width="35px" src="images/email-hinzufuegen.png" title="Email an Teilnehmer"/></a>
-         <a href="?aktion=duplicateKurs&fortbildung_id=<?php echo $fortbildung->getId();?>&kurs_id=<?php echo $kurs->getId()?>" id="duplicate_f"><img class="kurs_icons" width="35px" src="images/clon_icon.png" title="duplizieren" /></a>
-         <?php if(!$kurs->hatFolgekurs()) { ?>
-         <a href="?aktion=folgeKurs&fortbildung_id=<?php echo $fortbildung->getId();?>&kurs_id=<?php echo $kurs->getId()?>" id="sub_kurs"><img class="kurs_icons" width="35px" src="images/sub_kurs_icon.png" title="Folgekurs erstellen" /></a>
-         <?php } ?>
-         <a href="?aktion=loesche&fortbildung_id=<?php echo $_REQUEST["fortbildung_id"]?>&kurs_id=<?php echo $kurs->getId()?>"><img class="kurs_icons" width="35px" src="images/muelleimer_icon.png" title="löschen" /></a> 
-        </div>
- <?php    }} ?>
-
-</div>
-<div id="kurs_erstellbutton">
-<a href="index.php?aktion=kurse_erstellen&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#allgemeiner"><img src="images/fortbildung_erstellButton.png" title="Kurs erstellen"id="erstell_button" alt="erstellen" /></a>
-</div>
-
-        </section>
-        <section id="funktionen" class="tab tabElem" >
-            <h2 ><a href="#funktionen"  onclick="toggleTab(document.getElementById('funktionen'))">Teilnehmer</a></h2>
-
-
-            <div class="csv">
-              <form method="post" enctype="multipart/form-data" action="index.php?aktion=import_lehrer&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen">
-                <label>
-                  <span>CSV Datei(*.csv)</span>
-                  <input name="datei" type="file" size="50" accept=".csv" class="button">
-                </label>
-                <div id="t_erstellen_btn"><a onclick="teilnehmerErstellen()"><img width="75px" src="images/teilnehmer-hinzufuegen.png" title="Teilnehmer hinzufuegen" /></a></div>
-
-                <input type="submit" id="csv_button" name="submit" value="Hochladen">
-              </form>
-            </div>
-
-
-
-
-               <table id="teilnehmer-tabelle">
-                 <tr>
-                   <th onclick="sortTableAlphabeticalVorname()">Vorname ↓</th>
-                   <th onclick="sortTableAlphabeticalNachname()">Nachname ↓</th>
-                   <th>Email</th>
-                   <th>Token</th>
-                   <th onclick="sortTableStatus()">Status ↓</th>
-                 </tr>
-
-                 <?php foreach ($teilnehmern as $teilnehmer){
-                   ?>
-                 <tr>
-                   <td><?php echo $teilnehmer->getVorname();?></td>
-                   <td><?php echo $teilnehmer->getNachname();?></td>
-                   <td><?php echo $teilnehmer->getEmail();?></td>
-                   <td><?php echo $teilnehmer->getToken();?></td>
-                   <td class="hidden" ><?php if(NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbildung,$teilnehmer)->getStatusFarbe() == 'blue'){echo 'A';}else{echo 'B';} ?></td>
-                   <td style="background-color: var(--main-<?php echo NimmtTeil::findeNachFortbildungUndTeilnehemer($fortbildung,$teilnehmer)->getStatusFarbe();?>);">&nbsp;</td>
-                   <td class="b_l"><a href="index.php?aktion=remove_lehrer_nimmtTeil&teilnehmer_id=<?php echo $teilnehmer->getId()?>&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>#funktionen"><img width="45px" src="images/teilnehmer-entfernen.png" title="Teilnehmer entfernen" /></a></td>
-                   <td class="b_l"><a onclick="bearbeiteBenutzer('<?php echo $teilnehmer->getToken();?>','<?php echo $teilnehmer->getVorname();?>', '<?php echo $teilnehmer->getNachname();?>', '<?php echo $teilnehmer->getEmail();?>', '<?php echo $_REQUEST['fortbildung_id']?>' )"><img width="45px" src="images/teilnehmer-bearbeiten.png" title="Teilnehmer bearbeiten" /></a></td>
-                 </tr>
-                 <?php } ?>
-
-             </table>
-        </section>
-        <section id="emailsenden" class="tab tabElem" >
-            <h2 ><a href="#emailsenden" onclick="toggleTab(document.getElementById('emailsenden'))">E-Mail senden</a></h2>
-
-            <div id="fenster">
-              <span id="email-text">Der hier eingegebene Text wird zusammen mit einem personalisierten Anmeldelink an die Lehrer versendet.
-                 Er kann auch als Erinnerungsemail für diejenigen genutzt werden, die sich noch nicht angemeldet haben,
-                  da die Email immer nur an diejenigen geschickt wird, die sich noch nicht eingeteilt haben.</span>
-            <form action="index.php?aktion=send_email&fortbildung_id=<?php echo $_REQUEST['fortbildung_id']?>" method="post">
-              <textarea placeholder="Ihre Nachricht:" name="message" rows="10" cols="100" id="text" required></textarea>
-
-              <input id="btn_email_sendn"type="submit" id="button" name="senden" value="Email senden" />
-      </div>
-    </form>
-
-        </section>
-    </article>
-  </div>
-<?php
-  include("views/bearbeite_teilnehmer.tpl.html");
-  include("views/teilnehmer_erstellen.tpl.php");
-  include("views/email_teilnehmer_senden.tpl.php");
-?>
-=======
 
 	<header id="kopf">
 
@@ -298,7 +193,6 @@ if (!isset($_SESSION["loggedIn"])) header('Location: index.php?aktion=login');
 	include("views/email_teilnehmer_senden.tpl.php");
 	?>
 
->>>>>>> 89e4ab57bb683d3ffb2013c249049e76dbd2ceec
 </body>
 
 </html>

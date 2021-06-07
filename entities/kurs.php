@@ -256,7 +256,14 @@ public function speichere()
   }
   public function loesche()
   {
-
+      $hauptkurs = $this->istFolgekursVon();     
+      var_dump($hauptkurs);
+      //üperprüfen ob das ein Folgekurs ist
+      if($hauptkurs != Null){
+        // Beim Hauptkurs die Folgekursid auf Null setzen
+        $hauptkurs->setF_folgekurs_id(Null);
+        $hauptkurs->speichere();
+      }
       //Aus nimmt_teil löschen
       $sql2 = 'UPDATE f_nimmt_teil set kurs_id = NULL WHERE kurs_id=?';
       $abfrage2 = DB::getDB()->prepare($sql2);
@@ -268,6 +275,7 @@ public function speichere()
 
       // Objekt existiert nicht mehr in der DB, also muss die ID zurückgesetzt werden
       $this->id = 0;
+    
   }
   public function getAllTeilnehmer(){
     $result = NimmtTeil::findeAlleKursTeilnehmer($this);
@@ -397,14 +405,13 @@ public function speichere()
 
   public function istFolgekursVon(){
     $alleKurse = kurs::findeAlle();
-    for ($i=0; $i < count($alleKurse); $i++) {
-      if($this->getId() == $alleKurse->getF_folgekurs_id()){
-        return $alleKurse[$i];
-      }else{
-      return null;
+    foreach ($alleKurse as $kurs) {    
+      if($this->getId() == $kurs->getF_folgekurs_id()){
+        return $kurs;  
+      }
     }
+    return null;
   }
-}
 
   public function hatFolgekurs(){
     if($this->getF_folgekurs_id() != null){
