@@ -95,6 +95,7 @@ $kurse = $fortbildung->findeAlleKurse();
               $abgelaufen = $kurs->istAbgelaufen();
                         $anzahl = $kurs->getTeilnehmerAnzahl();
                         $maxAnzahl =$kurs->getMaxTeilnehmer();
+                        if($kurs->istFolgekursVon()== null){
                         if($abgelaufen != true){
                         if(!$user->nimmtAnKursTeilInFortbildung($kurs->getFortbildung_id()) && $anzahl < $maxAnzahl && !$user_already_joined_curse_at_this_time){
                         ?>
@@ -115,7 +116,7 @@ $kurse = $fortbildung->findeAlleKurse();
                                id="anmelden" class="button">Anmelden</a>
                         </div>
                         <?php }
-                            }?>
+                            }}?>
                         <div class="info-text info-right">
                             <a href="index.php?aktion=show_KursInfos&kursId=<?php echo $kurs->getId();?>&token=<?php echo $user->getToken();?>">Mehr
                                 Informationen</a>
