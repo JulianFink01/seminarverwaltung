@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="styles/main-style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles/main-style.css">
     <title>Fortbildungsverwaltung - Login</title>
     <link rel="icon" href="../styles/logo.png">
-  <link rel="stylesheet" type="text/css" href="styles/login-style.css">
+    <link rel="stylesheet" type="text/css" href="styles/login-style.css">
     <meta name="noindex" content="noindex" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 </head>
+
 <body>
-  <div id="login">
+    <div id="login">
 
-      <div class="login-item">
-          <img src="images/login-icon.png" alt="login-image">
-      </div>
+        <div class="login-item">
+            <img src="images/login-icon.png" alt="login-images">
+        </div>
 
-      <div class="login-item">
-        <form id="login-form" method="post">
-          <legend>Anmeldesystem LBSHI</legend>
-          <input type="text" placeholder="Personal Key" name="key" required>
-          <input type="submit" name="Login" value="Login">
-        </form>
+        <div class="login-item">
+            <form id="login-form" method="post">
+                <legend>Anmeldesystem LBSHI</legend>
+                <input type="text" placeholder="Personal Key" name="key" required autofocus>
+                <input type="submit" name="Login" value="Login">
+            </form>
 
-      </div>
-  </div>
+        </div>
+    </div>
 </body>
 
 <?php
@@ -33,4 +35,5 @@
     header('Location: index.php?token='.$token.'&aktion=login');
   }
 ?>
+
 </html>

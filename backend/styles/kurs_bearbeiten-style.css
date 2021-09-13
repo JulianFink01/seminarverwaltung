@@ -1,302 +1,331 @@
 #kopf {
-	background-color: white;
-	border: 1px solid rgba(189,195,199);
-	box-shadow: 1px 5px 5px 0px #f0f0f0;
-	margin-left: 2.5%;
-	margin-top: 2.5%;
-	margin-right: 2.5%;
-	position: relative;
+    background-color: white;
+    border: 1px solid rgba(189, 195, 199);
+    box-shadow: 1px 5px 5px 0px #f0f0f0;
+    margin-left: 2.5%;
+    margin-top: 2.5%;
+    margin-right: 2.5%;
+    position: relative;
 }
 
 #kopf h1 {
-	color: rgba(0, 48, 80, 1);
-	background-color: white;
-	text-align: center;
-	font-size: 40px;
-	margin-top: 2%;
-	width: 60%;
-	margin: auto;
-	padding-bottom: 10px;
+    color: rgba(0, 48, 80, 1);
+    background-color: white;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 2%;
+    width: 60%;
+    margin: auto;
+    padding-bottom: 10px;
+}
 
+#summernote {
+    width: 100% !important;
 }
-#summernote{
-	width: 100% !important;
-}
+
 #titel {
-	margin: 40px 0px 0px 20px;
-	font-size: 15px;
-	width: 450px;
-	padding: 5px;
-	border: 1.2px solid #000;
-	text-align: center;
+    margin: 40px 0px 0px 20px;
+    font-size: 15px;
+    width: 450px;
+    padding: 5px;
+    border: 1.2px solid #000;
+    text-align: center;
 }
+
 #titelkurs {
-	margin: 40px 0px 0px 20px;
-	font-size: 15px;
-	width: 450px;
-	padding: 5px;
-	border: 1.2px solid #000;
-	margin-left: 4.5rem;
+    margin: 40px 0px 0px 20px;
+    font-size: 15px;
+    width: 450px;
+    padding: 5px;
+    border: 1.2px solid #000;
+    margin-left: 4.5rem;
+}
 
+#kurszeiten {
+    border-bottom: 1px solid grey;
 }
-#kurszeiten{
-	border-bottom: 1px solid grey;
+
+#kurszeiten tr td {
+    width: 33%;
+    padding-bottom: 30px;
+    text-align: center;
 }
-#kurszeiten tr td{
-	width: 33%;
-	padding-bottom: 30px;
-	text-align: center;
-}
+
 #beschreibung p {
-	font-size: 15px;
+    font-size: 15px;
 }
+
 #o_d {
-	margin: 20px 0px 0px 20px;
+    margin: 20px 0px 0px 20px;
 }
+
 #ort {
-	border: 1.2px solid #000;
-	margin-left: 30px;
-	padding: 0px 30px 0px 30px;
-	display: inline-block;
+    border: 1.2px solid #000;
+    margin-left: 30px;
+    padding: 0px 30px 0px 30px;
+    display: inline-block;
 }
+
 #datum {
-	border: 1.2px solid #000;
-	margin-left: 60px;
-	padding: 0px 30px 0px 30px;
-	display: inline-block;
+    border: 1.2px solid #000;
+    margin-left: 60px;
+    padding: 0px 30px 0px 30px;
+    display: inline-block;
 }
+
 #zeit {
-	width: 800px;
-	margin: 20px 20px 0px 20px;
-	border: 1.2px solid #000;
-	padding: 30px 10px 30px 10px;
-	border: 1.2px solid #000;
+    width: 800px;
+    margin: 20px 20px 0px 20px;
+    border: 1.2px solid #000;
+    padding: 30px 10px 30px 10px;
+    border: 1.2px solid #000;
 }
+
 #von {
-	padding: 0px 15px 0px 15px;
-	display: inline;
-		border: 1.2px solid #000;
+    padding: 0px 15px 0px 15px;
+    display: inline;
+    border: 1.2px solid #000;
 }
+
 #bis {
-	padding: 0px 15px 0px 15px;
-	display: inline;
-		border: 1.2px solid #000;
+    padding: 0px 15px 0px 15px;
+    display: inline;
+    border: 1.2px solid #000;
 }
+
 #dauer {
-	padding: 0px 0px 0px 0px;
-	margin-right: 5px;
-	display: inline;
-	border: 1.2px solid var(--dark-white);
+    padding: 0px 0px 0px 0px;
+    margin-right: 5px;
+    display: inline;
+    border: 1.2px solid var(--dark-white);
 }
+
 #anmeldeschluss {
-	padding: 0px 30px 0px 30px;
-	margin-left: 150px;
-	display: inline;
-	  border: 1.2px solid #000;
+    padding: 0px 30px 0px 30px;
+    margin-left: 150px;
+    display: inline;
+    border: 1.2px solid #000;
 }
+
 #krk {
-	margin: 40px 0px 0px 20px;
+    margin: 40px 0px 0px 20px;
 }
+
 #kontakt {
-	padding: 0px 30px 0px 30px;
-	border: 1.2px solid #000;
-	margin-left: 40px;
-	display: inline;
+    padding: 0px 30px 0px 30px;
+    border: 1.2px solid #000;
+    margin-left: 40px;
+    display: inline;
 }
 
-#back{
-	float: left;
-	width: 10%;
-	height: auto;
-	color: white;
-	padding: 10px;
-	margin-top: 30px;
-	font-size: 20px;
+#back {
+    float: left;
+    width: 10%;
+    height: auto;
+    color: white;
+    padding: 10px;
+    margin-top: 30px;
+    font-size: 20px;
 }
-#back a img{
-	float:right;
-	width: 90% !important;
-	height: auto;
-}
-#home-redi{
-	position: absolute;
-	display: block;
-	float: right;
-	left: 1%;
-	height: 80%;
-  margin-top: 0.5%;
-}
-#home-redi a img{
-	float:right;
-	height: 90% !important;
-	width: auto;
 
+#back a img {
+    width: 6vh !important;
+    height: auto;
+}
 
+#home-redi {
+    position: absolute;
+    display: block;
+    float: right;
+    left: 1%;
+    height: 80%;
+    margin-top: 0.5%;
 }
-#logout-fromBearbeiten{
-  position: absolute;
-	display: block;
-	float: right;
-	right: 5%;
-	height: 80%;
-  margin-top: 0.5%;
+
+#home-redi a img {
+    float: left;
+    height: 90% !important;
+    width: auto;
 }
-#logout-fromBearbeiten a img{
-	float:right;
-	height: 90% !important;
-	width: auto;
+
+#logout-fromBearbeiten {
+    position: absolute;
+    display: block;
+    float: right;
+    right: 5%;
+    height: 80%;
+    margin-top: 0.5%;
+}
+
+#logout-fromBearbeiten a img {
+    float: right;
+    height: 90% !important;
+    width: auto;
 }
 
 #koordination {
-	padding: 0px 30px 0px 30px;
-	border: 1.2px solid #000;
-	margin-left: 80px;
-	display: inline;
+    padding: 0px 30px 0px 30px;
+    border: 1.2px solid #000;
+    margin-left: 80px;
+    display: inline;
 }
-.Senden_erstellen{
-	float: right;
-	background-color: var(--main-blue);
-	color: white;
-	padding: 10px;
-	margin-top: 30px;
-	font-size: 15px;
-	border: 0.5px solid white;
 
+.Senden_erstellen {
+    float: right;
+    background-color: var(--main-blue);
+    color: white;
+    padding: 10px;
+    margin-top: 30px;
+    font-size: 15px;
+    border: 0.5px solid white;
 }
+
 #kurserstelleninhalt::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
-#kurserstelleninhalt{
-	padding-top: 5px;
-	background-color: #fafafa;
-	border: 0.5px solid var(--dark-white);
-	width: 90%;
-	min-height: 100%;
-	overflow: scroll;
-	margin-left: 5%;
-	padding: 20px;
 
-	margin-top: 50px;
-	margin-bottom: 50px;
+#kurserstelleninhalt {
+    padding-top: 5px;
+    background-color: #fafafa;
+    border: 0.5px solid var(--dark-white);
+    width: 90%;
+    min-height: 100%;
+    overflow: scroll;
+    margin-left: 5%;
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
-.einzug{
-	text-align: left;
 
+.einzug {
+    text-align: left;
 }
-#kurs_beschreibung{
-	display: block;
 
-
+#kurs_beschreibung {
+    display: block;
 }
+
 #kurszeiten {
-	margin-top: 5rem;
-	text-align: left;
-
-	width: 100%;
+    margin-top: 5rem;
+    text-align: left;
+    width: 100%;
 }
 
-.note-editor{
-		width: 100% !important;
+.note-editor {
+    width: 100% !important;
 }
-.kursdaten{
-	margin-top: 3rem;
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: row;
-	text-align: left;
+
+.kursdaten {
+    margin-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    text-align: left;
 }
-.kursdaten a , input{
-	width: 25%;
-	margin-bottom: 5px;
-	text-align: left;
-		padding-left: 3%;
+
+.kursdaten a,
+input {
+    width: 25%;
+    margin-bottom: 5px;
+    text-align: left;
+    padding-left: 3%;
 }
-.kursdaten a , input:nth-child(1){
-	text-align: left;
+
+.kursdaten a,
+input:nth-child(1) {
+    text-align: left;
 }
-.kursdaten input{
-	border: 1.2px solid #000;
+
+.kursdaten input {
+    border: 1.2px solid #000;
 }
+
 .zeit {
-
-	height: 30px;
-	border: 1.2px solid #000;
-	margin-left: 2rem;
-
-}
-#input{
-margin-bottom: 20px;
-width: 100%;
-text-align: left;
-
-}
-#input p input{
-	border: 0.5px solid var(--dark-white);
-	border: 0.5px solid black;
-	width: 40%;
-
-}
-#input p{
-	width: 100%;
+    height: 30px;
+    border: 1.2px solid #000;
+    margin-left: 2rem;
 }
 
-#box p{
-	color: var(--main-blue);
-	font-weight: bold;
-}
-#box a{
-	color: var(--main-blue);
-	font-weight: bold;
-	text-decoration: none;
+#input {
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
 }
 
+#input p input {
+    border: 0.5px solid var(--dark-white);
+    border: 0.5px solid black;
+    width: 40%;
+}
+
+#input p {
+    width: 100%;
+}
+
+#box p {
+    color: var(--main-blue);
+    font-weight: bold;
+}
+
+#box a {
+    color: var(--main-blue);
+    font-weight: bold;
+    text-decoration: none;
+}
 
 .kurs {
-	padding: 20px;
-	margin: 10px;
-	margin-left: 0px;
-	background-color: var(--main-blue);
-	cursor: pointer;
-	width: 70%;
+    padding: 20px;
+    margin: 10px;
+    margin-left: 0px;
+    background-color: var(--main-blue);
+    cursor: pointer;
+    width: 70%;
 }
+
 .kurs a {
-	text-decoration: none;
-	font-size: 20px;
-	color: #e9f6ff;
+    text-decoration: none;
+    font-size: 20px;
+    color: #e9f6ff;
 }
+
 .kurs p {
-	color: #e9f6ff;
+    color: #e9f6ff;
 }
-.kurs a:hover{
-	color: var(--main-orange);
+
+.kurs a:hover {
+    color: var(--main-orange);
 }
+
 .kurs h1 {
-	color:  #e9f6ff;
+    color: #e9f6ff;
 }
+
 #kurs_koordination {
-	text-align: left;
-	border: 1.2px solid #000;
-	height: 30px;
-	display: inline;
-	margin-left: 20px;
+    text-align: left;
+    border: 1.2px solid #000;
+    height: 30px;
+    display: inline;
+    margin-left: 20px;
 }
+
 #kurs_anmeldeschluss {
-	height: 30px;
-	margin-left: 20px;
-	display: inline;
-	  border: 1.2px solid #000;
+    height: 30px;
+    margin-left: 20px;
+    display: inline;
+    border: 1.2px solid #000;
 }
+
 #kurs_kontakt {
-	height: 30px;
-	border: 1.2px solid #000;
-	margin-left: 40px;
-	display: inline;
+    height: 30px;
+    border: 1.2px solid #000;
+    margin-left: 40px;
+    display: inline;
 }
 
 #datumkurs {
-	border: 1.2px solid #000;
-	margin-left: 2.5rem;
-	padding-left: 5px;
-	height: 30px;
-	display: inline-block;
+    border: 1.2px solid #000;
+    margin-left: 2.5rem;
+    padding-left: 5px;
+    height: 30px;
+    display: inline-block;
 }

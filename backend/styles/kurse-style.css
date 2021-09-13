@@ -117,7 +117,7 @@ article.infobox section:target h2 a {
 
 }
 #kreisbutton div{
-	background-image: url("../images/teilnehmer-hinzufuegen.png");
+	background-images: url("../images/teilnehmer-hinzufuegen.png");
   background-size: cover;
   background-position: 7px 7px;
   background-repeat: no-repeat;
@@ -447,7 +447,7 @@ text-align: left;
 	width: 5%;
 	float: right;
 	margin-right: 3%;
-  background-image: url("../images/fortbildung_erstellButton.png");
+  background-images: url("../images/fortbildung_erstellButton.png");
   background-repeat: no-repeat;
   background-size: contain;
 
@@ -627,6 +627,49 @@ margin-top: 20px;
 	filter: blur(0px);
 	border-radius: 1px;
 }
+
+#email_teilnehmer_senden{
+	position: fixed;
+	width: 50%;
+	display: none;
+	height: auto;
+	overflow: hidden;
+	margin: auto;
+	transition: 1s all ease-in;
+		background-color: var(--main-blue);
+	z-index: 999099999999;
+	transform: translate(50%,0%);
+	-webkit-filter: blur(0px);
+	-moz-filter: blur(0px);
+	-o-filter: blur(0px);
+	-ms-filter: blur(0px);
+	filter: blur(0px);
+	border-radius: 1px;
+
+}
+
+#email_titel{
+	width: 100%;
+	margin-bottom: 35px;
+	margin-top: 35px;
+	text-align: center;
+	color: var(--main-white) ;
+	font-size: 25px;
+	
+
+}
+
+#email_text{
+	
+	margin-left: 15%;
+	font-size: 15px;
+	width: 70%;
+	height: 120px;
+	align-items: center;
+
+}
+
+
 
 #tbutton {
 	border-style: none;

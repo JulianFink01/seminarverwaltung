@@ -1,172 +1,198 @@
 <?php
-class Funktionen{
+class Funktionen
+{
 
+	public static function send_email()
+	{
+		require_once 'PHPMailer-master/src/PHPMailer.php';
 
-    public static function send_email()
-    {
-        require_once 'PHPMailer-master/src/PHPMailer.php';
-        require_once("../entities/variables.ini.php");
+		$fortbildung = Fortbildung::finde($_REQUEST['fortbildung_id']);
+		$teilnehmer = NimmtTeil::findeAlleUnangemeldetenFortbildungTeilnehmer($fortbildung);
 
-        $fortbildung = Fortbildung::finde($_REQUEST['fortbildung_id']);
-        $teilnehmer = NimmtTeil::findeAlleUnangemeldetenFortbildungTeilnehmer($fortbildung);
+		$subject = strip_tags('Einladung zur Fortbildung: ' . $fortbildung->getName());
+		$message = strip_tags($_POST['message']); //$_POST['message']
+		if (is_array($teilnehmer)) {
+			foreach ($teilnehmer as $key) {
+				$body_message = "\n \n Anmeldung unter:\n " . M_URL . "/" . M_URLUNTERORDNER . "/index.php?token=" . $key->gettoken() . "&aktion=login";
 
-        $subject = strip_tags('Einladung zur Fortbildung: ' . $fortbildung->getName());
-        $message = strip_tags($_POST['message']);//$_POST['message']
-        if (is_array($teilnehmer)) {
-            foreach ($teilnehmer as $key) {
+				Funktionen::mailer(
+					$subject,
+					$message,
+					$body_message,
+					$key
+				);
+			}
+		}
+	}
 
-                $mailer = new \PHPMailer\PHPMailer\PHPMailer();
-                $mail = $key->getEmail();
+	public static function send_email_teilnehmer()
+	{
+		require_once 'PHPMailer-master/src/PHPMailer.php';
 
-                $to = strip_tags($mail);
+		$fortbildung = Fortbildung::finde($_REQUEST['fortbildung_id']);
+		$kurs = Kurs::finde($_REQUEST['kurs_id']);
+		$teilnehmer = $kurs->getAllTeilnehmer();
 
-                $mailer->From = "sekretariat@berufsschule.bz";
-                $mailer->FromName = "LBSHI Schule";
-                $mailer->addAddress($to, $key->getVorname() . " " . $key->getNachname());
-                $mailer->Subject = $subject;
-                $mailer->CharSet = "UTF-8";
-                $mailer->Body = $message . "\n \n Anmeldung unter:\n " . M_URL . "/" . M_URLUNTERORDNER . "/index.php?token=" . $key->gettoken() . "&aktion=login";
+		$subject = strip_tags('Mitteilung bezüglich der Fortbildung: ' . $fortbildung->getName());
+		$message = strip_tags($_POST['email_text']); //$_POST['message']
+		if (is_array($teilnehmer)) {
+			foreach ($teilnehmer as $key) {
+				$body_message = "";
 
+				Funktionen::mailer(
+					$subject,
+					$message,
+					$body_message,
+					$key
+				);
+			}
+		}
+	}
 
-                if (!$mailer->send()) {
-                    $_SESSION["Info_mail"] = "Fehler beim versenden ihrer Email!";
-                } else {
-                    $_SESSION["Info_mail"] = "Deine Email wurde erfolgreich versendet!";
-                }
+	public static function importLehrer()
+	{
 
-            }
-        } else {
-            $mailer = new \PHPMailer\PHPMailer\PHPMailer();
-            $mail = $teilnehmer->getEmail();
+		$csv_datei = $_FILES['datei']['tmp_name'];
+		$name = $_FILES['datei']['name'];
+		$name = substr(
+			$name,
+			0,
+			strlen($name) - 4
+		);
+		$felder_trenner = ";";
+		$zeilen_trenner = "\n";
 
-            $to = strip_tags($mail);
+		if (@file_exists($csv_datei)) {
+			$datei_inhalt = @file_get_contents($csv_datei);
+			$zeilen = explode(
+				$zeilen_trenner,
+				$datei_inhalt
+			);
+			//speichert daten in array
 
-            $mailer->From = "sekretariat@berufsschule.bz";
-            $mailer->FromName = "LBSHI Schule";
-            $mailer->addAddress($to, $teilnehmer->getVorname() . " " . $teilnehmer->getNachname());
-            $mailer->Subject = $subject;
-            $mailer->CharSet = "UTF-8";
-            $mailer->Body = $message . "\n \n Anmeldung ändern unter:\n " . M_URL . "/" . M_URLUNTERORDNER . "/index.php?token=" . $teilnehmer->getToken() . "&aktion=login";
+			$teilnehmer_all = array();
 
-            if (!$mailer->send()) {
-                $_SESSION["Info_mail"] = "Fehler beim versenden ihrer Email!";
-            } else {
-                $_SESSION["Info_mail"] = "Deine Email wurde erfolgreich versendet!";
-            }
-        }
-    }
+			if (is_array($zeilen)) {
 
-  public static function importLehrer() {
+				foreach ($zeilen as $zeile) {
+					if (trim($zeile) != "") {
+						$daten = explode(
+							$felder_trenner,
+							$zeile
+						);
 
-        $csv_datei = $_FILES['datei']['tmp_name'];
-        $name = $_FILES['datei']['name'];
-        $name = substr($name, 0, strlen($name) -4);
-        $felder_trenner = ";";
-        $zeilen_trenner = "\n";
+						// AN DIE RICHTIGE STELLE VOM ARRAY
+						$teilnehmer["Nachname"] = trim(
+							utf8_encode($daten[0])
+						);
+						$teilnehmer["Vorname"] = trim(
+							utf8_encode($daten[1])
+						);
+						$teilnehmer["Email"] = utf8_encode(
+							trim($daten[2])
+						);
 
-        if (@file_exists($csv_datei) == false) {
+						if (strtolower($teilnehmer["Nachname"]) != "nachname")
+							$teilnehmer_all[] = $teilnehmer;   //return this Array
+					}
+				}
+			}
+		}
+		return $teilnehmer_all;
+	}
 
-        } else {
-            $datei_inhalt = @file_get_contents($csv_datei);
-            $zeilen = explode($zeilen_trenner, $datei_inhalt);
-            //speichert daten in array
+	public static function send_bestaetigungs_email($kursId, $token)
+	{
+		require_once 'PHPMailer-master/src/PHPMailer.php';
 
-            $teilnehmer_all = array();
+		error_reporting(E_ALL);
+		$kurs = Kurs::finde($kursId);
+		$teilnehmer = Teilnehmer::findeNachToken($token);
 
-            if (is_array($zeilen) == true) {
+		$subject = strip_tags('Anmeldung bei: ' . $kurs->getTitel());
+		$message = strip_tags('Hiermit wird die Anmeldung zu ' . $kurs->getTitel()
+			. ' am ' . $kurs->getDatum()
+			. ' von ' . $kurs->getVon()
+			. ' bis ' . $kurs->getBis()
+			. ' im Raum/Ort ' . $kurs->getOrt_raum()
+			. ' bestätigt.'); //$_POST['message']
+		$body_message = "\n \n Anmeldung ändern unter:\n " . M_URL . "/" . M_URLUNTERORDNER
+			. "/index.php?token=" . $teilnehmer->getToken() . "&aktion=login" .
+			"\n \n In Kalender eintragen:\n " . M_URL . "/" . M_URLUNTERORDNER
+			. "/index.php?kursId=" . $kursId . "&aktion=getCalendarItem";
 
-                foreach ($zeilen as $zeile) {
-                    if (trim($zeile) != "") {
-                        $daten = explode($felder_trenner, $zeile);
+		Funktionen::mailer(
+			$subject,
+			$message,
+			$body_message,
+			$teilnehmer
+		);
+	}
 
-                        // AN DIE RICHTIGE STELLE VOM ARRAY
-                        $teilnehmer["Nachname"] = trim(utf8_encode($daten[0]));
-                        $teilnehmer["Vorname"] = trim(utf8_encode($daten[1]));
-                        $teilnehmer["Email"] = utf8_encode(trim($daten[2]));
+	public static function send_bestaetigungs_email_abmeldung($kursId, $token)
+	{
+		require_once 'PHPMailer-master/src/PHPMailer.php';
 
-                        if (strtolower($teilnehmer["Nachname"]) != "nachname")
-                            $teilnehmer_all[] = $teilnehmer;   //return this Array
-                    }
-                }
-            }
-        }
-        return $teilnehmer_all;
-    }
+		error_reporting(E_ALL);
+		$kurs = Kurs::finde($kursId);
+		$teilnehmer = Teilnehmer::findeNachToken($token);
 
-    public static function send_bestaetigungs_email($kursId, $token) {
-        require_once 'PHPMailer-master/src/PHPMailer.php';
+		$subject = strip_tags('Abmeldung bei: ' . $kurs->getTitel());
+		$message = strip_tags('Hiermit wird die Abmeldung bei ' . $kurs->getTitel()
+			. ' am ' . $kurs->getDatum()
+			. ' von ' . $kurs->getVon()
+			. ' bis ' . $kurs->getBis()
+			. ' im Raum/Ort ' . $kurs->getOrt_raum()
+			. ' bestätigt.'); //$_POST['message']
+		$body_message = "\n \n Neue Anmeldung unter:\n " . M_URL . "/" . M_URLUNTERORDNER
+			. "/index.php?token=" . $teilnehmer->getToken() . "&aktion=login";
 
-        error_reporting(E_ALL);
-        $kurs = Kurs::finde($kursId);
-        $teilnehmer = Teilnehmer::findeNachToken($token);
+		Funktionen::mailer(
+			$subject,
+			$message,
+			$body_message,
+			$teilnehmer
+		);
+	}
 
-        $subject = strip_tags('Anmeldung bei: '.$kurs->getTitel());
-        $message = strip_tags('Hiermit wird die Anmeldung zu '.$kurs->getTitel().' am '.$kurs->getDatum().' von '.$kurs->getVon().' bis '.$kurs->getBis().' im Raum/Ort '.$kurs->getOrt_raum().' bestätigt.');//$_POST['message']
+	static function mailer($subject, $message, $body_message, $teilnehmer)
+	{
+		require_once("../entities/variables.ini.php");
 
+		$mailer = new \PHPMailer\PHPMailer\PHPMailer();
 
+		// Nur für Entwicklung
+		if (M_MODE == "development") {
+			require_once('PHPMailer-master/src/Exception.php');
+			require_once('PHPMailer-master/src/SMTP.php');
+			$mailer->IsSMTP();
+			$mailer->Mailer = "smtp";
+			$mailer->SMTPDebug  = 0;
+			$mailer->SMTPAuth   = TRUE;
+			$mailer->SMTPSecure = "tls";
+			$mailer->Port       = 587;
+			$mailer->Host       = "smtp.gmail.com";
+			$mailer->Username   = "berufsschulebozen.anmeldung@gmail.com";
+			$mailer->Password   = "Lbshi-12345";
+		}
+		// Nur für Entwicklung
 
-        $mailer = new \PHPMailer\PHPMailer\PHPMailer();
-        $mail = $teilnehmer->getEmail();
+		$mail = $teilnehmer->getEmail();
 
-        $to = strip_tags($mail);
+		$to = strip_tags($mail);
 
-        $mailer->From = "sekretariat@berufsschule.bz";
-        $mailer->FromName = "LBSHI Schule";
-        $mailer->addAddress($to, $teilnehmer->getVorname()." ".$teilnehmer->getNachname());
-        $mailer->Subject = $subject;
-        $mailer->CharSet ="UTF-8";
-        $mailer->Body = $message."\n \n Anmeldung ändern unter:\n ".M_URL."/".M_URLUNTERORDNER."/index.php?token=".$teilnehmer->getToken()."&aktion=login";
+		$mailer->From = "sekretariat@berufsschule.bz";
+		$mailer->FromName = "LBSHI Schule";
+		$mailer->addAddress(
+			$to,
+			$teilnehmer->getVorname() . " " . $teilnehmer->getNachname()
+		);
+		$mailer->Subject = $subject;
+		$mailer->CharSet = "UTF-8";
+		$mailer->Body = $message . $body_message;
 
-        if (!$mailer->send()) {
-            $_SESSION["Info_mail"] = "Fehler beim versenden ihrer Email!";
-        }else{
-            $_SESSION["Info_mail"] = "Deine Email wurde erfolgreich versendet!";
-        }
-    }
-    public static function send_bestaetigungs_email_abmeldung($kursId, $token) {
-        require_once 'PHPMailer-master/src/PHPMailer.php';
-
-        error_reporting(E_ALL);
-        $kurs = Kurs::finde($kursId);
-        $teilnehmer = Teilnehmer::findeNachToken($token);
-
-        $subject = strip_tags('Abmeldung bei: '.$kurs->getTitel());
-        $message = strip_tags('Hiermit wird die Abmeldung bei '.$kurs->getTitel().' am '.$kurs->getDatum().' von '.$kurs->getVon().' bis '.$kurs->getBis().' im Raum/Ort '.$kurs->getOrt_raum().' bestätigt.');//$_POST['message']
-
-
-
-        $mailer = new \PHPMailer\PHPMailer\PHPMailer();
-        $mail = $teilnehmer->getEmail();
-
-        $to = strip_tags($mail);
-
-        $mailer->From = "sekretariat@berufsschule.bz";
-        $mailer->FromName = "LBSHI Schule";
-        $mailer->addAddress($to, $teilnehmer->getVorname()." ".$teilnehmer->getNachname());
-        $mailer->Subject = $subject;
-        $mailer->CharSet ="UTF-8";
-        $mailer->Body = $message."\n \n Neue Anmeldung unter:\n ".M_URL."/".M_URLUNTERORDNER."/index.php?token=".$teilnehmer->getToken()."&aktion=login";
-
-        if (!$mailer->send()) {
-            $_SESSION["Info_mail"] = "Fehler beim versenden ihrer Email!";
-        }else{
-            $_SESSION["Info_mail"] = "Deine Email wurde erfolgreich versendet!";
-        }
-    }
-
-
-
-
+		$_SESSION["Info_mail"] = ($mailer->send())
+			? "Deine Email wurde erfolgreich versendet!"
+			: "Fehler beim versenden ihrer Email!";
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
- ?>
