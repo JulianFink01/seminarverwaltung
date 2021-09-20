@@ -195,4 +195,41 @@ class Funktionen
 			? "Deine Email wurde erfolgreich versendet!"
 			: "Fehler beim versenden ihrer Email!";
 	}
+
+	static function check_user_already_joined_curse_at_this_time($kurs, $user){
+		$user_already_joined_curse_at_this_time = false;
+		$already_kurs = Kurs::findeNachBenutzer($user);
+		
+		foreach($already_kurs as $k){
+			$kurs_time = $k->getDatum();
+			$kurs_von = $k->getVon();
+			$kurs_bis = $k->getBis();
+
+			if($kurs->getDatum() == $kurs_time){
+
+				// Falls aktueller Kurs die von & bis Zeit enthält
+				if(($kurs->getVon() >= $kurs_von) && ($kurs->getBis() <= $kurs_bis)){
+					if($kurs->getId() != $k->getId()){
+						$user_already_joined_curse_at_this_time = true;
+					}
+				}
+
+				// Falls aktueller Kurs nur die von Zeit enthält
+				if(($kurs->getVon() >= $kurs_von) && ($kurs->getVon() < $kurs_bis)){
+					if($kurs->getId() != $k->getId()){
+						$user_already_joined_curse_at_this_time = true;
+					}
+				}
+
+				// Falls aktueller Kurs nur die bis Zeit enthält
+				if(($kurs->getBis() >= $kurs_von) && ($kurs->getBis() < $kurs_bis)){
+					if($kurs->getId() != $k->getId()){
+						$user_already_joined_curse_at_this_time = true;
+					}
+				}
+			}
+		}
+
+		return $user_already_joined_curse_at_this_time;
+	}
 }

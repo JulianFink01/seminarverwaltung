@@ -73,26 +73,10 @@ $kurse = $fortbildung->findeAlleKurse();
 
                       <!-- Checcking if user has Time for course-->
                         <?php
-                            $user_already_joined_curse_at_this_time = false;
-                            $already_kurs = Kurs::findeNachBenutzer($user);
-                              foreach($already_kurs as $k){
-                                    $kurs_time = $k->getDatum();
-                                    $kurs_von = $k->getVon();
-                                    $kurs_bis = $k->getBis();
+                        $user_already_joined_curse_at_this_time = Funktionen::check_user_already_joined_curse_at_this_time($kurs, $user);
+                            
 
-
-                                    if($kurs->getDatum() == $kurs_time){
-                                      if($k->getBis() > $kurs->getVon()){
-                                          if($kurs->getId() != $k->getId()){
-                                          $user_already_joined_curse_at_this_time = true;
-                                            }
-                                          }
-                                    }
-                              }
-
-
-
-              $abgelaufen = $kurs->istAbgelaufen();
+                        $abgelaufen = $kurs->istAbgelaufen();
                         $anzahl = $kurs->getTeilnehmerAnzahl();
                         $maxAnzahl =$kurs->getMaxTeilnehmer();
                         if($kurs->istFolgekursVon()== null){
