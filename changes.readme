@@ -1,0 +1,2 @@
+Folgekursverbesserungen:
+ - Beim löschen eines Kurses der folgekurse besitzt werden alle folgenden Kurse gelöscht.
