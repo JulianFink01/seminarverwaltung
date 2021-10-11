@@ -68,7 +68,7 @@ border: 1px solid var(--dark-white);
       &::-webkit-details-marker {
       content: "+";
       }
-
+    
     margin: 0 2em 1.5em 2em;
     padding-left: 20px;
     font-size: 2em;
@@ -77,6 +77,8 @@ border: 1px solid var(--dark-white);
     color: lighten($main-blue, 80%);
     font-weight: normal;
     padding-top: 0.5em;
+    cursor: pointer;
+
     &:focus{
       outline: 0 none;
     }
