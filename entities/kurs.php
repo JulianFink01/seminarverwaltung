@@ -294,7 +294,15 @@ class Kurs
 	public function loesche()
 	{
 		$hauptkurs = $this->istFolgekursVon();
-		var_dump($hauptkurs);
+		//var_dump($hauptkurs);
+
+		//überprüfen ob der Kurs, Folgekurse hat
+		if($this->getF_folgekurs_id() != NULL){
+			$f_folgekurs_id = $this->getF_folgekurs_id();
+			$folgekurs = kurs::finde($f_folgekurs_id);
+			$folgekurs->loesche();
+		}
+
 		//üperprüfen ob das ein Folgekurs ist
 		if ($hauptkurs != null) {
 			// Beim Hauptkurs die Folgekursid auf Null setzen
