@@ -485,7 +485,7 @@ class Kurs
 
 	public function istFolgekursVon()
 	{
-		$alleKurse = kurs::findeAlle();
+		$alleKurse = Kurs::findeAlle();
 		foreach ($alleKurse as $kurs) {
 			if ($this->getId() == $kurs->getF_folgekurs_id())
 				return $kurs;
@@ -493,10 +493,22 @@ class Kurs
 		return null;
 	}
 
+	
+	public static function getHauptkurs($kursid)
+	{
+		$kurs = Kurs::finde($kursid);
+		if($kurs->istFolgekursVon() != null){
+			return Kurs::getHauptkurs($kurs->istFolgekursVon()->getId());
+		}else{
+			return $kurs;
+		}
+	}
+
 	public function hatFolgekurs()
 	{
 		return ($this->getF_folgekurs_id() != null) ? true : false;
 	}
+
 
 	public function completeKurs()
 	{

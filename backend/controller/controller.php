@@ -401,7 +401,7 @@ class Controller
 		);
 		$this->addContext(
 			"teilnehmern",
-			Teilnehmer::findeNachKurs(Kurs::finde($_GET['kurs_id']))
+			Teilnehmer::findeNachKurs(Kurs::getHauptkurs($_GET['kurs_id']))
 		);
 		$this->addContext(
 			"vormittag",

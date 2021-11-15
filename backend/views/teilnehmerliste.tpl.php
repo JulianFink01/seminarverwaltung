@@ -20,7 +20,6 @@ if (!isset($_SESSION["loggedIn"])) header('Location: index.php?aktion=login');
 <body>
 
 	<main>
-
 		<header id="kopf">
 			<img src="../backend/images/logo.png" alt="Logo" />
 		</header>

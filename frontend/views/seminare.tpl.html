@@ -44,9 +44,28 @@ $kurse = $fortbildung->findeAlleKurse();
     </header>
     <div class="content-allgemein">
         <?php
+        $_SESSION["eingeschrieben".$fortbildung->getId()] = 0;
+        $_SESSION["aktuellerfolgekurs".$fortbildung->getId()] = 0;
     foreach($kurse as $kurs){
+        $istEingeschrieben = $kurs->nimmtAnKursTeil($user);
+        if($istEingeschrieben){
+            $_SESSION["eingeschrieben".$fortbildung->getId()] = $kurs->getId();
+            $_SESSION["aktuellerfolgekurs".$fortbildung->getId()] = $kurs->getId();
+        }
+        if($kurs->getId() != $_SESSION["aktuellerfolgekurs".$fortbildung->getId()]){
+            if($kurs->istFolgekursVon() != null){
+                if($kurs->istFolgekursVon()->getId() == $_SESSION["aktuellerfolgekurs".$fortbildung->getId()]){
+                    $istEingeschrieben = true;
+                    $_SESSION["aktuellerfolgekurs".$fortbildung->getId()] = $kurs->getId();
+                }
+        }
 
-      $istEingeschrieben = $kurs->nimmtAnKursTeil($user);
+        }
+        $teilnehmeranzahl = $kurs->getTeilnehmerAnzahl();
+        if($istEingeschrieben){
+            $teilnehmeranzahl = Kurs::finde($_SESSION["eingeschrieben".$fortbildung->getId()])->getTeilnehmerAnzahl();
+        }
+
         ?>
         <div class="Content <?php if($istEingeschrieben){echo 'meinKurs';} ?>">
             <div class="Beschreibung">
@@ -54,10 +73,10 @@ $kurse = $fortbildung->findeAlleKurse();
                     <summary>
                         <a><?php echo $kurs->getTitel();?></a>
                         <?php if($kurs->getMaxTeilnehmer() != 0){ ?>
-                        <a class="right"><?php echo $kurs->getTeilnehmerAnzahl()?>/<?php echo $kurs->
+                        <a class="right"><?php echo $teilnehmeranzahl?>/<?php echo $kurs->
                             getMaxTeilnehmer()?> Teilnehmer</a>
                         <?php }else{?>
-                        <a class="right"><?php echo $kurs->getTeilnehmerAnzahl();?> Angemeldet</a>
+                        <a class="right"><?php echo $teilnehmeranzahl;?> Angemeldet</a>
                         <?php } ?>
                     </summary>
                     <div class="informations">
@@ -102,7 +121,7 @@ $kurse = $fortbildung->findeAlleKurse();
                         <?php }
                             }}?>
                         <div class="info-text info-right">
-                            <a href="index.php?aktion=show_KursInfos&kursId=<?php echo $kurs->getId();?>&token=<?php echo $user->getToken();?>">Mehr
+                            <a href="index.php?aktion=show_KursInfos&kursId=<?php echo $kurs->getId();?>&token=<?php echo $user->getToken();?>&istEingeschrieben=<?php echo $istEingeschrieben;?>&hauptkursId=<?php echo $_SESSION["eingeschrieben".$fortbildung->getId()];?>">Mehr
                                 Informationen</a>
                         </div>
                     </div>

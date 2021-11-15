@@ -25,8 +25,12 @@
     </header>
     <div class="content-allgemein">
         <?php
-
-        $istEingeschrieben = $kurs->nimmtAnKursTeil($user);
+            $istEingeschrieben = $_REQUEST['istEingeschrieben'];
+            if($istEingeschrieben == 1){
+                $istEingeschrieben = true;
+            }else{
+                $istEingeschrieben = false;
+            }
         ?>
         <div class="Content <?php if($istEingeschrieben){echo 'meinKurs';} ?>">
             <div class="Beschreibung">
@@ -61,19 +65,28 @@
                     <div class="info-text">
 
                         <details class="<?php if($istEingeschrieben){echo 'meinDetails';} ?>">
+                            <?php
+                                $hauptkursId = $_REQUEST['hauptkursId'];
+                                $teilnehmeranzahl =$kurs->getTeilnehmerAnzahl();
+
+                                $teilnehmer = $kurs->getAllTeilnehmer();
+                                if($hauptkursId != $kurs->getId() && $istEingeschrieben){
+                                    $hauptkurs = Kurs::finde($hauptkursId);
+                                    $teilnehmer = $hauptkurs->getAllTeilnehmer();
+                                    $teilnehmeranzahl = $hauptkurs->getTeilnehmerAnzahl();
+                                }
+                            ?>
                             <summary>
                                 <?php if($kurs->getMaxTeilnehmer() != 0){ ?>
-                                <a>Teilnehmer: <?php echo ' '.$kurs->getTeilnehmerAnzahl();?> /<?php echo ' '.$kurs->
+                                <a>Teilnehmer: <?php echo ' '.$teilnehmeranzahl;?> /<?php echo ' '.$kurs->
                                     getMaxTeilnehmer();?></a>
                                 <?php }else{?>
-                                <a>Angemeldet: <?php echo ' '.$kurs->getTeilnehmerAnzahl(); }?></a>
+                                <a>Angemeldet: <?php echo ' '.$teilnehmeranzahl; }?></a>
 
                             </summary>
                             <ul id="teilnehmer-liste">
                                 <?php
-
-                        $teilnhemer = $kurs->getAllTeilnehmer();
-                                foreach($teilnhemer as $t){
+                                foreach($teilnehmer as $t){
 
                                 ?>
                                 <li><?php
