@@ -110,11 +110,12 @@ article.infobox section:target, article.infobox section:target h2 {
 		border-top: 0.5px solid var(--dark-white);
 		border-left: 0.5px solid var(--dark-white);
 		border-right: 0.5px solid var(--dark-white);
+	
 }
 
 article.infobox section:target h2 a {
     color: var(--main-blue);
-
+	cursor: pointer;
 }
 #kreisbutton div{
 	background-images: url("../images/teilnehmer-hinzufuegen.png");
@@ -758,4 +759,8 @@ margin-top: 20px;
 }
 .tabElem h2, .tabElem, .tabElem h2 a{
 	display: block !important;
+}
+
+.cursor{
+	cursor: pointer;
 }

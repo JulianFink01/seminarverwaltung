@@ -110,16 +110,16 @@ if (!isset($_SESSION["loggedIn"])) header('Location: index.php?aktion=login');
 
 						<label>
 							<span>CSV Datei(*.csv)</span>
-							<input id="csv_datei" name="datei" type="file" size="50" accept=".csv" class="button" onchange="hinzufugegen_Freischalten()">
+							<input class="cursor" id="csv_datei" name="datei" type="file" size="50" accept=".csv" class="button" onchange="hinzufugegen_Freischalten()">
 						</label>
 
 						<div id="t_erstellen_btn">
 							<a onclick="teilnehmerErstellen()">
-								<img width="75px" src="images/teilnehmer-hinzufuegen.png" title="Teilnehmer hinzufuegen"  />
+								<img class="cursor" width="75px" src="images/teilnehmer-hinzufuegen.png" title="Teilnehmer hinzufuegen"  />
 							</a>
 						</div>
 
-						<input type="submit" id="csv_button" name="submit" value="Hochladen" disabled>
+						<input class="cursor" type="submit" id="csv_button" name="submit" value="Hochladen" disabled>
 
 					</form>
 				</div>
@@ -150,7 +150,7 @@ if (!isset($_SESSION["loggedIn"])) header('Location: index.php?aktion=login');
 							</td>
 							<td class="b_l">
 								<a onclick="bearbeiteBenutzer('<?php echo $teilnehmer->getToken(); ?>','<?php echo $teilnehmer->getVorname(); ?>', '<?php echo $teilnehmer->getNachname(); ?>', '<?php echo $teilnehmer->getEmail(); ?>', '<?php echo $_REQUEST['fortbildung_id'] ?>' )">
-									<img width="45px" src="images/teilnehmer-bearbeiten.png" title="Teilnehmer bearbeiten" />
+									<img class="cursor" width="45px" src="images/teilnehmer-bearbeiten.png" title="Teilnehmer bearbeiten" />
 								</a>
 							</td>
 						</tr>
@@ -176,7 +176,7 @@ if (!isset($_SESSION["loggedIn"])) header('Location: index.php?aktion=login');
 
 						<textarea placeholder="Ihre Nachricht:" name="message" rows="10" cols="100" id="text" required></textarea>
 
-						<input id="btn_email_sendn" type="submit" id="button" name="senden" value="Email senden" />
+						<input class="cursor" id="btn_email_sendn" type="submit" id="button" name="senden" value="Email senden" />
 
 					</form>
 
