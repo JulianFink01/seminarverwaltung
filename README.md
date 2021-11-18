@@ -10,4 +10,4 @@ For planning and current Project State: -> www.taiga.io
 
 # seminarverwaltung 2.0
 
-Team: Luka Riggio, Daniel Zwischenbrugger, Armin Gross, Codalonga Andreas, Hermeter David
+Team: Luca Riggio, Daniel Zwischenbrugger, Armin Gross, Codalonga Andreas, Hermeter David
