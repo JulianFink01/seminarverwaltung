@@ -44,7 +44,7 @@ class Controller
 		$alteFortbildung = Fortbildung::finde($_GET['fortbildung_id']);
 		$dupliFortbildung = new Fortbildung(
 			array(
-				"name" => $alteFortbildung->getName(),
+				"name" => $alteFortbildung->getName(). " Kopie",
 				"status" => $alteFortbildung->getStatus()
 			)
 		);

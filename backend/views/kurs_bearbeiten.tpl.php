@@ -117,9 +117,9 @@ if (!isset($_SESSION["loggedIn"])) header('Location: index.php?aktion=login');
 					<input type="hidden" id="fortbildung_id" name="fortbildung_id" value="<?php echo $_GET["fortbildung_id"] ?>" />
 
 					<a> Teilnehmeranzahl: </a>
-					<input type="number" name="maxTeilnehmer" id="maxTeilnehmer" value="<?php echo $kurse->getMaxTeilnehmer() ?>" <?php if ($kurse->istFolgekursVon() != null) {echo 'disabled';}?>/>
+					<input type="number" name="maxTeilnehmer" id="maxTeilnehmer" value="<?php echo $kurse->getMaxTeilnehmer() ?>" />
+					<?php //if ($kurse->istFolgekursVon() != null) {echo 'disabled';}?> 
 					
-					 
 					<a>Kontaktperson: </a>
 					<input type="text" name="kontakt" id="kontaktpersonen" value="<?php echo $kurse->getKontakt() ?>" />
 

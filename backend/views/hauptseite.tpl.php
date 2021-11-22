@@ -64,7 +64,7 @@ if (!isset($_SESSION["loggedIn"])) header('Location: index.php?aktion=login');
 
 						<a href="?aktion=duplicateFortbildung&fortbildung_id=<?php echo $fortbildung->getId(); ?>" id="duplicate_f">
 							<img class="kurs_icons" width="35px" src="images/clon_icon.png" title="duplizieren" />
-						</a>
+						</a> 
 
 						<a href="?aktion=statusAendern&fortbildung_id=<?php echo $fortbildung->getId(); ?>" id="duplicate_f">
 							<img class="kurs_icons" width="35px" src="<?php echo $img_status; ?>" title="aktivieren/deaktivieren" />
