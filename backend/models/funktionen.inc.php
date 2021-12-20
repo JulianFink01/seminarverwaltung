@@ -113,12 +113,25 @@ class Funktionen
 		$message = strip_tags('Hiermit wird die Anmeldung zu ' . $kurs->getTitel()
 			. ' am ' . $kurs->getDatum()
 			. ' von ' . $kurs->getVon()
-			. ' bis ' . $kurs->getBis()
+			. ' bis ' . $kurs->getBis() . ' Uhr'
 			. ' im Raum/Ort ' . $kurs->getOrt_raum()
-			. ' bestätigt.'); //$_POST['message']
-		$body_message = "\n \n Anmeldung ändern unter:\n " . M_URL . "/" . M_URLUNTERORDNER
+			. ' bestätigt.'
+		); 							//$_POST['message']
+
+		while($kurs->hatFolgekurs()) { 
+			$folgeKurs = Kurs::finde($kurs->getF_folgekurs_id());
+			$message .= strip_tags("\nFolgekurs: " . $folgeKurs->getTitel()
+				. ' am ' . $folgeKurs->getDatum()
+				. ' von ' .$folgeKurs->getVon()
+				. ' bis ' . $folgeKurs->getBis() . ' Uhr'
+				. ' im Raum/Ort ' . $folgeKurs->getOrt_raum() .'.'
+			);
+			$kurs = $folgeKurs;
+		}
+
+		$body_message = "\n \nAnmeldung ändern unter:\n " . M_URL . "/" . M_URLUNTERORDNER
 			. "/index.php?token=" . $teilnehmer->getToken() . "&aktion=login" .
-			"\n \n In Kalender eintragen:\n " . M_URL . "/" . M_URLUNTERORDNER
+			"\n \nIn Kalender eintragen:\n " . M_URL . "/" . M_URLUNTERORDNER
 			. "/index.php?kursId=" . $kursId . "&aktion=getCalendarItem";
 
 		Funktionen::mailer(
@@ -143,8 +156,21 @@ class Funktionen
 			. ' von ' . $kurs->getVon()
 			. ' bis ' . $kurs->getBis()
 			. ' im Raum/Ort ' . $kurs->getOrt_raum()
-			. ' bestätigt.'); //$_POST['message']
-		$body_message = "\n \n Neue Anmeldung unter:\n " . M_URL . "/" . M_URLUNTERORDNER
+			. ' bestätigt.'
+		); //$_POST['message']
+
+		while($kurs->hatFolgekurs()) { 
+			$folgeKurs = Kurs::finde($kurs->getF_folgekurs_id());
+			$message .= strip_tags("\nFolgekurs: " . $folgeKurs->getTitel()
+				. ' am ' . $folgeKurs->getDatum()
+				. ' von ' .$folgeKurs->getVon()
+				. ' bis ' . $folgeKurs->getBis() . ' Uhr'
+				. ' im Raum/Ort ' . $folgeKurs->getOrt_raum() .'.'
+			);
+			$kurs = $folgeKurs;
+		}
+
+		$body_message = "\n \nNeue Anmeldung unter:\n " . M_URL . "/" . M_URLUNTERORDNER
 			. "/index.php?token=" . $teilnehmer->getToken() . "&aktion=login";
 
 		Funktionen::mailer(
@@ -160,7 +186,7 @@ class Funktionen
 		require_once("../entities/variables.ini.php");
 
 		$mailer = new \PHPMailer\PHPMailer\PHPMailer();
-
+		
 		// Nur für Entwicklung
 		if (M_MODE == "development") {
 			require_once('PHPMailer-master/src/Exception.php');

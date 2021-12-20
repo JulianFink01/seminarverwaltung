@@ -485,6 +485,11 @@ class Kurs
 
 	public function istFolgekursVon()
 	{
+		/*$kurs = null;
+		if ($this->hatFolgekurs()){
+			$kurs = Kurs::finde($this->getF_folgekurs_id());
+		}*/
+		
 		$alleKurse = Kurs::findeAlle();
 		foreach ($alleKurse as $kurs) {
 			if ($this->getId() == $kurs->getF_folgekurs_id())
