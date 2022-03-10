@@ -57,12 +57,7 @@ border: 1px solid var(--dark-white);
 .Beschreibung{
   transition: 0.5s all ease-in;
   details {
-    &[open]{
-
-      summary{
-
-      }
-    }
+    
     padding-bottom: 15px;
     summary{
       &::-webkit-details-marker {
@@ -308,7 +303,7 @@ background-color: white;
         display: block;
       a{
         text-align: center;
-        vertical-align: middle;
+        /*vertical-align: middle;*/
       display: block;
       margin-top: 15px;
       cursor: pointer;

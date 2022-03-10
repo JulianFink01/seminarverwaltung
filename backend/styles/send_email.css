@@ -20,14 +20,14 @@
 }
 #nicht-angemeldet p #back-to-login a{
   text-align: center;
-  vertical-align: middle;
-display: block;
-margin-top: 15px;
-cursor: pointer;
-font-size: 1.5rem;
-text-decoration: none;
-color: var(--main-orange);
-transition: 0.3s all ease-out;
+  /*vertical-align: middle;*/
+  display: block;
+  margin-top: 15px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--main-orange);
+  transition: 0.3s all ease-out;
 
 }
 #nicht-angemeldet p #back-to-login a:hover{
