@@ -66,12 +66,12 @@ class Controller
 					"koordination" => $alterKurs->getKoordination(),
 					"anmeldeschluss" => $alterKurs->getAnmeldeSchluss(),
 					"dauer" => $alterKurs->getDauer(),
-					"fortbildung_id" => $dupliFortbildung->getId()
+					"fortbildung_id" => $dupliFortbildung->getId(),
+					//"f_folgekurs_id" => 
 				)
 			);
 			$dupliKurs->speichere();
 		}
-
 		header("Location: index.php?aktion=hauptseite");
 	}
 
@@ -96,9 +96,11 @@ class Controller
 				"koordination" => $alterKurs->getKoordination(),
 				"anmeldeschluss" => $alterKurs->getAnmeldeSchluss(),
 				"dauer" => $alterKurs->getDauer(),
-				"fortbildung_id" => $alteFortbildung->getId()
+				"fortbildung_id" => $alteFortbildung->getId(),
+
 			)
 		);
+
 		$dupliKurs->speichere();
 
 

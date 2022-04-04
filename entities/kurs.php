@@ -32,8 +32,9 @@ class Kurs
 				$setterName = 'set' . ucfirst($k);
 				// wenn ein ungültiges Attribut übergeben wurde
 				// (ohne Setter), ignoriere es
-				if (method_exists($this, $setterName))
-					$this->$setterName($v);
+				if (method_exists($this, $setterName)) {
+				}
+				$this->$setterName($v);
 			}
 		}
 	}
@@ -297,7 +298,7 @@ class Kurs
 		//var_dump($hauptkurs);
 
 		//überprüfen ob der Kurs, Folgekurse hat
-		if($this->getF_folgekurs_id() != NULL){
+		if ($this->getF_folgekurs_id() != NULL) {
 			$f_folgekurs_id = $this->getF_folgekurs_id();
 			$folgekurs = kurs::finde($f_folgekurs_id);
 			$folgekurs->loesche();
@@ -489,7 +490,7 @@ class Kurs
 		if ($this->hatFolgekurs()){
 			$kurs = Kurs::finde($this->getF_folgekurs_id());
 		}*/
-		
+
 		$alleKurse = Kurs::findeAlle();
 		foreach ($alleKurse as $kurs) {
 			if ($this->getId() == $kurs->getF_folgekurs_id())
@@ -498,13 +499,13 @@ class Kurs
 		return null;
 	}
 
-	
+
 	public static function getHauptkurs($kursid)
 	{
 		$kurs = Kurs::finde($kursid);
-		if($kurs->istFolgekursVon() != null){
+		if ($kurs->istFolgekursVon() != null) {
 			return Kurs::getHauptkurs($kurs->istFolgekursVon()->getId());
-		}else{
+		} else {
 			return $kurs;
 		}
 	}

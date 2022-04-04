@@ -1,766 +1,738 @@
-
 #kopf {
-	background-color: white;
-	border: 1px solid rgba(189,195,199);
-	box-shadow: 1px 5px 5px 0px #f0f0f0;
-	margin-left: 2.5%;
-	margin-top: 2.5%;
-	margin-right: 2.5%;
-	position: relative;
+  background-color: white;
+  border: 1px solid rgba(189, 195, 199);
+  box-shadow: 1px 5px 5px 0px #f0f0f0;
+  margin-left: 2.5%;
+  margin-top: 2.5%;
+  margin-right: 2.5%;
+  position: relative;
 }
 
 #kopf h1 {
-	color: rgba(0, 48, 80, 1);
-	background-color: white;
-	text-align: center;
-	font-size: 40px;
-	margin-top: 2%;
-	width: 60%;
-	margin: auto;
-	padding-bottom: 10px;
-
+  color: rgba(0, 48, 80, 1);
+  background-color: white;
+  text-align: center;
+  font-size: 40px;
+  margin-top: 2%;
+  width: 60%;
+  margin: auto;
+  padding-bottom: 10px;
 }
-#back{
-	float: left;
-	width: 10%;
-	height: auto;
-	color: white;
-	padding: 10px;
-	margin-top: 30px;
-	font-size: 20px;
+#back {
+  float: left;
+  width: 10%;
+  height: auto;
+  color: white;
+  padding: 10px;
+  margin-top: 30px;
+  font-size: 20px;
 }
-#back a img{
-	float:right;
-	width: 90% !important;
-	height: auto;
+#back a img {
+  float: right;
+  width: 90% !important;
+  height: auto;
 }
-#home-redi{
-	position: absolute;
-	display: block;
-	float: right;
-	left: 1%;
-	height: 80%;
+#home-redi {
+  position: absolute;
+  display: block;
+  float: right;
+  left: 1%;
+  height: 80%;
   margin-top: 0.5%;
 }
-#home-redi a img{
-	float:right;
-	height: 90% !important;
-	width: auto;
-
-
+#home-redi a img {
+  float: right;
+  height: 90% !important;
+  width: auto;
 }
 
 #summernote {
   width: 100% !important;
-	height: 20% !important;
+  height: 20% !important;
 }
 
-#leiste{
-	margin-left: 2.5%;
-	margin-right: 2.5%;
+#leiste {
+  margin-left: 2.5%;
+  margin-right: 2.5%;
 }
 article.infobox section {
-
-    position: absolute;
-    display: block;
-    width: 95%;
-    height: auto;
-    top: 300px;
-    background-color: var(--dark-white);
-		border: 0.5px solid var(--dark-white);
+  position: absolute;
+  display: block;
+  width: 95%;
+  height: auto;
+  top: 300px;
+  background-color: var(--dark-white);
+  border: 0.5px solid var(--dark-white);
 }
 
 article.infobox section h2 {
-    position: absolute;
-    left: 0;
-    top: -40px;
-    width: 150px;
-    height: 40px;
-    font-family: Verdana;
-    font-size: 15px;
-    margin: 0;
-    background-color: var(--main-blue);
-    border: solid #ffffff;
-    border-width: 1px 1px 0 0;
-    z-index: 1;
-
-
+  position: absolute;
+  left: 0;
+  top: -40px;
+  width: 150px;
+  height: 40px;
+  font-family: Verdana;
+  font-size: 15px;
+  margin: 0;
+  background-color: var(--main-blue);
+  border: solid #ffffff;
+  border-width: 1px 1px 0 0;
+  z-index: 1;
 }
 article.infobox section:nth-child(2) h2 {
-    left: 150px;
-    z-index: 1;
+  left: 150px;
+  z-index: 1;
 }
 
 article.infobox section:nth-child(3) h2 {
-    left: 300px;
-    z-index: 1;
+  left: 300px;
+  z-index: 1;
 }
 
 article.infobox section h2 a {
-    display: block;
-    margin: 5px 0 0 0;
-    text-align: center;
-    text-decoration: none;
-    color: var(--main-white);
+  display: block;
+  margin: 5px 0 0 0;
+  text-align: center;
+  text-decoration: none;
+  color: var(--main-white);
 }
-article.infobox section:target, article.infobox section:target h2 {
-    color: #000000;
-    background-color: var(--main-white);
-    z-index: 1;
-		border-top: 0.5px solid var(--dark-white);
-		border-left: 0.5px solid var(--dark-white);
-		border-right: 0.5px solid var(--dark-white);
-	
+article.infobox section:target,
+article.infobox section:target h2 {
+  color: #000000;
+  background-color: var(--main-white);
+  z-index: 1;
+  border-top: 0.5px solid var(--dark-white);
+  border-left: 0.5px solid var(--dark-white);
+  border-right: 0.5px solid var(--dark-white);
 }
 
 article.infobox section:target h2 a {
-    color: var(--main-blue);
-	cursor: pointer;
+  color: var(--main-blue);
+  cursor: pointer;
 }
-#kreisbutton div{
-	background-image: url("../images/teilnehmer-hinzufuegen.png");
+#kreisbutton div {
+  background-image: url("../images/teilnehmer-hinzufuegen.png");
   background-size: cover;
   background-position: 7px 7px;
   background-repeat: no-repeat;
 }
 
-.kurs_icons{
-	margin-right: 10px;
+.kurs_icons {
+  margin-right: 10px;
 }
-#zurueck{
-	margin: 2%;
-	float: left;
-	width: 75px;
+#zurueck {
+  margin: 2%;
+  float: left;
+  width: 75px;
 }
-#home{
-left: 10%;
-	position: absolute;
-	top: 6.5%;
-	width:4%;
-	height: auto;
+#home {
+  left: 10%;
+  position: absolute;
+  top: 6.5%;
+  width: 4%;
+  height: auto;
 }
-#outlog{
-	position: absolute;
-	float: right;
-	right: 1%;
-	top: 6.5%;
-	width: 6%;
-	height: auto;
-
+#outlog {
+  position: absolute;
+  float: right;
+  right: 1%;
+  top: 6.5%;
+  width: 6%;
+  height: auto;
 }
 /* css simon teilnehmerliste*/
 
-.showTeilnehmerErstellen{
-	height:auto !important;
-	overflow: visible !important;
+.showTeilnehmerErstellen {
+  height: auto !important;
+  overflow: visible !important;
 }
-#textfeld{
-	height: 0px;
-	overflow: hidden;
-	transition: 1s all;
+textarea {
+  font-family: "Tenor Sans", sans-serif;
+}
+#textfeld {
+  height: 0px;
+  overflow: hidden;
+  transition: 1s all;
 }
 #textfeld legend {
-	margin: 50px 0px 0px 15px;
-	font-size: 15px;
+  margin: 50px 0px 0px 15px;
+  font-size: 15px;
 }
 #textfeld input[type="text"] {
-	margin: 10px 0px 0px 15px;
-	padding-left: 5px;
-	width: 350px;
-	height: 30px;
+  margin: 10px 0px 0px 15px;
+  padding-left: 5px;
+  width: 350px;
+  height: 30px;
 }
 #textfeld input[type="submit"] {
-	margin: 10px 0px 0px 265px;
-	width: 100px;
-	height: 30px;
+  margin: 10px 0px 0px 265px;
+  width: 100px;
+  height: 30px;
 }
 #teilnehmer-tabelle {
-	width: 100%;
-	height: 430px;
-	padding: 0px 20px;
+  width: 100%;
+  height: 430px;
+  padding: 0px 20px;
 }
 #teilnehmer-tabelle table {
-	  border-collapse: collapse;
-		width: 100%;
+  border-collapse: collapse;
+  width: 100%;
 }
-.hidden{
-	display: none !important;
+.hidden {
+  display: none !important;
 }
-#teilnehmer-tabelle table tr th{
-		height: 50px;
-		text-align: center;
-		color: var(--main-blue);
+#teilnehmer-tabelle table tr th {
+  height: 50px;
+  text-align: center;
+  color: var(--main-blue);
 }
-#teilnehmer-tabelle td, th{
-	border: 0.5px solid var(--dark-white);
-	padding: 5px;
+#teilnehmer-tabelle td,
+th {
+  border: 0.5px solid var(--dark-white);
+  padding: 5px;
 }
-#teilnehmer-tabelle table tr td{
-		text-align: center;
-		color: var(--main-blue);
-
+#teilnehmer-tabelle table tr td {
+  text-align: center;
+  color: var(--main-blue);
 }
-.b_l{
-	border:none;
+.b_l {
+  border: none;
 }
-table tr td.b_l{
-	border: none;
-	text-align: left;
-}
-
-#teilnehmer_hinzu{
-	float: right;
-	margin-right: 25px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-
-}
-#teilnehmer_hinzu legend{
-		color: var(--main-blue);
+table tr td.b_l {
+  border: none;
+  text-align: left;
 }
 
-.status{
-	width: 70px;
+#teilnehmer_hinzu {
+  float: right;
+  margin-right: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#teilnehmer_hinzu legend {
+  color: var(--main-blue);
 }
 
-.csv{
-	float: left;
-	margin-left: 50px;
-	margin-top: 10px;
-	padding: 15px;
-	padding-bottom: 15px;
-	width: 75%;
-	margin-right: 50px;
-}
-.csv span{
-	color: var(--main-blue);
-}
-#t_erstellen_btn{
-	width: 10%;
-	float: right;
-	margin-left: 20%;
-}
-#csv_button{
-	border-style: none;
-	color: var(--main-white);
-	background-color: var(--main-blue);
-	width: 10%;
-	padding: 0;
-	margin: 0;
-	text-align: center;
-	height: 25px;
+.status {
+  width: 70px;
 }
 
-#csv_button:hover{
-	color: var(--main-blue);
-	border-color: var(--main-orange);
-	background-color: var(--main-orange);
+.csv {
+  float: left;
+  margin-left: 50px;
+  margin-top: 10px;
+  padding: 15px;
+  padding-bottom: 15px;
+  width: 75%;
+  margin-right: 50px;
+}
+.csv span {
+  color: var(--main-blue);
+}
+#t_erstellen_btn {
+  width: 10%;
+  float: right;
+  margin-left: 20%;
+}
+#csv_button {
+  border-style: none;
+  color: var(--main-white);
+  background-color: var(--main-blue);
+  width: 10%;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  height: 25px;
 }
 
-#button{
-	border-style: none;
-	color: var(--main-white);
-	border-color: var(--main-blue);
-	background-color: var(--main-blue);
-	text-align: center;
-	width: 100px;
-	height: 25px;
-	float: right;
-	margin-right: 45px;
-	float: left;
-	margin-left: 45px;
-	margin-top: 25px;
-}
-#button:hover{
-	color: var(--main-blue);
-	border-color: var(--main-orange);
-	background-color: var(--main-orange);
+#csv_button:hover {
+  color: var(--main-blue);
+  border-color: var(--main-orange);
+  background-color: var(--main-orange);
 }
 
+#button {
+  border-style: none;
+  color: var(--main-white);
+  border-color: var(--main-blue);
+  background-color: var(--main-blue);
+  text-align: center;
+  width: 100px;
+  height: 25px;
+  float: right;
+  margin-right: 45px;
+  float: left;
+  margin-left: 45px;
+  margin-top: 25px;
+}
+#button:hover {
+  color: var(--main-blue);
+  border-color: var(--main-orange);
+  background-color: var(--main-orange);
+}
 
 /* css benjamin email senden*/
-#fenster{
-		padding-left: 0px;
-    height: 640px;
-    width: 80%;
+#fenster {
+  padding-left: 0px;
+  height: 640px;
+  width: 80%;
 }
 
 #cke_editor1 {
-    margin-top: 10px;
-    margin-left: 12rem;
+  margin-top: 10px;
+  margin-left: 12rem;
 }
-#senden{
-    position: relative;
-		top: 20px;
-		left: 320px;
-    width: 150px;
-    height: 30px;
+#senden {
+  position: relative;
+  top: 20px;
+  left: 320px;
+  width: 150px;
+  height: 30px;
 }
 #inhalt {
-	float: left;
-	width: 85%;
-	height: 90%;
-	margin-left: 5%;
-	overflow: scroll !important;
+  float: left;
+  width: 85%;
+  height: 90%;
+  margin-left: 5%;
+  overflow: scroll !important;
 }
-#fenster form textarea{
-	width: 100%;
-	margin: auto;
-	margin-left: 10%;
+#fenster form textarea {
+  width: 100%;
+  margin: auto;
+  margin-left: 10%;
 }
-#text{
-	font-size: 20px;
+#text {
+  font-size: 20px;
 }
-#fenster span{
-	margin-top: 20px;
-	margin-bottom: 20px;
-	font-size: 20px;
-	text-align: justify;
-	color: var(--main-blue);
-	width: 100%;
-	margin-left: 10%;
-	display: block;
+#fenster span {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  text-align: justify;
+  color: var(--main-blue);
+  width: 100%;
+  margin-left: 10%;
+  display: block;
 }
-#kurskopf{
-	background-color: white;
+#kurskopf {
+  background-color: white;
 
-	box-shadow: 1px 5px 5px 0px #f0f0f0;
-	margin-left: 2.5%;
-	margin-top: 2.5%;
-	margin-right: 2.5%;
-	margin-bottom: 30px;
-	text-align: center;
-	padding-bottom: 5px;
+  box-shadow: 1px 5px 5px 0px #f0f0f0;
+  margin-left: 2.5%;
+  margin-top: 2.5%;
+  margin-right: 2.5%;
+  margin-bottom: 30px;
+  text-align: center;
+  padding-bottom: 5px;
 }
-#kurskopf h1{
-	background-color: white;
-	text-align: center;
-	font-size: 40px;
-	margin-top: 2%;
-	padding-bottom: 10px;
-	color: var(--main-blue);
+#kurskopf h1 {
+  background-color: white;
+  text-align: center;
+  font-size: 40px;
+  margin-top: 2%;
+  padding-bottom: 10px;
+  color: var(--main-blue);
 }
-#kurserstelleninhalt{
-	padding-top: 5px;
-	background-color: #fafafa;
-	border: 0.5px solid var(--dark-white);
-	width: 90%;
-	height: 100%;
-	margin-left: 5%;
-	padding: 10px 100px 40px 100px;
-padding-bottom: 150px;
-	margin-top: 50px;
+#kurserstelleninhalt {
+  padding-top: 5px;
+  background-color: #fafafa;
+  border: 0.5px solid var(--dark-white);
+  width: 90%;
+  height: 100%;
+  margin-left: 5%;
+  padding: 10px 100px 40px 100px;
+  padding-bottom: 150px;
+  margin-top: 50px;
 }
-.einzug{
-	text-align: left;
-
+.einzug {
+  text-align: left;
 }
-#kurs_beschreibung{
-	display: block;
-
-
+#kurs_beschreibung {
+  display: block;
 }
 #kurszeiten {
-	margin-top: 5rem;
-	text-align: left;
+  margin-top: 5rem;
+  text-align: left;
 
-	width: 100%;
+  width: 100%;
 }
-.kursdaten{
-	margin-top: 3rem;
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: row;
-	text-align: left;
+.kursdaten {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  text-align: left;
 }
-.kursdaten a , input{
-	width: 25%;
-	margin-bottom: 5px;
-	text-align: left;
-		padding-left: 3%;
+.kursdaten a,
+input {
+  width: 25%;
+  margin-bottom: 5px;
+  text-align: left;
+  padding-left: 3%;
 }
-.kursdaten a , input:nth-child(1){
-	text-align: left;
-	padding-left: 1%;
-
+.kursdaten a,
+input:nth-child(1) {
+  text-align: left;
+  padding-left: 1%;
 }
-.kursdaten input{
-	border: 1.2px solid #000;
+.kursdaten input {
+  border: 1.2px solid #000;
 }
 .zeit {
-
-	height: 30px;
-	border: 1.2px solid #000;
-	margin-left: 2rem;
-
+  height: 30px;
+  border: 1.2px solid #000;
+  margin-left: 2rem;
 }
-#input{
-margin-bottom: 20px;
-width: 100%;
-text-align: left;
-
+#input {
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: left;
 }
-#input p input{
-	border: 0.5px solid var(--dark-white);
-	border: 0.5px solid black;
-	width: 40%;
-
+#input p input {
+  border: 0.5px solid var(--dark-white);
+  border: 0.5px solid black;
+  width: 40%;
 }
-#input p{
-	width: 100%;
+#input p {
+  width: 100%;
 }
 
-#box p{
-	color: var(--main-blue);
-	font-weight: bold;
+#box p {
+  color: var(--main-blue);
+  font-weight: bold;
 }
-#box a{
-	color: var(--main-blue);
-	font-weight: bold;
-	text-decoration: none;
+#box a {
+  color: var(--main-blue);
+  font-weight: bold;
+  text-decoration: none;
 }
-
 
 .kurs {
-	padding: 20px;
-	margin: 10px;
-	margin-left: 0px;
-	background-color: var(--main-blue);
-	cursor: pointer;
-	width: 95%;
+  padding: 20px;
+  margin: 10px;
+  margin-left: 0px;
+  background-color: var(--main-blue);
+  cursor: pointer;
+  width: 95%;
 }
 .kurs a {
-	text-decoration: none;
-	font-size: 20px;
-	color: #e9f6ff;
+  text-decoration: none;
+  font-size: 20px;
+  color: #e9f6ff;
 }
 .kurs p {
-	color: #e9f6ff;
+  color: #e9f6ff;
 }
-.kurs a:hover{
-	color: var(--main-orange);
+.kurs a:hover {
+  color: var(--main-orange);
 }
 .kurs h1 {
-	color:  #e9f6ff;
+  color: #e9f6ff;
 }
 #erstell_button {
-	padding: 0;
-	width: 5%;
-	float: right;
-	margin-right: 3%;
+  padding: 0;
+  width: 5%;
+  float: right;
+  margin-right: 3%;
   background-image: url("../images/fortbildung_erstellButton.png");
   background-repeat: no-repeat;
   background-size: contain;
-
 }
 #kurs_erstellbutton {
-margin-top: 20px;
-
+  margin-top: 20px;
 }
 #kurs_koordination {
-	text-align: left;
-	border: 1.2px solid #000;
-	height: 30px;
-	display: inline;
-	margin-left: 20px;
+  text-align: left;
+  border: 1.2px solid #000;
+  height: 30px;
+  display: inline;
+  margin-left: 20px;
 }
 #kurs_anmeldeschluss {
-	height: 30px;
-	margin-left: 20px;
-	display: inline;
-	  border: 1.2px solid #000;
+  height: 30px;
+  margin-left: 20px;
+  display: inline;
+  border: 1.2px solid #000;
 }
 #kurs_kontakt {
-	height: 30px;
-	border: 1.2px solid #000;
-	margin-left: 40px;
-	display: inline;
+  height: 30px;
+  border: 1.2px solid #000;
+  margin-left: 40px;
+  display: inline;
 }
 
 #datumkurs {
-	border: 1.2px solid #000;
-	margin-left: 3rem;
-	text-align: left;
-	padding: 5px;
-	height: 30px;
-	display: inline-block;
+  border: 1.2px solid #000;
+  margin-left: 3rem;
+  text-align: left;
+  padding: 5px;
+  height: 30px;
+  display: inline-block;
 }
 #titel {
-	margin: 40px 0px 0px 20px;
-	font-size: 15px;
-	width: 450px;
-	padding: 5px;
-	border: 1.2px solid #000;
-	text-align: center;
+  margin: 40px 0px 0px 20px;
+  font-size: 15px;
+  width: 450px;
+  padding: 5px;
+  border: 1.2px solid #000;
+  text-align: center;
 }
 #titelkurs {
-	margin: 40px 0px 0px 20px;
-	font-size: 15px;
-	width: 450px;
-	padding: 5px;
-	border: 1.2px solid #000;
-	margin-left: 4.5rem;
-
+  margin: 40px 0px 0px 20px;
+  font-size: 15px;
+  width: 450px;
+  padding: 5px;
+  border: 1.2px solid #000;
+  margin-left: 4.5rem;
 }
 
-
-#kurszeiten{
-	border-bottom: 1px solid grey;
+#kurszeiten {
+  border-bottom: 1px solid grey;
 }
-#kurszeiten tr td{
-	width: 33%;
-	padding-bottom: 30px;
-	text-align: center;
+#kurszeiten tr td {
+  width: 33%;
+  padding-bottom: 30px;
+  text-align: center;
 }
 #beschreibung p {
-	font-size: 15px;
+  font-size: 15px;
 }
 #o_d {
-	margin: 20px 0px 0px 20px;
+  margin: 20px 0px 0px 20px;
 }
 #ort {
-	border: 1.2px solid #000;
-	margin-left: 30px;
-	padding: 0px 30px 0px 30px;
-	display: inline-block;
+  border: 1.2px solid #000;
+  margin-left: 30px;
+  padding: 0px 30px 0px 30px;
+  display: inline-block;
 }
 #datum {
-	border: 1.2px solid #000;
-	margin-left: 60px;
-	padding: 0px 30px 0px 30px;
-	display: inline-block;
+  border: 1.2px solid #000;
+  margin-left: 60px;
+  padding: 0px 30px 0px 30px;
+  display: inline-block;
 }
 #zeit {
-	width: 800px;
-	margin: 20px 20px 0px 20px;
-	border: 1.2px solid #000;
-	padding: 30px 10px 30px 10px;
-	border: 1.2px solid #000;
+  width: 800px;
+  margin: 20px 20px 0px 20px;
+  border: 1.2px solid #000;
+  padding: 30px 10px 30px 10px;
+  border: 1.2px solid #000;
 }
 #von {
-	padding: 0px 15px 0px 15px;
-	display: inline;
-		border: 1.2px solid #000;
+  padding: 0px 15px 0px 15px;
+  display: inline;
+  border: 1.2px solid #000;
 }
 #bis {
-	padding: 0px 15px 0px 15px;
-	display: inline;
-		border: 1.2px solid #000;
+  padding: 0px 15px 0px 15px;
+  display: inline;
+  border: 1.2px solid #000;
 }
 #dauer {
-	padding: 0px 0px 0px 0px;
-	margin-right: 5px;
-	display: inline;
-	border: 1.2px solid var(--dark-white);
+  padding: 0px 0px 0px 0px;
+  margin-right: 5px;
+  display: inline;
+  border: 1.2px solid var(--dark-white);
 }
 #anmeldeschluss {
-	padding: 0px 30px 0px 30px;
-	margin-left: 150px;
-	display: inline;
-	  border: 1.2px solid #000;
+  padding: 0px 30px 0px 30px;
+  margin-left: 150px;
+  display: inline;
+  border: 1.2px solid #000;
 }
 #krk {
-	margin: 40px 0px 0px 20px;
+  margin: 40px 0px 0px 20px;
 }
 #kontakt {
-	padding: 0px 30px 0px 30px;
-	border: 1.2px solid #000;
-	margin-left: 40px;
-	display: inline;
+  padding: 0px 30px 0px 30px;
+  border: 1.2px solid #000;
+  margin-left: 40px;
+  display: inline;
 }
 
 #koordination {
-	padding: 0px 30px 0px 30px;
-	border: 1.2px solid #000;
-	margin-left: 80px;
-	display: inline;
+  padding: 0px 30px 0px 30px;
+  border: 1.2px solid #000;
+  margin-left: 80px;
+  display: inline;
 }
-.Senden_erstellen{
-	float: right;
-	background-color: var(--main-blue);
-	color: white;
-	padding: 10px;
-	margin-top: 30px;
-	font-size: 15px;
-	border: 0.5px solid white;
-
+.Senden_erstellen {
+  float: right;
+  background-color: var(--main-blue);
+  color: white;
+  padding: 10px;
+  margin-top: 30px;
+  font-size: 15px;
+  border: 0.5px solid white;
 }
-.show_teilnehmer{
-	display: block !important;
-	overflow: scroll;
-
+.show_teilnehmer {
+  display: block !important;
+  overflow: scroll;
 }
-#teilnehmer-bearbeiten{
-	position: fixed;
-	width: 50%;
-	display: none;
-	height: auto;
-	overflow: hidden;
-	margin: auto;
-	transition: 1s all ease-in;
-		background-color: var(--main-blue);
-	z-index: 999099999999;
-	transform: translate(50%,0%);
-	-webkit-filter: blur(0px);
-	-moz-filter: blur(0px);
-	-o-filter: blur(0px);
-	-ms-filter: blur(0px);
-	filter: blur(0px);
-	border-radius: 1px;
-
+#teilnehmer-bearbeiten {
+  position: fixed;
+  width: 50%;
+  display: none;
+  height: auto;
+  overflow: hidden;
+  margin: auto;
+  transition: 1s all ease-in;
+  background-color: var(--main-blue);
+  z-index: 999099999999;
+  transform: translate(50%, 0%);
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
+  border-radius: 1px;
 }
 
-#teilnehmer-erstellen{
-	position: fixed;
-	width: 50%;
-	display: none;
-	height: auto;
-	overflow: hidden;
-	margin: auto;
-	transition: 1s all ease-in;
-		background-color: var(--main-blue);
-	z-index: 999099999999;
-	transform: translate(50%,0%);
-	-webkit-filter: blur(0px);
-	-moz-filter: blur(0px);
-	-o-filter: blur(0px);
-	-ms-filter: blur(0px);
-	filter: blur(0px);
-	border-radius: 1px;
+#teilnehmer-erstellen {
+  position: fixed;
+  width: 50%;
+  display: none;
+  height: auto;
+  overflow: hidden;
+  margin: auto;
+  transition: 1s all ease-in;
+  background-color: var(--main-blue);
+  z-index: 999099999999;
+  transform: translate(50%, 0%);
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
+  border-radius: 1px;
 }
 
-#email_teilnehmer_senden{
-	position: fixed;
-	width: 50%;
-	display: none;
-	height: auto;
-	overflow: hidden;
-	margin: auto;
-	transition: 1s all ease-in;
-		background-color: var(--main-blue);
-	z-index: 999099999999;
-	transform: translate(50%,0%);
-	-webkit-filter: blur(0px);
-	-moz-filter: blur(0px);
-	-o-filter: blur(0px);
-	-ms-filter: blur(0px);
-	filter: blur(0px);
-	border-radius: 1px;
-
+#email_teilnehmer_senden {
+  position: fixed;
+  width: 50%;
+  display: none;
+  height: auto;
+  overflow: hidden;
+  margin: auto;
+  transition: 1s all ease-in;
+  background-color: var(--main-blue);
+  z-index: 999099999999;
+  transform: translate(50%, 0%);
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
+  border-radius: 1px;
 }
 
-#email_titel{
-	width: 100%;
-	margin-bottom: 35px;
-	margin-top: 35px;
-	text-align: center;
-	color: var(--main-white) ;
-	font-size: 25px;
-	
-
+#email_titel {
+  width: 100%;
+  margin-bottom: 35px;
+  margin-top: 35px;
+  text-align: center;
+  color: var(--main-white);
+  font-size: 25px;
 }
 
-#email_text{
-	
-	margin-left: 15%;
-	font-size: 15px;
-	width: 70%;
-	height: 120px;
-	align-items: center;
-
+#email_text {
+  margin-left: 15%;
+  font-size: 15px;
+  width: 70%;
+  height: 120px;
+  align-items: center;
 }
-
-
 
 #tbutton {
-	border-style: none;
-	color: var(--main-blue);
-	border-color: var(--main-orange);
-	background-color: var(--main-orange);
-	width: 100px;
-	height: 25px;
-	float: right;
-	margin-right: 45px;
-	float: left;
-	margin-left: 45px;
-	margin-top: 25px;
+  border-style: none;
+  color: var(--main-blue);
+  border-color: var(--main-orange);
+  background-color: var(--main-orange);
+  width: 100px;
+  height: 25px;
+  float: right;
+  margin-right: 45px;
+  float: left;
+  margin-left: 45px;
+  margin-top: 25px;
 }
-#btn_email_sendn{
-	float: right;
-	width: 15%;
-	text-align: 18px;
-	margin-bottom: 20px;
-	height: 40px;
-	margin-top: 20px;
-	transform: translateX(78%);
-	background-color: var(--main-blue);
-	box-shadow: none;
-	border-radius: none;
-	color: white;
+#btn_email_sendn {
+  float: right;
+  width: 15%;
+  text-align: 18px;
+  margin-bottom: 20px;
+  height: 40px;
+  margin-top: 20px;
+  transform: translateX(78%);
+  background-color: var(--main-blue);
+  box-shadow: none;
+  border-radius: none;
+  color: white;
 }
-#tbutton:last-child{
-	margin-bottom: 3em;
+#tbutton:last-child {
+  margin-bottom: 3em;
 }
-#t_bearbeiten_form{
-	margin-top: 3em;
-	width: 100%;
-	height: 100%;
+#t_bearbeiten_form {
+  margin-top: 3em;
+  width: 100%;
+  height: 100%;
 }
-#t_bearbeiten_form input[type="text"]{
-	margin-left: 15%;
-	font-size: 15px;
-	width: 70%;
-	height: 30px;
+#t_bearbeiten_form input[type="text"] {
+  margin-left: 15%;
+  font-size: 15px;
+  width: 70%;
+  height: 30px;
 }
-#t_bearbeiten_form input[type="email"]{
-	margin-left: 15%;
-	font-size: 15px;
-	width: 70%;
-	height: 30px;
+#t_bearbeiten_form input[type="email"] {
+  margin-left: 15%;
+  font-size: 15px;
+  width: 70%;
+  height: 30px;
 }
 #t_bearbeiten_form input[type="submit"] {
-	margin-left: 15%;
-	font-size: 15px;
-	width: 73%;
-	height: 30px;
+  margin-left: 15%;
+  font-size: 15px;
+  width: 73%;
+  height: 30px;
 }
 #t_bearbeiten_form legend {
-	width: 100%;
-	margin-bottom: 35px;
-	text-align: center;
-	color: var(--main-white);
-	font-size: 25px;
-
+  width: 100%;
+  margin-bottom: 35px;
+  text-align: center;
+  color: var(--main-white);
+  font-size: 25px;
 }
-#close{
-	position: relative;
-	right: 0;
-	top: 0;
-	padding: 15px;
-	color: var(--main-orange);
-	font-size: 20px;
-	float: right;
-	font-weight: bold;
-	cursor: pointer;
+#close {
+  position: relative;
+  right: 0;
+  top: 0;
+  padding: 15px;
+  color: var(--main-orange);
+  font-size: 20px;
+  float: right;
+  font-weight: bold;
+  cursor: pointer;
 }
-.blur{
-	-webkit-filter: blur(5px);
- -moz-filter: blur(5px);
- -o-filter: blur(5px);
- -ms-filter: blur(5px);
- filter: blur(5px);
+.blur {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
 }
-@media screen and (max-width: 27rem){
-
+@media screen and (max-width: 27rem) {
 }
 
-.tabElem *{
-	display: none !important;
+.tabElem * {
+  display: none !important;
 }
-.tabElem h2, .tabElem, .tabElem h2 a{
-	display: block !important;
+.tabElem h2,
+.tabElem,
+.tabElem h2 a {
+  display: block !important;
 }
 
-.cursor{
-	cursor: pointer;
+.cursor {
+  cursor: pointer;
 }
