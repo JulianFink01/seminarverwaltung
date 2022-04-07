@@ -50,6 +50,8 @@ class Controller
 		);
 		$dupliFortbildung->speichere();
 		$altKurs = Kurs::findeNachFortbildung($alteFortbildung);
+		$idlastInsert = 0;
+		$i = 0;
 		foreach ($altKurs as $alterKurs) {
 			$dupliKurs = new Kurs(
 				array(
@@ -71,6 +73,12 @@ class Controller
 				)
 			);
 			$dupliKurs->speichere();
+			$idlastInsert = DB::getDB()->lastInsertId();
+			$idHauptkurs = $idlastInsert - 1;
+			if ($i > 0) {
+				$dupliKurs->updateFolgekursId($idHauptkurs, $idlastInsert);
+			}
+			$i++;
 		}
 		header("Location: index.php?aktion=hauptseite");
 	}

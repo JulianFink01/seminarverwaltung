@@ -301,6 +301,7 @@ class Kurs
 		if ($this->getF_folgekurs_id() != NULL) {
 			$f_folgekurs_id = $this->getF_folgekurs_id();
 			$folgekurs = kurs::finde($f_folgekurs_id);
+			var_dump($folgekurs->getF_folgekurs_id());
 			$folgekurs->loesche();
 		}
 
@@ -529,5 +530,13 @@ class Kurs
 		if ($this->getBis() == null) $this->setBis("24:00:00");
 		if ($this->getKoordination() == null) $this->setKoordination(" ");
 		if ($this->getDauer() == null) $this->setDauer("8");
+	}
+
+	public static function updateFolgekursId($kursId, $folgeKursId)
+	{
+
+		$sql = 'UPDATE f_kurs SET f_folgekurs_id = ? WHERE id= ?';
+		$abfrage = DB::getDB()->prepare($sql);
+		$abfrage->execute([$folgeKursId, $kursId]);
 	}
 }
