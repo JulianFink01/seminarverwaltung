@@ -33,8 +33,8 @@ class Kurs
 				// wenn ein ungültiges Attribut übergeben wurde
 				// (ohne Setter), ignoriere es
 				if (method_exists($this, $setterName)) {
+					$this->$setterName($v);
 				}
-				$this->$setterName($v);
 			}
 		}
 	}
