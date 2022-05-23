@@ -11,13 +11,13 @@ class Fortbildung
 		if ($daten) {
 			foreach ($daten as $k => $v) {
 				$setterName = 'set' . ucfirst($k);
-				// wenn ein ungültiges Attribut übergeben wurde
 				// (ohne Setter), ignoriere es
 				if (method_exists($this, $setterName))
 					$this->$setterName($v);
 			}
 		}
-	}
+	}		// wenn ein ungültiges Attribut übergeben wurde
+
 
 	public function  __toString()
 	{

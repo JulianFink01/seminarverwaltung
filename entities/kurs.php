@@ -295,13 +295,15 @@ class Kurs
 	public function loesche()
 	{
 		$hauptkurs = $this->istFolgekursVon();
-		//var_dump($hauptkurs);
+		var_dump($hauptkurs);
 
 		//überprüfen ob der Kurs, Folgekurse hat
-		if ($this->getF_folgekurs_id() != NULL) {
+		if ($this->getF_folgekurs_id() != NULL && $_GET["aktion"] != "loescheFortbildung") {
 			$f_folgekurs_id = $this->getF_folgekurs_id();
 			$folgekurs = kurs::finde($f_folgekurs_id);
-			var_dump($folgekurs->getF_folgekurs_id());
+
+			//var_dump($f_folgekurs_id);
+			//var_dump($folgekurs);
 			$folgekurs->loesche();
 		}
 
