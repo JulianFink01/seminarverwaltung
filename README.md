@@ -1,13 +1,34 @@
-# seminarverwaltung
+# Seminarverwaltung
 
-Frontend: Julian Hofer, Armin Gross, Felix Welscher
-Backend: Simon Mairhofer, Roberth Matha, Benjamin Matscher, Argtim Gashi
+> Verwaltung von Seminaren – Teamübersicht & Projektinfo
 
-Product Owner: Roberth Matha, Julian Fink
+## Team (Version 1)
 
-For planning and current Project State: -> www.taiga.io
+**Frontend**
+- Julian Hofer
+- Armin Gross
+- Felix Welscher
 
+**Backend**
+- Simon Mairhofer
+- Roberth Matha
+- Benjamin Matscher
+- Argtim Gashi
 
-# seminarverwaltung 2.0
+**Product Owner**
+- Roberth Matha
+- Julian Fink
 
-Team: Luca Riggio, Daniel Zwischenbrugger, Armin Gross, Codalonga Andreas, Hermeter David
+## Planung & Projektstatus
+- Taiga: https://www.taiga.io
+
+---
+
+## Seminarverwaltung 2.0
+
+**Team**
+- Luca Riggio
+- Daniel Zwischenbrugger
+- Armin Gross
+- Codalonga Andreas
+- Hermeter David
